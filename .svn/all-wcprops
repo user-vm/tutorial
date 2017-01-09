@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/guest/lhcb/!svn/ver/207717/Urania/trunk/PhysFit/B2DXFitters/tutorial
+END
+time-tut000.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/guest/lhcb/!svn/ver/191762/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-tut000.py
+END
+time-tut001.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/guest/lhcb/!svn/ver/204150/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-tut001.py
+END
+MCTimeFitWithSwimmingMinimal.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/guest/lhcb/!svn/ver/207717/Urania/trunk/PhysFit/B2DXFitters/tutorial/MCTimeFitWithSwimmingMinimal.cpp
+END
+time-tut002.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/guest/lhcb/!svn/ver/191762/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-tut002.py
+END
+time-tut003.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/guest/lhcb/!svn/ver/191762/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-tut003.py
+END
+time-tut004.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/guest/lhcb/!svn/ver/191762/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-tut004.py
+END
+decRateCoeff_Bd_tut_PEDTE.py
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/lhcb/!svn/ver/206748/Urania/trunk/PhysFit/B2DXFitters/tutorial/decRateCoeff_Bd_tut_PEDTE.py
+END
+decRateCoeff_Bd_conf_MeanRes.py
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/guest/lhcb/!svn/ver/206748/Urania/trunk/PhysFit/B2DXFitters/tutorial/decRateCoeff_Bd_conf_MeanRes.py
+END
+time-conf000.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/lhcb/!svn/ver/191525/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-conf000.py
+END
+time-conf001.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/lhcb/!svn/ver/204150/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-conf001.py
+END
+time-conf002.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/lhcb/!svn/ver/191772/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-conf002.py
+END
+time-conf003.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/lhcb/!svn/ver/191772/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-conf003.py
+END
+time-conf004.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/lhcb/!svn/ver/191576/Urania/trunk/PhysFit/B2DXFitters/tutorial/time-conf004.py
+END
+decRateCoeff_Bd_conf_PEDTE.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/guest/lhcb/!svn/ver/206748/Urania/trunk/PhysFit/B2DXFitters/tutorial/decRateCoeff_Bd_conf_PEDTE.py
+END
+decRateCoeff_Bd_tut_MeanRes.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/guest/lhcb/!svn/ver/206748/Urania/trunk/PhysFit/B2DXFitters/tutorial/decRateCoeff_Bd_tut_MeanRes.py
+END

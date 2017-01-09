@@ -1,0 +1,10 @@
+import ROOT
+from ROOT import TH1D, TCanvas, TF1
+
+c = TCanvas();
+aTF1 = TF1("f1","sin(x)",0.0,1.0);
+aTH1D = TH1D("penis","penis",100,0.0,1.0);
+aTH1D.FillRandom("f1");
+aTH1D.Draw("penis>0.5");
+
+s = raw_input("Press Enter to continue");
