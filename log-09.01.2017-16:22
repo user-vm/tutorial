@@ -1,0 +1,170 @@
+Script started on Mon Jan  9 16:32:26 2017
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[?1034h[user@localhost tutorial]$ SetupProject Urania./divideEtaTH1DsFromFiles.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+etaHist003_0066.root
+Collection name='THashList', class='THashList', size=1
+ TKey Name = etaHist, Title = Histogram of Bs2DsPi_TimePdfData__eta, Cycle = 1
+TFile**		etaHist003_0066.root	
+ TFile*		etaHist003_0066.root	
+  KEY: TH1F	etaHist;1	Histogram of Bs2DsPi_TimePdfData__eta
+[0, 37, 56, 69, 82, 100]
+ FCN=129.6 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=9.35637e-21    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.83833e-03   9.69860e-05   2.53439e-07  -2.80360e-07
+   2  p1           2.44986e-02   6.83604e-04   1.19677e-06  -2.37486e-07
+Press Enter to continue to next fit function
+ FCN=19.0091 FROM MIGRAD    STATUS=CONVERGED      44 CALLS          45 TOTAL
+                     EDM=4.2307e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -6.45922e-03   6.01188e-04   2.59848e-07   1.70904e-06
+   2  p1           6.59821e-02   2.36657e-03   5.01911e-07  -7.96317e-07
+Press Enter to continue to next fit function
+ FCN=24.7521 FROM MIGRAD    STATUS=CONVERGED      45 CALLS          46 TOTAL
+                     EDM=1.46701e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.09739e-02   1.57554e-03   2.65440e-07  -1.00382e-06
+   2  p1           8.31801e-02   4.94497e-03   6.67904e-07   2.65960e-08
+Press Enter to continue to next fit function
+ FCN=8.48424 FROM MIGRAD    STATUS=CONVERGED      43 CALLS          44 TOTAL
+                     EDM=2.32381e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.09476e-02   1.87704e-03   2.66114e-07  -4.00510e-06
+   2  p1          -6.71937e-02   4.97536e-03   3.43806e-07  -1.62752e-06
+Press Enter to continue to next fit function
+ FCN=11.5992 FROM MIGRAD    STATUS=CONVERGED      43 CALLS          44 TOTAL
+                     EDM=3.10704e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.68308e-02   1.16660e-03   2.56523e-07  -1.95624e-06
+   2  p1          -8.05617e-02   2.57724e-03   2.56523e-07  -9.69463e-07
+Press Enter to continue to next fit function
+Info in <TCanvas::Print>: pdf file tagRegionFitList_1483979679.409331.pdf has been created
+Press Enter to continue...
+Collection name='TList', class='TList', size=1
+ Collection name='TList', class='TList', size=4
+  TObjString = etaHist003_0066.root
+  RooRealVar::x = 0.5  L(0 - 1) 
+  RooThresholdCategory::tageffRegion[ inputVar=x ] = Cat5(idx = 0)
+
+  Collection name='TList', class='TList', size=5
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+
+Thread 2 (Thread 0x7f275bb5f700 (LWP 4723)):
+#0  0x000000301640da00 in sem_wait () from /lib64/libpthread.so.0
+#1  0x00007f2767f81c78 in PyThread_acquire_lock () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#2  0x00007f2767f429d6 in PyEval_RestoreThread () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:359
+#3  0x00007f275bb62228 in time_sleep () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/Python/2.7.10/x86_64-slc6-gcc49-opt/lib/python2.7/lib-dynload/time.so
+#4  0x00007f2767f49bae in PyEval_EvalFrameEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:4035
+#5  0x00007f2767f4a4f0 in PyEval_EvalCodeEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:3267
+#6  0x00007f2767ec44a5 in function_call () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#7  0x00007f2767e92b33 in PyObject_Call () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#8  0x00007f2767f44873 in PyEval_EvalFrameEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:4348
+#9  0x00007f2767f49109 in PyEval_EvalFrameEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:4121
+#10 0x00007f2767f49109 in PyEval_EvalFrameEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:4121
+#11 0x00007f2767f4a4f0 in PyEval_EvalCodeEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:3267
+#12 0x00007f2767ec43dc in function_call () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#13 0x00007f2767e92b33 in PyObject_Call () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#14 0x00007f2767ea153d in instancemethod_call () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Objects/classobject.c:2602
+#15 0x00007f2767e92b33 in PyObject_Call () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#16 0x00007f2767f430b7 in PyEval_CallObjectWithKeywords () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:3904
+#17 0x00007f2767f87602 in t_bootstrap () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#18 0x0000003016407aa1 in start_thread () from /lib64/libpthread.so.0
+#19 0x00000030160e893d in clone () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x7f27678f1740 (LWP 4708)):
+#0  0x00000030160ac69d in waitpid () from /lib64/libc.so.6
+#1  0x000000301603e609 in do_system () from /lib64/libc.so.6
+#2  0x000000301603e940 in system () from /lib64/libc.so.6
+#3  0x00007f276597af1a in TUnixSystem::StackTrace() () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#4  0x00007f276597ceec in TUnixSystem::DispatchSignals(ESignals) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#5  <signal handler called>
+#6  __dynamic_cast () at ../../../../gcc-4.9.3/libstdc++-v3/libsupc++/dyncast.cc:56
+#7  0x00007f27658f2dba in TCollection::PrintCollectionEntry(TObject*, char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#8  0x00007f27658f2c8b in TCollection::Print(char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#9  0x00007f27658f2c8b in TCollection::Print(char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#10 0x00007f27658f2c8b in TCollection::Print(char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#11 0x00007f2757e81034 in __cf_53 ()
+#12 0x00007f2766fd7801 in FastCall(long, void*, void*, void*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#13 0x00007f2766fdad3f in PyROOT::TVoidExecutor::Execute(long, void*, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#14 0x00007f2766fd22fd in PyROOT::TMethodHolder::CallSafe(void*, long, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#15 0x00007f2766fd1129 in PyROOT::TMethodHolder::Execute(void*, long, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#16 0x00007f2766fd0133 in PyROOT::TMethodHolder::Call(PyROOT::ObjectProxy*&, _object*, _object*, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#17 0x00007f2766fbd727 in PyROOT::(anonymous namespace)::mp_call(PyROOT::MethodProxy*, _object*, _object*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#18 0x00007f2767e92b33 in PyObject_Call () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#19 0x00007f2767f471de in PyEval_EvalFrameEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:4253
+#20 0x00007f2767f4a4f0 in PyEval_EvalCodeEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:3267
+#21 0x00007f2767f4a619 in PyEval_EvalCode () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:669
+#22 0x00007f2767f6e3fa in PyRun_FileExFlags () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#23 0x00007f2767f6f987 in PyRun_SimpleFileExFlags () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#24 0x00007f2767f857b5 in Py_Main () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#25 0x000000301601ed5d in __libc_start_main () from /lib64/libc.so.6
+#26 0x00000000004006d9 in _start ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#6  __dynamic_cast () at ../../../../gcc-4.9.3/libstdc++-v3/libsupc++/dyncast.cc:56
+#7  0x00007f27658f2dba in TCollection::PrintCollectionEntry(TObject*, char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#8  0x00007f27658f2c8b in TCollection::Print(char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#9  0x00007f27658f2c8b in TCollection::Print(char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#10 0x00007f27658f2c8b in TCollection::Print(char const*, int) const () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libCore.so
+#11 0x00007f2757e81034 in __cf_53 ()
+#12 0x00007f2766fd7801 in FastCall(long, void*, void*, void*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#13 0x00007f2766fdad3f in PyROOT::TVoidExecutor::Execute(long, void*, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#14 0x00007f2766fd22fd in PyROOT::TMethodHolder::CallSafe(void*, long, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#15 0x00007f2766fd1129 in PyROOT::TMethodHolder::Execute(void*, long, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#16 0x00007f2766fd0133 in PyROOT::TMethodHolder::Call(PyROOT::ObjectProxy*&, _object*, _object*, PyROOT::TCallContext*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#17 0x00007f2766fbd727 in PyROOT::(anonymous namespace)::mp_call(PyROOT::MethodProxy*, _object*, _object*) () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/ROOT/6.06.02/x86_64-slc6-gcc49-opt/lib/libPyROOT.so
+#18 0x00007f2767e92b33 in PyObject_Call () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#19 0x00007f2767f471de in PyEval_EvalFrameEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:4253
+#20 0x00007f2767f4a4f0 in PyEval_EvalCodeEx () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:3267
+#21 0x00007f2767f4a619 in PyEval_EvalCode () at /var/build/jenkins/workspace/lcg_release/BUILDTYPE/Release/COMPILER/gcc49/LABEL/slc6-physical/build/externals/Python-2.7.10/src/Python/2.7.10/Python/ceval.c:669
+#22 0x00007f2767f6e3fa in PyRun_FileExFlags () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#23 0x00007f2767f6f987 in PyRun_SimpleFileExFlags () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#24 0x00007f2767f857b5 in Py_Main () from /cvmfs/lhcb.cern.ch/lib/lcg/releases/Python/2.7.10-8dd46/x86_64-slc6-gcc49-opt/bin/../lib/libpython2.7.so.1.0
+#25 0x000000301601ed5d in __libc_start_main () from /lib64/libc.so.6
+#26 0x00000000004006d9 in _start ()
+===========================================================
+
+
+Traceback (most recent call last):
+  File "./divideEtaTH1DsFromFiles.py", line 270, in <module>
+    mainResultList.Print("",5);
+TypeError: none of the 4 overloaded methods succeeded. Full details:
+  void TCollection::Print(const char* option = "") =>
+    takes at most 1 arguments (2 given)
+  void TCollection::Print(const char* option, int recurse) =>
+    problem in C++; program state has been reset
+  void TCollection::Print(const char* option, const char* wildcard, int recurse = 1) =>
+    could not convert argument 2 (expected string or Unicode object, int found)
+  void TCollection::Print(const char* option, TPRegexp& regexp, int recurse = 1) =>
+    could not convert argument 2
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./divideEtaTH1DsFromFiles.py -"
+	User time (seconds): 26.55
+	System time (seconds): 7.82
+	Percent of CPU this job got: 62%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:

@@ -110,7 +110,7 @@ __doc__ = """ real docstring """
 
 # user code starts here
 
-from ROOT import cout, TFile, RooAbsData, RooDataSet, RooPrintable, RooThresholdCategory, THStack, TF1, RooArgList, TH1D, TH1, TH1F, RooRealVar, TList, TObjString, TCanvas
+from ROOT import cout, TFile, RooAbsData, RooDataSet, RooPrintable, RooThresholdCategory, THStack, TF1, RooArgList, TH1D, TH1, TH1F, RooRealVar, TList, TObjString, TCanvas, TFitResult, TObject
 from ROOT.Math import GaussIntegrator
 import ROOT
 
@@ -218,8 +218,8 @@ def divideEtaTH1Ds(etaHist,numCat,sourceFileName = None,categoryList = None,draw
         #currentRangeTF1 = TF1("fitFuncEtaset","[0]+[1]*x",etaHist.GetXaxis().GetBinCenter(limList[i-1]),etaHist.GetXaxis().GetBinCenter(limList[i]));
         rangeFit.Last().AddLast(etaHist.Fit(currentRangeTF1List.Last(),"R0S").Get().Clone());
         if (drawHist==True):
-            currentRangeTF1List.Last().DrawClone('same');
-        raw_input('Press Enter to continue to next fit function');
+            currentRangeTF1List.Last().DrawCopy('same');
+        #raw_input('Press Enter to continue to next fit function');
         #currentRangeTF1.IsA().Destructor(currentRangeTF1);
         #print "P0, P1 = ",rangeFit.Last().Last().Parameter(0), rangeFit.Last().Last().Parameter(1);
     
@@ -228,7 +228,7 @@ def divideEtaTH1Ds(etaHist,numCat,sourceFileName = None,categoryList = None,draw
     #for i in range(1,numCat+1):
         #currentRangeTF1List.Last().IsA().Destructor(currentRangeTF1List.Last());
     
-    s = raw_input("Press Enter to continue...");
+    #s = raw_input("Press Enter to continue...");
 
     return rangeFit
 
