@@ -106,10 +106,11 @@ __doc__ = """ real docstring """
 # -----------------------------------------------------------------------------
 # Load necessary libraries
 # -----------------------------------------------------------------------------
+import numpy as n
 import B2DXFitters
 import ROOT
 from ROOT import RooFit
-from ROOT import TBrowser
+#from ROOT import TBrowser
 #from B2DXFitters.setCategories import setCategories
 #from B2DXFitters.createCategoryHistogram import createCategoryHistogram
 
@@ -233,6 +234,9 @@ for tmp in sys.argv[1:]:
 if None == SEED:
     print 'ERROR: no seed given'
     sys.exit(1)
+
+#DELET THIS
+#SEED = 42
 
 # then read config dictionary from a file
 from B2DXFitters.utils import configDictFromFile
@@ -376,14 +380,6 @@ print '15K'
 ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 15000, RooFit.Verbose())
 #saveEta(ds);
 
-# do some category making shit
-#xRegions = WS(ws,createCategoryHistogram(ds,ds.get().find('eta'),5));
-#print type(ds['eta']).__name__
-'''createCategoryHistogram(ds,x,5);'''
-'''xframe = x.frame(Title("Some fucking shit"));
-ds.plotOn(x);
-dsBrowser = TBrowser("dsBrowser",ds);
-s = raw_input("Press Enter to quit, or q+Enter to continue");'''
 #import sys
 #sys.exit(0);
 #print "Wrong";
@@ -408,12 +404,14 @@ ds = WS(fitpdf['ws'], ds)
 xRegions = WS(fitpdf['ws'],createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT));
 ds.addColumn(xRegions);
 
+from ROOT import RooDataSet, RooArgSet
+
 from ROOT import TList
 rawfitresultList = TList();
 
 for i in range(NUMCAT):
     
-    ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).Print();
+    #ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).Print();
     # set constant what is supposed to be constant
     from B2DXFitters.utils import setConstantIfSoConfigured
     setConstantIfSoConfigured(config, fitpdf['pdf'])
@@ -437,6 +435,7 @@ for i in range(NUMCAT):
     # fit
     rawfitresult = fitpdf['pdf'].fitTo(ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)), fitOpts)
     rawfitresultList.AddLast(rawfitresult.floatParsFinal().find('tageff'));
+    #ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).get().find('eta')
 '''
     # pretty-print the result
     from B2DXFitters.FitResult import getDsHBlindFitResult
@@ -444,9 +443,80 @@ for i in range(NUMCAT):
         rawfitresult)
     print result'''
 
+tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+
+etaAvgValVarList = TList()
+
 for i in range(rawfitresultList.GetSize()):
 
-    rawfitresultList.At(i).Print();
+    tageffValVList[i] = rawfitresultList.At(i).getValV();
+    tageffErrorList[i] = rawfitresultList.At(i).getError();
+    etaAvgValList[i] =ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getValV();
+    etaAvgErrorList[i] = ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getError();
+    etaAvgValVarList.AddLast(ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)))
+
+print "\n\n"
+
+for i in range(rawfitresultList.GetSize()):
+
+    print tageffValVList[i],"+-",tageffErrorList[i],", ", etaAvgValList[i], "+-", etaAvgErrorList[i]
+
+#raw_input("Press Enter to continue");
+
+#write fit result list to file
+
+from ROOT import TFile
+g = TFile('fitresultlist/fitresultlist_%04d.root' % SEED, 'recreate')
+g.WriteTObject(rawfitresultList, 'fitresultlist/fitresultlist003_%04d' % SEED)
+g.WriteTObject(etaAvgValVarList, 'fitresultlist/fitresultlist003_%04d' % SEED)
+g.Close()
+del g
+
+import sys
+sys.exit(0)
+
+in_file = TFile('fitresultlist_%04d.root' % SEED)
+keyList = in_file.GetListOfKeys()
+
+print "\n\n\n",keyList,"\n\n\n\n\n"
+print keyList.GetSize()
+
+keyList.At(0).ReadObj().Print();
+keyList.At(1).ReadObj().Print();
+keyList.At(2).ReadObj().Print();
+
+rawfitresultList = keyList.At(1).ReadObj();
+etaAvgValVarList = keyList.At(0).ReadObj();
+
+tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+
+for i in range(rawfitresultList.GetSize()):
+    tageffValVList[i] = rawfitresultList.At(i).getValV();
+    tageffErrorList[i] = rawfitresultList.At(i).getError();
+    etaAvgValList[i] = etaAvgValVarList.At(i).getValV();
+    etaAvgErrorList[i] = etaAvgValVarList.At(i).getError();
+
+from ROOT import TGraphErrors, TGraph
+import time
+
+theCanvas = TCanvas();
+#img = TImage.Create();
+tageffVsEtaGraph = TGraphErrors(rawfitresultList.GetSize(),etaAvgValList,tageffValVList,etaAvgErrorList,tageffErrorList);
+tageffVsEtaGraph.Draw("ap");
+#ROOT.gSystem.ProcessEvents();
+#img.FromPad(theCanvas);
+
+theCanvas.Print("tageffVsEtaGraph_%f.pdf" % time.time(),"pdf");
+#gSystem->ProcessEvents();
+
+del theCanvas;
+
 '''
 # write raw fit result and workspace to separate ROOT files
 from ROOT import TFile
