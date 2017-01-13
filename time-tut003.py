@@ -115,6 +115,9 @@ from ROOT import TBrowser
 
 # user code starts here
 
+#number of taggging categories to use
+NUMCAT = 5;
+
 # histogram creation function, moved here to avoid recompilation-----
 
 def createCategoryHistogram(ds,x,numCat,categoryList = None):
@@ -126,7 +129,7 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
     if categoryList==None:
         categoryList = []
         for i in range(numCat):
-            categoryList += ["Cat"+str(i)]
+            categoryList += ["Cat"+str(i+1)]
 
     #etaHistIntegrator = GaussIntegrator();
 
@@ -167,13 +170,14 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
 
     print limList
     
-    xRegions = RooThresholdCategory("tageffRegion", "region of tageff", x, "Cat"+str(numCat));
+    xRegions = RooThresholdCategory("tageffRegion", "region of tageff", x, categoryList[numCat-1]);
+
+    for i in range(0,numCat-1):
+        xRegions.addThreshold(etaHist.GetXaxis().GetBinCenter(limList[i+1]),categoryList[i]);
+
     xRegions.writeToStream(ROOT.cout,False);
     xRegions.writeToStream(ROOT.cout,True);
-
-    for i in range(1,numCat):
-        xRegions.addThreshold(etaHist.GetXaxis().GetBinCenter(limList[i]),categoryList[i-1]);
-
+    '''
     #etaSet = RooDataSet('etaSet','etaSet',ds,RooArgSet(ds.get().find['eta']));
     #etaSet.Print();
     #etaHist.SetAxisRange(0.1,0.2);
@@ -199,8 +203,8 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
 
     etaHistStack.Draw("hist PFC");
     s = raw_input("Press Enter to continue...");
-
-    return xRegions,x
+    '''
+    return xRegions#,x
 
 def saveEta(g, numBins = 100):
     
@@ -237,7 +241,7 @@ config = configDictFromFile('time-conf003.py')
 # start with RooFit stuff
 from ROOT import ( RooRealVar, RooConstVar, RooCategory, RooWorkspace,
     RooArgSet, RooArgList, RooLinkedList, RooAbsReal, RooRandom, TRandom3,
-    MistagDistribution, MistagCalibration
+    MistagDistribution, MistagCalibration, RooFormulaVar
     )
 # safe settings for numerical integration (if needed)
 RooAbsReal.defaultIntegratorConfig().setEpsAbs(1e-9)
@@ -367,29 +371,28 @@ genconfig['NBinsProperTimeErr'] = 0
 genconfig['ParameteriseIntegral'] = False
 genpdf = buildTimePdf(genconfig)
 
-# generate 150K events
-print '150K'
-ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
-saveEta(ds);
+# generate 15K events
+print '15K'
+ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 15000, RooFit.Verbose())
+#saveEta(ds);
 
 # do some category making shit
-#x = RooRealVar("x","x",0,1);
-#xRegions, x = createCategoryHistogram(ds,x,5);
+#xRegions = WS(ws,createCategoryHistogram(ds,ds.get().find('eta'),5));
 #print type(ds['eta']).__name__
 '''createCategoryHistogram(ds,x,5);'''
 '''xframe = x.frame(Title("Some fucking shit"));
 ds.plotOn(x);
 dsBrowser = TBrowser("dsBrowser",ds);
 s = raw_input("Press Enter to quit, or q+Enter to continue");'''
-import sys
-sys.exit(0);
-print "Wrong";
+#import sys
+#sys.exit(0);
+#print "Wrong";
 
 # HACK (2/2): restore correct eta range after generation
 ds.get().find('eta').setRange(0.0, 0.5)
 #t = TBrowser('Your waifu is shit',ds.get(1).find('eta'));
-s = raw_input("Press Enter to quit");
-sys.exit(0);
+#s = raw_input("Press Enter to quit");
+#sys.exit(0);
 
 ds.Print('v')
 for o in genpdf['obs']:
@@ -401,37 +404,50 @@ config['Context'] = 'FIT'
 config['NBinsAcceptance'] = 0
 fitpdf = buildTimePdf(config)
 # add data set to fitting workspace
-ds = WS(fitpdf['ws'], ds)
+ds = WS(fitpdf['ws'], ds) 
+xRegions = WS(fitpdf['ws'],createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT));
+ds.addColumn(xRegions);
 
-# set constant what is supposed to be constant
-from B2DXFitters.utils import setConstantIfSoConfigured
-setConstantIfSoConfigured(config, fitpdf['pdf'])
+from ROOT import TList
+rawfitresultList = TList();
 
-# set up fitting options
-fitopts = [ RooFit.Timer(), RooFit.Save(),
-    RooFit.Strategy(config['FitConfig']['Strategy']),
-    RooFit.Optimize(config['FitConfig']['Optimize']),
-    RooFit.Offset(config['FitConfig']['Offset']),
-    RooFit.NumCPU(config['FitConfig']['NumCPU']) ]
+for i in range(NUMCAT):
+    
+    ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).Print();
+    # set constant what is supposed to be constant
+    from B2DXFitters.utils import setConstantIfSoConfigured
+    setConstantIfSoConfigured(config, fitpdf['pdf'])
 
-# set up blinding for data
-fitopts.append(RooFit.Verbose(not (config['IsData'] and config['Blinding'])))
-if config['IsData'] and config['Blinding']:
-    from ROOT import RooMsgService
-    RooMsgService.instance().setGlobalKillBelow(RooFit.WARNING)                                                                                                                             
-    fitopts.append(RooFit.PrintLevel(-1))
-fitOpts = RooLinkedList()
-for o in fitopts: fitOpts.Add(o)
+    # set up fitting options
+    fitopts = [ RooFit.Timer(), RooFit.Save(),
+                RooFit.Strategy(config['FitConfig']['Strategy']),
+                RooFit.Optimize(config['FitConfig']['Optimize']),
+                RooFit.Offset(config['FitConfig']['Offset']),
+                RooFit.NumCPU(config['FitConfig']['NumCPU']) ]
 
-# fit
-rawfitresult = fitpdf['pdf'].fitTo(ds, fitOpts)
+    # set up blinding for data
+    fitopts.append(RooFit.Verbose(not (config['IsData'] and config['Blinding'])))
+    if config['IsData'] and config['Blinding']:
+        from ROOT import RooMsgService
+        RooMsgService.instance().setGlobalKillBelow(RooFit.WARNING)                                                                                                                             
+        fitopts.append(RooFit.PrintLevel(-1))
+    fitOpts = RooLinkedList()
+    for o in fitopts: fitOpts.Add(o)
 
-# pretty-print the result
-from B2DXFitters.FitResult import getDsHBlindFitResult
-result = getDsHBlindFitResult(config['IsData'], config['Blinding'],
-    rawfitresult)
-print result
+    # fit
+    rawfitresult = fitpdf['pdf'].fitTo(ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)), fitOpts)
+    rawfitresultList.AddLast(rawfitresult.floatParsFinal().find('tageff'));
+'''
+    # pretty-print the result
+    from B2DXFitters.FitResult import getDsHBlindFitResult
+    result = getDsHBlindFitResult(config['IsData'], config['Blinding'],
+        rawfitresult)
+    print result'''
 
+for i in range(rawfitresultList.GetSize()):
+
+    rawfitresultList.At(i).Print();
+'''
 # write raw fit result and workspace to separate ROOT files
 from ROOT import TFile
 f = TFile('fitresult003_%04d.root' % SEED, 'recreate')
@@ -439,6 +455,6 @@ f.WriteTObject(rawfitresult, 'fitresult003_%04d' % SEED)
 f.Close()
 del f
 genpdf['ws'].writeToFile('workspace003_%04d.root' % SEED, True)
-fitpdf['ws'].writeToFile('workspace003_%04d.root' % SEED, False)
+fitpdf['ws'].writeToFile('workspace003_%04d.root' % SEED, False)'''
 
 # all done

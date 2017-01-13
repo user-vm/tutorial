@@ -1,0 +1,376 @@
+Script started on Thu Jan 12 23:29:52 2017
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[?1034h[user@localhost tutorial]$ exitscript log-98hf4o3fSetupProject Urania./time-tut003.py 83
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+Error in <TCling::RegisterModule>: cannot find dictionary module B2DXFittersDict_rdict.pcm
+DEBUG: argument - is no number, trying next argument asseed
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              GEN
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                   MistagCalibParams: {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}
+                     NBinsAcceptance:                                0
+                  NBinsProperTimeErr:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                 TrivialMistagParams: {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = <ROOT.RooProduct object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised") at 0xc4a0020>
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xb83e420>
+	mistagpdf = [<ROOT.MistagDistribution object ("Bs2DsPi_mistagpdf") at 0xc2f7120>]
+	mistag = [[<ROOT.MistagCalibration object ("Bs2DsPi_mistagcalib") at 0xa43f0a0>]]
+	mistagobs = <ROOT.RooRealVar object ("eta") at 0xa683620>
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0xa7e1fa0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0xa847220>]
+	kvar = None
+	atageff = None
+	config = {'Context': 'GEN', 'ParameteriseIntegral': False, 'AcceptanceFunction': 'Spline', 'TrivialMistagParams': {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}, 'IsData': False, 'MistagCalibParams': {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}, 'UseKFactor': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'NBinsAcceptance': 0, 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'Debug': True, 'DecayTimeResolutionBias': 0.0, 'NBinsProperTimeErr': 0, 'FitConfig': {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'Blinding': True, 'DecayTimeResolutionScaleFactor': 1.0}
+	C = <ROOT.RooConstVar object ("one") at 0xb83d820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xb83e420>
+	time = <ROOT.RooRealVar object ("time") at 0x3ae11a0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xb83e420>
+	ws = <ROOT.RooWorkspace object ("ws_GEN") at 0xa43fba0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x915d6a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x24c9aa0>
+	qt = <ROOT.RooCategory object ("qt") at 0x832ca20>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xb83e420>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x9171b20>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel") at 0xc356020>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xb561220>
+	)
+########################################################################
+15K
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_3541654122_INT_2379531163_NORM_2379531163_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_3541654122_INT_2379531163_NORM_2379531163_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_4118154674_INT_2379531163_NORM_2379531163_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_4118154674_INT_2379531163_NORM_2379531163_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1216370855_INT_2379531163_NORM_2379531163_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1216370855_INT_2379531163_NORM_2379531163_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4041606606_INT_2379531163_NORM_2379531163_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4041606606_INT_2379531163_NORM_2379531163_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2033479807_INT_325729223_NORM_325729223_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2033479807_INT_325729223_NORM_325729223_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_276332169_INT_297255623_NORM_2379531163_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_276332169_INT_297255623_NORM_2379531163_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_2398871590_INT_297255623_NORM_2379531163_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_2398871590_INT_297255623_NORM_2379531163_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_3688768796_INT_297255623_NORM_2379531163_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_3688768796_INT_297255623_NORM_2379531163_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_3541654122_INT_325729223_NORM_325729223_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_3541654122_INT_325729223_NORM_325729223_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_4118154674_INT_325729223_NORM_325729223_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_4118154674_INT_325729223_NORM_325729223_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1216370855_INT_325729223_NORM_325729223_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1216370855_INT_325729223_NORM_325729223_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4041606606_INT_325729223_NORM_325729223_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4041606606_INT_325729223_NORM_325729223_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+RooAcceptReject: accepted event (used 4000 of 6000 so far)
+RooAcceptReject: accepted event (used 6000 of 6000 so far)
+RooAcceptReject: generated 10000 events so far.
+RooAcceptReject: generated 20000 events so far.
+RooAcceptReject: generated 30000 events so far.
+RooAcceptReject: accepted event (used 1000 of 31317 so far)
+RooAcceptReject: accepted event (used 3000 of 31317 so far)
+RooAcceptReject: accepted event (used 11000 of 31317 so far)
+RooAcceptReject: accepted event (used 12000 of 31317 so far)
+RooAcceptReject: accepted event (used 17000 of 31317 so far)
+RooAcceptReject: accepted event (used 19000 of 31317 so far)
+RooAcceptReject: accepted event (used 20000 of 31317 so far)
+RooAcceptReject: accepted event (used 21000 of 31317 so far)
+RooAcceptReject: accepted event (used 24000 of 31317 so far)
+RooAcceptReject: accepted event (used 26000 of 31317 so far)
+RooAcceptReject: accepted event (used 29000 of 31317 so far)
+RooAcceptReject: accepted event (used 31000 of 31317 so far)
+RooAcceptReject: generated 40000 events so far.
+RooAcceptReject: accepted event (used 6000 of 10730 so far)
+RooAcceptReject: accepted event (used 10000 of 10730 so far)
+RooAcceptReject: generated 50000 events so far.
+RooAcceptReject: accepted event (used 2000 of 3790 so far)
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 15000 entries
+  Observables: 
+    1)    qf = h+(idx = 1)
+  "final state charge"
+    2)    qt = Untagged(idx = 0)
+  "tagging decision"
+    3)  time = 1.08721  L(0.2 - 15)  "time [ps]"
+    4)   eta = 0.300617  L(0 - 0.5)  "eta"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 7497 |
+  | h- | 7503 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 4427 |
+  | Untagged | 6148 |
+  |       B- | 4425 |
+  +----------+------+
+
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                   MistagCalibParams: {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                 TrivialMistagParams: {'f': 0.25, 'omega0': 0.07, 'omegaavg': 0.35}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xc6c5420>
+	mistagpdf = [<ROOT.MistagDistribution object ("Bs2DsPi_mistagpdf") at 0xc006320>]
+	mistag = [[<ROOT.MistagCalibration object ("Bs2DsPi_mistagcalib") at 0xb834020>]]
+	mistagobs = <ROOT.RooRealVar object ("eta") at 0x3e7d220>
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x766ada0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x3a9c420>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'MistagCalibParams': {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'TrivialMistagParams': {'f': 0.25, 'omega0': 0.07, 'omegaavg': 0.35}, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 0}
+	C = <ROOT.RooConstVar object ("one") at 0xc6c3820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xc6c5420>
+	time = <ROOT.RooRealVar object ("time") at 0xa85a020>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xc6c5420>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0xb8371a0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x7dfd6a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x45c2920>
+	qt = <ROOT.RooCategory object ("qt") at 0xc9e2520>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xc6c5420>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x7446d20>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0xd50d220>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0x8b8a320>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+RooDataSet constructor method failed
+[0, 46, 62, 73, 84]
+Cat1:<0.2275 Cat2:<0.3075 Cat3:<0.3625 Cat4:<0.4175 Cat5:*Cat2RooDataSet::Bs2DsPi_TimePdfData[qf,qt,time,eta,tageffRegion] = 2927 entries
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2018342589_INT_1842126307_NORM_1842126307_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2018342589_INT_1842126307_NORM_1842126307_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_2763815793_INT_1842126307_NORM_1842126307_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_2763815793_INT_1842126307_NORM_1842126307_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_960036062_INT_1842126307_NORM_1842126307_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_960036062_INT_1842126307_NORM_1842126307_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4263449123_INT_1842126307_NORM_1842126307_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4263449123_INT_1842126307_NORM_1842126307_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+[#1] INFO:Minization --  The following expressions have been identified as constant and will be precalculated and cached: (Bs2DsPi_mistagpdf_untagged,Bs2DsPi_mistagpdf)
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for tageff: using 0.1
+ **********
+ **   14 **MIGRAD        1500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData) first = 0 last = 2927 Likelihood offset now set to 8130.93
+
+prevFCN-offset = 0   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = 0  Bs2DsPi_mistagcalib_p0=0.355, 
+prevFCN-offset = -0.09012082976  Bs2DsPi_mistagcalib_p0=0.335, 
+prevFCN-offset = 0.1974385182  Bs2DsPi_mistagcalib_p0=0.346, 
+prevFCN-offset = -0.01378830643  Bs2DsPi_mistagcalib_p0=0.344, 
+prevFCN-offset = 0.01486122515  Bs2DsPi_mistagcalib_p0=0.345, Bs2DsPi_mistagcalib_p1=0.99, 
+prevFCN-offset = 0.05418043465  Bs2DsPi_mistagcalib_p1=0.97, 
+prevFCN-offset = -0.0510174754  Bs2DsPi_mistagcalib_p1=0.9828, 
+prevFCN-offset = 0.01473456874  Bs2DsPi_mistagcalib_p1=0.9772, 
+prevFCN-offset = -0.01449043043  Bs2DsPi_mistagcalib_p1=0.98, tageff=0.6101, 
+prevFCN-offset = 44.6989276  tageff=0.5899, 
+prevFCN-offset = -43.27488188  tageff=0.601, 
+prevFCN-offset = 4.405391289  tageff=0.599, 
+prevFCN-offset = -4.391152091  Bs2DsPi_mistagcalib_p0=0.345, tageff=0.6, 
+prevFCN-offset = -0.0001509285539  Bs2DsPi_mistagcalib_p0=0.345, 
+prevFCN-offset = 0.0001510477614  Bs2DsPi_mistagcalib_p0=0.345, Bs2DsPi_mistagcalib_p1=0.9801, 
+prevFCN-offset = 0.0003229531976  Bs2DsPi_mistagcalib_p1=0.9799, 
+prevFCN-offset = -0.0003228339892  Bs2DsPi_mistagcalib_p1=0.98, tageff=0.6, 
+prevFCN-offset = 0.01272611779  tageff=0.6, 
+prevFCN-offset = -0.01272599859  Bs2DsPi_mistagcalib_p0=0.346, Bs2DsPi_mistagcalib_p1=0.9828, tageff=0.6, 
+prevFCN-offset = 0.0004439199001  Bs2DsPi_mistagcalib_p1=0.98, tageff=0.601, 
+prevFCN-offset = 4.391602983  Bs2DsPi_mistagcalib_p0=0.345, Bs2DsPi_mistagcalib_p1=0.9828, 
+prevFCN-offset = 4.420125858   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=0 FROM HESSE     STATUS=OK             22 CALLS          23 TOTAL
+                     EDM=682.869    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Bs2DsPi_mistagcalib_p0   3.45000e-01   1.59532e-01   1.00000e-03  -1.43242e+01
+   2  Bs2DsPi_mistagcalib_p1   9.80000e-01   9.29152e-01   2.77826e-03   5.25956e+00
+   3  tageff       6.00000e-01   8.44693e-03   2.05758e-03   2.13759e+03
+                               ERR DEF= 0.5
+Bs2DsPi_mistagcalib_p0=-0.05565, Bs2DsPi_mistagcalib_p1=-1.477, tageff=0.2897, 
+prevFCN-offset = -761.4878723  Bs2DsPi_mistagcalib_p0=-0.1078, Bs2DsPi_mistagcalib_p1=-1.796, tageff=0.2529, 
+prevFCN-offset = -777.2695637  Bs2DsPi_mistagcalib_p0=-0.1077, 
+prevFCN-offset = -777.2705852  Bs2DsPi_mistagcalib_p0=-0.1079, 
+prevFCN-offset = -777.2685306  Bs2DsPi_mistagcalib_p0=-0.1072, 
+prevFCN-offset = -777.2751822  Bs2DsPi_mistagcalib_p0=-0.1084, 
+prevFCN-offset = -777.2635744  Bs2DsPi_mistagcalib_p0=-0.1078, Bs2DsPi_mistagcalib_p1=-1.796, 
+prevFCN-offset = -777.2684915  Bs2DsPi_mistagcalib_p1=-1.797, 
+prevFCN-offset = -777.2706254  Bs2DsPi_mistagcalib_p1=-1.793, 
+prevFCN-offset = -777.2630698  Bs2DsPi_mistagcalib_p1=-1.8, 
+prevFCN-offset = -777.2756867  Bs2DsPi_mistagcalib_p1=-1.796, tageff=0.2529, 
+prevFCN-offset = -777.2652758  tageff=0.2529, 
+prevFCN-offset = -777.2738414  tageff=0.2531, 
+prevFCN-offset = -777.2435908  tageff=0.2528, 
+prevFCN-offset = -777.2951657  Bs2DsPi_mistagcalib_p0=-0.1146, Bs2DsPi_mistagcalib_p1=-1.893, tageff=0.2421, 
+prevFCN-offset = -778.2191301  Bs2DsPi_mistagcalib_p0=-0.114, 
+prevFCN-offset = -778.2193585  Bs2DsPi_mistagcalib_p0=-0.1152, 
+prevFCN-offset = -778.2185388  Bs2DsPi_mistagcalib_p0=-0.1146, Bs2DsPi_mistagcalib_p1=-1.889, 
+prevFCN-offset = -778.2182687  Bs2DsPi_mistagcalib_p1=-1.897, 
+prevFCN-offset = -778.2196287  Bs2DsPi_mistagcalib_p1=-1.893, tageff=0.2422, 
+prevFCN-offset = -778.2192666  tageff=0.2419, 
+prevFCN-offset = -778.2186168  Bs2DsPi_mistagcalib_p0=-0.1243, Bs2DsPi_mistagcalib_p1=-1.954, tageff=0.2422, 
+prevFCN-offset = -778.222334  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2422, 
+prevFCN-offset = -778.2225954  Bs2DsPi_mistagcalib_p0=-0.1273, 
+prevFCN-offset = -778.2226468  Bs2DsPi_mistagcalib_p0=-0.1285, 
+prevFCN-offset = -778.2221724  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.974, 
+prevFCN-offset = -778.2221814  Bs2DsPi_mistagcalib_p1=-1.981, 
+prevFCN-offset = -778.2226385  Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2424, 
+prevFCN-offset = -778.2224021  tageff=0.2421, 
+prevFCN-offset = -778.2224174   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+tageff=0.2422, 
+prevFCN-offset = -778.2225954  Bs2DsPi_mistagcalib_p0=-0.1273, 
+prevFCN-offset = -778.2226468  Bs2DsPi_mistagcalib_p0=-0.1285, 
+prevFCN-offset = -778.2221724  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.974, 
+prevFCN-offset = -778.2221814  Bs2DsPi_mistagcalib_p1=-1.981, 
+prevFCN-offset = -778.2226385  Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2424, 
+prevFCN-offset = -778.2224021  tageff=0.2421, 
+prevFCN-offset = -778.2224174  Bs2DsPi_mistagcalib_p0=-0.1278, tageff=0.2422, 
+prevFCN-offset = -778.2226354  Bs2DsPi_mistagcalib_p0=-0.1281, 
+prevFCN-offset = -778.2225405  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.977, 
+prevFCN-offset = -778.2225423  Bs2DsPi_mistagcalib_p1=-1.978, 
+prevFCN-offset = -778.2226337  Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2423, 
+prevFCN-offset = -778.2225864  tageff=0.2422, 
+prevFCN-offset = -778.2225895  Bs2DsPi_mistagcalib_p0=-0.1273, Bs2DsPi_mistagcalib_p1=-1.974, tageff=0.2422, 
+prevFCN-offset = -778.2225977  Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2424, 
+prevFCN-offset = -778.2224535  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.974, 
+prevFCN-offset = -778.2219881   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-778.223 FROM MIGRAD    STATUS=CONVERGED      67 CALLS          68 TOTAL
+                     EDM=0.000152974    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Bs2DsPi_mistagcalib_p0  -1.27932e-01   1.70815e-01   6.02788e-04  -3.93337e-01
+   2  Bs2DsPi_mistagcalib_p1  -1.97739e+00   1.04233e+00   3.67467e-03   6.21745e-02
+   3  tageff       2.42231e-01   7.91859e-03   3.56143e-04   2.14842e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  40    NPAR=  3    ERR DEF=0.5
+  2.918e-02  1.750e-01 -1.781e-11 
+  1.750e-01  1.086e+00 -1.105e-10 
+ -1.781e-11 -1.105e-10  6.271e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.98310   1.000  0.983 -0.000
+        2  0.98310   0.983  1.000 -0.000
+        3  0.00000  -0.000 -0.000  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:05, CP time 4.980
+[#1] INFO:Minization -- Session timer: Real time 0:00:05, CP time 4.990, 2 slices
+ **********
+ **   19 **HESSE        1500
+ **********
+
+prevFCN-offset = -778.2225954  Bs2DsPi_mistagcalib_p0=-0.1278, 
+prevFCN-offset = -778.2226354  Bs2DsPi_mistagcalib_p0=-0.1281, 
+prevFCN-offset = -778.2225405  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.977, 
+prevFCN-offset = -778.2225423  Bs2DsPi_mistagcalib_p1=-1.978, 
+prevFCN-offset = -778.2226337  Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2423, 
+prevFCN-offset = -778.2225864  tageff=0.2422, 
+prevFCN-offset = -778.2225895  Bs2DsPi_mistagcalib_p0=-0.1279, tageff=0.2422, 
+prevFCN-offset = -778.2226046  Bs2DsPi_mistagcalib_p0=-0.128, 
+prevFCN-offset = -778.2225856  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.977, 
+prevFCN-offset = -778.2225859  Bs2DsPi_mistagcalib_p1=-1.978, 
+prevFCN-offset = -778.2226042  Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2422, 
+prevFCN-offset = -778.2225948  tageff=0.2422, 
+prevFCN-offset = -778.2225954  Bs2DsPi_mistagcalib_p0=-0.1278, Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2422, 
+prevFCN-offset = -778.2225969  Bs2DsPi_mistagcalib_p1=-1.977, tageff=0.2423, 
+prevFCN-offset = -778.2226264  Bs2DsPi_mistagcalib_p0=-0.1279, Bs2DsPi_mistagcalib_p1=-1.977, 
+prevFCN-offset = -778.2225333   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-778.223 FROM HESSE     STATUS=OK             16 CALLS          84 TOTAL
+                     EDM=0.000152974    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Bs2DsPi_mistagcalib_p0  -1.27932e-01   1.70931e-01   1.20558e-04  -1.27932e-01
+   2  Bs2DsPi_mistagcalib_p1  -1.97739e+00   1.04303e+00   7.34934e-04  -1.97739e+00
+   3  tageff       2.42231e-01   7.91859e-03   7.12286e-05  -5.41636e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  40    NPAR=  3    ERR DEF=0.5
+  2.922e-02  1.753e-01  0.000e+00 
+  1.753e-01  1.088e+00  0.000e+00 
+  0.000e+00  0.000e+00  6.271e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.98313   1.000  0.983  0.000
+        2  0.98313   0.983  1.000  0.000
+        3  0.00000   0.000  0.000  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:01, CP time 1.190
+[#1] INFO:Minization -- Session timer: Real time 0:00:06, CP time 6.180, 3 slices
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+Traceback (most recent call last):
+  File "./time-tut003.py", line 436, in <module>
+    rawfitresult.floatParsFinal.Print();
+AttributeError: 'ROOT.MethodProxy' object has no attribute 'Print'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./time-tut003.py - 83"
+	User time (seconds): 23.46
+	System time (seconds): 2.80
+	Percent of CPU this job got: 80%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:32.55
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 374544
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2251
+	Minor (reclaiming a frame) page faults: 187430
+	Voluntary context switches: 13478
+	Involuntary context switches: 25486
+	Swaps: 0
+	File system inputs: 563136
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ exit
+exit
+
+Script done on Thu Jan 12 23:40:31 2017

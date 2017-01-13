@@ -1,0 +1,215 @@
+Script started on Thu Jan 12 23:54:42 2017
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[?1034h[user@localhost tutorial]$ exit./time-tut003.py 83
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+Error in <TCling::RegisterModule>: cannot find dictionary module B2DXFittersDict_rdict.pcm
+DEBUG: argument - is no number, trying next argument asseed
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              GEN
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                   MistagCalibParams: {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}
+                     NBinsAcceptance:                                0
+                  NBinsProperTimeErr:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                 TrivialMistagParams: {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = <ROOT.RooProduct object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised") at 0xbc6ea20>
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xb484420>
+	mistagpdf = [<ROOT.MistagDistribution object ("Bs2DsPi_mistagpdf") at 0xc0c2320>]
+	mistag = [[<ROOT.MistagCalibration object ("Bs2DsPi_mistagcalib") at 0x62e7620>]]
+	mistagobs = <ROOT.RooRealVar object ("eta") at 0x368f620>
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0xa586da0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0xa5664a0>]
+	kvar = None
+	atageff = None
+	config = {'Context': 'GEN', 'ParameteriseIntegral': False, 'AcceptanceFunction': 'Spline', 'TrivialMistagParams': {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}, 'IsData': False, 'MistagCalibParams': {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}, 'UseKFactor': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'NBinsAcceptance': 0, 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'Debug': True, 'DecayTimeResolutionBias': 0.0, 'NBinsProperTimeErr': 0, 'FitConfig': {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'Blinding': True, 'DecayTimeResolutionScaleFactor': 1.0}
+	C = <ROOT.RooConstVar object ("one") at 0xb483820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xb484420>
+	time = <ROOT.RooRealVar object ("time") at 0xa5848a0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xb484420>
+	ws = <ROOT.RooWorkspace object ("ws_GEN") at 0x6d1b620>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0xa22c8a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x37ac4a0>
+	qt = <ROOT.RooCategory object ("qt") at 0x8042f20>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xb484420>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0xa582020>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel") at 0xc10e020>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0x8045220>
+	)
+########################################################################
+15K
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2423187945_INT_3398320046_NORM_3398320046_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2423187945_INT_3398320046_NORM_3398320046_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_3127077598_INT_3398320046_NORM_3398320046_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_3127077598_INT_3398320046_NORM_3398320046_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1456624316_INT_3398320046_NORM_3398320046_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1456624316_INT_3398320046_NORM_3398320046_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_3762430365_INT_3398320046_NORM_3398320046_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_3762430365_INT_3398320046_NORM_3398320046_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2992039794_INT_3690284925_NORM_3690284925_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2992039794_INT_3690284925_NORM_3690284925_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_1430549054_INT_2270037857_NORM_3398320046_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_1430549054_INT_2270037857_NORM_3398320046_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1452096005_INT_2270037857_NORM_3398320046_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1452096005_INT_2270037857_NORM_3398320046_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4222842227_INT_2270037857_NORM_3398320046_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4222842227_INT_2270037857_NORM_3398320046_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2423187945_INT_3690284925_NORM_3690284925_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_2423187945_INT_3690284925_NORM_3690284925_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_3127077598_INT_3690284925_NORM_3690284925_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_3127077598_INT_3690284925_NORM_3690284925_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1456624316_INT_3690284925_NORM_3690284925_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_1456624316_INT_3690284925_NORM_3690284925_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_3762430365_INT_3690284925_NORM_3690284925_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_3762430365_INT_3690284925_NORM_3690284925_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+RooAcceptReject: accepted event (used 4000 of 6000 so far)
+RooAcceptReject: accepted event (used 6000 of 6000 so far)
+RooAcceptReject: generated 10000 events so far.
+RooAcceptReject: generated 20000 events so far.
+RooAcceptReject: generated 30000 events so far.
+RooAcceptReject: accepted event (used 1000 of 31317 so far)
+RooAcceptReject: accepted event (used 3000 of 31317 so far)
+RooAcceptReject: accepted event (used 11000 of 31317 so far)
+RooAcceptReject: accepted event (used 12000 of 31317 so far)
+RooAcceptReject: accepted event (used 17000 of 31317 so far)
+RooAcceptReject: accepted event (used 19000 of 31317 so far)
+RooAcceptReject: accepted event (used 20000 of 31317 so far)
+RooAcceptReject: accepted event (used 21000 of 31317 so far)
+RooAcceptReject: accepted event (used 24000 of 31317 so far)
+RooAcceptReject: accepted event (used 26000 of 31317 so far)
+RooAcceptReject: accepted event (used 29000 of 31317 so far)
+RooAcceptReject: accepted event (used 31000 of 31317 so far)
+RooAcceptReject: generated 40000 events so far.
+RooAcceptReject: accepted event (used 6000 of 10730 so far)
+RooAcceptReject: accepted event (used 10000 of 10730 so far)
+RooAcceptReject: generated 50000 events so far.
+RooAcceptReject: accepted event (used 2000 of 3790 so far)
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 15000 entries
+  Observables: 
+    1)    qf = h+(idx = 1)
+  "final state charge"
+    2)    qt = Untagged(idx = 0)
+  "tagging decision"
+    3)  time = 1.08721  L(0.2 - 15)  "time [ps]"
+    4)   eta = 0.300617  L(0 - 0.5)  "eta"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 7497 |
+  | h- | 7503 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 4427 |
+  | Untagged | 6148 |
+  |       B- | 4425 |
+  +----------+------+
+
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                   MistagCalibParams: {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                 TrivialMistagParams: {'f': 0.25, 'omega0': 0.07, 'omegaavg': 0.35}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xc337420>
+	mistagpdf = [<ROOT.MistagDistribution object ("Bs2DsPi_mistagpdf") at 0xba39120>]
+	mistag = [[<ROOT.MistagCalibration object ("Bs2DsPi_mistagcalib") at 0xb8270a0>]]
+	mistagobs = <ROOT.RooRealVar object ("eta") at 0xa5ae920>
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x23f7620>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x734ad20>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'MistagCalibParams': {'p0': 0.345, 'p1': 0.98, 'etaavg': 0.35}, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'TrivialMistagParams': {'f': 0.25, 'omega0': 0.07, 'omegaavg': 0.35}, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 0}
+	C = <ROOT.RooConstVar object ("one") at 0xc334820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xc337420>
+	time = <ROOT.RooRealVar object ("time") at 0x8e888a0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xc337420>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0xb8d11a0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0xa5ac8a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x35aa420>
+	qt = <ROOT.RooCategory object ("qt") at 0xc370520>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xc337420>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x37b3620>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0xd114820>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xa411420>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+RooDataSet constructor method failed
+[0, 46, 62, 73, 84]
+Cat1:<0.2275 Cat2:<0.3075 Cat3:<0.3625 Cat4:<0.4175 Cat5:*Cat2Traceback (most recent call last):
+  File "./time-tut003.py", line 411, in <module>
+    rawfitresultList = TList();
+NameError: name 'TList' is not defined
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./time-tut003.py - 83"
+	User time (seconds): 15.42
+	System time (seconds): 2.08
+	Percent of CPU this job got: 74%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:23.36
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 345676
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2198
+	Minor (reclaiming a frame) page faults: 124490
+	Voluntary context switches: 14894
+	Involuntary context switches: 18900
+	Swaps: 0
+	File system inputs: 566928
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ exit
+exit
+
+Script done on Thu Jan 12 23:56:13 2017
