@@ -116,8 +116,16 @@ from ROOT import RooFit
 
 # user code starts here
 
-#number of taggging categories to use
+#number of tagging categories to use
 NUMCAT = 10;
+
+def drawDsPlot(ds):
+
+    from ROOT import RooAbsData
+
+    etaHist = RooAbsData.createHistogram(ds,'eta',100);
+    etaHist.Draw("hist PFC");
+    s = raw_input("Press Enter to continue...");
 
 # histogram creation function, moved here to avoid recompilation-----
 
@@ -132,17 +140,7 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
         for i in range(numCat):
             categoryList += ["Cat"+str(i+1)]
 
-    #etaHistIntegrator = GaussIntegrator();
-
-    #TODO - create copy of ds containing only eta
-    try:
-        etaSet = RooDataSet('etaSet','etaSet',ds,RooArgSet(ds.get().find['eta']));
-    except Exception as e:
-        print "RooDataSet constructor method failed";
-#        try:
-#            etaset = RooAbsData.reduce(ds.get().find['eta']
     etaHist = RooAbsData.createHistogram(ds,'eta',100);
-    #etaDataHist = 
 
     histSum = etaHist.Integral();
     #print "HISTSUM",histSum, etaHist.Integral(0,50)+etaHist.Integral(51,100),etaHist.Integral(0,50),etaHist.Integral(51,100),"\n";
@@ -203,8 +201,8 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
         etaHistStack.Add(etaHistClone);
 
     etaHistStack.Draw("hist PFC");
-    s = raw_input("Press Enter to continue...");
-    '''
+    s = raw_input("Press Enter to continue...");'''
+    
     return xRegions#,x
 
 def saveEta(g, numBins = 100):
@@ -242,8 +240,9 @@ if None == SEED:
 from B2DXFitters.utils import configDictFromFile
 config = configDictFromFile('time-conf003.py')
 print config
-config['MistagCalibParams']['etaavg']=0.2
-config['TrivialMistagParams']['omegaavg']=0.2
+#config['MistagCalibParams']['etaavg']=0.2
+#config['TrivialMistagParams']['omegaavg']=0.2
+#print config
 #import sys
 #sys.exit(0)
 
@@ -400,15 +399,6 @@ for o in genpdf['obs']:
     if not o.InheritsFrom('RooAbsCategory'): continue
     ds.table(o).Print('v')
 
-# use workspace for fit pdf in such a simple fit
-config['Context'] = 'FIT'
-config['NBinsAcceptance'] = 0
-fitpdf = buildTimePdf(config)
-# add data set to fitting workspace
-ds = WS(fitpdf['ws'], ds) 
-xRegions = WS(fitpdf['ws'],createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT));
-ds.addColumn(xRegions);
-
 from ROOT import RooDataSet, RooArgSet
 
 from ROOT import TList
@@ -416,7 +406,28 @@ rawfitresultList = TList();
 p0List = TList();
 p1List = TList();
 
+xRegions = createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT);
+ds.addColumn(xRegions)
+
+#config['MistagCalibParams']['etaavg']=0.2
+#config['TrivialMistagParams']['omegaavg']=0.2
+#drawDsPlot(ds)
+
 for i in range(NUMCAT):
+
+    # use workspace for fit pdf in such a simple fit
+    config['Context'] = 'FIT'
+    config['NBinsAcceptance'] = 0
+    #avgEta = ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getValV();
+    #config['MistagCalibParams']['etaavg'] = avgEta;
+    #config['TrivialMistagParams']['omegaavg'] = avgEta;
+    
+    fitpdf = buildTimePdf(config)
+    # add data set to fitting workspace
+    ds1 = WS(fitpdf['ws'], ds.reduce("tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)))
+    #drawDsPlot(ds1)
+    #xRegions = WS(fitpdf['ws'],createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT));
+    #ds.addColumn(xRegions);
     
     #ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).Print();
     # set constant what is supposed to be constant
@@ -440,7 +451,7 @@ for i in range(NUMCAT):
     for o in fitopts: fitOpts.Add(o)
 
     # fit
-    rawfitresult = fitpdf['pdf'].fitTo(ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)), fitOpts)
+    rawfitresult = fitpdf['pdf'].fitTo(ds1, fitOpts)
     rawfitresultList.AddLast(rawfitresult.floatParsFinal().find('tageff'));
     p0List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p0'));
     p1List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p1'));
@@ -471,9 +482,9 @@ for i in range(rawfitresultList.GetSize()):
     p0ErrorList[i] = p0List.At(i).getError();
     p1ValVList[i] = p1List.At(i).getValV();
     p1ErrorList[i] = p1List.At(i).getError();
-    etaAvgValList[i] =ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getValV();
-    etaAvgErrorList[i] = ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getError();
-    etaAvgValVarList.AddLast(ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)))
+    etaAvgValList[i] =ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)).getValV();
+    etaAvgErrorList[i] = ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)).getError();
+    etaAvgValVarList.AddLast(ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)))
 
 print "\n\n"
 

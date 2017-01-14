@@ -144,7 +144,7 @@ import time, sys
 graphHolder = TMultiGraph()
 
 #print fileList
-fileList = ["fitresultlist_1111.root"]
+fileList = ["fitresultlist_0000.root"]
 
 for it in fileList:
     if it[-5:]!='.root':
@@ -183,7 +183,6 @@ for it in fileList:
         tageffVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),rawfitresultList.At(i).getValV())
         tageffVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),rawfitresultList.At(i).getError())
         tageffVsEtaGraph.SetMarkerColor(i)
-        tageffVsEtaGraph.SetTitle("Tagging efficiency vs. Eta;Eta;Tagging Efficiency (omega)")
 
     graphHolder.Add(tageffVsEtaGraph)
 
@@ -198,6 +197,7 @@ os.chdir("..")
 theCanvas = TCanvas()
 #graphHolder.Add(tageffVsEtaGraph);
 #aFuckingGraph = TGraph()
+graphHolder.SetTitle("Tagging efficiency vs. Eta;Eta;Tagging Efficiency (omega)")
 graphHolder.Draw("AP")
 #raw_input("Press Enter to continue");
 
