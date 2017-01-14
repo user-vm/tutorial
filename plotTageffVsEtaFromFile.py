@@ -144,7 +144,11 @@ import time, sys
 graphHolder = TMultiGraph()
 
 #print fileList
-fileList = ["fitresultlist_0000.root"]
+#fileList = ["fitresultlist_0000.root"]
+
+if(len(fileList)==0):
+    print "No .root files found"
+    sys.exit(1);
 
 for it in fileList:
     if it[-5:]!='.root':
@@ -197,7 +201,10 @@ os.chdir("..")
 theCanvas = TCanvas()
 #graphHolder.Add(tageffVsEtaGraph);
 #aFuckingGraph = TGraph()
-graphHolder.SetTitle("Tagging efficiency vs. Eta;Eta;Tagging Efficiency (omega)")
+if (graphHolder.GetListOfGraphs().GetSize()==1):
+    graphHolder.SetTitle("Tagging efficiency vs. Eta;Eta;Tagging Efficiency (omega)")
+else:
+    graphHolder.SetTitle("Tagging efficiency vs. Eta (multiple eta sets);Eta;Tagging Efficiency (omega)")
 graphHolder.Draw("AP")
 #raw_input("Press Enter to continue");
 
