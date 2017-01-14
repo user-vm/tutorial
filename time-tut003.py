@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of taggging categories to use
-NUMCAT = 5;
+NUMCAT = 10;
 
 # histogram creation function, moved here to avoid recompilation-----
 
@@ -241,6 +241,11 @@ if None == SEED:
 # then read config dictionary from a file
 from B2DXFitters.utils import configDictFromFile
 config = configDictFromFile('time-conf003.py')
+print config
+config['MistagCalibParams']['etaavg']=0.2
+config['TrivialMistagParams']['omegaavg']=0.2
+#import sys
+#sys.exit(0)
 
 # start with RooFit stuff
 from ROOT import ( RooRealVar, RooConstVar, RooCategory, RooWorkspace,
@@ -408,6 +413,8 @@ from ROOT import RooDataSet, RooArgSet
 
 from ROOT import TList
 rawfitresultList = TList();
+p0List = TList();
+p1List = TList();
 
 for i in range(NUMCAT):
     
@@ -435,6 +442,8 @@ for i in range(NUMCAT):
     # fit
     rawfitresult = fitpdf['pdf'].fitTo(ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)), fitOpts)
     rawfitresultList.AddLast(rawfitresult.floatParsFinal().find('tageff'));
+    p0List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p0'));
+    p1List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p1'));
     #ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).get().find('eta')
 '''
     # pretty-print the result
@@ -447,6 +456,10 @@ tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
 tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
 etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = float);
 etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+p0ValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+p0ErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+p1ValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+p1ErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
 
 etaAvgValVarList = TList()
 
@@ -454,6 +467,10 @@ for i in range(rawfitresultList.GetSize()):
 
     tageffValVList[i] = rawfitresultList.At(i).getValV();
     tageffErrorList[i] = rawfitresultList.At(i).getError();
+    p0ValVList[i] = p0List.At(i).getValV();
+    p0ErrorList[i] = p0List.At(i).getError();
+    p1ValVList[i] = p1List.At(i).getValV();
+    p1ErrorList[i] = p1List.At(i).getError();
     etaAvgValList[i] =ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getValV();
     etaAvgErrorList[i] = ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getError();
     etaAvgValVarList.AddLast(ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)))
@@ -462,7 +479,7 @@ print "\n\n"
 
 for i in range(rawfitresultList.GetSize()):
 
-    print tageffValVList[i],"+-",tageffErrorList[i],", ", etaAvgValList[i], "+-", etaAvgErrorList[i]
+    print "tageff =", tageffValVList[i],"+-",tageffErrorList[i],", etaAvg=", etaAvgValList[i], "+-", etaAvgErrorList[i], ", p0 =", p0ValVList[i], "+-", p0ErrorList[i], ", p1 =", p1ValVList[i], "+-", p1ErrorList[i]
 
 #raw_input("Press Enter to continue");
 
@@ -470,6 +487,8 @@ for i in range(rawfitresultList.GetSize()):
 
 from ROOT import TFile
 g = TFile('fitresultlist/fitresultlist_%04d.root' % SEED, 'recreate')
+g.WriteTObject(p1List, 'fitresultlist/fitresultlist003_%04d' % SEED)
+g.WriteTObject(p0List, 'fitresultlist/fitresultlist003_%04d' % SEED)
 g.WriteTObject(rawfitresultList, 'fitresultlist/fitresultlist003_%04d' % SEED)
 g.WriteTObject(etaAvgValVarList, 'fitresultlist/fitresultlist003_%04d' % SEED)
 g.Close()
@@ -478,29 +497,9 @@ del g
 import sys
 sys.exit(0)
 
-in_file = TFile('fitresultlist_%04d.root' % SEED)
-keyList = in_file.GetListOfKeys()
+#ENDS HERE
 
-print "\n\n\n",keyList,"\n\n\n\n\n"
-print keyList.GetSize()
-
-keyList.At(0).ReadObj().Print();
-keyList.At(1).ReadObj().Print();
-keyList.At(2).ReadObj().Print();
-
-rawfitresultList = keyList.At(1).ReadObj();
-etaAvgValVarList = keyList.At(0).ReadObj();
-
-tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-
-for i in range(rawfitresultList.GetSize()):
-    tageffValVList[i] = rawfitresultList.At(i).getValV();
-    tageffErrorList[i] = rawfitresultList.At(i).getError();
-    etaAvgValList[i] = etaAvgValVarList.At(i).getValV();
-    etaAvgErrorList[i] = etaAvgValVarList.At(i).getError();
+#in case you want to plot the tageff vs eta
 
 from ROOT import TGraphErrors, TGraph
 import time

@@ -1,0 +1,78 @@
+#!/bin/sh
+# -*- mode: python; coding: utf-8 -*-
+# vim: ft=python:sw=4:tw=78:expandtab
+# --------------------------------------------------------------------------- 
+# @file time-tut003.py
+#
+# @brief hands-on session example 3 (B2DXFitters workshop, Padova, 2015)
+#
+# per-event mistag, average sigma_t, spline acceptance
+#
+# @author Manuel Schiller
+# @date 2012-07-08
+# --------------------------------------------------------------------------- 
+# This file is used as both a shell script and as a Python script.
+""":"
+# set batch scheduling (if schedtool is available)
+schedtool="`which schedtool 2>/dev/zero`"
+if test -n "$schedtool" -a -x "$schedtool"; then
+    echo "enabling batch scheduling for this job (schedtool -B)"
+    schedtool="$schedtool -B -e"
+else
+    schedtool=""
+fi
+
+# set ulimit to protect against bugs which crash the machine: 3G vmem max,
+# no more then 8M stack
+ulimit -v $((4096 * 1024))
+ulimit -s $((   8 * 1024))
+
+# trampoline into python
+exec $schedtool /usr/bin/time -v env python -O "$0" - "$@"
+"""
+
+__doc__ = """ real docstring """
+
+from ROOT import TGraph, gPad, TMultiGraph
+from array import array
+from math import exp
+
+def func(x):
+    y = 100*exp(-x)
+    return y
+
+
+# Method 1
+if True:
+    n = 100
+    gr1 = TGraph(n)
+
+    for i in range(n):
+        x = 0.01*i
+        gr1.SetPoint(i, x, func(x))
+
+    gr1.SetMarkerStyle(20)
+    gr1.SetMarkerSize(1)
+    gr1.Draw("AP")
+
+
+# Method 2
+if False:
+    n = 100
+    xarr = []
+    yarr = []
+
+    for i in range(n):
+        x = 0.01*i
+        y = func(x)
+        xarr.append(x)
+        yarr.append(y)
+
+    gr2 = TGraph(len(xarr), array('d', xarr), array('d', yarr))
+
+
+    gr2.SetMarkerStyle(20)
+    gr2.SetMarkerSize(1)
+    gr2.Draw("AP")
+
+raw_input("Press Enter to continue");

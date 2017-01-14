@@ -106,14 +106,11 @@ __doc__ = """ real docstring """
 # -----------------------------------------------------------------------------
 # Load necessary libraries
 # -----------------------------------------------------------------------------
-import numpy as n
-import B2DXFitters
-import ROOT
-from ROOT import RooFit
+
 
 # start by getting seed number
 import sys
-SEED = None
+'''SEED = None
 for tmp in sys.argv[1:]:
     try:
         SEED = int(tmp)
@@ -122,50 +119,99 @@ for tmp in sys.argv[1:]:
             'seed') % tmp
 if None == SEED:
     print 'ERROR: no seed given'
-    sys.exit(1)
+    sys.exit(1)'''
 
 #SEED = 42
 
-from ROOT import TFile, TImage
+import os
 
-in_file = TFile('fitresultlist_%04d.root' % SEED)
-keyList = in_file.GetListOfKeys()
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist');
+fileList = os.listdir(os.getcwd());
 
-print "\n\n\n",keyList,"\n\n\n\n\n"
-print keyList.GetSize()
+#tageffValVListList = []
+#tageffErrorListList = []
+#etaAvgValListList = []
+#etaAvgErrorListList = []
 
-keyList.At(0).ReadObj().Print();
-keyList.At(1).ReadObj().Print();
-keyList.At(2).ReadObj().Print();
+from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas
+import time, sys
 
-rawfitresultList = keyList.At(1).ReadObj();
-etaAvgValVarList = keyList.At(0).ReadObj();
-
-tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-
-for i in range(rawfitresultList.GetSize()):
-    tageffValVList[i] = rawfitresultList.At(i).getValV();
-    tageffErrorList[i] = rawfitresultList.At(i).getError();
-    etaAvgValList[i] = etaAvgValVarList.At(i).getValV();
-    etaAvgErrorList[i] = etaAvgValVarList.At(i).getError();
-
-from ROOT import TGraphErrors, TGraph, TCanvas
-import time
-
-theCanvas = TCanvas();
+#theCanvas = TCanvas();
 #img = TImage.Create();
-tageffVsEtaGraph = TGraphErrors(rawfitresultList.GetSize(),etaAvgValList,tageffValVList,etaAvgErrorList,tageffErrorList);
-tageffVsEtaGraph.Draw("ap");
-#ROOT.gSystem.ProcessEvents();
-#img.FromPad(theCanvas);
+
+#theCanvas = TCanvas()
+
+graphHolder = TMultiGraph()
+
+#print fileList
+fileList = ["fitresultlist_1111.root"]
+
+for it in fileList:
+    if it[-5:]!='.root':
+        continue
+    in_file = TFile(it)
+    keyList = in_file.GetListOfKeys()
+
+    print "\n\n\n",keyList,"\n\n\n\n\n"
+    print keyList.GetSize()
+
+    keyList.At(0).ReadObj().Print();
+    keyList.At(1).ReadObj().Print();
+    #keyList.At(2).ReadObj().Print();
+
+    rawfitresultList = keyList.At(1).ReadObj();
+    etaAvgValVarList = keyList.At(0).ReadObj();
+
+    in_file.Close();
+    tageffVsEtaGraph = TGraphErrors(rawfitresultList.GetSize())
+
+    #tageffValVList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
+    #tageffErrorList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
+    #etaAvgValList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
+    #etaAvgErrorList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
+
+    #tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
+    #tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
+    #etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
+    #etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
+
+    for i in range(rawfitresultList.GetSize()):
+        #tageffValVList[i] = rawfitresultList.At(i).getValV();
+        #tageffErrorList[i] = rawfitresultList.At(i).getError();
+        #etaAvgValList[i] = etaAvgValVarList.At(i).getValV();
+        #etaAvgErrorList[i] = etaAvgValVarList.At(i).getError();
+        tageffVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),rawfitresultList.At(i).getValV())
+        tageffVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),rawfitresultList.At(i).getError())
+        tageffVsEtaGraph.SetMarkerColor(i)
+        tageffVsEtaGraph.SetTitle("Tagging efficiency vs. Eta;Eta;Tagging Efficiency (omega)")
+
+    graphHolder.Add(tageffVsEtaGraph)
+
+    #tageffVsEtaGraph = TGraph(rawfitresultList.GetSize(),etaAvgValList,tageffValVList)#,etaAvgErrorList,tageffErrorList);
+    
+    #tageffVsEtaGraph.
+    #ROOT.gSystem.ProcessEvents();
+    #img.FromPad(theCanvas);
+
+os.chdir("..")
+
+theCanvas = TCanvas()
+#graphHolder.Add(tageffVsEtaGraph);
+#aFuckingGraph = TGraph()
+graphHolder.Draw("AP")
+#raw_input("Press Enter to continue");
 
 theCanvas.Print("tageffVsEtaGraph_%f.pdf" % time.time(),"pdf");
+#del tageffVsEtaGraph
+#tageffVsEtaGraph.IsA().Destructor(tageffVsEtaGraph)
+#graphHolder.IsA().Destructor(graphHolder)
+
+print "SHIT"
+#del in_file
+#sys.exit(0)
 #gSystem->ProcessEvents();
 
-del theCanvas;
+#del theCanvas;
 #del img;
 
 #tageffVsEtaGraph.SaveAs('tageffVsEtaGraph_%f.pdf' % time.time());
