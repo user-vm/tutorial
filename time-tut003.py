@@ -309,6 +309,8 @@ def buildTimePdf(config):
     eta = WS(ws, RooRealVar('eta', 'eta', 0.35,
         0.0 if 'FIT' in config['Context'] else (1. + 1e-5) * max(0.0,
         config['TrivialMistagParams']['omega0']), 0.5))
+
+    mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
     tageff = WS(ws, RooRealVar('tageff', 'tageff', 0.60, 1.0, 1.0))
     timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
     # fit average mistag
@@ -339,29 +341,77 @@ def buildTimePdf(config):
         'Bs2DsPi_mistagpdf', 'Bs2DsPi_mistagpdf',
         eta, mistagpdfparams['omega0'], mistagpdfparams['omegaavg'],
         mistagpdfparams['f']))
-    # build mistag calibration DELETE THIS LATER
-    mistagcalibparams = {} # start with parameters of calibration
-    for sfx in ('p0', 'p1', 'etaavg'):
-        mistagcalibparams[sfx] = WS(ws, RooRealVar(
-            'Bs2DsPi_mistagcalib_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,
-            config['MistagCalibParams'][sfx]))
-    for sfx in ('p0', 'p1'): # float calibration paramters
-        mistagcalibparams[sfx].setConstant(False)
-        mistagcalibparams[sfx].setError(0.1)
-    # build mistag pdf itself
-    omega = WS(ws, MistagCalibration(
-        'Bs2DsPi_mistagcalib', 'Bs2DsPi_mistagcalib',
-        eta, mistagcalibparams['p0'], mistagcalibparams['p1']))#,
-        #mistagcalibparams['etaavg']))
 
     # build the time pdf
     pdf = buildBDecayTimePdf(
         config, 'Bs2DsPi', ws,
-        time, timeerr, qt, qf, [ [ omega ] ], [ tageff ],
+        time, timeerr, qt, qf, [ [ mistag ] ], [ tageff ],
         Gamma, DGamma, Dm,
         C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
         timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
         mistagpdf = [ mistagpdf ], mistagobs = eta)
+    return { # return things
+            'ws': ws,
+            'pdf': pdf,
+            'obs': obs
+            }
+
+#different function for fit pdf creation
+def buildFitTimePdf(config):
+    """
+    build time pdf, return pdf and associated data in dictionary
+    """
+    from B2DXFitters.WS import WS
+    print 'CONFIGURATION'
+    for k in sorted(config.keys()):
+        print '    %32s: %32s' % (k, config[k])
+    
+    # start building the fit
+    ws = RooWorkspace('ws_%s' % config['Context'])
+    one = WS(ws, RooConstVar('one', '1', 1.0))
+    zero = WS(ws, RooConstVar('zero', '0', 0.0))
+    
+    # start by defining observables
+    time = WS(ws, RooRealVar('time', 'time [ps]', 0.2, 15.0))
+    qf = WS(ws, RooCategory('qf', 'final state charge'))
+    qf.defineType('h+', +1)
+    qf.defineType('h-', -1)
+    qt = WS(ws, RooCategory('qt', 'tagging decision'))
+    qt.defineType(      'B+', +1)
+    qt.defineType('Untagged',  0)
+    qt.defineType(      'B-', -1)
+    
+    # now other settings
+    Gamma  = WS(ws, RooRealVar( 'Gamma',  'Gamma',  0.661)) # ps^-1
+    DGamma = WS(ws, RooRealVar('DGamma', 'DGamma',  0.106)) # ps^-1
+    Dm     = WS(ws, RooRealVar(    'Dm',     'Dm', 17.719)) # ps^-1
+    
+    mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
+    tageff = WS(ws, RooRealVar('tageff', 'tageff', 1.00, 1.0, 1.0))
+    timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
+    
+    
+    # now build the PDF
+    from B2DXFitters.timepdfutils import buildBDecayTimePdf
+    from B2DXFitters.resmodelutils import getResolutionModel
+    from B2DXFitters.acceptanceutils import buildSplineAcceptance
+    
+    obs = [ qf, qt, time ]
+    acc, accnorm = buildSplineAcceptance(ws, time, 'Bs2DsPi_accpetance',
+            config['SplineAcceptance']['KnotPositions'],
+            config['SplineAcceptance']['KnotCoefficients'][config['Context']],
+            'FIT' in config['Context']) # float for fitting
+    if 'GEN' in config['Context']:
+        acc = accnorm # use normalised acceptance for generation
+    # get resolution model
+    resmodel, acc = getResolutionModel(ws, config, time, timeerr, acc)
+    # build the time pdf
+    pdf = buildBDecayTimePdf(
+        config, 'Bs2DsPi', ws,
+        time, timeerr, qt, qf, [ [ mistag ] ], [ tageff ],
+        Gamma, DGamma, Dm,
+        C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
+        timeresmodel = resmodel, acceptance = acc)
     return { # return things
             'ws': ws,
             'pdf': pdf,
@@ -383,8 +433,8 @@ genconfig['ParameteriseIntegral'] = False
 genpdf = buildTimePdf(genconfig)
 
 # generate 15K events
-print '150K'
-ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
+print '15K'
+ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 15000, RooFit.Verbose())
 #saveEta(ds);
 
 #import sys
@@ -406,6 +456,7 @@ from ROOT import RooDataSet, RooArgSet
 
 from ROOT import TList
 rawfitresultList = TList();
+mistagresultList = TList();
 p0List = TList();
 p1List = TList();
 
@@ -420,9 +471,8 @@ for i in range(NUMCAT):
 
     # use workspace for fit pdf in such a simple fit
     config1['Context'] = 'FIT'
-    config1['NBinsAcceptance'] = 0
-    config1['MistagCalibParams']['etaavg']= ds.meanVar(ds.get().find('eta')).getValV();
     config1['TrivialMistagParams']['omegaavg']= ds.meanVar(ds.get().find('eta')).getValV();
+    config1['NBinsAcceptance'] = 0
 
     fitpdf = buildTimePdf(config1)
     # add data set to fitting workspace
@@ -461,8 +511,9 @@ for i in range(NUMCAT):
     # fit
     rawfitresult = fitpdf['pdf'].fitTo(ds1, fitOpts)
     rawfitresultList.AddLast(rawfitresult.floatParsFinal().find('tageff'));
-    p0List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p0'));
-    p1List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p1'));
+    mistagresultList.AddLast(rawfitresult.floatParsFinal().find('mistag'));
+    #p0List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p0'));
+    #p1List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p1'));
     print "\n\n\nbleah\n",rawfitresult.floatParsFinal().Print(),"\n\nboh\n\n\n\n";
     # pretty-print the result
     from B2DXFitters.FitResult import getDsHBlindFitResult
@@ -472,9 +523,13 @@ for i in range(NUMCAT):
 
 ds.get().Print();
 
+for i in range(rawfitresultList.GetSize()):
+
+    print "mistag =",mistagresultList.At(i).getValV(),"+-",mistagresultList.At(i).getError()
+
 #import sys
 #sys.exit(0);
-
+"""
 #print the tageff, average eta, p0 and p1 values and errors, and save them as TLists of RooAbsArg
 etaAvgValVarList = TList()
 
@@ -495,7 +550,7 @@ g.WriteTObject(p0List, 'fitresultlist/fitresultlist003_%04d' % SEED)
 g.WriteTObject(rawfitresultList, 'fitresultlist/fitresultlist003_%04d' % SEED)
 g.WriteTObject(etaAvgValVarList, 'fitresultlist/fitresultlist003_%04d' % SEED)
 g.Close()
-del g
+del g"""
 
 import sys
 sys.exit(0)
