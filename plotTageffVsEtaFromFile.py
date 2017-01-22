@@ -133,7 +133,7 @@ fileList = os.listdir(os.getcwd());
 #etaAvgValListList = []
 #etaAvgErrorListList = []
 
-from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas
+from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas, TF1
 import time, sys
 
 #theCanvas = TCanvas();
@@ -149,6 +149,8 @@ graphHolder = TMultiGraph()
 if(len(fileList)==0):
     print "No .root files found"
     sys.exit(1);
+
+currentColor = 0
 
 for it in fileList:
     if it[-5:]!='.root':
@@ -179,6 +181,9 @@ for it in fileList:
     #etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
     #etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
 
+    linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
+    linFunc.SetParameters(0.0,1.0);
+
     for i in range(rawfitresultList.GetSize()):
         #tageffValVList[i] = rawfitresultList.At(i).getValV();
         #tageffErrorList[i] = rawfitresultList.At(i).getError();
@@ -186,9 +191,12 @@ for it in fileList:
         #etaAvgErrorList[i] = etaAvgValVarList.At(i).getError();
         tageffVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),rawfitresultList.At(i).getValV())
         tageffVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),rawfitresultList.At(i).getError())
-        tageffVsEtaGraph.SetMarkerColor(i)
+        tageffVsEtaGraph.SetLineColor(currentColor)
+        linFunc.SetLineColor(currentColor)
+        tageffVsEtaGraph.Fit(linFunc)
 
     graphHolder.Add(tageffVsEtaGraph)
+    currentColor += 1
 
     #tageffVsEtaGraph = TGraph(rawfitresultList.GetSize(),etaAvgValList,tageffValVList)#,etaAvgErrorList,tageffErrorList);
     
@@ -199,8 +207,6 @@ for it in fileList:
 os.chdir("..")
 
 theCanvas = TCanvas()
-#graphHolder.Add(tageffVsEtaGraph);
-#aFuckingGraph = TGraph()
 if (graphHolder.GetListOfGraphs().GetSize()==1):
     graphHolder.SetTitle("Tagging efficiency vs. Eta;Eta;Tagging Efficiency (omega)")
 else:
@@ -209,16 +215,5 @@ graphHolder.Draw("AP")
 #raw_input("Press Enter to continue");
 
 theCanvas.Print("tageffVsEtaGraph_%f.pdf" % time.time(),"pdf");
-#del tageffVsEtaGraph
-#tageffVsEtaGraph.IsA().Destructor(tageffVsEtaGraph)
-#graphHolder.IsA().Destructor(graphHolder)
 
 print "SHIT"
-#del in_file
-#sys.exit(0)
-#gSystem->ProcessEvents();
-
-#del theCanvas;
-#del img;
-
-#tageffVsEtaGraph.SaveAs('tageffVsEtaGraph_%f.pdf' % time.time());

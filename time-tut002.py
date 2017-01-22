@@ -218,11 +218,20 @@ def buildTimePdf(config):
 
 from B2DXFitters.WS import WS
 # for now, we're in the generation stage
-config['Context'] = 'GEN'
-genpdf = buildTimePdf(config)
+#-config['Context'] = 'GEN'
+#-genpdf = buildTimePdf(config)
+import copy
+# FIXME: need to deep-copy the config dictionary, and need to disable a few
+# tweaks that speed up fitting during generation (because they waste time there)
+genconfig = copy.deepcopy(config)
+genconfig['Context'] = 'GEN'
+genconfig['NBinsAcceptance'] = 0
+genconfig['NBinsProperTimeErr'] = 0
+genconfig['ParameteriseIntegral'] = False
+genpdf = buildTimePdf(genconfig)
 
-# generate 150K events
-ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
+# generate 15K events
+ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 15000, RooFit.Verbose())
 
 ds.Print('v')
 for o in genpdf['obs']:

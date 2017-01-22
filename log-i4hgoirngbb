@@ -1,0 +1,601 @@
+Script started on Mon Jan 16 17:00:19 2017
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[?1034h[user@localhost tutorial]$ SetupProject Uraniaexit[Kscript log-ow4hgowergniehg9w4hgnvbr[6P9348hgi4g./time-tut003.py 1510[2PSetupProject Urania./time-tut003.py 1510[1P[1@2
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+Error in <TCling::RegisterModule>: cannot find dictionary module B2DXFittersDict_rdict.pcm
+DEBUG: argument - is no number, trying next argument asseed
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              GEN
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                     NBinsAcceptance:                              100
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.5, 0.75, 1.0, 1.0, 1.0, 1.0]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams:               ['.*_scalefactor']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = <ROOT.RooProduct object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised") at 0xbb74a20>
+	Dbar = <ROOT.RooConstVar object ("zero") at 0x744b020>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0x4134da0>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x35cd6a0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x4122920>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor'], 'UseKFactor': False, 'Context': 'GEN', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.5, 0.75, 1.0, 1.0, 1.0, 1.0]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 100}
+	C = <ROOT.RooConstVar object ("one") at 0x744a420>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0x744b020>
+	time = <ROOT.RooRealVar object ("time") at 0x36b1aa0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0x744b020>
+	ws = <ROOT.RooWorkspace object ("ws_GEN") at 0x6c985a0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x3ab84a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x34e04a0>
+	qt = <ROOT.RooCategory object ("qt") at 0x1be8820>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0x744b020>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x3aa9620>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel") at 0xbf37420>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0x7182d20>
+	)
+########################################################################
+ --- RooGenContext --- 
+Using PDF RooBDecay::Bs2DsPi_TimePdf[ t=time tau=GammaTau dgamma=DGamma f0=Bs2DsPi_cosh f1=Bs2DsPi_sinh f2=Bs2DsPi_cos f3=Bs2DsPi_sin dm=Dm ]
+Use PDF generator for ()
+Use MC sampling generator RooAcceptReject for (qf,qt,time)
+RooAcceptReject: accepted event (used 4000 of 6000 so far)
+RooAcceptReject: generated 10000 events so far.
+RooAcceptReject: generated 20000 events so far.
+RooAcceptReject: generated 30000 events so far.
+RooAcceptReject: generated 40000 events so far.
+RooAcceptReject: generated 50000 events so far.
+RooAcceptReject: generated 60000 events so far.
+RooAcceptReject: generated 70000 events so far.
+RooAcceptReject: generated 80000 events so far.
+RooAcceptReject: generated 90000 events so far.
+RooAcceptReject: generated 100000 events so far.
+RooAcceptReject: generated 110000 events so far.
+RooAcceptReject: generated 120000 events so far.
+RooAcceptReject: generated 130000 events so far.
+RooAcceptReject: generated 140000 events so far.
+RooAcceptReject: generated 150000 events so far.
+RooAcceptReject: generated 160000 events so far.
+RooAcceptReject: generated 170000 events so far.
+RooAcceptReject: generated 180000 events so far.
+RooAcceptReject: generated 190000 events so far.
+RooAcceptReject: generated 200000 events so far.
+RooAcceptReject: generated 210000 events so far.
+RooAcceptReject: generated 220000 events so far.
+RooAcceptReject: generated 230000 events so far.
+RooAcceptReject: generated 240000 events so far.
+RooAcceptReject: generated 250000 events so far.
+RooAcceptReject: generated 260000 events so far.
+RooAcceptReject: generated 270000 events so far.
+RooAcceptReject: generated 280000 events so far.
+RooAcceptReject: generated 290000 events so far.
+RooAcceptReject: generated 300000 events so far.
+RooAcceptReject: generated 310000 events so far.
+RooAcceptReject: generated 320000 events so far.
+RooAcceptReject: generated 330000 events so far.
+RooAcceptReject: generated 340000 events so far.
+RooAcceptReject: generated 350000 events so far.
+RooAcceptReject: generated 360000 events so far.
+RooAcceptReject: generated 370000 events so far.
+RooAcceptReject: generated 380000 events so far.
+RooAcceptReject: generated 390000 events so far.
+RooAcceptReject: generated 400000 events so far.
+RooAcceptReject: generated 410000 events so far.
+RooAcceptReject: generated 420000 events so far.
+RooAcceptReject: generated 430000 events so far.
+RooAcceptReject: generated 440000 events so far.
+RooAcceptReject: generated 450000 events so far.
+RooAcceptReject: generated 460000 events so far.
+RooAcceptReject: generated 470000 events so far.
+RooAcceptReject: generated 480000 events so far.
+RooAcceptReject: generated 490000 events so far.
+RooAcceptReject: generated 500000 events so far.
+RooAcceptReject: generated 510000 events so far.
+RooAcceptReject: generated 520000 events so far.
+RooAcceptReject: generated 530000 events so far.
+RooAcceptReject: generated 540000 events so far.
+RooAcceptReject: generated 550000 events so far.
+RooAcceptReject: generated 560000 events so far.
+RooAcceptReject: generated 570000 events so far.
+RooAcceptReject: generated 580000 events so far.
+RooAcceptReject: generated 590000 events so far.
+RooAcceptReject: generated 600000 events so far.
+RooAcceptReject: generated 610000 events so far.
+RooAcceptReject: generated 620000 events so far.
+RooAcceptReject: generated 630000 events so far.
+RooAcceptReject: generated 640000 events so far.
+RooAcceptReject: generated 650000 events so far.
+RooAcceptReject: generated 660000 events so far.
+RooAcceptReject: generated 670000 events so far.
+RooAcceptReject: generated 680000 events so far.
+RooAcceptReject: generated 690000 events so far.
+RooAcceptReject: generated 700000 events so far.
+RooAcceptReject: generated 710000 events so far.
+RooAcceptReject: generated 720000 events so far.
+RooAcceptReject: generated 730000 events so far.
+RooAcceptReject: generated 740000 events so far.
+RooAcceptReject: generated 750000 events so far.
+RooAcceptReject: generated 760000 events so far.
+RooAcceptReject: generated 770000 events so far.
+RooAcceptReject: generated 780000 events so far.
+RooAcceptReject: generated 790000 events so far.
+RooAcceptReject: generated 800000 events so far.
+RooAcceptReject: generated 810000 events so far.
+RooAcceptReject: generated 820000 events so far.
+RooAcceptReject: generated 830000 events so far.
+RooAcceptReject: generated 840000 events so far.
+RooAcceptReject: generated 850000 events so far.
+RooAcceptReject: generated 860000 events so far.
+RooAcceptReject: generated 870000 events so far.
+RooAcceptReject: generated 880000 events so far.
+RooAcceptReject: generated 890000 events so far.
+RooAcceptReject: generated 900000 events so far.
+RooAcceptReject: generated 910000 events so far.
+RooAcceptReject: generated 920000 events so far.
+RooAcceptReject: generated 930000 events so far.
+RooAcceptReject: generated 940000 events so far.
+RooAcceptReject: generated 950000 events so far.
+RooAcceptReject: generated 960000 events so far.
+RooAcceptReject: generated 970000 events so far.
+RooAcceptReject: generated 980000 events so far.
+RooAcceptReject: generated 990000 events so far.
+RooAcceptReject: generated 1000000 events so far.
+RooAcceptReject: generated 1010000 events so far.
+RooAcceptReject: generated 1020000 events so far.
+RooAcceptReject: generated 1030000 events so far.
+RooAcceptReject: generated 1040000 events so far.
+RooAcceptReject: generated 1050000 events so far.
+RooAcceptReject: generated 1060000 events so far.
+RooAcceptReject: generated 1070000 events so far.
+RooAcceptReject: generated 1080000 events so far.
+RooAcceptReject: generated 1090000 events so far.
+RooAcceptReject: generated 1100000 events so far.
+RooAcceptReject: generated 1110000 events so far.
+RooAcceptReject: generated 1120000 events so far.
+RooAcceptReject: generated 1130000 events so far.
+RooAcceptReject: generated 1140000 events so far.
+RooAcceptReject: generated 1150000 events so far.
+RooAcceptReject: generated 1160000 events so far.
+RooAcceptReject: generated 1170000 events so far.
+RooAcceptReject: generated 1180000 events so far.
+RooAcceptReject: generated 1190000 events so far.
+RooAcceptReject: generated 1200000 events so far.
+RooAcceptReject: generated 1210000 events so far.
+RooAcceptReject: accepted event (used 6000 of 1210572 so far)
+RooAcceptReject: accepted event (used 12000 of 1210572 so far)
+RooAcceptReject: accepted event (used 17000 of 1210572 so far)
+RooAcceptReject: accepted event (used 24000 of 1210572 so far)
+RooAcceptReject: accepted event (used 27000 of 1210572 so far)
+RooAcceptReject: accepted event (used 42000 of 1210572 so far)
+RooAcceptReject: accepted event (used 43000 of 1210572 so far)
+RooAcceptReject: accepted event (used 47000 of 1210572 so far)
+RooAcceptReject: accepted event (used 50000 of 1210572 so far)
+RooAcceptReject: accepted event (used 57000 of 1210572 so far)
+RooAcceptReject: accepted event (used 66000 of 1210572 so far)
+RooAcceptReject: accepted event (used 70000 of 1210572 so far)
+RooAcceptReject: accepted event (used 74000 of 1210572 so far)
+RooAcceptReject: accepted event (used 103000 of 1210572 so far)
+RooAcceptReject: accepted event (used 104000 of 1210572 so far)
+RooAcceptReject: accepted event (used 117000 of 1210572 so far)
+RooAcceptReject: accepted event (used 124000 of 1210572 so far)
+RooAcceptReject: accepted event (used 130000 of 1210572 so far)
+RooAcceptReject: accepted event (used 140000 of 1210572 so far)
+RooAcceptReject: accepted event (used 145000 of 1210572 so far)
+RooAcceptReject: accepted event (used 148000 of 1210572 so far)
+RooAcceptReject: accepted event (used 157000 of 1210572 so far)
+RooAcceptReject: accepted event (used 158000 of 1210572 so far)
+RooAcceptReject: accepted event (used 168000 of 1210572 so far)
+RooAcceptReject: accepted event (used 170000 of 1210572 so far)
+RooAcceptReject: accepted event (used 179000 of 1210572 so far)
+RooAcceptReject: accepted event (used 194000 of 1210572 so far)
+RooAcceptReject: accepted event (used 197000 of 1210572 so far)
+RooAcceptReject: accepted event (used 201000 of 1210572 so far)
+RooAcceptReject: accepted event (used 203000 of 1210572 so far)
+RooAcceptReject: accepted event (used 214000 of 1210572 so far)
+RooAcceptReject: accepted event (used 220000 of 1210572 so far)
+RooAcceptReject: accepted event (used 257000 of 1210572 so far)
+RooAcceptReject: accepted event (used 260000 of 1210572 so far)
+RooAcceptReject: accepted event (used 270000 of 1210572 so far)
+RooAcceptReject: accepted event (used 284000 of 1210572 so far)
+RooAcceptReject: accepted event (used 297000 of 1210572 so far)
+RooAcceptReject: accepted event (used 311000 of 1210572 so far)
+RooAcceptReject: accepted event (used 335000 of 1210572 so far)
+RooAcceptReject: accepted event (used 340000 of 1210572 so far)
+RooAcceptReject: accepted event (used 355000 of 1210572 so far)
+RooAcceptReject: accepted event (used 369000 of 1210572 so far)
+RooAcceptReject: accepted event (used 374000 of 1210572 so far)
+RooAcceptReject: accepted event (used 378000 of 1210572 so far)
+RooAcceptReject: accepted event (used 408000 of 1210572 so far)
+RooAcceptReject: accepted event (used 424000 of 1210572 so far)
+RooAcceptReject: accepted event (used 428000 of 1210572 so far)
+RooAcceptReject: accepted event (used 432000 of 1210572 so far)
+RooAcceptReject: accepted event (used 433000 of 1210572 so far)
+RooAcceptReject: accepted event (used 434000 of 1210572 so far)
+RooAcceptReject: accepted event (used 449000 of 1210572 so far)
+RooAcceptReject: accepted event (used 460000 of 1210572 so far)
+RooAcceptReject: accepted event (used 470000 of 1210572 so far)
+RooAcceptReject: accepted event (used 502000 of 1210572 so far)
+RooAcceptReject: accepted event (used 509000 of 1210572 so far)
+RooAcceptReject: accepted event (used 520000 of 1210572 so far)
+RooAcceptReject: accepted event (used 527000 of 1210572 so far)
+RooAcceptReject: accepted event (used 538000 of 1210572 so far)
+RooAcceptReject: accepted event (used 542000 of 1210572 so far)
+RooAcceptReject: accepted event (used 543000 of 1210572 so far)
+RooAcceptReject: accepted event (used 569000 of 1210572 so far)
+RooAcceptReject: accepted event (used 585000 of 1210572 so far)
+RooAcceptReject: accepted event (used 594000 of 1210572 so far)
+RooAcceptReject: accepted event (used 595000 of 1210572 so far)
+RooAcceptReject: accepted event (used 597000 of 1210572 so far)
+RooAcceptReject: accepted event (used 604000 of 1210572 so far)
+RooAcceptReject: accepted event (used 612000 of 1210572 so far)
+RooAcceptReject: accepted event (used 616000 of 1210572 so far)
+RooAcceptReject: accepted event (used 628000 of 1210572 so far)
+RooAcceptReject: accepted event (used 629000 of 1210572 so far)
+RooAcceptReject: accepted event (used 632000 of 1210572 so far)
+RooAcceptReject: accepted event (used 636000 of 1210572 so far)
+RooAcceptReject: accepted event (used 638000 of 1210572 so far)
+RooAcceptReject: accepted event (used 667000 of 1210572 so far)
+RooAcceptReject: accepted event (used 682000 of 1210572 so far)
+RooAcceptReject: accepted event (used 686000 of 1210572 so far)
+RooAcceptReject: accepted event (used 691000 of 1210572 so far)
+RooAcceptReject: accepted event (used 704000 of 1210572 so far)
+RooAcceptReject: accepted event (used 708000 of 1210572 so far)
+RooAcceptReject: accepted event (used 723000 of 1210572 so far)
+RooAcceptReject: accepted event (used 724000 of 1210572 so far)
+RooAcceptReject: accepted event (used 726000 of 1210572 so far)
+RooAcceptReject: accepted event (used 727000 of 1210572 so far)
+RooAcceptReject: accepted event (used 738000 of 1210572 so far)
+RooAcceptReject: accepted event (used 740000 of 1210572 so far)
+RooAcceptReject: accepted event (used 744000 of 1210572 so far)
+RooAcceptReject: accepted event (used 755000 of 1210572 so far)
+RooAcceptReject: accepted event (used 768000 of 1210572 so far)
+RooAcceptReject: accepted event (used 785000 of 1210572 so far)
+RooAcceptReject: accepted event (used 805000 of 1210572 so far)
+RooAcceptReject: accepted event (used 811000 of 1210572 so far)
+RooAcceptReject: accepted event (used 813000 of 1210572 so far)
+RooAcceptReject: accepted event (used 816000 of 1210572 so far)
+RooAcceptReject: accepted event (used 818000 of 1210572 so far)
+RooAcceptReject: accepted event (used 843000 of 1210572 so far)
+RooAcceptReject: accepted event (used 846000 of 1210572 so far)
+RooAcceptReject: accepted event (used 864000 of 1210572 so far)
+RooAcceptReject: accepted event (used 865000 of 1210572 so far)
+RooAcceptReject: accepted event (used 874000 of 1210572 so far)
+RooAcceptReject: accepted event (used 900000 of 1210572 so far)
+RooAcceptReject: accepted event (used 914000 of 1210572 so far)
+RooAcceptReject: accepted event (used 920000 of 1210572 so far)
+RooAcceptReject: accepted event (used 924000 of 1210572 so far)
+RooAcceptReject: accepted event (used 934000 of 1210572 so far)
+RooAcceptReject: accepted event (used 938000 of 1210572 so far)
+RooAcceptReject: accepted event (used 951000 of 1210572 so far)
+RooAcceptReject: accepted event (used 964000 of 1210572 so far)
+RooAcceptReject: accepted event (used 966000 of 1210572 so far)
+RooAcceptReject: accepted event (used 967000 of 1210572 so far)
+RooAcceptReject: accepted event (used 974000 of 1210572 so far)
+RooAcceptReject: accepted event (used 980000 of 1210572 so far)
+RooAcceptReject: accepted event (used 982000 of 1210572 so far)
+RooAcceptReject: generated 1220000 events so far.
+RooAcceptReject: generated 1230000 events so far.
+RooAcceptReject: generated 1240000 events so far.
+RooAcceptReject: generated 1250000 events so far.
+RooAcceptReject: generated 1260000 events so far.
+RooAcceptReject: generated 1270000 events so far.
+RooAcceptReject: generated 1280000 events so far.
+RooAcceptReject: generated 1290000 events so far.
+RooAcceptReject: generated 1300000 events so far.
+RooAcceptReject: generated 1310000 events so far.
+RooAcceptReject: generated 1320000 events so far.
+RooAcceptReject: generated 1330000 events so far.
+RooAcceptReject: generated 1340000 events so far.
+RooAcceptReject: generated 1350000 events so far.
+RooAcceptReject: accepted event (used 8000 of 138678 so far)
+RooAcceptReject: accepted event (used 10000 of 138678 so far)
+RooAcceptReject: accepted event (used 12000 of 138678 so far)
+RooAcceptReject: accepted event (used 14000 of 138678 so far)
+RooAcceptReject: accepted event (used 28000 of 138678 so far)
+RooAcceptReject: accepted event (used 39000 of 138678 so far)
+RooAcceptReject: accepted event (used 43000 of 138678 so far)
+RooAcceptReject: accepted event (used 51000 of 138678 so far)
+RooAcceptReject: accepted event (used 55000 of 138678 so far)
+RooAcceptReject: accepted event (used 56000 of 138678 so far)
+RooAcceptReject: accepted event (used 58000 of 138678 so far)
+RooAcceptReject: accepted event (used 70000 of 138678 so far)
+RooAcceptReject: accepted event (used 72000 of 138678 so far)
+RooAcceptReject: accepted event (used 75000 of 138678 so far)
+RooAcceptReject: accepted event (used 80000 of 138678 so far)
+RooAcceptReject: accepted event (used 84000 of 138678 so far)
+RooAcceptReject: accepted event (used 89000 of 138678 so far)
+RooAcceptReject: accepted event (used 96000 of 138678 so far)
+RooAcceptReject: accepted event (used 100000 of 138678 so far)
+RooAcceptReject: accepted event (used 103000 of 138678 so far)
+RooAcceptReject: accepted event (used 129000 of 138678 so far)
+RooAcceptReject: accepted event (used 130000 of 138678 so far)
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 150000 entries
+  Observables: 
+    1)    qf = h-(idx = -1)
+  "final state charge"
+    2)    qt = B-(idx = -1)
+  "tagging decision"
+    3)  time = 1.84077  L(0.2 - 15)  "time [ps]"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+-------+
+  | h+ | 74925 |
+  | h- | 75075 |
+  +----+-------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+-------+
+  |       B+ | 44812 |
+  | Untagged | 60173 |
+  |       B- | 45015 |
+  +----------+-------+
+
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                     NBinsAcceptance:                              100
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.5, 0.75, 1.0, 1.0, 1.0, 1.0]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams:               ['.*_scalefactor']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xc00f020>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0x36c0d20>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x7b9eda0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x36a9aa0>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.5, 0.75, 1.0, 1.0, 1.0, 1.0]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 100}
+	C = <ROOT.RooConstVar object ("one") at 0xc28fc20>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xc00f020>
+	time = <ROOT.RooRealVar object ("time") at 0x36a8420>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xc00f020>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0x6c9a120>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0xabe36a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0xaa25620>
+	qt = <ROOT.RooCategory object ("qt") at 0xba97e20>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xc00f020>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x7c6f6a0>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0xc89b220>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xba98d20>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for Bs2DsPi_accpetance_SplineAccCoeff0: using 0.25
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for Bs2DsPi_accpetance_SplineAccCoeff1: using 0.3
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for Bs2DsPi_accpetance_SplineAccCoeff2: using 0.3
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for Bs2DsPi_accpetance_SplineAccCoeff3: using 0.3
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for Bs2DsPi_accpetance_SplineAccCoeff4: using 0.3
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for Bs2DsPi_accpetance_SplineAccCoeff5: using 0.3
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for mistag: using 0.05
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for tageff: using 0.1
+ **********
+ **   14 **MIGRAD        4000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData) first = 0 last = 150000 Likelihood offset now set to 507092
+
+prevFCN-offset = 0   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+Bs2DsPi_accpetance_SplineAccCoeff0=0.5, 
+prevFCN-offset = 0  Bs2DsPi_accpetance_SplineAccCoeff0=0.5261, 
+prevFCN-offset = 277.382355  Bs2DsPi_accpetance_SplineAccCoeff0=0.4745, [#0] WARNING:Minization -- RooMinuitGlue: Minimized function has error status.
+Returning maximum FCN so far (277.4) to force MIGRAD to back out of this region. Error log follows
+Parameter values: Bs2DsPi_accpetance_SplineAccCoeff0=0.4745, Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1, mistag=0.35, tageff=0.6
+RooBDecay::Bs2DsPi_TimePdf[ t=time tau=GammaTau dgamma=DGamma f0=Bs2DsPi_cosh f1=Bs2DsPi_sinh f2=Bs2DsPi_cos f3=Bs2DsPi_sin dm=Dm ]
+     p.d.f value is less than zero (-0.001161), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.209645, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00965174/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000106697,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00638313,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00395202), t=time=0.209645, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.209645, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00965174/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000106697,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00638313,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00395202), t=time=0.209645, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.000293), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.212428, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00163649/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -1.83322e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00104795,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0007226), t=time=0.212428, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.212428, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00163649/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -1.83322e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00104795,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0007226), t=time=0.212428, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.004489), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.205226, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0224434/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000242848,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0155162,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00800049), t=time=0.205226, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.205226, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0224434/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000242848,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0155162,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00800049), t=time=0.205226, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.005990), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.202644, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0299516/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000319993,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0211737,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00971879), t=time=0.202644, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.202644, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0299516/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000319993,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0211737,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00971879), t=time=0.202644, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.007182), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200601, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0359114/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000379777,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0257921,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0107261), t=time=0.200601, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200601, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0359114/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000379777,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0257921,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0107261), t=time=0.200601, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.003284), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.206697, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0181765/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000198096,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0123931,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0068048), t=time=0.206697, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.206697, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0181765/2.13562,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.000198096,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0123931,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.0068048), t=time=0.206697, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+    ... (remaining 400 messages suppressed)
+RooNLLVar::nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData[ paramSet=(Bs2DsPi_accpetance_SplineAccCoeff0,Bs2DsPi_accpetance_SplineAccCoeff1,Bs2DsPi_accpetance_SplineAccCoeff2,Bs2DsPi_accpetance_SplineAccCoeff3,Bs2DsPi_accpetance_SplineAccCoeff4,Bs2DsPi_accpetance_SplineAccCoeff5,DGamma,Dm,Gamma,mistag,resmodel00_sigma,tageff,timeerr_bias,timeerr_scalefactor) ]
+     function value is NAN @ paramSet=(Bs2DsPi_accpetance_SplineAccCoeff0 = 0.474469,Bs2DsPi_accpetance_SplineAccCoeff1 = 0.75,Bs2DsPi_accpetance_SplineAccCoeff2 = 1,Bs2DsPi_accpetance_SplineAccCoeff3 = 1,Bs2DsPi_accpetance_SplineAccCoeff4 = 1,Bs2DsPi_accpetance_SplineAccCoeff5 = 1,DGamma = 0.106,Dm = 17.719,Gamma = 0.661,mistag = 0.35,resmodel00_sigma = 0.04,tageff = 0.6,timeerr_bias = 0,timeerr_scalefactor = 1)
+
+
+prevFCN-offset = 278.382355  Bs2DsPi_accpetance_SplineAccCoeff0=0.5026, 
+prevFCN-offset = 3.319898784  Bs2DsPi_accpetance_SplineAccCoeff0=0.4974, 
+prevFCN-offset = 4.992508158  Bs2DsPi_accpetance_SplineAccCoeff0=0.5003, 
+prevFCN-offset = -0.02035941364  Bs2DsPi_accpetance_SplineAccCoeff0=0.4997, 
+prevFCN-offset = 0.1031587999  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7808, [#0] WARNING:Minization -- RooMinuitGlue: Minimized function has error status.
+Returning maximum FCN so far (277.4) to force MIGRAD to back out of this region. Error log follows
+Parameter values: Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7808, Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1, mistag=0.35, tageff=0.6
+RooBDecay::Bs2DsPi_TimePdf[ t=time tau=GammaTau dgamma=DGamma f0=Bs2DsPi_cosh f1=Bs2DsPi_sinh f2=Bs2DsPi_cos f3=Bs2DsPi_sin dm=Dm ]
+     p.d.f value is less than zero (-0.000331), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.202644, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00165619/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -1.76942e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00117081,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.000537406), t=time=0.202644, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.202644, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00165619/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -1.76942e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00117081,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.000537406), t=time=0.202644, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.001538), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200601, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00769054/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -8.13305e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00552346,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00229702), t=time=0.200601, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200601, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00769054/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -8.13305e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00552346,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00229702), t=time=0.200601, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.8, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.000789), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200936, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00669978/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -7.09718e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00479992,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00202964), t=time=0.200936, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200936, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00669978/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -7.09718e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00479992,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00202964), t=time=0.200936, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.000233), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.202537, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0019715/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -2.10517e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00139493,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.000637078), t=time=0.202537, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.202537, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.0019715/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -2.10517e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00139493,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.000637078), t=time=0.202537, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.001072), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.201212, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00588374/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -6.24134e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00420651,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00180303), t=time=0.201212, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.201212, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00588374/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -6.24134e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00420651,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00180303), t=time=0.201212, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     p.d.f value is less than zero (-0.001382), forcing value to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200638, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00758037/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -8.01803e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00544284,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00226771), t=time=0.200638, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_accpetance_SplineAcceptance_resmodel=0, !convVar=time=0.200638, !convSet=(Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -0.00758037/2.15891,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] = -8.01803e-05,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00544284,Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] = 0.00226771), t=time=0.200638, tau=GammaTau=1.51286, dgamma=DGamma=0.106, f0=Bs2DsPi_cosh=0.6, f1=Bs2DsPi_sinh=0, f2=Bs2DsPi_cos=-0.18, f3=Bs2DsPi_sin=0, dm=Dm=17.719
+    ... (remaining 98 messages suppressed)
+RooNLLVar::nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData[ paramSet=(Bs2DsPi_accpetance_SplineAccCoeff0,Bs2DsPi_accpetance_SplineAccCoeff1,Bs2DsPi_accpetance_SplineAccCoeff2,Bs2DsPi_accpetance_SplineAccCoeff3,Bs2DsPi_accpetance_SplineAccCoeff4,Bs2DsPi_accpetance_SplineAccCoeff5,DGamma,Dm,Gamma,mistag,resmodel00_sigma,tageff,timeerr_bias,timeerr_scalefactor) ]
+     function value is NAN @ paramSet=(Bs2DsPi_accpetance_SplineAccCoeff0 = 0.5,Bs2DsPi_accpetance_SplineAccCoeff1 = 0.780778,Bs2DsPi_accpetance_SplineAccCoeff2 = 1,Bs2DsPi_accpetance_SplineAccCoeff3 = 1,Bs2DsPi_accpetance_SplineAccCoeff4 = 1,Bs2DsPi_accpetance_SplineAccCoeff5 = 1,DGamma = 0.106,Dm = 17.719,Gamma = 0.661,mistag = 0.35,resmodel00_sigma = 0.04,tageff = 0.6,timeerr_bias = 0,timeerr_scalefactor = 1)
+
+
+prevFCN-offset = 278.382355  Bs2DsPi_accpetance_SplineAccCoeff1=0.7196, 
+prevFCN-offset = -27.85653598  Bs2DsPi_accpetance_SplineAccCoeff1=0.7531, 
+prevFCN-offset = 21.03544814  Bs2DsPi_accpetance_SplineAccCoeff1=0.7469, 
+prevFCN-offset = -16.5935886  Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, 
+prevFCN-offset = 1.8940761  Bs2DsPi_accpetance_SplineAccCoeff1=0.7497, 
+prevFCN-offset = -1.849767841  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1.03, 
+prevFCN-offset = 84.16729623  Bs2DsPi_accpetance_SplineAccCoeff2=0.9698, 
+prevFCN-offset = -77.75943144  Bs2DsPi_accpetance_SplineAccCoeff2=1.003, 
+prevFCN-offset = 8.131222553  Bs2DsPi_accpetance_SplineAccCoeff2=0.997, 
+prevFCN-offset = -8.067137783  Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1.03, 
+prevFCN-offset = -1.620886872  Bs2DsPi_accpetance_SplineAccCoeff3=0.9698, 
+prevFCN-offset = 10.36632616  Bs2DsPi_accpetance_SplineAccCoeff3=1.003, 
+prevFCN-offset = -0.5516226517  Bs2DsPi_accpetance_SplineAccCoeff3=0.997, 
+prevFCN-offset = 0.6390829092  Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1.03, 
+prevFCN-offset = -146.4495087  Bs2DsPi_accpetance_SplineAccCoeff4=0.9698, 
+prevFCN-offset = 163.1198136  Bs2DsPi_accpetance_SplineAccCoeff4=1.003, 
+prevFCN-offset = -15.38494518  Bs2DsPi_accpetance_SplineAccCoeff4=0.997, 
+prevFCN-offset = 15.55164414  Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1.03, 
+prevFCN-offset = -46.75680496  Bs2DsPi_accpetance_SplineAccCoeff5=0.9698, 
+prevFCN-offset = 49.86286539  Bs2DsPi_accpetance_SplineAccCoeff5=1.003, 
+prevFCN-offset = -4.815512697  Bs2DsPi_accpetance_SplineAccCoeff5=0.997, 
+prevFCN-offset = 4.846578502  Bs2DsPi_accpetance_SplineAccCoeff5=1, mistag=0.355, 
+prevFCN-offset = 1.475813196  mistag=0.3449, 
+prevFCN-offset = 1.381842404  mistag=0.3505, 
+prevFCN-offset = 0.02062295994  mistag=0.3495, 
+prevFCN-offset = 0.007955957961  mistag=0.35, tageff=0.6101, 
+prevFCN-offset = 39.08110423  tageff=0.5899, 
+prevFCN-offset = 24.4589736  tageff=0.601, 
+prevFCN-offset = 1.044326337  tageff=0.599, 
+prevFCN-offset = -0.4089727546  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, tageff=0.6, 
+prevFCN-offset = -7.378123701e-05  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, 
+prevFCN-offset = 7.390038809e-05  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.75, 
+prevFCN-offset = 0.003070341132  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, 
+prevFCN-offset = -0.003070221981  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1, 
+prevFCN-offset = 0.0110464461  Bs2DsPi_accpetance_SplineAccCoeff2=1, 
+prevFCN-offset = -0.01104632666  Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1, 
+prevFCN-offset = -0.0006949558156  Bs2DsPi_accpetance_SplineAccCoeff3=1, 
+prevFCN-offset = 0.0006950751413  Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1, 
+prevFCN-offset = -0.01308055507  Bs2DsPi_accpetance_SplineAccCoeff4=1, 
+prevFCN-offset = 0.01308067446  Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1, 
+prevFCN-offset = -0.009463508846  Bs2DsPi_accpetance_SplineAccCoeff5=1, 
+prevFCN-offset = 0.009463628172  Bs2DsPi_accpetance_SplineAccCoeff5=1, mistag=0.35, 
+prevFCN-offset = 1.302862074e-05  mistag=0.35, 
+prevFCN-offset = -1.290941145e-05  mistag=0.35, tageff=0.6, 
+prevFCN-offset = 0.0003147948883  tageff=0.6, 
+prevFCN-offset = -0.0003146756208  Bs2DsPi_accpetance_SplineAccCoeff0=0.5003, Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, tageff=0.6, 
+prevFCN-offset = 1.814682715  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1.003, 
+prevFCN-offset = 8.101551182  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, 
+prevFCN-offset = 10.03250077  Bs2DsPi_accpetance_SplineAccCoeff0=0.5003, Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1.003, 
+prevFCN-offset = -0.5841522997  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, 
+prevFCN-offset = 1.345502136  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1.003, 
+prevFCN-offset = 7.592773308  Bs2DsPi_accpetance_SplineAccCoeff0=0.5003, Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1.003, 
+prevFCN-offset = -15.42315716  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, 
+prevFCN-offset = -13.48801045  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1.003, 
+prevFCN-offset = -7.320204081  Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1.003, 
+prevFCN-offset = -15.95447065  Bs2DsPi_accpetance_SplineAccCoeff0=0.5003, Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1.003, 
+prevFCN-offset = -4.841084664  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, 
+prevFCN-offset = -2.920603687  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1.003, 
+prevFCN-offset = 3.295036785  Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1.003, 
+prevFCN-offset = -5.390755481  Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1.003, 
+prevFCN-offset = -20.16296996  Bs2DsPi_accpetance_SplineAccCoeff0=0.5003, Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1, mistag=0.3505, 
+prevFCN-offset = 0.0002635463024  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, 
+prevFCN-offset = 1.91469906  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1.003, 
+prevFCN-offset = 8.151845513  Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1.003, 
+prevFCN-offset = -0.5309996917  Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1.003, 
+prevFCN-offset = -15.36432222  Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1.003, 
+prevFCN-offset = -4.794889737  Bs2DsPi_accpetance_SplineAccCoeff0=0.5003, Bs2DsPi_accpetance_SplineAccCoeff5=1, mistag=0.35, tageff=0.601, 
+prevFCN-offset = 1.023966923  Bs2DsPi_accpetance_SplineAccCoeff0=0.5, Bs2DsPi_accpetance_SplineAccCoeff1=0.7503, 
+prevFCN-offset = 2.938402437  Bs2DsPi_accpetance_SplineAccCoeff1=0.75, Bs2DsPi_accpetance_SplineAccCoeff2=1.003, 
+prevFCN-offset = 9.17554889  Bs2DsPi_accpetance_SplineAccCoeff2=1, Bs2DsPi_accpetance_SplineAccCoeff3=1.003, 
+prevFCN-offset = 0.4927036851  Bs2DsPi_accpetance_SplineAccCoeff3=1, Bs2DsPi_accpetance_SplineAccCoeff4=1.003, 
+prevFCN-offset = -14.34061884  Bs2DsPi_accpetance_SplineAccCoeff4=1, Bs2DsPi_accpetance_SplineAccCoeff5=1.003, 
+prevFCN-offset = -3.77118636  Bs2DsPi_accpetance_SplineAccCoeff5=1, mistag=0.3505, 
+prevFCN-offset = 1.064949297   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=0 FROM HESSE     STATUS=OK             81 CALLS          82 TOTAL
+                     EDM=1497.27    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Bs2DsPi_accpetance_SplineAccCoeff0   5.00000e-01   1.24021e-02   2.30756e-04  -2.66687e+02
+   2  Bs2DsPi_accpetance_SplineAccCoeff1   7.50000e-01   1.89324e-02   2.35352e-04   7.95329e+03
+   3  Bs2DsPi_accpetance_SplineAccCoeff2   1.00000e+00   2.85125e-02   2.14402e-03   3.77758e+03
+   4  Bs2DsPi_accpetance_SplineAccCoeff3   1.00000e+00   2.50215e-02   2.14402e-03  -2.77661e+02
+   5  Bs2DsPi_accpetance_SplineAccCoeff4   1.00000e+00   2.00055e-02   2.14402e-03  -7.21456e+03
+   6  Bs2DsPi_accpetance_SplineAccCoeff5   1.00000e+00   3.87246e-02   2.14402e-03  -2.25326e+03
+   7  mistag       3.50000e-01   2.99625e-03   2.21072e-03   2.87238e+00
+   8  tageff       6.00000e-01   1.26461e-03   2.05758e-03   3.53135e+02
+                               ERR DEF= 0.5
+Bs2DsPi_accpetance_SplineAccCoeff0=0.1601, Bs2DsPi_accpetance_SplineAccCoeff1=0.2176, Bs2DsPi_accpetance_SplineAccCoeff2=0.2599, Bs2DsPi_accpetance_SplineAccCoeff3=0.4708, Bs2DsPi_accpetance_SplineAccCoeff4=0.6386, Bs2DsPi_accpetance_SplineAccCoeff5=0.3457, mistag=0.3499, tageff=0.5988, 
+prevFCN-offset = 1489.912513  Bs2DsPi_accpetance_SplineAccCoeff0=0.3683, Bs2DsPi_accpetance_SplineAccCoeff1=0.5439, Bs2DsPi_accpetance_SplineAccCoeff2=0.7143, Bs2DsPi_accpetance_SplineAccCoeff3=0.8089, Bs2DsPi_accpetance_SplineAccCoeff4=0.8738, Bs2DsPi_accpetance_SplineAccCoeff5=0.7552, mistag=0.35, tageff=0.5996, 
+prevFCN-offset = -802.3612624  Bs2DsPi_accpetance_SplineAccCoeff0=0.3683, 
+prevFCN-offset = -802.3580262  Bs2DsPi_accpetance_SplineAccCoeff0=0.3683, 
+prevFCN-offset = -802.364487  Bs2DsPi_accpetance_SplineAccCoeff0=0.3683, 
+prevFCN-offset = -802.3425274  Bs2DsPi_accpetance_SplineAccCoeff0=0.3682, 
+prevFCN-offset = -802.3796145  Bs2DsPi_accpetance_SplineAccCoeff0=0.3683, Bs2DsPi_accpetance_SplineAccCoeff1=0.5439, 
+prevFCN-offset = -802.346632  Bs2DsPi_accpetance_SplineAccCoeff1=0.5439, 
+prevFCN-offset = -802.3758812  Bs2DsPi_accpetance_SplineAccCoeff1=0.5439, 
+prevFCN-offset = -802.2770587  Bs2DsPi_accpetance_SplineAccCoeff1=0.5438, 
+prevFCN-offset = -802.4450832  Bs2DsPi_accpetance_SplineAccCoeff1=0.5439, Bs2DsPi_accpetance_SplineAccCoeff2=0.7143, 
+prevFCN-offset = -802.3115218  Bs2DsPi_accpetance_SplineAccCoeff2=0.7142, 
+prevFCN-offset = -802.4109846  Bs2DsPi_accpetance_SplineAccCoeff2=0.7144, 
+prevFCN-offset = -802.1339407  Bs2DsPi_accpetance_SplineAccCoeff2=0.7141, 
+prevFCN-offset = -802.5882013  Bs2DsPi_accpetance_SplineAccCoeff2=0.7143, Bs2DsPi_accpetance_SplineAccCoeff3=0.8089, 
+prevFCN-offset = -802.369996  Bs2DsPi_accpetance_SplineAccCoeff3=0.8088, 
+prevFCN-offset = -802.3525124  Bs2DsPi_accpetance_SplineAccCoeff3=0.809, 
+prevFCN-offset = -802.4033487  Bs2DsPi_accpetance_SplineAccCoeff3=0.8087, 
+prevFCN-offset = -802.3187932  Bs2DsPi_accpetance_SplineAccCoeff3=0.8089, Bs2DsPi_accpetance_SplineAccCoeff4=0.8739, 
+prevFCN-offset = -802.4324427  Bs2DsPi_accpetance_SplineAccCoeff4=0.8738, 
+prevFCN-offset = -802.2900678  Bs2DsPi_accpetance_SplineAccCoeff4=0.874, 
+prevFCN-offset = -802.7293171  Bs2DsPi_accpetance_SplineAccCoeff4=0.8737, 
+prevFCN-offset = -801.9928248  Bs2DsPi_accpetance_SplineAccCoeff4=0.8738, Bs2DsPi_accpetance_SplineAccCoeff5=0.7553, 
+prevFCN-offset = -802.4134636  Bs2DsPi_accpetance_SplineAccCoeff5=0.7552, 
+prevFCN-offset = -802.3090472  Bs2DsPi_accpetance_SplineAccCoeff5=0.7555, 
+prevFCN-offset = -802.6350101  Bs2DsPi_accpetance_SplineAccCoeff5=0.7549, 
+prevFCN-offset = -802.0871319  Bs2DsPi_accpetance_SplineAccCoeff5=0.7552, mistag=0.35, 
+prevFCN-offset = -802.36117  mistag=0.35, 
+prevFCN-offset = -802.3613428  mistag=0.35, 
+prevFCN-offset = -802.3605815  mistag=0.3499, 
+prevFCN-offset = -802.3615604  mistag=0.35, tageff=0.5996, 
+prevFCN-offset = -802.3591598  tageff=0.5996, 
+prevFCN-offset = -802.363353  tageff=0.5996, 
+prevFCN-offset = -802.3491887  tageff=0.5996, 
+prevFCN-offset = -802.3729533  Bs2DsPi_accpetance_SplineAccCoeff0=0.268, Bs2DsPi_accpetance_SplineAccCoeff1=0.3836, Bs2DsPi_accpetance_SplineAccCoeff2=0.586, Bs2DsPi_accpetance_SplineAccCoeff3=0.7097, Bs2DsPi_accpetance_SplineAccCoeff4=0.8329, Bs2DsPi_accpetance_SplineAccCoeff5=0.6654, mistag=0.3499, tageff=0.5988, 
+prevFCN-offset = -904.5581218  Bs2DsPi_accpetance_SplineAccCoeff0=0.3068, Bs2DsPi_accpetance_SplineAccCoeff1=0.4455, Bs2DsPi_accpetance_SplineAccCoeff2=0.6367, Bs2DsPi_accpetance_SplineAccCoeff3=0.7492, Bs2DsPi_accpetance_SplineAccCoeff4=0.8493, Bs2DsPi_accpetance_SplineAccCoeff5=0.7012, mistag=0.3499, tageff=0.5991, 
+prevFCN-offset = -1004.61892  Bs2DsPi_accpetance_SplineAccCoeff0=0.3068, 
+prevFCN-offset = -1004.633537  Bs2DsPi_accpetance_SplineAccCoeff0=0.3068, 
+prevFCN-offset = -1004.603867  Bs2DsPi_accpetance_SplineAccCoeff0=0.3068, Bs2DsPi_accpetance_SplineAccCoeff1=0.4456, 
+prevFCN-offset = -1004.593448  Bs2DsPi_accpetance_SplineAccCoeff1=0.4455, 
+prevFCN-offset = -1004.643966  Bs2DsPi_accpetance_SplineAccCoeff1=0.4455, Bs2DsPi_accpetance_SplineAccCoeff2=0.6368, 
+prevFCN-offset = -1004.596381  Bs2DsPi_accpetance_SplineAccCoeff2=0.6365, 
+prevFCN-offset = -1004.6409  Bs2DsPi_accpetance_SplineAccCoeff2=0.6367, Bs2DsPi_accpetance_SplineAccCoeff3=0.7494, 
+prevFCN-offset = -1004.64149  Bs

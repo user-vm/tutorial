@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 10;
+NUMCAT = 5;
 
 def drawDsPlot(ds):
 
@@ -239,6 +239,7 @@ if None == SEED:
 # then read config dictionary from a file
 from B2DXFitters.utils import configDictFromFile
 config = configDictFromFile('time-conf003.py')
+config1 = configDictFromFile('fit-time-conf003.py')
 print config
 #config['MistagCalibParams']['etaavg']=0.2
 #config['TrivialMistagParams']['omegaavg']=0.2
@@ -308,9 +309,11 @@ def buildTimePdf(config):
     eta = WS(ws, RooRealVar('eta', 'eta', 0.35,
         0.0 if 'FIT' in config['Context'] else (1. + 1e-5) * max(0.0,
         config['TrivialMistagParams']['omega0']), 0.5))
-    tageff = WS(ws, RooRealVar('tageff', 'tageff', 0.60, 0.0, 1.0))
+    tageff = WS(ws, RooRealVar('tageff', 'tageff', 0.60, 1.0, 1.0))
     timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
-    
+    # fit average mistag
+    # add mistagged 
+    #ge rid of untagged events by putting restriction on qf or something when reduceing ds
     # now build the PDF
     from B2DXFitters.timepdfutils import buildBDecayTimePdf
     from B2DXFitters.resmodelutils import getResolutionModel
@@ -336,7 +339,7 @@ def buildTimePdf(config):
         'Bs2DsPi_mistagpdf', 'Bs2DsPi_mistagpdf',
         eta, mistagpdfparams['omega0'], mistagpdfparams['omegaavg'],
         mistagpdfparams['f']))
-    # build mistag calibration
+    # build mistag calibration DELETE THIS LATER
     mistagcalibparams = {} # start with parameters of calibration
     for sfx in ('p0', 'p1', 'etaavg'):
         mistagcalibparams[sfx] = WS(ws, RooRealVar(
@@ -348,8 +351,8 @@ def buildTimePdf(config):
     # build mistag pdf itself
     omega = WS(ws, MistagCalibration(
         'Bs2DsPi_mistagcalib', 'Bs2DsPi_mistagcalib',
-        eta, mistagcalibparams['p0'], mistagcalibparams['p1'],
-        mistagcalibparams['etaavg']))
+        eta, mistagcalibparams['p0'], mistagcalibparams['p1']))#,
+        #mistagcalibparams['etaavg']))
 
     # build the time pdf
     pdf = buildBDecayTimePdf(
@@ -380,8 +383,8 @@ genconfig['ParameteriseIntegral'] = False
 genpdf = buildTimePdf(genconfig)
 
 # generate 15K events
-print '15K'
-ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 15000, RooFit.Verbose())
+print '150K'
+ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
 #saveEta(ds);
 
 #import sys
@@ -416,34 +419,39 @@ ds.addColumn(xRegions)
 for i in range(NUMCAT):
 
     # use workspace for fit pdf in such a simple fit
-    config['Context'] = 'FIT'
-    config['NBinsAcceptance'] = 0
-    #avgEta = ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)).getValV();
-    #config['MistagCalibParams']['etaavg'] = avgEta;
-    #config['TrivialMistagParams']['omegaavg'] = avgEta;
-    
-    fitpdf = buildTimePdf(config)
+    config1['Context'] = 'FIT'
+    config1['NBinsAcceptance'] = 0
+    config1['MistagCalibParams']['etaavg']= ds.meanVar(ds.get().find('eta')).getValV();
+    config1['TrivialMistagParams']['omegaavg']= ds.meanVar(ds.get().find('eta')).getValV();
+
+    fitpdf = buildTimePdf(config1)
     # add data set to fitting workspace
-    ds1 = WS(fitpdf['ws'], ds.reduce("tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)))
+    ds1 = WS(fitpdf['ws'], ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)+"&&qt!=qt::Untagged"))
+    fitpdf['ws'].var('tageff').setVal(1.0);
+    fitpdf['ws'].var('tageff').setMax(1.0);
+    fitpdf['ws'].var('tageff').setMin(1.0);
+    print "\n-------PRINTING DS1--------\n"
+    ds1.Print('v')
+    for o in genpdf['obs']:
+        if not o.InheritsFrom('RooAbsCategory'): continue
+        ds1.table(o).Print('v')
+    print "\n---------------------------\n"
     #drawDsPlot(ds1)
-    #xRegions = WS(fitpdf['ws'],createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT));
-    #ds.addColumn(xRegions);
-    
-    #ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).Print();
+
     # set constant what is supposed to be constant
     from B2DXFitters.utils import setConstantIfSoConfigured
-    setConstantIfSoConfigured(config, fitpdf['pdf'])
+    setConstantIfSoConfigured(config1, fitpdf['pdf'])
 
     # set up fitting options
     fitopts = [ RooFit.Timer(), RooFit.Save(),
-                RooFit.Strategy(config['FitConfig']['Strategy']),
-                RooFit.Optimize(config['FitConfig']['Optimize']),
-                RooFit.Offset(config['FitConfig']['Offset']),
-                RooFit.NumCPU(config['FitConfig']['NumCPU']) ]
+                RooFit.Strategy(config1['FitConfig']['Strategy']),
+                RooFit.Optimize(config1['FitConfig']['Optimize']),
+                RooFit.Offset(config1['FitConfig']['Offset']),
+                RooFit.NumCPU(config1['FitConfig']['NumCPU']) ]
 
     # set up blinding for data
-    fitopts.append(RooFit.Verbose(not (config['IsData'] and config['Blinding'])))
-    if config['IsData'] and config['Blinding']:
+    fitopts.append(RooFit.Verbose(not (config1['IsData'] and config1['Blinding'])))
+    if config1['IsData'] and config1['Blinding']:
         from ROOT import RooMsgService
         RooMsgService.instance().setGlobalKillBelow(RooFit.WARNING)                                                                                                                             
         fitopts.append(RooFit.PrintLevel(-1))
@@ -455,47 +463,31 @@ for i in range(NUMCAT):
     rawfitresultList.AddLast(rawfitresult.floatParsFinal().find('tageff'));
     p0List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p0'));
     p1List.AddLast(rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p1'));
-    #ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)).get().find('eta')
-'''
+    print "\n\n\nbleah\n",rawfitresult.floatParsFinal().Print(),"\n\nboh\n\n\n\n";
     # pretty-print the result
     from B2DXFitters.FitResult import getDsHBlindFitResult
-    result = getDsHBlindFitResult(config['IsData'], config['Blinding'],
+    result = getDsHBlindFitResult(config1['IsData'], config1['Blinding'],
         rawfitresult)
-    print result'''
+    print result
 
-tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-p0ValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-p0ErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-p1ValVList = n.zeros(rawfitresultList.GetSize(),dtype = float);
-p1ErrorList = n.zeros(rawfitresultList.GetSize(),dtype = float);
+ds.get().Print();
 
+#import sys
+#sys.exit(0);
+
+#print the tageff, average eta, p0 and p1 values and errors, and save them as TLists of RooAbsArg
 etaAvgValVarList = TList()
 
-for i in range(rawfitresultList.GetSize()):
-
-    tageffValVList[i] = rawfitresultList.At(i).getValV();
-    tageffErrorList[i] = rawfitresultList.At(i).getError();
-    p0ValVList[i] = p0List.At(i).getValV();
-    p0ErrorList[i] = p0List.At(i).getError();
-    p1ValVList[i] = p1List.At(i).getValV();
-    p1ErrorList[i] = p1List.At(i).getError();
-    etaAvgValList[i] =ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)).getValV();
-    etaAvgErrorList[i] = ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)).getError();
-    etaAvgValVarList.AddLast(ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(NUMCAT-i)))
-
-print "\n\n"
+print "Tageff, avg. eta, p0, p1 (for each category):"
 
 for i in range(rawfitresultList.GetSize()):
 
-    print "tageff =", tageffValVList[i],"+-",tageffErrorList[i],", etaAvg=", etaAvgValList[i], "+-", etaAvgErrorList[i], ", p0 =", p0ValVList[i], "+-", p0ErrorList[i], ", p1 =", p1ValVList[i], "+-", p1ErrorList[i]
+    etaAvgValVarList.AddLast(ds.meanVar(ds.get().find('eta'),"tageffRegion==tageffRegion::Cat"+str(i+1)))
+    print "tageff =", rawfitresultList.At(i).getValV(),"+-",rawfitresultList.At(i).getError(),", etaAvg=", etaAvgValVarList.At(i).getValV(), "+-", etaAvgValVarList.At(i).getError(), ", p0 =", p0List.At(i).getValV(), "+-", p0List.At(i).getError(), ", p1 =", p1List.At(i).getValV(), "+-", p1List.At(i).getError()
 
 #raw_input("Press Enter to continue");
 
 #write fit result list to file
-
 from ROOT import TFile
 g = TFile('fitresultlist/fitresultlist_%04d.root' % SEED, 'recreate')
 g.WriteTObject(p1List, 'fitresultlist/fitresultlist003_%04d' % SEED)
@@ -507,9 +499,9 @@ del g
 
 import sys
 sys.exit(0)
-
+#-----------------------------------------------------------------------
 #ENDS HERE
-
+#-----------------------------------------------------------------------
 #in case you want to plot the tageff vs eta
 
 from ROOT import TGraphErrors, TGraph
