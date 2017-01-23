@@ -542,6 +542,7 @@ from ROOT import RooDataSet, RooArgSet
 from ROOT import TList
 
 mistagresultList = TList();
+etaAvgList = TList();
 
 xRegions = createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT);
 ds.addColumn(xRegions)
@@ -557,6 +558,7 @@ for i in range(NUMCAT):
     fitpdf = buildTimePdf(config1)
     # add data set to fitting workspace
     ds1 = WS(fitpdf['ws'], ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)+"&&qt!=qt::Untagged"))
+    etaAvgList.AddLast(ds1.meanVar(ds1.get().find('eta')))
 
     print "\n-------PRINTING DS1--------\n"
     ds1.Print('v')
@@ -602,6 +604,13 @@ ds.get().Print();
 for i in range(mistagresultList.GetSize()):
 
     print "mistag =",mistagresultList.At(i).getValV(),"+-",mistagresultList.At(i).getError()
+
+from ROOT import TFile
+g = TFile('fitresultlist/fitresultlist_%04d.root' % SEED, 'recreate')
+g.WriteTObject(mistagresultList, 'fitresultlist/fitresultlist003_%04d' % SEED)
+g.WriteTObject(etaAvgList, 'fitresultlist/fitresultlist003_%04d' % SEED)
+g.Close()
+del g
 
 #import sys
 #sys.exit(0);

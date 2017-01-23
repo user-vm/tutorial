@@ -1,0 +1,1038 @@
+Script started on Mon Jan 23 22:10:23 2017
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[?1034h[user@localhost tutorial]$ time    ./time-tut003.py 1510
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+Error in <TCling::RegisterModule>: cannot find dictionary module B2DXFittersDict_rdict.pcm
+DEBUG: argument - is no number, trying next argument asseed
+{'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'TrivialMistagParams': {'f': 0.25, 'omega0': 0.07, 'omegaavg': 0.35}, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 100}
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              GEN
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                  NBinsProperTimeErr:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                 TrivialMistagParams: {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = <ROOT.RooProduct object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised") at 0xbc61820>
+	Dbar = <ROOT.RooConstVar object ("zero") at 0x79b4820>
+	mistagpdf = [<ROOT.MistagDistribution object ("Bs2DsPi_mistagpdf") at 0xc8f2020>]
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0xac0a8a0>]]
+	mistagobs = <ROOT.RooRealVar object ("eta") at 0x487e420>
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x4b6ad20>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0xacb4d20>]
+	kvar = None
+	atageff = None
+	config = {'Context': 'GEN', 'ParameteriseIntegral': False, 'UseKFactor': False, 'TrivialMistagParams': {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}, 'IsData': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'NBinsAcceptance': 0, 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'DecayTimeResolutionBias': 0.0, 'Debug': True, 'AcceptanceFunction': 'Spline', 'NBinsProperTimeErr': 0, 'FitConfig': {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'Blinding': True, 'DecayTimeResolutionScaleFactor': 1.0}
+	C = <ROOT.RooConstVar object ("one") at 0x292a820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0x79b4820>
+	time = <ROOT.RooRealVar object ("time") at 0xacaf220>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0x79b4820>
+	ws = <ROOT.RooWorkspace object ("ws_GEN") at 0x8e3a120>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0xabf44a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0xabf0da0>
+	qt = <ROOT.RooCategory object ("qt") at 0xb9b0f20>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0x79b4820>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x96efaa0>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel") at 0xc8a7e20>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xbaa8a20>
+	)
+########################################################################
+15K
+RooAcceptReject: accepted event (used 1000 of 6000 so far)
+RooAcceptReject: accepted event (used 2000 of 6000 so far)
+RooAcceptReject: accepted event (used 3000 of 6000 so far)
+RooAcceptReject: generated 10000 events so far.
+RooAcceptReject: generated 20000 events so far.
+RooAcceptReject: generated 30000 events so far.
+RooAcceptReject: generated 40000 events so far.
+RooAcceptReject: generated 50000 events so far.
+RooAcceptReject: accepted event (used 3000 of 52051 so far)
+RooAcceptReject: accepted event (used 9000 of 52051 so far)
+RooAcceptReject: accepted event (used 12000 of 52051 so far)
+RooAcceptReject: accepted event (used 15000 of 52051 so far)
+RooAcceptReject: accepted event (used 21000 of 52051 so far)
+RooAcceptReject: accepted event (used 24000 of 52051 so far)
+RooAcceptReject: accepted event (used 25000 of 52051 so far)
+RooAcceptReject: accepted event (used 26000 of 52051 so far)
+RooAcceptReject: accepted event (used 29000 of 52051 so far)
+RooAcceptReject: accepted event (used 33000 of 52051 so far)
+RooAcceptReject: accepted event (used 35000 of 52051 so far)
+RooAcceptReject: accepted event (used 36000 of 52051 so far)
+RooAcceptReject: accepted event (used 38000 of 52051 so far)
+RooAcceptReject: accepted event (used 41000 of 52051 so far)
+RooAcceptReject: accepted event (used 42000 of 52051 so far)
+RooAcceptReject: accepted event (used 45000 of 52051 so far)
+RooAcceptReject: accepted event (used 46000 of 52051 so far)
+RooAcceptReject: accepted event (used 47000 of 52051 so far)
+RooAcceptReject: accepted event (used 51000 of 52051 so far)
+RooAcceptReject: generated 60000 events so far.
+RooAcceptReject: generated 70000 events so far.
+RooAcceptReject: accepted event (used 2000 of 19800 so far)
+RooAcceptReject: accepted event (used 7000 of 19800 so far)
+RooAcceptReject: accepted event (used 8000 of 19800 so far)
+RooAcceptReject: accepted event (used 9000 of 19800 so far)
+RooAcceptReject: accepted event (used 11000 of 19800 so far)
+RooAcceptReject: accepted event (used 15000 of 19800 so far)
+RooAcceptReject: accepted event (used 18000 of 19800 so far)
+RooAcceptReject: generated 80000 events so far.
+RooAcceptReject: accepted event (used 6000 of 6964 so far)
+RooAcceptReject: accepted event (used 1000 of 2570 so far)
+RooAcceptReject: accepted event (used 2000 of 2570 so far)
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 15000 entries
+  Observables: 
+    1)    qf = h+(idx = 1)
+  "final state charge"
+    2)    qt = B-(idx = -1)
+  "tagging decision"
+    3)  time = 2.12688  L(0.2 - 15)  "time [ps]"
+    4)   eta = 0.413753  L(0 - 0.5)  "eta"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 7484 |
+  | h- | 7516 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 7555 |
+  | Untagged |    0 |
+  |       B- | 7445 |
+  +----------+------+
+
+[0, 56, 67, 75, 84]
+Cat1:<0.2775 Cat2:<0.3325 Cat3:<0.3725 Cat4:<0.4175 Cat5:*Cat4CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xdae5420>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0x4807aa0>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x7a68020>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0xc4a7aa0>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 0}
+	C = <ROOT.RooConstVar object ("one") at 0xdae4820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xdae5420>
+	time = <ROOT.RooRealVar object ("time") at 0x48756a0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xdae5420>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0xcc05620>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x7a81220>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x470e420>
+	qt = <ROOT.RooCategory object ("qt") at 0xcea0a20>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xdae5420>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x7c20da0>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0xc12a820>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xbaaa320>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooRealVar::eta
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooCategory::tageffRegion
+
+-------PRINTING DS1--------
+
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 2865 entries
+  Observables: 
+    1)            qf = h+(idx = 1)
+  "final state charge"
+    2)            qt = B-(idx = -1)
+  "tagging decision"
+    3)          time = 7.94242  L(0.2 - 15)  "time [ps]"
+    4)           eta = 0.212255  L(0 - 0.5)  "eta"
+    5)  tageffRegion = Cat1(idx = 1)
+  "region of tageff"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 1456 |
+  | h- | 1409 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 1411 |
+  | Untagged |    0 |
+  |       B- | 1454 |
+  +----------+------+
+
+
+---------------------------
+
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for mistag: using 0.05
+ **********
+ **   14 **MIGRAD         500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData) first = 0 last = 2865 Likelihood offset now set to 8416.68
+
+prevFCN-offset = -1.818989404e-12   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = -1.818989404e-12  mistag=0.355, 
+prevFCN-offset = 0.2764512072  mistag=0.3449, 
+prevFCN-offset = -0.1890452746  mistag=0.3505, 
+prevFCN-offset = 0.0237646697  mistag=0.3495, 
+prevFCN-offset = -0.0228905359  mistag=0.35, 
+prevFCN-offset = 0.0002724840815  mistag=0.35, 
+prevFCN-offset = -0.000272364874   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-1.81899e-12 FROM HESSE     STATUS=OK              7 CALLS           8 TOTAL
+                     EDM=0.311281    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.50000e-01   1.71167e-02   2.21072e-03   1.05523e+01
+                               ERR DEF= 0.5
+mistag=0.3363, 
+prevFCN-offset = -0.3013426701  mistag=0.3363, 
+prevFCN-offset = -0.3013656611  mistag=0.3363, 
+prevFCN-offset = -0.3013192613  mistag=0.3369, 
+prevFCN-offset = -0.3019861683  mistag=0.337, 
+prevFCN-offset = -0.3019850411  mistag=0.3369, 
+prevFCN-offset = -0.3019869145   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+mistag=0.3369, 
+prevFCN-offset = -0.3019861683  mistag=0.337, 
+prevFCN-offset = -0.3019850411  mistag=0.3369, 
+prevFCN-offset = -0.3019869145  mistag=0.3369, 
+prevFCN-offset = -0.3019859734  mistag=0.3369, 
+prevFCN-offset = -0.3019863481   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.301986 FROM MIGRAD    STATUS=CONVERGED      18 CALLS          19 TOTAL
+                     EDM=2.30304e-06    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.36944e-01   1.67749e-02   4.42117e-05   2.11868e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.819e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:01, CP time 1.800
+[#1] INFO:Minization -- Session timer: Real time 0:00:01, CP time 1.800, 2 slices
+ **********
+ **   19 **HESSE         500
+ **********
+
+prevFCN-offset = -0.3019861683  mistag=0.3369, 
+prevFCN-offset = -0.3019859734  mistag=0.3369, 
+prevFCN-offset = -0.3019863481  mistag=0.3369, 
+prevFCN-offset = -0.3019861306  mistag=0.3369, 
+prevFCN-offset = -0.3019862055   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.301986 FROM HESSE     STATUS=OK              5 CALLS          24 TOTAL
+                     EDM=2.30304e-06    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  mistag       3.36944e-01   1.67748e-02   8.84234e-06   3.55198e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.819e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.480
+[#1] INFO:Minization -- Session timer: Real time 0:00:02, CP time 2.280, 3 slices
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+
+
+
+bleah
+RooArgList:: = (mistag)
+None 
+
+boh
+
+
+
+
+FIT RESULT: FCN    -0.301986 STATUS  0 COV         ACCURATE EDM  2.30304e-06
+
+NR PARAMETER                     INITIAL        FINAL        ERROR
+
+ 0 mistag                           0.35     0.336944    0.0167748 L(           0,          0.5)
+
+CORRELATION MATRIX
+
+        0
+ 0  1.000
+
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0x4821620>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x7a6f620>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0xaadd1a0>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 0}
+	C = <ROOT.RooConstVar object ("one") at 0xc4c5c20>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	time = <ROOT.RooRealVar object ("time") at 0xd607aa0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0xc4c10a0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x7a191a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0xd64a920>
+	qt = <ROOT.RooCategory object ("qt") at 0xd093720>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0xd657b20>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0xe002a20>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xcf2e320>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooRealVar::eta
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooCategory::tageffRegion
+
+-------PRINTING DS1--------
+
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 2780 entries
+  Observables: 
+    1)            qf = h-(idx = -1)
+  "final state charge"
+    2)            qt = B+(idx = 1)
+  "tagging decision"
+    3)          time = 0.9829  L(0.2 - 15)  "time [ps]"
+    4)           eta = 0.2822  L(0 - 0.5)  "eta"
+    5)  tageffRegion = Cat2(idx = 2)
+  "region of tageff"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 1393 |
+  | h- | 1387 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 1432 |
+  | Untagged |    0 |
+  |       B- | 1348 |
+  +----------+------+
+
+
+---------------------------
+
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for mistag: using 0.05
+ **********
+ **   14 **MIGRAD         500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData) first = 0 last = 2780 Likelihood offset now set to 8238
+
+prevFCN-offset = 0   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = 0  mistag=0.355, 
+prevFCN-offset = -0.0984499154  mistag=0.3449, 
+prevFCN-offset = 0.188950762  mistag=0.3505, 
+prevFCN-offset = -0.01386756357  mistag=0.3495, 
+prevFCN-offset = 0.01477264581  mistag=0.35, 
+prevFCN-offset = -0.0001642798816  mistag=0.35, 
+prevFCN-offset = 0.0001643990909   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=0 FROM HESSE     STATUS=OK              7 CALLS           8 TOTAL
+                     EDM=0.113278    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.50000e-01   1.68220e-02   2.21072e-03  -6.47736e+00
+                               ERR DEF= 0.5
+mistag=0.358, 
+prevFCN-offset = -0.1152978827  mistag=0.358, 
+prevFCN-offset = -0.1153046673  mistag=0.3579, 
+prevFCN-offset = -0.1152908206   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+mistag=0.358, 
+prevFCN-offset = -0.1152978827  mistag=0.358, 
+prevFCN-offset = -0.1153046673  mistag=0.3579, 
+prevFCN-offset = -0.1152908206  mistag=0.358, 
+prevFCN-offset = -0.1152992618  mistag=0.3579, 
+prevFCN-offset = -0.1152964925   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.115298 FROM MIGRAD    STATUS=CONVERGED      15 CALLS          16 TOTAL
+                     EDM=0.000172715    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.57951e-01   1.70210e-02   3.98031e-05  -1.73939e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.903e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:01, CP time 1.850
+[#1] INFO:Minization -- Session timer: Real time 0:00:01, CP time 1.860, 2 slices
+ **********
+ **   19 **HESSE         500
+ **********
+
+prevFCN-offset = -0.1152978827  mistag=0.358, 
+prevFCN-offset = -0.1152992618  mistag=0.3579, 
+prevFCN-offset = -0.1152964925  mistag=0.358, 
+prevFCN-offset = -0.1152981594  mistag=0.358, 
+prevFCN-offset = -0.1152976056   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.115298 FROM HESSE     STATUS=OK              5 CALLS          21 TOTAL
+                     EDM=0.000172709    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  mistag       3.57951e-01   1.70207e-02   7.96062e-06   4.46493e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.903e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.600
+[#1] INFO:Minization -- Session timer: Real time 0:00:02, CP time 2.460, 3 slices
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+
+
+
+bleah
+RooArgList:: = (mistag)
+None 
+
+boh
+
+
+
+
+FIT RESULT: FCN    -0.115298 STATUS  0 COV         ACCURATE EDM  0.000172709
+
+NR PARAMETER                     INITIAL        FINAL        ERROR
+
+ 0 mistag                           0.35     0.357951    0.0170207 L(           0,          0.5)
+
+CORRELATION MATRIX
+
+        0
+ 0  1.000
+
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xc4c5420>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0x4852020>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0xc48a420>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x7d1f6a0>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 0}
+	C = <ROOT.RooConstVar object ("one") at 0xdae4820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xc4c5420>
+	time = <ROOT.RooRealVar object ("time") at 0x4fe5b20>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xc4c5420>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0xcc05620>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0xd654d20>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0xad5bb20>
+	qt = <ROOT.RooCategory object ("qt") at 0xcf49e20>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xc4c5420>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x48756a0>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0x33c1420>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xcf2c020>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooRealVar::eta
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooCategory::tageffRegion
+
+-------PRINTING DS1--------
+
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 2925 entries
+  Observables: 
+    1)            qf = h+(idx = 1)
+  "final state charge"
+    2)            qt = B+(idx = 1)
+  "tagging decision"
+    3)          time = 3.454  L(0.2 - 15)  "time [ps]"
+    4)           eta = 0.3368  L(0 - 0.5)  "eta"
+    5)  tageffRegion = Cat3(idx = 3)
+  "region of tageff"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 1483 |
+  | h- | 1442 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 1474 |
+  | Untagged |    0 |
+  |       B- | 1451 |
+  +----------+------+
+
+
+---------------------------
+
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for mistag: using 0.05
+ **********
+ **   14 **MIGRAD         500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData) first = 0 last = 2925 Likelihood offset now set to 8682
+
+prevFCN-offset = 0   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = 0  mistag=0.355, 
+prevFCN-offset = 0.3900735176  mistag=0.3449, 
+prevFCN-offset = -0.3014969729  mistag=0.3505, 
+prevFCN-offset = 0.0350762363  mistag=0.3495, 
+prevFCN-offset = -0.03419039428  mistag=0.35, 
+prevFCN-offset = 0.000401829986  mistag=0.35, 
+prevFCN-offset = -0.0004017107767   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=0 FROM HESSE     STATUS=OK              7 CALLS           8 TOTAL
+                     EDM=0.677042    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.50000e-01   1.70034e-02   2.21072e-03   1.56664e+01
+                               ERR DEF= 0.5
+mistag=0.3298, 
+prevFCN-offset = -0.6449017911  mistag=0.3299, 
+prevFCN-offset = -0.6449620866  mistag=0.3298, 
+prevFCN-offset = -0.6448408743  mistag=0.3312, 
+prevFCN-offset = -0.6478543221  mistag=0.3311, 
+prevFCN-offset = -0.6478647332  mistag=0.3311, 
+prevFCN-offset = -0.6478645205  mistag=0.3311, 
+prevFCN-offset = -0.6478644023   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+mistag=0.3311, 
+prevFCN-offset = -0.6478647332  mistag=0.3311, 
+prevFCN-offset = -0.6478645205  mistag=0.3311, 
+prevFCN-offset = -0.6478644023  mistag=0.3311, 
+prevFCN-offset = -0.6478647341  mistag=0.3311, 
+prevFCN-offset = -0.6478647105   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.647865 FROM MIGRAD    STATUS=CONVERGED      19 CALLS          20 TOTAL
+                     EDM=6.42758e-09    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.31117e-01   1.65099e-02   5.15113e-05  -1.14739e-03
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.730e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:01, CP time 1.730
+[#1] INFO:Minization -- Session timer: Real time 0:00:01, CP time 1.730, 2 slices
+ **********
+ **   19 **HESSE         500
+ **********
+
+prevFCN-offset = -0.6478647332  mistag=0.3311, 
+prevFCN-offset = -0.6478647341  mistag=0.3311, 
+prevFCN-offset = -0.6478647105  mistag=0.3311, 
+prevFCN-offset = -0.6478647351  mistag=0.3311, 
+prevFCN-offset = -0.6478647304   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.647865 FROM HESSE     STATUS=OK              5 CALLS          25 TOTAL
+                     EDM=6.42567e-09    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  mistag       3.31117e-01   1.65099e-02   1.03023e-05   3.30451e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.730e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.460
+[#1] INFO:Minization -- Session timer: Real time 0:00:02, CP time 2.190, 3 slices
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+
+
+
+bleah
+RooArgList:: = (mistag)
+None 
+
+boh
+
+
+
+
+FIT RESULT: FCN    -0.647865 STATUS  0 COV         ACCURATE EDM  6.42567e-09
+
+NR PARAMETER                     INITIAL        FINAL        ERROR
+
+ 0 mistag                           0.35     0.331117    0.0165099 L(           0,          0.5)
+
+CORRELATION MATRIX
+
+        0
+ 0  1.000
+
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xc4c6420>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0x7a86420>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0xd657fa0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x46fcda0>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 0}
+	C = <ROOT.RooConstVar object ("one") at 0xc45f420>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xc4c6420>
+	time = <ROOT.RooRealVar object ("time") at 0x7d19aa0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xc4c6420>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0xc4bac20>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x7a2f6a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0xd64bfa0>
+	qt = <ROOT.RooCategory object ("qt") at 0xb9b1920>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xc4c6420>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x7c20da0>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0x33c3220>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xcea0020>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooRealVar::eta
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooCategory::tageffRegion
+
+-------PRINTING DS1--------
+
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 3135 entries
+  Observables: 
+    1)            qf = h+(idx = 1)
+  "final state charge"
+    2)            qt = B-(idx = -1)
+  "tagging decision"
+    3)          time = 2.127  L(0.2 - 15)  "time [ps]"
+    4)           eta = 0.4138  L(0 - 0.5)  "eta"
+    5)  tageffRegion = Cat4(idx = 4)
+  "region of tageff"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 1545 |
+  | h- | 1590 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 1580 |
+  | Untagged |    0 |
+  |       B- | 1555 |
+  +----------+------+
+
+
+---------------------------
+
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for mistag: using 0.05
+ **********
+ **   14 **MIGRAD         500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData) first = 0 last = 3135 Likelihood offset now set to 9293
+
+prevFCN-offset = -1.818989404e-12   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = -1.818989404e-12  mistag=0.355, 
+prevFCN-offset = -0.08577073058  mistag=0.3449, 
+prevFCN-offset = 0.1884379922  mistag=0.3505, 
+prevFCN-offset = -0.01313977165  mistag=0.3495, 
+prevFCN-offset = 0.01416652682  mistag=0.35, 
+prevFCN-offset = -0.0001470483094  mistag=0.35, 
+prevFCN-offset = 0.000147167515   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-1.81899e-12 FROM HESSE     STATUS=OK              7 CALLS           8 TOTAL
+                     EDM=0.0907678    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.50000e-01   1.57955e-02   2.21072e-03  -6.17563e+00
+                               ERR DEF= 0.5
+mistag=0.3567, 
+prevFCN-offset = -0.09214110576  mistag=0.3567, 
+prevFCN-offset = -0.09214612497  mistag=0.3567, 
+prevFCN-offset = -0.09213581712   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+mistag=0.3567, 
+prevFCN-offset = -0.09214110576  mistag=0.3567, 
+prevFCN-offset = -0.09214612497  mistag=0.3567, 
+prevFCN-offset = -0.09213581712  mistag=0.3567, 
+prevFCN-offset = -0.09214213115  mistag=0.3567, 
+prevFCN-offset = -0.09214006959   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.0921411 FROM MIGRAD    STATUS=CONVERGED      15 CALLS          16 TOTAL
+                     EDM=9.8593e-05    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.56691e-01   1.59553e-02   3.66604e-05  -1.40586e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.550e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:01, CP time 1.840
+[#1] INFO:Minization -- Session timer: Real time 0:00:01, CP time 1.840, 2 slices
+ **********
+ **   19 **HESSE         500
+ **********
+
+prevFCN-offset = -0.09214110576  mistag=0.3567, 
+prevFCN-offset = -0.09214213115  mistag=0.3567, 
+prevFCN-offset = -0.09214006959  mistag=0.3567, 
+prevFCN-offset = -0.0921413117  mistag=0.3567, 
+prevFCN-offset = -0.09214089939   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.0921411 FROM HESSE     STATUS=OK              5 CALLS          21 TOTAL
+                     EDM=9.85857e-05    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  mistag       3.56691e-01   1.59547e-02   7.33208e-06   4.40912e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.550e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.540
+[#1] INFO:Minization -- Session timer: Real time 0:00:02, CP time 2.380, 3 slices
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+
+
+
+bleah
+RooArgList:: = (mistag)
+None 
+
+boh
+
+
+
+
+FIT RESULT: FCN   -0.0921411 STATUS  0 COV         ACCURATE EDM  9.85857e-05
+
+NR PARAMETER                     INITIAL        FINAL        ERROR
+
+ 0 mistag                           0.35     0.356691    0.0159547 L(           0,          0.5)
+
+CORRELATION MATRIX
+
+        0
+ 0  1.000
+
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              FIT
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("mistag") at 0x7cf68a0>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0xd652020>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x4822da0>]
+	kvar = None
+	atageff = None
+	config = {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Context': 'FIT', 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 0}
+	C = <ROOT.RooConstVar object ("one") at 0xc45d820>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	time = <ROOT.RooRealVar object ("time") at 0x7cedfa0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	ws = <ROOT.RooWorkspace object ("ws_FIT") at 0xc4c10a0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x7a68020>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0xc4828a0>
+	qt = <ROOT.RooCategory object ("qt") at 0xcf48520>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0xc4c6820>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x487b1a0>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0xdffc820>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xcf2c020>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing dataset Bs2DsPi_TimePdfData
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT) ERROR: unrecognized command: Silence
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooRealVar::eta
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT) importing RooCategory::tageffRegion
+
+-------PRINTING DS1--------
+
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 3295 entries
+  Observables: 
+    1)            qf = h-(idx = -1)
+  "final state charge"
+    2)            qt = B-(idx = -1)
+  "tagging decision"
+    3)          time = 2.686  L(0.2 - 15)  "time [ps]"
+    4)           eta = 0.4466  L(0 - 0.5)  "eta"
+    5)  tageffRegion = Cat5(idx = 0)
+  "region of tageff"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+------+
+  | h+ | 1607 |
+  | h- | 1688 |
+  +----+------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+------+
+  |       B+ | 1658 |
+  | Untagged |    0 |
+  |       B- | 1637 |
+  +----------+------+
+
+
+---------------------------
+
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+[#0] WARNING:Minization -- RooMinuit::synchronize: WARNING: no initial error estimate available for mistag: using 0.05
+ **********
+ **   14 **MIGRAD         500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_Bs2DsPi_TimePdfData) first = 0 last = 3295 Likelihood offset now set to 9869
+
+prevFCN-offset = -1.818989404e-12   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = -1.818989404e-12  mistag=0.355, 
+prevFCN-offset = -0.1786008525  mistag=0.3449, 
+prevFCN-offset = 0.2856753665  mistag=0.3505, 
+prevFCN-offset = -0.02261994312  mistag=0.3495, 
+prevFCN-offset = 0.02369077471  mistag=0.35, 
+prevFCN-offset = -0.0002442468303  mistag=0.35, 
+prevFCN-offset = 0.0002443660378   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-1.81899e-12 FROM HESSE     STATUS=OK              7 CALLS           8 TOTAL
+                     EDM=0.25034    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.50000e-01   1.54676e-02   2.21072e-03  -1.04739e+01
+                               ERR DEF= 0.5
+mistag=0.3608, 
+prevFCN-offset = -0.2564026108  mistag=0.3608, 
+prevFCN-offset = -0.2564179592  mistag=0.3608, 
+prevFCN-offset = -0.2563869283  mistag=0.3612, 
+prevFCN-offset = -0.2567627016  mistag=0.3612, 
+prevFCN-offset = -0.2567631689  mistag=0.3612, 
+prevFCN-offset = -0.2567618745   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+mistag=0.3612, 
+prevFCN-offset = -0.2567627016  mistag=0.3612, 
+prevFCN-offset = -0.2567631689  mistag=0.3612, 
+prevFCN-offset = -0.2567618745  mistag=0.3612, 
+prevFCN-offset = -0.2567628238  mistag=0.3612, 
+prevFCN-offset = -0.2567625649   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.256763 FROM MIGRAD    STATUS=CONVERGED      18 CALLS          19 TOTAL
+                     EDM=1.16442e-06    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  mistag       3.61240e-01   1.57273e-02   4.21670e-05  -1.53487e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.478e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:03, CP time 2.930
+[#1] INFO:Minization -- Session timer: Real time 0:00:03, CP time 2.940, 2 slices
+ **********
+ **   19 **HESSE         500
+ **********
+
+prevFCN-offset = -0.2567627016  mistag=0.3612, 
+prevFCN-offset = -0.2567628238  mistag=0.3612, 
+prevFCN-offset = -0.2567625649  mistag=0.3612, 
+prevFCN-offset = -0.2567627272  mistag=0.3612, 
+prevFCN-offset = -0.2567626754   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-0.256763 FROM HESSE     STATUS=OK              5 CALLS          24 TOTAL
+                     EDM=1.1644e-06    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  mistag       3.61240e-01   1.57269e-02   8.43340e-06   4.61131e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  30    NPAR=  1    ERR DEF=0.5
+  2.477e-04 
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.720
+[#1] INFO:Minization -- Session timer: Real time 0:00:03, CP time 3.660, 3 slices
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+
+
+
+bleah
+RooArgList:: = (mistag)
+None 
+
+boh
+
+
+
+
+FIT RESULT: FCN    -0.256763 STATUS  0 COV         ACCURATE EDM   1.1644e-06
+
+NR PARAMETER                     INITIAL        FINAL        ERROR
+
+ 0 mistag                           0.35      0.36124    0.0157269 L(           0,          0.5)
+
+CORRELATION MATRIX
+
+        0
+ 0  1.000
+
+RooArgSet:: = (qf,qt,time,eta,tageffRegion)
+mistag = 0.336944011319 +- 0.016774821084
+mistag = 0.357951317433 +- 0.0170206921836
+mistag = 0.331117442834 +- 0.0165099350032
+mistag = 0.356691177821 +- 0.0159547283152
+mistag = 0.36124031054 +- 0.0157269341056
+	Command being timed: "env python -O ./time-tut003.py - 1510"
+	User time (seconds): 53.49
+	System time (seconds): 6.53
+	Percent of CPU this job got: 85%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:09.81
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 426576
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2334
+	Minor (reclaiming a frame) page faults: 379076
+	Voluntary context switches: 18358
+	Involuntary context switches: 33294
+	Swaps: 0
+	File system inputs: 596336
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ exit
+exit
+
+Script done on Mon Jan 23 22:28:12 2017

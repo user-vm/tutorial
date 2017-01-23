@@ -2,7 +2,7 @@
 # -*- mode: python; coding: utf-8 -*-
 # vim: ft=python:sw=4:tw=78:expandtab
 # --------------------------------------------------------------------------- 
-# @file plotTageffVsEtaFromFile.py
+# @file plotOmegaVsEtaFromFile.py
 #
 # @brief hands-on session example 3 (B2DXFitters workshop, Padova, 2015)
 #
@@ -128,18 +128,9 @@ import os
 os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist');
 fileList = os.listdir(os.getcwd());
 
-#tageffValVListList = []
-#tageffErrorListList = []
-#etaAvgValListList = []
-#etaAvgErrorListList = []
-
+import ROOT
 from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas, TF1
 import time, sys
-
-#theCanvas = TCanvas();
-#img = TImage.Create();
-
-#theCanvas = TCanvas()
 
 graphHolder = TMultiGraph()
 
@@ -167,57 +158,29 @@ for it in fileList:
     #sys.exit(0);
 
     # 0 - etaMean
-    # 1 - tageff
-    # 2 - p0
-    # 3 - p1
-    # 4 - ProcessID0
+    # 1 - mistag
+    # 2 - ProcessID0
 
-    keyList.At(0).ReadObj().Print();
-    keyList.At(1).ReadObj().Print();
-    #keyList.At(2).ReadObj().Print();
-
-    #rawfitresultList = keyList.At(1).ReadObj();
     etaAvgValVarList = keyList.At(0).ReadObj();
-    p0List = keyList.At(2).ReadObj();
-    p1List = keyList.At(3).ReadObj();
-    etaAvgAll = keyList.At(4).ReadObj();
+    mistagList = keyList.At(1).ReadObj();
 
     in_file.Close();
-    tageffVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())
-
-    #tageffValVList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
-    #tageffErrorList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
-    #etaAvgValList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
-    #etaAvgErrorList += [n.zeros(rawfitresultList.GetSize(),dtype = float)];
-
-    #tageffValVList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
-    #tageffErrorList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
-    #etaAvgValList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
-    #etaAvgErrorList = n.zeros(rawfitresultList.GetSize(),dtype = n.float);
+    mistagVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())
 
     linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
     linFunc.SetParameters(0.0,1.0);
+    ROOT.SetOwnership(linFunc, False)
 
     for i in range(etaAvgValVarList.GetSize()):
-        #tageffValVList[i] = rawfitresultList.At(i).getValV();
-        #tageffErrorList[i] = rawfitresultList.At(i).getError();
-        #etaAvgValList[i] = etaAvgValVarList.At(i).getValV();
-        #etaAvgErrorList[i] = etaAvgValVarList.At(i).getError();
-        # NO
-        tageffVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),p0List.At(i).getValV()+(etaAvgValVarList.At(i).getValV()-etaAvgAll.getValV())*p1List.At(i).getValV())
-        tageffVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),0.0)#rawfitresultList.At(i).getError())
-        tageffVsEtaGraph.SetLineColor(currentColor)
+
+        mistagVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),mistagList.At(i).getValV())
+        mistagVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),mistagList.At(i).getError())
+        mistagVsEtaGraph.SetLineColor(currentColor)
         linFunc.SetLineColor(currentColor)
-        tageffVsEtaGraph.Fit(linFunc)
+        mistagVsEtaGraph.Fit(linFunc)
 
-    graphHolder.Add(tageffVsEtaGraph)
+    graphHolder.Add(mistagVsEtaGraph)
     currentColor += 1
-
-    #tageffVsEtaGraph = TGraph(rawfitresultList.GetSize(),etaAvgValList,tageffValVList)#,etaAvgErrorList,tageffErrorList);
-    
-    #tageffVsEtaGraph.
-    #ROOT.gSystem.ProcessEvents();
-    #img.FromPad(theCanvas);
 
 os.chdir("..")
 
@@ -226,9 +189,9 @@ if (graphHolder.GetListOfGraphs().GetSize()==1):
     graphHolder.SetTitle("Omega vs. Eta;Eta;Omega")
 else:
     graphHolder.SetTitle("Omega vs. Eta (multiple eta sets);Eta;Omega")
-graphHolder.Draw("AP")
+graphHolder.Draw("AC*")
 raw_input("Press Enter to continue");
 
-theCanvas.Print("tageffVsEtaGraph_%f.pdf" % time.time(),"pdf");
+theCanvas.Print("omegaVsEtaGraph_%f.pdf" % time.time(),"pdf");
 
 print "SHIT"
