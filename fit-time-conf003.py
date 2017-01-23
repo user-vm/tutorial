@@ -30,7 +30,7 @@
         },
 
     'TrivialMistagParams': {
-        'omegaavg': 0.350, # desired expectation value of mistag distribution
+        'omegaavg': 0.250, # desired expectation value of mistag distribution
         'omega0': 0.07, # start quadratic increase at omega0
         'f': 0.25, # final point P(0.5) = f
         },

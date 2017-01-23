@@ -357,7 +357,7 @@ def buildTimePdf(config):
             }
 
 #different function for fit pdf creation
-def buildFitTimePdf(config):
+def buildFitTimePdf(config, mistag0):
     """
     build time pdf, return pdf and associated data in dictionary
     """
@@ -385,8 +385,15 @@ def buildFitTimePdf(config):
     Gamma  = WS(ws, RooRealVar( 'Gamma',  'Gamma',  0.661)) # ps^-1
     DGamma = WS(ws, RooRealVar('DGamma', 'DGamma',  0.106)) # ps^-1
     Dm     = WS(ws, RooRealVar(    'Dm',     'Dm', 17.719)) # ps^-1
+
+    # HACK (1/2): be careful about lower bound on eta, since mistagpdf below
+    # is zero below a certain value - generation in accept/reject would get
+    # stuck
+    eta = WS(ws, RooRealVar('eta', 'eta', 0.35,
+        0.0 if 'FIT' in config['Context'] else (1. + 1e-5) * max(0.0,
+        config['TrivialMistagParams']['omega0']), 0.5))
     
-    mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
+    mistag = WS(ws, RooRealVar('mistag', 'mistag', mistag0, 0.0, 0.5))
     tageff = WS(ws, RooRealVar('tageff', 'tageff', 1.00, 1.0, 1.0))
     timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
     
@@ -396,7 +403,7 @@ def buildFitTimePdf(config):
     from B2DXFitters.resmodelutils import getResolutionModel
     from B2DXFitters.acceptanceutils import buildSplineAcceptance
     
-    obs = [ qf, qt, time ]
+    obs = [ qf, qt, time, eta ]
     acc, accnorm = buildSplineAcceptance(ws, time, 'Bs2DsPi_accpetance',
             config['SplineAcceptance']['KnotPositions'],
             config['SplineAcceptance']['KnotCoefficients'][config['Context']],
@@ -405,13 +412,25 @@ def buildFitTimePdf(config):
         acc = accnorm # use normalised acceptance for generation
     # get resolution model
     resmodel, acc = getResolutionModel(ws, config, time, timeerr, acc)
+    # build a (mock) mistag distribution
+    mistagpdfparams = {} # start with parameters of mock distribution
+    for sfx in ('omega0', 'omegaavg', 'f'):
+        mistagpdfparams[sfx] = WS(ws, RooRealVar(
+            'Bs2DsPi_mistagpdf_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,
+            config['TrivialMistagParams'][sfx]))
+    # build mistag pdf itself
+    mistagpdf = WS(ws, MistagDistribution(
+        'Bs2DsPi_mistagpdf', 'Bs2DsPi_mistagpdf',
+        eta, mistagpdfparams['omega0'], mistagpdfparams['omegaavg'],
+        mistagpdfparams['f']))
     # build the time pdf
     pdf = buildBDecayTimePdf(
         config, 'Bs2DsPi', ws,
         time, timeerr, qt, qf, [ [ mistag ] ], [ tageff ],
         Gamma, DGamma, Dm,
         C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
-        timeresmodel = resmodel, acceptance = acc)
+        timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
+        mistagpdf = [mistagpdf], mistagobs = eta)
     return { # return things
             'ws': ws,
             'pdf': pdf,
@@ -471,12 +490,15 @@ for i in range(NUMCAT):
 
     # use workspace for fit pdf in such a simple fit
     config1['Context'] = 'FIT'
-    config1['TrivialMistagParams']['omegaavg']= ds.meanVar(ds.get().find('eta')).getValV();
     config1['NBinsAcceptance'] = 0
 
-    fitpdf = buildTimePdf(config1)
-    # add data set to fitting workspace
-    ds1 = WS(fitpdf['ws'], ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)+"&&qt!=qt::Untagged"))
+    # add data set to fitting workspace; set initial mistag value
+    ds1 = ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)+"&&qt!=qt::Untagged")
+    config1['TrivialMistagParams']['omegaavg']= ds1.meanVar(ds1.get().find('eta')).getValV();
+    mistag0 = ds1.meanVar(ds1.get().find('eta')).getValV();
+    fitpdf = buildFitTimePdf(config1,mistag0)
+    ds1 = WS(fitpdf['ws'],ds1)
+    
     fitpdf['ws'].var('tageff').setVal(1.0);
     fitpdf['ws'].var('tageff').setMax(1.0);
     fitpdf['ws'].var('tageff').setMin(1.0);
