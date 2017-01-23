@@ -369,69 +369,7 @@ def buildTimePdf(config):
             'pdf': pdf,
             'obs': obs
             }
-'''
-#different function for fit pdf creation
-def buildFitTimePdf(config):
-    """
-    build time pdf, return pdf and associated data in dictionary
-    """
-    from B2DXFitters.WS import WS
-    print 'CONFIGURATION'
-    for k in sorted(config.keys()):
-        print '    %32s: %32s' % (k, config[k])
-    
-    # start building the fit
-    ws = RooWorkspace('ws_%s' % config['Context'])
-    one = WS(ws, RooConstVar('one', '1', 1.0))
-    zero = WS(ws, RooConstVar('zero', '0', 0.0))
-    
-    # start by defining observables
-    time = WS(ws, RooRealVar('time', 'time [ps]', 0.2, 15.0))
-    qf = WS(ws, RooCategory('qf', 'final state charge'))
-    qf.defineType('h+', +1)
-    qf.defineType('h-', -1)
-    qt = WS(ws, RooCategory('qt', 'tagging decision'))
-    qt.defineType(      'B+', +1)
-    qt.defineType('Untagged',  0)
-    qt.defineType(      'B-', -1)
-    
-    # now other settings
-    Gamma  = WS(ws, RooRealVar( 'Gamma',  'Gamma',  0.661)) # ps^-1
-    DGamma = WS(ws, RooRealVar('DGamma', 'DGamma',  0.106)) # ps^-1
-    Dm     = WS(ws, RooRealVar(    'Dm',     'Dm', 17.719)) # ps^-1
-    
-    mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
-    tageff = WS(ws, RooRealVar('tageff', 'tageff', 1.00, 1.0, 1.0))
-    timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
-    
-    
-    # now build the PDF
-    from B2DXFitters.timepdfutils import buildBDecayTimePdf
-    from B2DXFitters.resmodelutils import getResolutionModel
-    from B2DXFitters.acceptanceutils import buildSplineAcceptance
-    
-    obs = [ qf, qt, time ]
-    acc, accnorm = buildSplineAcceptance(ws, time, 'Bs2DsPi_accpetance',
-            config['SplineAcceptance']['KnotPositions'],
-            config['SplineAcceptance']['KnotCoefficients'][config['Context']],
-            'FIT' in config['Context']) # float for fitting
-    if 'GEN' in config['Context']:
-        acc = accnorm # use normalised acceptance for generation
-    # get resolution model
-    resmodel, acc = getResolutionModel(ws, config, time, timeerr, acc)
-    # build the time pdf
-    pdf = buildBDecayTimePdf(
-        config, 'Bs2DsPi', ws,
-        time, timeerr, qt, qf, [ [ mistag ] ], [ tageff ],
-        Gamma, DGamma, Dm,
-        C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
-        timeresmodel = resmodel, acceptance = acc)
-    return { # return things
-            'ws': ws,
-            'pdf': pdf,
-            'obs': obs
-            }
-'''
+
 from B2DXFitters.WS import WS
 # for now, we're in the generation stage
 #-config['Context'] = 'GEN'
