@@ -180,6 +180,7 @@ for it in fileList:
     etaAvgValVarList = keyList.At(0).ReadObj();
     p0List = keyList.At(2).ReadObj();
     p1List = keyList.At(3).ReadObj();
+    etaAvgAll = keyList.At(4).ReadObj();
 
     in_file.Close();
     tageffVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())
@@ -203,7 +204,7 @@ for it in fileList:
         #etaAvgValList[i] = etaAvgValVarList.At(i).getValV();
         #etaAvgErrorList[i] = etaAvgValVarList.At(i).getError();
         # NO
-        tageffVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),p0List.At(i).getValV()+etaAvgValVarList.At(i).getValV()*p1List.At(i).getValV())
+        tageffVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),p0List.At(i).getValV()+(etaAvgValVarList.At(i).getValV()-etaAvgAll.getValV())*p1List.At(i).getValV())
         tageffVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),0.0)#rawfitresultList.At(i).getError())
         tageffVsEtaGraph.SetLineColor(currentColor)
         linFunc.SetLineColor(currentColor)
@@ -226,7 +227,7 @@ if (graphHolder.GetListOfGraphs().GetSize()==1):
 else:
     graphHolder.SetTitle("Omega vs. Eta (multiple eta sets);Eta;Omega")
 graphHolder.Draw("AP")
-#raw_input("Press Enter to continue");
+raw_input("Press Enter to continue");
 
 theCanvas.Print("tageffVsEtaGraph_%f.pdf" % time.time(),"pdf");
 

@@ -42,11 +42,6 @@
         'omega0': 0.07, # start quadratic increase at omega0
         'f': 0.25, # final point P(0.5) = f
         },
-    'MistagCalibParams': { # tagging calibration parameters
-        'p0':     0.345,
-        'p1':     0.980,
-        'etaavg': 0.350
-        },
 
     'constParams': [
         '.*_scalefactor', # anything ending in '_scalefactor'...

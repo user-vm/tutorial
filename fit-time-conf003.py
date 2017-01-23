@@ -29,12 +29,6 @@
             },
         },
 
-    'TrivialMistagParams': {
-        'omegaavg': 0.250, # desired expectation value of mistag distribution
-        'omega0': 0.07, # start quadratic increase at omega0
-        'f': 0.25, # final point P(0.5) = f
-        },
-
     'constParams': [
         '.*_scalefactor', # anything ending in '_scalefactor'...
         'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+', # spline acceptance fixed
