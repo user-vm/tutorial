@@ -118,14 +118,19 @@ from ROOT import RooFit
 
 #number of tagging categories to use
 NUMCAT = 5;
+import time
+TIME_NOW = str(time.time())
 
-def drawDsPlot(ds):
+def drawDsPlot(ds,catNum = 0):
 
-    from ROOT import RooAbsData
+    from ROOT import RooAbsData,TCanvas
 
     etaHist = RooAbsData.createHistogram(ds,'eta',100);
+    theCanvas = TCanvas('dsCanvas','Eta histogram (category' + str(catNum) + ')' )
     etaHist.Draw("hist PFC");
-    s = raw_input("Press Enter to continue...");
+    theCanvas.SaveAs("etaCat"+str(catNum)+"Hist"+TIME_NOW+".pdf");
+    #s = raw_input("Press Enter to continue...");
+    theCanvas.Close();
 
 # histogram creation function, moved here to avoid recompilation-----
 
@@ -426,7 +431,18 @@ for i in range(NUMCAT):
         if not o.InheritsFrom('RooAbsCategory'): continue
         ds1.table(o).Print('v')
     print "\n---------------------------\n"
-    #drawDsPlot(ds1)
+
+    '''
+    etaLow = ROOT.Double(0.0);
+    etaHigh = ROOT.Double(0.5);
+    ds1.getRange(ds1.get().find('eta'),etaLow,etaHigh);
+    ds1.get().find('eta').setRange(etaLow, etaHigh)
+    '''
+
+    drawDsPlot(ds1,i);
+
+    print "\n\n\nETA = ",ds1.meanVar(ds1.get().find('eta')).getValV(),"\n\n\n\n";
+    #raw_input('Press Enter to continue');
 
     # set constant what is supposed to be constant
     from B2DXFitters.utils import setConstantIfSoConfigured
@@ -463,7 +479,7 @@ ds.get().Print();
 
 for i in range(mistagresultList.GetSize()):
 
-    print "mistag =",mistagresultList.At(i).getValV(),"+-",mistagresultList.At(i).getError()
+    print "mistag =",mistagresultList.At(i).getValV(),"+-",mistagresultList.At(i).getError(), ", avg. eta =",etaAvgList.At(i).getValV(),"+-",etaAvgList.At(i).getError()
 
 from ROOT import TFile
 g = TFile('fitresultlist/fitresultlist_%04d.root' % SEED, 'recreate')
