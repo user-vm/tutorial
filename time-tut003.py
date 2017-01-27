@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 5;
+NUMCAT = 1;
 import time
 TIME_NOW = str(time.time())
 
@@ -389,9 +389,9 @@ genconfig['NBinsProperTimeErr'] = 0
 genconfig['ParameteriseIntegral'] = False
 genpdf = buildTimePdf(genconfig)
 
-# generate 15K events
-print '15K'
-ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 15000, RooFit.Verbose())
+# generate 150K events
+print '150K'
+ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
 #saveEta(ds);
 
 # HACK (2/2): restore correct eta range after generation
