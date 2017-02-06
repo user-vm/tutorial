@@ -127,25 +127,38 @@ import os
 
 os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist');
 fileList = os.listdir(os.getcwd());
+fileList.sort();
 
 import ROOT
 from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas, TF1
 import time, sys
 
+ROOT.SetMemoryPolicy(ROOT.kMemoryHeuristics);
+
 graphHolder = TMultiGraph()
 
 #print fileList
-fileList = ["fitresultlist_1510.root"]
+#sys.exit(0)
+#fileList = ["fitresultlist_0000.root"]
 
 if(len(fileList)==0):
     print "No .root files found"
     sys.exit(1);
 
 currentColor = 0
+#linFuncList = []
+
+firstFile = -1
 
 for it in fileList:
     if it[-5:]!='.root':
         continue
+    
+    if firstFile ==-1:
+        firstFile = it[-9:-5]
+
+    lastFile = it[-9:-5]
+
     in_file = TFile(it)
     keyList = in_file.GetListOfKeys()
 
@@ -161,37 +174,54 @@ for it in fileList:
     # 1 - mistag
     # 2 - ProcessID0
 
-    etaAvgValVarList = keyList.At(0).ReadObj();
-    mistagList = keyList.At(1).ReadObj();
+    etaAvgValVarList = keyList.At(1).ReadObj();
+    mistagList = keyList.At(0).ReadObj();
 
     in_file.Close();
     mistagVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())
 
-    linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
-    linFunc.SetParameters(0.0,1.0);
-    ROOT.SetOwnership(linFunc, False)
-
+    #linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
+    #linFuncList += [linFunc];
+    #linFunc.SetParameters(0.0,1.0);
+    #ROOT.SetOwnership(linFunc, False)
+       
     for i in range(etaAvgValVarList.GetSize()):
 
         mistagVsEtaGraph.SetPoint(i,etaAvgValVarList.At(i).getValV(),mistagList.At(i).getValV())
         mistagVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),mistagList.At(i).getError())
-        mistagVsEtaGraph.SetLineColor(currentColor)
-        linFunc.SetLineColor(currentColor)
-        mistagVsEtaGraph.Fit(linFunc)
+        print etaAvgValVarList.At(i).getError(),mistagList.At(i).getError()
+        #mistagVsEtaGraph.SetLineColor(currentColor)
+        #linFunc.SetLineColor(currentColor)
+        #mistagVsEtaGraph.Fit(linFunc,"","",0.0,0.5)
 
     graphHolder.Add(mistagVsEtaGraph)
     currentColor += 1
+    #break;
 
 os.chdir("..")
 
 theCanvas = TCanvas()
+    
 if (graphHolder.GetListOfGraphs().GetSize()==1):
     graphHolder.SetTitle("Omega vs. Eta;Eta;Omega")
 else:
     graphHolder.SetTitle("Omega vs. Eta (multiple eta sets);Eta;Omega")
-graphHolder.Draw("AC*")
-raw_input("Press Enter to continue");
+    
+graphHolder.Draw("ap")
 
-theCanvas.Print("omegaVsEtaGraph_%f.pdf" % time.time(),"pdf");
+'''
+mistagVsEtaGraph.SetTitle("Omega vs. Eta;Eta;Omega");
+mistagVsEtaGraph.GetXaxis().SetLimits(0.0,0.5);
+mistagVsEtaGraph.GetYaxis().SetRangeUser(0.0,0.5);
+mistagVsEtaGraph.Draw("ap");
+'''
+if lastFile != firstFile:
+    theCanvas.Print("omegaVsEtaGraph_%s-%s_%f.pdf" %(firstFile,lastFile,time.time()),"pdf");
+else:
+    theCanvas.Print("omegaVsEtaGraph_%s_%f.pdf" %(firstFile,time.time()),"pdf");
+
+raw_input("Press Enter to continue");
+if(theCanvas!=None):
+    theCanvas.Close();
 
 print "SHIT"

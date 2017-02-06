@@ -1,0 +1,1271 @@
+Script started on Mon Jan 30 20:04:26 2017
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[?1034h[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py[6Ptime-tut003.py 1000plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x5ee3590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+ FCN=1.52223e-10 FROM HESSE     STATUS=NOT POSDEF     10 CALLS          39 TOTAL
+                     EDM=3.04142e-10    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.78155e-03   8.08105e-02   6.00000e-07   4.83047e-03
+   2  p1           1.00791e+00   3.58732e-01   2.21454e-06   1.08815e-03
+ FCN=3.58861e-08 FROM MIGRAD    STATUS=CONVERGED      37 CALLS          38 TOTAL
+                     EDM=7.17722e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -8.52323e-03   2.40128e-02   1.78811e-06  -9.82053e-02
+   2  p1           1.05365e+00   8.95370e-02   6.66750e-06  -2.73601e-02
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=7.17395e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.37220e-03   1.67847e-02   1.82841e-06  -1.11404e-01
+   2  p1           1.00125e+00   5.61131e-02   6.11242e-06  -3.59885e-02
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.00541e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.13000e-02   1.33466e-02   2.63453e-06  -1.44939e-01
+   2  p1           9.37548e-01   4.10112e-02   8.09509e-06  -5.22402e-02
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      32 CALLS          33 TOTAL
+                     EDM=1.48402e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.25859e-02   1.05289e-02   2.63293e-06  -3.63606e-02
+   2  p1           9.67683e-01   2.96203e-02   7.40713e-06  -1.76905e-02
+Press Enter to continue
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485806840.489314.pdf has been created
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 3.69
+	System time (seconds): 1.48
+	Percent of CPU this job got: 3%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:35.56
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 220040
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2318
+	Minor (reclaiming a frame) page faults: 61595
+	Voluntary context switches: 24044
+	Involuntary context switches: 15120
+	Swaps: 0
+	File system inputs: 558856
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x662c810> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+ FCN=1.52223e-10 FROM HESSE     STATUS=NOT POSDEF     10 CALLS          39 TOTAL
+                     EDM=3.04142e-10    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.78155e-03   8.08105e-02   6.00000e-07   4.83047e-03
+   2  p1           1.00791e+00   3.58732e-01   2.21454e-06   1.08815e-03
+ FCN=3.58861e-08 FROM MIGRAD    STATUS=CONVERGED      37 CALLS          38 TOTAL
+                     EDM=7.17722e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -8.52323e-03   2.40128e-02   1.78811e-06  -9.82053e-02
+   2  p1           1.05365e+00   8.95370e-02   6.66750e-06  -2.73601e-02
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=7.17395e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.37220e-03   1.67847e-02   1.82841e-06  -1.11404e-01
+   2  p1           1.00125e+00   5.61131e-02   6.11242e-06  -3.59885e-02
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.00541e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.13000e-02   1.33466e-02   2.63453e-06  -1.44939e-01
+   2  p1           9.37548e-01   4.10112e-02   8.09509e-06  -5.22402e-02
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      32 CALLS          33 TOTAL
+                     EDM=1.48402e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.25859e-02   1.05289e-02   2.63293e-06  -3.63606e-02
+   2  p1           9.67683e-01   2.96203e-02   7.40713e-06  -1.76905e-02
+Press Enter to continue
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485807045.386970.pdf has been created
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 3.79
+	System time (seconds): 2.20
+	Percent of CPU this job got: 38%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:15.44
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 223044
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2098
+	Minor (reclaiming a frame) page faults: 58800
+	Voluntary context switches: 17250
+	Involuntary context switches: 18054
+	Swaps: 0
+	File system inputs: 518288
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x6dd7590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+ FCN=1.52223e-10 FROM HESSE     STATUS=NOT POSDEF     10 CALLS          39 TOTAL
+                     EDM=3.04142e-10    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.78155e-03   8.08105e-02   6.00000e-07   4.83047e-03
+   2  p1           1.00791e+00   3.58732e-01   2.21454e-06   1.08815e-03
+ FCN=3.58861e-08 FROM MIGRAD    STATUS=CONVERGED      37 CALLS          38 TOTAL
+                     EDM=7.17722e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -8.52323e-03   2.40128e-02   1.78811e-06  -9.82053e-02
+   2  p1           1.05365e+00   8.95370e-02   6.66750e-06  -2.73601e-02
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=7.17395e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.37220e-03   1.67847e-02   1.82841e-06  -1.11404e-01
+   2  p1           1.00125e+00   5.61131e-02   6.11242e-06  -3.59885e-02
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.00541e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.13000e-02   1.33466e-02   2.63453e-06  -1.44939e-01
+   2  p1           9.37548e-01   4.10112e-02   8.09509e-06  -5.22402e-02
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      32 CALLS          33 TOTAL
+                     EDM=1.48402e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.25859e-02   1.05289e-02   2.63293e-06  -3.63606e-02
+   2  p1           9.67683e-01   2.96203e-02   7.40713e-06  -1.76905e-02
+Press Enter to continue
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485807295.181837.pdf has been created
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 3.09
+	System time (seconds): 1.12
+	Percent of CPU this job got: 28%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:15.04
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 221844
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2114
+	Minor (reclaiming a frame) page faults: 59348
+	Voluntary context switches: 7736
+	Involuntary context switches: 28783
+	Swaps: 0
+	File system inputs: 519504
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py[6Ptime-tut003.py 1000plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x69b4810> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+ FCN=1.52223e-10 FROM HESSE     STATUS=NOT POSDEF     10 CALLS          39 TOTAL
+                     EDM=3.04142e-10    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.78155e-03   8.08105e-02   6.00000e-07   4.83047e-03
+   2  p1           1.00791e+00   3.58732e-01   2.21454e-06   1.08815e-03
+9.28917186502e-05 0.00525157330513
+ FCN=3.58861e-08 FROM MIGRAD    STATUS=CONVERGED      37 CALLS          38 TOTAL
+                     EDM=7.17722e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -8.52323e-03   2.40128e-02   1.78811e-06  -9.82053e-02
+   2  p1           1.05365e+00   8.95370e-02   6.66750e-06  -2.73601e-02
+6.59450631232e-05 0.00519912421677
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=7.17395e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.37220e-03   1.67847e-02   1.82841e-06  -1.11404e-01
+   2  p1           1.00125e+00   5.61131e-02   6.11242e-06  -3.59885e-02
+7.38292213439e-05 0.00517992780509
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.00541e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.13000e-02   1.33466e-02   2.63453e-06  -1.44939e-01
+   2  p1           9.37548e-01   4.10112e-02   8.09509e-06  -5.22402e-02
+0.000127363628421 0.00506419376711
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      32 CALLS          33 TOTAL
+                     EDM=1.48402e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.25859e-02   1.05289e-02   2.63293e-06  -3.63606e-02
+   2  p1           9.67683e-01   2.96203e-02   7.40713e-06  -1.76905e-02
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 196, in <module>
+    theCanvas.Print("omegaVsEtaGraph_%f.pdf" % time.time(),"pdf");
+AttributeError: 'PyROOT_NoneType' object has no attribute 'Print'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 5.62
+	System time (seconds): 1.84
+	Percent of CPU this job got: 5%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:11.76
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 223656
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2078
+	Minor (reclaiming a frame) page faults: 59448
+	Voluntary context switches: 28012
+	Involuntary context switches: 37741
+	Swaps: 0
+	File system inputs: 513864
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py[6Ptime-tut003.py 1000plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x5d44810> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+ FCN=1.52223e-10 FROM HESSE     STATUS=NOT POSDEF     10 CALLS          39 TOTAL
+                     EDM=3.04142e-10    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.78155e-03   8.08105e-02   6.00000e-07   4.83047e-03
+   2  p1           1.00791e+00   3.58732e-01   2.21454e-06   1.08815e-03
+9.28917186502e-05 0.00525157330513
+ FCN=3.58861e-08 FROM MIGRAD    STATUS=CONVERGED      37 CALLS          38 TOTAL
+                     EDM=7.17722e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -8.52323e-03   2.40128e-02   1.78811e-06  -9.82053e-02
+   2  p1           1.05365e+00   8.95370e-02   6.66750e-06  -2.73601e-02
+6.59450631232e-05 0.00519912421677
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=7.17395e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.37220e-03   1.67847e-02   1.82841e-06  -1.11404e-01
+   2  p1           1.00125e+00   5.61131e-02   6.11242e-06  -3.59885e-02
+7.38292213439e-05 0.00517992780509
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.00541e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.13000e-02   1.33466e-02   2.63453e-06  -1.44939e-01
+   2  p1           9.37548e-01   4.10112e-02   8.09509e-06  -5.22402e-02
+0.000127363628421 0.00506419376711
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      32 CALLS          33 TOTAL
+                     EDM=1.48402e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.25859e-02   1.05289e-02   2.63293e-06  -3.63606e-02
+   2  p1           9.67683e-01   2.96203e-02   7.40713e-06  -1.76905e-02
+Press Enter to continue
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485807758.586651.pdf has been created
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 3.29
+	System time (seconds): 1.17
+	Percent of CPU this job got: 6%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:10.98
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 218656
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2104
+	Minor (reclaiming a frame) page faults: 60852
+	Voluntary context switches: 10999
+	Involuntary context switches: 33106
+	Swaps: 0
+	File system inputs: 519000
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x66eb590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+ FCN=1.52223e-10 FROM HESSE     STATUS=NOT POSDEF     10 CALLS          39 TOTAL
+                     EDM=3.04142e-10    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.78155e-03   8.08105e-02   6.00000e-07   4.83047e-03
+   2  p1           1.00791e+00   3.58732e-01   2.21454e-06   1.08815e-03
+9.28917186502e-05 0.00525157330513
+ FCN=3.58861e-08 FROM MIGRAD    STATUS=CONVERGED      37 CALLS          38 TOTAL
+                     EDM=7.17722e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -8.52323e-03   2.40128e-02   1.78811e-06  -9.82053e-02
+   2  p1           1.05365e+00   8.95370e-02   6.66750e-06  -2.73601e-02
+6.59450631232e-05 0.00519912421677
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=7.17395e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.37220e-03   1.67847e-02   1.82841e-06  -1.11404e-01
+   2  p1           1.00125e+00   5.61131e-02   6.11242e-06  -3.59885e-02
+7.38292213439e-05 0.00517992780509
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.00541e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.13000e-02   1.33466e-02   2.63453e-06  -1.44939e-01
+   2  p1           9.37548e-01   4.10112e-02   8.09509e-06  -5.22402e-02
+0.000127363628421 0.00506419376711
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      32 CALLS          33 TOTAL
+                     EDM=1.48402e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.25859e-02   1.05289e-02   2.63293e-06  -3.63606e-02
+   2  p1           9.67683e-01   2.96203e-02   7.40713e-06  -1.76905e-02
+Press Enter to continue
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485807783.931937.pdf has been created
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.50
+	System time (seconds): 0.81
+	Percent of CPU this job got: 20%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:16.09
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 217696
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2093
+	Minor (reclaiming a frame) page faults: 61118
+	Voluntary context switches: 5544
+	Involuntary context switches: 30245
+	Swaps: 0
+	File system inputs: 519080
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x60e9f20> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 189, in <module>
+    if (graphHolder.GetListOfGraphs().GetSize()==1):
+ReferenceError: attempt to access a null-pointer
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.21
+	System time (seconds): 0.83
+	Percent of CPU this job got: 79%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.82
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 210848
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2121
+	Minor (reclaiming a frame) page faults: 59592
+	Voluntary context switches: 3032
+	Involuntary context switches: 19814
+	Swaps: 0
+	File system inputs: 520056
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x6eb1bc0> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 198, in <module>
+    theCanvas.Print("omegaVsEtaGraph_%f.pdf" % time.time(),"pdf");
+AttributeError: 'PyROOT_NoneType' object has no attribute 'Print'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 3.36
+	System time (seconds): 4.24
+	Percent of CPU this job got: 15%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:47.62
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 216896
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2098
+	Minor (reclaiming a frame) page faults: 59481
+	Voluntary context switches: 46488
+	Involuntary context switches: 482374
+	Swaps: 0
+	File system inputs: 519560
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x75bd590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808069.871061.pdf has been created
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 199, in <module>
+    theCanvas.Close();
+AttributeError: 'PyROOT_NoneType' object has no attribute 'Close'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.69
+	System time (seconds): 1.14
+	Percent of CPU this job got: 18%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 221104
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2062
+	Minor (reclaiming a frame) page faults: 59009
+	Voluntary context switches: 9687
+	Involuntary context switches: 25822
+	Swaps: 0
+	File system inputs: 510848
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x78c1bc0> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808277.157087.pdf has been created
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 200, in <module>
+    theCanvas.Close();
+AttributeError: 'PyROOT_NoneType' object has no attribute 'Close'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 3.06
+	System time (seconds): 1.27
+	Percent of CPU this job got: 36%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:11.95
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 220588
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2089
+	Minor (reclaiming a frame) page faults: 60159
+	Voluntary context switches: 10207
+	Involuntary context switches: 24279
+	Swaps: 0
+	File system inputs: 516424
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x7149590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808293.734113.pdf has been created
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 200, in <module>
+    theCanvas.Close();
+AttributeError: 'PyROOT_NoneType' object has no attribute 'Close'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.61
+	System time (seconds): 0.83
+	Percent of CPU this job got: 6%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:53.49
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 217476
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2103
+	Minor (reclaiming a frame) page faults: 60225
+	Voluntary context switches: 9585
+	Involuntary context switches: 19024
+	Swaps: 0
+	File system inputs: 519864
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x699f590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808355.054450.pdf has been created
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 200, in <module>
+    theCanvas.Close();
+AttributeError: 'PyROOT_NoneType' object has no attribute 'Close'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 3.06
+	System time (seconds): 1.29
+	Percent of CPU this job got: 17%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:25.52
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 221296
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2093
+	Minor (reclaiming a frame) page faults: 59304
+	Voluntary context switches: 11533
+	Involuntary context switches: 24097
+	Swaps: 0
+	File system inputs: 520288
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x69e1bc0> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808476.702472.pdf has been created
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 200, in <module>
+    theCanvas.Close();
+AttributeError: 'PyROOT_NoneType' object has no attribute 'Close'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.31
+	System time (seconds): 0.82
+	Percent of CPU this job got: 9%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:33.63
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 218732
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2102
+	Minor (reclaiming a frame) page faults: 59964
+	Voluntary context switches: 7386
+	Involuntary context switches: 30838
+	Swaps: 0
+	File system inputs: 520392
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x5df7590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.000240691760764 0.00510259003995
+9.28917186502e-05 0.00525157330513
+6.59450631232e-05 0.00519912421677
+7.38292213439e-05 0.00517992780509
+0.000127363628421 0.00506419376711
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808516.972545.pdf has been created
+Press Enter to continue
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.67
+	System time (seconds): 0.88
+	Percent of CPU this job got: 9%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:38.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 219076
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2126
+	Minor (reclaiming a frame) page faults: 58592
+	Voluntary context switches: 8131
+	Involuntary context switches: 18121
+	Swaps: 0
+	File system inputs: 523200
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x6ae8810> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.00510259003995 0.000240691760764
+0.00525157330513 9.28917186502e-05
+0.00519912421677 6.59450631232e-05
+0.00517992780509 7.38292213439e-05
+0.00506419376711 0.000127363628421
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808622.168502.pdf has been created
+Press Enter to continue
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.53
+	System time (seconds): 1.35
+	Percent of CPU this job got: 11%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:34.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 215432
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2072
+	Minor (reclaiming a frame) page faults: 60650
+	Voluntary context switches: 7382
+	Involuntary context switches: 29069
+	Swaps: 0
+	File system inputs: 515472
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x7896810> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.00510259003995 0.000240691760764
+ FCN=2.34499e-08 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=4.69004e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.73905e-03   6.27264e-01   2.47461e-06  -6.04360e-02
+   2  p1           9.92026e-01   2.74116e+00   1.08172e-05  -1.38296e-02
+0.00525157330513 9.28917186502e-05
+ FCN=3.91286e-09 FROM MIGRAD    STATUS=CONVERGED      50 CALLS          51 TOTAL
+                     EDM=7.81347e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.08855e-03   2.20941e-02   1.69707e-06  -7.58699e-04
+   2  p1           9.49082e-01   8.05892e-02   6.19022e-06   1.34542e-03
+0.00519912421677 6.59450631232e-05
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      45 CALLS          46 TOTAL
+                     EDM=8.68939e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -4.36516e-03   1.69951e-02   1.82543e-06   1.39393e-01
+   2  p1           9.98744e-01   5.59417e-02   6.00854e-06   4.18184e-02
+0.00517992780509 7.38292213439e-05
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      45 CALLS          46 TOTAL
+                     EDM=9.80362e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.27156e-02   1.52008e-02   2.80794e-06   5.06458e-01
+   2  p1           1.06661e+00   4.66238e-02   8.61214e-06   1.62594e-01
+0.00506419376711 0.000127363628421
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=1.60975e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.30052e-02   1.12647e-02   2.72105e-06   1.79727e-02
+   2  p1           1.03339e+00   3.16189e-02   7.63832e-06   5.08191e-03
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808708.315906.pdf has been created
+Press Enter to continue
+SHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py -"
+	User time (seconds): 2.65
+	System time (seconds): 1.07
+	Percent of CPU this job got: 41%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.05
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 221304
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2090
+	Minor (reclaiming a frame) page faults: 60715
+	Voluntary context switches: 8765
+	Involuntary context switches: 26103
+	Swaps: 0
+	File system inputs: 516304
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ ./plotOmegaVsEtaFromFile.py
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x61cb590> 
+
+
+
+
+
+3
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.225267 +/- 0.000240692  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.307103 +/- 9.28917e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.353356 +/- 6.59451e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.393873 +/- 7.38292e-05  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.452125 +/- 0.000127364  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::mistag = 0.22883 +/- 0.00510259  L(0 - 0.5) 
+ RooRealVar::mistag = 0.315056 +/- 0.00525157  L(0 - 0.5) 
+ RooRealVar::mistag = 0.35617 +/- 0.00519912  L(0 - 0.5) 
+ RooRealVar::mistag = 0.385121 +/- 0.00517993  L(0 - 0.5) 
+ RooRealVar::mistag = 0.453559 +/- 0.00506419  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	eb2ff094-e726-11e6-9717-0100007fbeef
+0.00510259003995 0.000240691760764
+ FCN=2.34499e-08 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=4.69004e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.73905e-03   6.27264e-01   2.47461e-06  -6.04360e-02
+   2  p1           9.92026e-01   2.74116e+00   1.08172e-05  -1.38296e-02
+0.00525157330513 9.28917186502e-05
+ FCN=3.91286e-09 FROM MIGRAD    STATUS=CONVERGED      50 CALLS          51 TOTAL
+                     EDM=7.81347e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.08855e-03   2.20941e-02   1.69707e-06  -7.58699e-04
+   2  p1           9.49082e-01   8.05892e-02   6.19022e-06   1.34542e-03
+0.00519912421677 6.59450631232e-05
+ FCN=0.564139 FROM MIGRAD    STATUS=CONVERGED      45 CALLS          46 TOTAL
+                     EDM=8.68939e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -4.36516e-03   1.69951e-02   1.82543e-06   1.39393e-01
+   2  p1           9.98744e-01   5.59417e-02   6.00854e-06   4.18184e-02
+0.00517992780509 7.38292213439e-05
+ FCN=3.33244 FROM MIGRAD    STATUS=CONVERGED      45 CALLS          46 TOTAL
+                     EDM=9.80362e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.27156e-02   1.52008e-02   2.80794e-06   5.06458e-01
+   2  p1           1.06661e+00   4.66238e-02   8.61214e-06   1.62594e-01
+0.00506419376711 0.000127363628421
+ FCN=4.46066 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=1.60975e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.30052e-02   1.12647e-02   2.72105e-06   1.79727e-02
+   2  p1           1.03339e+00   3.16189e-02   7.63832e-06   5.08191e-03
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_1485808799.513525.pdf has been created
+Press Enter to continue
+Traceback (most recent call last):
+  File "./plotOmegaVsEtaFromFile.py", line 200, in <module>
+    theCanvas.Close();
+AttributeError: 'PyROOT_NoneType' object has no attribute 

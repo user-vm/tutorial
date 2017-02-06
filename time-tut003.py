@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 1;
+NUMCAT = 5
 import time
 TIME_NOW = str(time.time())
 
@@ -333,7 +333,7 @@ def buildTimePdf(config):
         obs = [ qf, qt, time]
     acc, accnorm = buildSplineAcceptance(ws, time, 'Bs2DsPi_accpetance',
             config['SplineAcceptance']['KnotPositions'],
-            config['SplineAcceptance']['KnotCoefficients'][config['Context']],
+            config['SplineAcceptance']['KnotCoefficients'][config['Context'][0:3]],
             'FIT' in config['Context']) # float for fitting
     if 'GEN' in config['Context']:
         acc = accnorm # use normalised acceptance for generation
@@ -356,7 +356,7 @@ def buildTimePdf(config):
     if 'GEN' in config['Context']:
         pdf = buildBDecayTimePdf(
             config, 'Bs2DsPi', ws,
-            time, timeerr, qt, qf, [ [ mistag ] ], [ tageff ],
+            time, timeerr, qt, qf, [ [ eta ] ], [ tageff ],
             Gamma, DGamma, Dm,
             C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
             timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
@@ -409,26 +409,55 @@ from ROOT import TList
 mistagresultList = TList();
 etaAvgList = TList();
 
+print "**** ADDING CATEGORIES ****"
 ds = ds.reduce("qt!=qt::Untagged");
 xRegions = createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT);
 ds.addColumn(xRegions)
+ds.table(xRegions).Print("v")
+
+dspercat = [ ds.reduce("tageffRegion == tageffRegion::Cat%u" % (i + 1,)) for i in xrange(NUMCAT) ]
+
+i = 0
+for dspc in dspercat:
+    print "**** CAT %u ****" % i
+    i = i + 1
+    dspc.Print("v")
 
 #drawDsPlot(ds)
 
-for i in range(NUMCAT):
+from math import sqrt
+
+for i in xrange(NUMCAT):
 
     # use workspace for fit pdf in such a simple fit
-    config1['Context'] = 'FIT'
-    config1['NBinsAcceptance'] = 0
+    fitconfig = copy.deepcopy(config1)
+    fitconfig['Context'] = 'FIT%u' % i
+    fitconfig['NBinsAcceptance'] = 0
 
-    fitpdf = buildTimePdf(config1)
+    fitpdf = buildTimePdf(fitconfig)
     # add data set to fitting workspace
-    ds1 = WS(fitpdf['ws'], ds.reduce("tageffRegion==tageffRegion::Cat"+str(i+1)))
-    etaAvgList.AddLast(ds1.meanVar(ds1.get().find('eta')))
+    ds1 = WS(fitpdf['ws'], dspercat[i])
+    aveta = ds1.meanVar(ds1.get().find('eta'))
+    etaAvgList.AddLast(aveta)
+    aveta = aveta.getVal() if 0 else 0.35
+
+    print 72 * "#"
+    print "WS:" + str(fitpdf["ws"])
+    print "PDF:" + str(fitpdf["pdf"])
+    print "OBS:" + str(fitpdf["obs"])
+    print "DS:" + str(ds1)
+    fitpdf['ws'].Print("v")
+    fitpdf['pdf'].Print("v")
+    ds1.Print("v")
+    mistag = fitpdf['ws'].obj("mistag")
+    mistag.setVal(aveta)
+    mistag.setError(min([0.5 / NUMCAT / sqrt(12), abs(aveta) * 0.5, abs(aveta - 0.5) * 0.5]))
+    mistag.Print("v")
+    print 72 * "#"
 
     print "\n-------PRINTING DS1--------\n"
     ds1.Print('v')
-    for o in genpdf['obs']:
+    for o in fitpdf['obs']:
         if not o.InheritsFrom('RooAbsCategory'): continue
         ds1.table(o).Print('v')
     print "\n---------------------------\n"
@@ -438,27 +467,28 @@ for i in range(NUMCAT):
     etaHigh = ROOT.Double(0.5);
     ds1.getRange(ds1.get().find('eta'),etaLow,etaHigh);
     ds1.get().find('eta').setRange(etaLow, etaHigh)
+
     '''
 
-    drawDsPlot(ds1,i);
+    #drawDsPlot(ds1,i);
 
     print "\n\n\nETA = ",ds1.meanVar(ds1.get().find('eta')).getValV(),"\n\n\n\n";
     #raw_input('Press Enter to continue');
 
     # set constant what is supposed to be constant
     from B2DXFitters.utils import setConstantIfSoConfigured
-    setConstantIfSoConfigured(config1, fitpdf['pdf'])
+    setConstantIfSoConfigured(fitconfig, fitpdf['pdf'])
 
     # set up fitting options
     fitopts = [ RooFit.Timer(), RooFit.Save(),
-                RooFit.Strategy(config1['FitConfig']['Strategy']),
-                RooFit.Optimize(config1['FitConfig']['Optimize']),
-                RooFit.Offset(config1['FitConfig']['Offset']),
-                RooFit.NumCPU(config1['FitConfig']['NumCPU']) ]
+                RooFit.Strategy(fitconfig['FitConfig']['Strategy']),
+                RooFit.Optimize(fitconfig['FitConfig']['Optimize']),
+                RooFit.Offset(fitconfig['FitConfig']['Offset']),
+                RooFit.NumCPU(fitconfig['FitConfig']['NumCPU']) ]
 
     # set up blinding for data
-    fitopts.append(RooFit.Verbose(not (config1['IsData'] and config1['Blinding'])))
-    if config1['IsData'] and config1['Blinding']:
+    fitopts.append(RooFit.Verbose(not (fitconfig['IsData'] and fitconfig['Blinding'])))
+    if fitconfig['IsData'] and fitconfig['Blinding']:
         from ROOT import RooMsgService
         RooMsgService.instance().setGlobalKillBelow(RooFit.WARNING)                                                                                                                             
         fitopts.append(RooFit.PrintLevel(-1))
@@ -472,7 +502,7 @@ for i in range(NUMCAT):
 
     # pretty-print the result
     from B2DXFitters.FitResult import getDsHBlindFitResult
-    result = getDsHBlindFitResult(config1['IsData'], config1['Blinding'],
+    result = getDsHBlindFitResult(fitconfig['IsData'], fitconfig['Blinding'],
         rawfitresult)
     print result
 
