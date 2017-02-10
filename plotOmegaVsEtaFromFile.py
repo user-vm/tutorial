@@ -64,26 +64,7 @@ else
     fi
 fi
 
-# figure out which custom allocators are available
-# prefer jemalloc over tcmalloc
-for i in libjemalloc libtcmalloc; do
-    for j in `echo "$LD_LIBRARY_PATH" | tr ':' ' '` \
-        /usr/local/lib /usr/lib /lib; do
-        for k in `find "$j" -name "$i"'*.so.?' | sort -r`; do
-            if test \! -e "$k"; then
-            continue
-        fi
-        echo adding $k to LD_PRELOAD
-        if test -z "$LD_PRELOAD"; then
-            export LD_PRELOAD="$k"
-            break 3
-        else
-            export LD_PRELOAD="$LD_PRELOAD":"$k"
-            break 3
-        fi
-    done
-    done
-done
+
 
 # set batch scheduling (if schedtool is available)
 schedtool="`which schedtool 2>/dev/zero`"
@@ -130,10 +111,10 @@ fileList = os.listdir(os.getcwd());
 fileList.sort();
 
 import ROOT
-from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas, TF1
+from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas, TF1,TPaveStats, TLegend, TObject 
 import time, sys
 
-ROOT.SetMemoryPolicy(ROOT.kMemoryHeuristics);
+#ROOT.SetMemoryPolicy(ROOT.kMemoryHeuristics);
 
 graphHolder = TMultiGraph()
 
@@ -146,7 +127,8 @@ if(len(fileList)==0):
     sys.exit(1);
 
 currentColor = 0
-#linFuncList = []
+linFuncList = []
+ROOT.SetOwnership(graphHolder,False);
 
 firstFile = -1
 
@@ -160,6 +142,7 @@ for it in fileList:
     lastFile = it[-9:-5]
 
     in_file = TFile(it)
+    ROOT.SetOwnership(in_file, False)
     keyList = in_file.GetListOfKeys()
 
     print "\n\n\n",keyList,"\n\n\n\n\n"
@@ -174,15 +157,17 @@ for it in fileList:
     # 1 - mistag
     # 2 - ProcessID0
 
-    etaAvgValVarList = keyList.At(1).ReadObj();
-    mistagList = keyList.At(0).ReadObj();
+    etaAvgValVarList = keyList.At(0).ReadObj();
+    mistagList = keyList.At(1).ReadObj();
 
     in_file.Close();
     mistagVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())
 
-    #linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
-    #linFuncList += [linFunc];
-    #linFunc.SetParameters(0.0,1.0);
+    linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
+    ROOT.SetOwnership(linFunc,False);
+    linFuncList += [linFunc];
+    #linFuncList += [TF1('linFunc','[0]+[1]*x',0.0,0.5)];
+    linFuncList[-1].SetParameters(0.0,1.0);
     #ROOT.SetOwnership(linFunc, False)
        
     for i in range(etaAvgValVarList.GetSize()):
@@ -191,12 +176,12 @@ for it in fileList:
         mistagVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),mistagList.At(i).getError())
         print etaAvgValVarList.At(i).getError(),mistagList.At(i).getError()
         #mistagVsEtaGraph.SetLineColor(currentColor)
-        #linFunc.SetLineColor(currentColor)
-        #mistagVsEtaGraph.Fit(linFunc,"","",0.0,0.5)
+        #linFuncList[-1].SetLineColor(currentColor)
+        mistagVsEtaGraph.Fit(linFuncList[-1],"FQ","",0.0,0.5)
 
     graphHolder.Add(mistagVsEtaGraph)
     currentColor += 1
-    #break;
+    break;
 
 os.chdir("..")
 
@@ -206,8 +191,35 @@ if (graphHolder.GetListOfGraphs().GetSize()==1):
     graphHolder.SetTitle("Omega vs. Eta;Eta;Omega")
 else:
     graphHolder.SetTitle("Omega vs. Eta (multiple eta sets);Eta;Omega")
-    
-graphHolder.Draw("ap")
+
+graphHolder.Draw("ap");
+graphHolder.GetXaxis().SetLimits(0.0,0.5);
+graphHolder.SetMinimum(0.0);
+graphHolder.SetMaximum(0.5);    
+#graphHolder.Draw("ap")
+
+leg = TLegend(0.0,0.0,0.3,0.3,"a fucking header","tlNDC");
+ROOT.SetOwnership(leg,False);
+#leg.AddEntry(TObject(),"crap");
+leg.AddEntry(None,"crap","");
+leg.Draw();
+
+'''
+theCanvas.Update()
+st = mistagVsEtaGraph.GetListOfFunctions().FindObject("stats")
+print st
+st.SetX1NDC(0.0);
+st.SetX2NDC(1.0);
+st,SetY1NDC(0.0);
+st.SetY2NDC(1.0);
+theCanvas.Modified()
+'''
+'''
+st = TPaveStats(0.0,0.0,0.0,0.0);
+st.AddLine(0.0,0.0,0.0,0.0);
+'''
+
+#theCanvas.BuildLegend()
 
 '''
 mistagVsEtaGraph.SetTitle("Omega vs. Eta;Eta;Omega");
@@ -215,6 +227,7 @@ mistagVsEtaGraph.GetXaxis().SetLimits(0.0,0.5);
 mistagVsEtaGraph.GetYaxis().SetRangeUser(0.0,0.5);
 mistagVsEtaGraph.Draw("ap");
 '''
+
 if lastFile != firstFile:
     theCanvas.Print("omegaVsEtaGraph_%s-%s_%f.pdf" %(firstFile,lastFile,time.time()),"pdf");
 else:
@@ -223,5 +236,7 @@ else:
 raw_input("Press Enter to continue");
 if(theCanvas!=None):
     theCanvas.Close();
+
+ROOT.SetOwnership(theCanvas, False);
 
 print "SHIT"
