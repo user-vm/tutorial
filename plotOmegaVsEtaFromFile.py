@@ -120,7 +120,7 @@ graphHolder = TMultiGraph()
 
 #print fileList
 #sys.exit(0)
-#fileList = ["fitresultlist_0000.root"]
+fileList = ["fitresultlist_0123.root"]
 
 if(len(fileList)==0):
     print "No .root files found"
@@ -177,7 +177,10 @@ for it in fileList:
         print etaAvgValVarList.At(i).getError(),mistagList.At(i).getError()
         #mistagVsEtaGraph.SetLineColor(currentColor)
         #linFuncList[-1].SetLineColor(currentColor)
-        mistagVsEtaGraph.Fit(linFuncList[-1],"FQ","",0.0,0.5)
+    
+    fitresult = mistagVsEtaGraph.Fit(linFuncList[-1],"FQS","",0.0,0.5)
+    p0 = fitresult.Parameter(0);
+    p1 = fitresult.Parameter(1);
 
     graphHolder.Add(mistagVsEtaGraph)
     currentColor += 1
@@ -198,10 +201,14 @@ graphHolder.SetMinimum(0.0);
 graphHolder.SetMaximum(0.5);    
 #graphHolder.Draw("ap")
 
-leg = TLegend(0.0,0.0,0.3,0.3,"a fucking header","tlNDC");
+leg = TLegend(0.1,0.7,0.4,0.9);#,"a fucking header","tlNDC");
 ROOT.SetOwnership(leg,False);
 #leg.AddEntry(TObject(),"crap");
-leg.AddEntry(None,"crap","");
+
+leg.AddEntry(mistagVsEtaGraph,"data points","lep");
+leg.AddEntry(linFuncList[-1],"linear fit","l");
+leg.AddEntry(None,"p0 - etaavg = %.4f" % p0,"");
+leg.AddEntry(None,"p1 = %.4f" % p1,"");
 leg.Draw();
 
 '''

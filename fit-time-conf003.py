@@ -29,6 +29,13 @@
             },
         },
 
+	'MistagCalibParams': { # tagging calibration parameters
+        'p0':     0.345,
+        'p1':     0.980,
+        'etaavg': 0.350
+        },
+
+
     'constParams': [
         '.*_scalefactor', # anything ending in '_scalefactor'...
         'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+', # spline acceptance fixed
