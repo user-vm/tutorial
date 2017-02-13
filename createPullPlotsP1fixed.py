@@ -96,7 +96,7 @@ os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist');
 fileList = os.listdir(os.getcwd());
 fileList.sort();
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist1');
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist4a');
 fileList1 = os.listdir(os.getcwd());
 fileList1.sort();
 
@@ -114,7 +114,7 @@ import time, sys
 #fileList1 = ["fitresultlist1_0000.root"]
 
 dirList = os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist'
-dirList1 = os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist1'
+dirList1 = os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist4a'
 dirDsMean = os.environ['B2DXFITTERSROOT']+'/tutorial/dsMean'
 
 os.chdir(dirDsMean);
@@ -126,7 +126,7 @@ if(len(fileList)==0):
     sys.exit(1);
 
 if(len(fileList1)==0):
-    print "No files found in fitresultlist1 folder"
+    print "No files found in fitresultlist2 folder"
     sys.exit(1);
 
 if(len(dirDsMean)==0):
@@ -140,7 +140,7 @@ for i in range(dirKeyList.GetSize()):
     dirKeyList.At(i).ReadObj().Print();
 
 sys.exit(0);
-
+'''
 
 in_file_a = TFile(dirList1+'/'+fileList1[0]);
 keyList_a = in_file_a.GetListOfKeys();
@@ -149,7 +149,7 @@ for i in range(keyList_a.GetSize()):
     keyList_a.At(i).ReadObj().Print();
 
 sys.exit(0);
-'''
+
 firstFile = -1;
 firstFile1 = -1;
 
@@ -169,7 +169,7 @@ for it in fileList[:100]:
     if it[-5:]!='.root':
         continue
 
-    it1 = "fitresultlist1_" + it[-9:]; 
+    it1 = "fitresultlist2_" + it[-9:]; 
     
     if it1 not in fileList1:
         continue
@@ -264,12 +264,12 @@ for it in fileList[:100]:
 
     mistagVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())
     
-    #linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
-    linFunc = TF1('linFunc','[0]+[1]*(x-%f)' % 0.350,0.0,0.5);
+    linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
+    #linFunc = TF1('linFunc','[0]+[1]*(x-%f)' % dsMeanVal.getValV(),0.0,0.5);
     ROOT.SetOwnership(linFunc,False);
     linFuncList += [linFunc];
     #linFuncList += [TF1('linFunc','[0]+[1]*x',0.0,0.5)];
-    linFuncList[-1].SetParameters(0.35,1.0);
+    linFuncList[-1].SetParameters(0.0,1.0);
     #ROOT.SetOwnership(linFunc, False)
        
     for i in range(etaAvgValVarList.GetSize()):
@@ -300,7 +300,7 @@ for it in fileList[:100]:
     p0Fit = fitresult.Parameter(0)# - dsMeanVal.getValV();
     p0FitError = fitresult.ParError(0);
     
-    p0End = p0End.getValV()#-etaAvg.getValV();
+    p0End = p0End.getValV()-etaAvg.getValV();
 
     print 'P0FIT = ', p0Fit, '\nDSMEANVAL = ', dsMeanVal.getValV(), '\nP0END = ', p0End, '\n'
 

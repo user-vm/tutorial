@@ -106,7 +106,7 @@ if None == SEED:
 
 import os
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist');
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123');
 fileList = os.listdir(os.getcwd());
 fileList.sort();
 
@@ -120,7 +120,7 @@ graphHolder = TMultiGraph()
 
 #print fileList
 #sys.exit(0)
-fileList = ["fitresultlist_0123.root"]
+fileList = ["fitresultlist123_0000.root"]
 
 if(len(fileList)==0):
     print "No .root files found"
@@ -150,24 +150,28 @@ for it in fileList:
 
     for i in range(keyList.GetSize()):
         keyList.At(i).ReadObj().Print();
-
+    
+    #sys.exit(0);
+    
     #sys.exit(0);
 
-    # 0 - etaMean
-    # 1 - mistag
-    # 2 - ProcessID0
+    # 0 - etaAvgList (per-category avg. etas)
+    # 1 - etaAvg (avg. eta for all events)
+    # 2 - genEtaList (mistagList?)
+    # 3 - ProcessID0
 
     etaAvgValVarList = keyList.At(0).ReadObj();
-    mistagList = keyList.At(1).ReadObj();
+    etaAvg = keyList.At(1).ReadObj();
+    mistagList = keyList.At(2).ReadObj();
 
     in_file.Close();
     mistagVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())
 
-    linFunc = TF1('linFunc','[0]+[1]*x',0.0,0.5);
+    linFunc = TF1('linFunc','[0]+[1]*(x-%f)' % etaAvg.getValV(),0.0,0.5);
     ROOT.SetOwnership(linFunc,False);
     linFuncList += [linFunc];
     #linFuncList += [TF1('linFunc','[0]+[1]*x',0.0,0.5)];
-    linFuncList[-1].SetParameters(0.0,1.0);
+    linFuncList[-1].SetParameters(etaAvg.getValV(),1.0);
     #ROOT.SetOwnership(linFunc, False)
        
     for i in range(etaAvgValVarList.GetSize()):

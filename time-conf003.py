@@ -43,6 +43,14 @@
         'f': 0.25, # final point P(0.5) = f
         },
 
+    'MistagCalibParams': { # tagging calibration parameters
+        'p0':     0.350, #0.345
+        'p1':     1.000, #0.980
+        'etaavg': 0.350
+        },
+
+
+
     'constParams': [
         '.*_scalefactor', # anything ending in '_scalefactor'...
         'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+', # spline acceptance fixed
@@ -50,3 +58,5 @@
 
     'NBinsAcceptance': 100,
 }
+
+#vim: sw=4:et

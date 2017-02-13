@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-#NUMCAT = 5
+NUMCAT = 5
 import time
 TIME_NOW = str(time.time())
 
@@ -351,31 +351,26 @@ def buildTimePdf(config):
                 'Bs2DsPi_mistagpdf', 'Bs2DsPi_mistagpdf',
                 eta, mistagpdfparams['omega0'], mistagpdfparams['omegaavg'],
                 mistagpdfparams['f']))
-    else:
-        if 'FIT' in config['Context']:
-            mistagcalibparams = {} # start with parameters of calibration
-            for sfx in ('p0', 'p1', 'etaavg'):
-                mistagcalibparams[sfx] = WS(ws, RooRealVar('Bs2DsPi_mistagcalib_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,config['MistagCalibParams'][sfx]));
-            
-            mistagcalibparams['p0'].setConstant(True);
-            mistagcalibparams['p1'].setConstant(False);
-            mistagcalibparams['p1'].setError(0.1);
-            '''
-            for sfx in ('p0', 'p1'): # float calibration paramters
-                mistagcalibparams[sfx].setConstant(False)
-                mistagcalibparams[sfx].setError(0.1)
-            '''
-            # build mistag pdf itself
-            omega = WS(ws, MistagCalibration(
-                'Bs2DsPi_mistagcalib', 'Bs2DsPi_mistagcalib',
-                eta, mistagcalibparams['p0'], mistagcalibparams['p1'],
-                mistagcalibparams['etaavg']))
+        mistagcalibparams = {} # start with parameters of calibration
+        for sfx in ('p0', 'p1', 'etaavg'):
+            mistagcalibparams[sfx] = WS(ws, RooRealVar('Bs2DsPi_mistagcalib_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,config['MistagCalibParams'][sfx]));
+        
+        
+        for sfx in ('p0', 'p1'): # float calibration paramters
+            mistagcalibparams[sfx].setConstant(False)
+            mistagcalibparams[sfx].setError(0.1)
+        
+        # build mistag pdf itself
+        omega = WS(ws, MistagCalibration(
+            'Bs2DsPi_mistagcalib', 'Bs2DsPi_mistagcalib',
+            eta, mistagcalibparams['p0'], mistagcalibparams['p1'],
+            mistagcalibparams['etaavg']))
 
     # build the time pdf
     if 'GEN' in config['Context']:
         pdf = buildBDecayTimePdf(
             config, 'Bs2DsPi', ws,
-            time, timeerr, qt, qf, [ [ eta ] ], [ tageff ],
+            time, timeerr, qt, qf, [ [ omega ] ], [ tageff ],
             Gamma, DGamma, Dm,
             C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
             timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
@@ -383,7 +378,7 @@ def buildTimePdf(config):
     else:
         pdf = buildBDecayTimePdf(
             config, 'Bs2DsPi', ws,
-            time, timeerr, qt, qf, [ [ omega ] ], [ tageff ],
+            time, timeerr, qt, qf, [ [ eta ] ], [ tageff ],
             Gamma, DGamma, Dm,
             C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
             timeresmodel = resmodel, acceptance = acc, timeerrpdf = None)
@@ -426,15 +421,21 @@ from ROOT import RooDataSet, RooArgSet
 from ROOT import TList
 
 mistagresultList = TList();
-etaAvgList = TList();'''
-########################################   REMOVE DSPERCAT
+etaAvgList = TList();
 print "**** ADDING CATEGORIES ****"
 ds = ds.reduce("qt!=qt::Untagged");
 xRegions = createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT);
 ds.addColumn(xRegions)
 ds.table(xRegions).Print("v")
 
-dspercat = [ ds.reduce("tageffRegion == tageffRegion::Cat%u" % (i + 1,)) for i in xrange(NUMCAT) ]
+keepvars = [ds.get().find(name) for name in ['qt', 'qf', 'tageffRegion', 'time']]
+
+for i in xrange(NUMCAT):
+    etaAvgList.AddLast(ds.reduce("tageffRegion == tageffRegion::Cat%u" % (i + 1,)).meanVar(ds.get().find('eta')));
+
+etaAvg = ds.meanVar(ds.get().find('eta'));
+
+dspercat = [ ds.reduce(RooArgSet(*keepvars),"tageffRegion == tageffRegion::Cat%u" % (i + 1,)) for i in xrange(NUMCAT) ]
 
 i = 0
 for dspc in dspercat:
@@ -444,28 +445,23 @@ for dspc in dspercat:
 
 #drawDsPlot(ds)
 
-from math import sqrt'''
+from math import sqrt
 import random
-random.seed(SEED);
+#random.seed(SEED);
 
-for i in xrange(1):
+genEtaList = TList();
+
+for i in xrange(NUMCAT):
     
     # use workspace for fit pdf in such a simple fit
     fitconfig = copy.deepcopy(config1)
     fitconfig['Context'] = 'FIT%u' % i
     fitconfig['NBinsAcceptance'] = 0
-    fitconfig['MistagCalibParams']['p1'] = 1.000#*(1 + 0.150 * random.random());
-    fitconfig['MistagCalibParams']['p0'] = ds.meanVar(ds.get().find('eta')).getValV()*(1+0.150 * random.random());
-    fitconfig['MistagCalibParams']['etaavg'] = ds.meanVar(ds.get().find('eta')).getValV();
 
     fitpdf = buildTimePdf(fitconfig)
-    ds = WS(fitpdf['ws'],ds);
-    '''
+    #ds = WS(fitpdf['ws'],ds);
     # add data set to fitting workspace
     ds1 = WS(fitpdf['ws'], dspercat[i])
-    aveta = ds1.meanVar(ds1.get().find('eta'))
-    etaAvgList.AddLast(aveta)
-    aveta = aveta.getVal() if 0 else 0.35
 
     print 72 * "#"
     print "WS:" + str(fitpdf["ws"])
@@ -476,7 +472,8 @@ for i in xrange(1):
     fitpdf['pdf'].Print("v")
     ds1.Print("v")
     mistag = fitpdf['ws'].obj("mistag")
-    mistag.setVal(aveta)
+    aveta = etaAvgList.At(i).getValV();
+    mistag.setVal(aveta);
     mistag.setError(min([0.5 / NUMCAT / sqrt(12), abs(aveta) * 0.5, abs(aveta - 0.5) * 0.5]))
     mistag.Print("v")
     print 72 * "#"
@@ -488,16 +485,16 @@ for i in xrange(1):
         ds1.table(o).Print('v')
     print "\n---------------------------\n"
 
-
+    """
     etaLow = ROOT.Double(0.0);
     etaHigh = ROOT.Double(0.5);
     ds1.getRange(ds1.get().find('eta'),etaLow,etaHigh);
     ds1.get().find('eta').setRange(etaLow, etaHigh)
-
-    '''
+    """
+    
 
     #drawDsPlot(ds1,i);
-    etaAvg = ds.meanVar(ds.get().find('eta'));
+    #etaAvg = ds.meanVar(ds.get().find('eta'));
     print "\n\n\nETA = ",ds.meanVar(ds.get().find('eta')).getValV(),"\n\n\n\n";
     #raw_input('Press Enter to continue');
 
@@ -522,16 +519,18 @@ for i in xrange(1):
     for o in fitopts: fitOpts.Add(o)
     
     # fit
-    rawfitresult = fitpdf['pdf'].fitTo(ds, fitOpts)
-    p0End = rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p0');
-    p1End = rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p1');
+    rawfitresult = fitpdf['pdf'].fitTo(ds1, fitOpts)
+    #p0End = rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p0');
+    #p1End = rawfitresult.floatParsFinal().find('Bs2DsPi_mistagcalib_p1');
+    genEtaList.AddLast(rawfitresult.floatParsFinal().find('eta'));
     '''print "\n\n\nbleah\n",rawfitresult.floatParsFinal().Print(),"\n\nboh\n\n\n\n";
     '''
     # pretty-print the result
     from B2DXFitters.FitResult import getDsHBlindFitResult
     result = getDsHBlindFitResult(fitconfig['IsData'], fitconfig['Blinding'],
         rawfitresult)
-    print result
+    print 'RESULT',result
+    rawfitresult.floatParsFinal().Print()
 
 ds.get().Print();
 '''
@@ -539,11 +538,23 @@ for i in range(mistagresultList.GetSize()):
 
     print "mistag =",mistagresultList.At(i).getValV(),"+-",mistagresultList.At(i).getError(), ", avg. eta =",etaAvgList.At(i).getValV(),"+-",etaAvgList.At(i).getError()
 '''
+
+print 'GENETALIST'
+genEtaList.Print();
+
+print 'ETAAVG'
+etaAvg.Print();
+
+print 'ETAAVGLIST'
+etaAvgList.Print();
+
 from ROOT import TFile
-g = TFile('fitresultlist3a/fitresultlist3a_%04d.root' % SEED, 'recreate')
-g.WriteTObject(p0End, 'fitresultlist3a/fitresultlist3a003_%04d' % SEED)
-g.WriteTObject(p1End, 'fitresultlist3a/fitresultlist3a003_%04d' % SEED)
-g.WriteTObject(etaAvg, 'fitresultlist3a/fitresultlist3a003_%04d' % SEED)
+g = TFile('fitresultlist123/fitresultlist123_%04d.root' % SEED, 'recreate')
+#g.WriteTObject(p0End, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
+#g.WriteTObject(p1End, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
+g.WriteTObject(genEtaList,'fitresultlist123/fitresultlist123003_%04d' % SEED)
+g.WriteTObject(etaAvg, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
+g.WriteTObject(etaAvgList, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
 g.Close()
 del g
 
