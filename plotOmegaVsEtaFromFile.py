@@ -106,7 +106,7 @@ if None == SEED:
 
 import os
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123');
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123a');
 fileList = os.listdir(os.getcwd());
 fileList.sort();
 
@@ -120,7 +120,7 @@ graphHolder = TMultiGraph()
 
 #print fileList
 #sys.exit(0)
-fileList = ["fitresultlist123_0000.root"]
+fileList = ["fitresultlist123a_0000.root"]
 
 if(len(fileList)==0):
     print "No .root files found"
@@ -211,7 +211,7 @@ ROOT.SetOwnership(leg,False);
 
 leg.AddEntry(mistagVsEtaGraph,"data points","lep");
 leg.AddEntry(linFuncList[-1],"linear fit","l");
-leg.AddEntry(None,"p0 - etaavg = %.4f" % p0,"");
+leg.AddEntry(None,"p0 = %.4f" % p0,"");
 leg.AddEntry(None,"p1 = %.4f" % p1,"");
 leg.Draw();
 
