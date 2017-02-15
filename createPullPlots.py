@@ -91,22 +91,18 @@ __doc__ = """ real docstring """
 
 # start by getting seed number
 import sys
-'''SEED = None
+SEED = None
 for tmp in sys.argv[1:]:
-    try:
-        SEED = int(tmp)
-    except ValueError:
-        print ('DEBUG: argument %s is no number, trying next argument as'
-            'seed') % tmp
-if None == SEED:
-    print 'ERROR: no seed given'
-    sys.exit(1)'''
+    SEED = str(tmp)
 
-#SEED = 42
+print SEED
+
+if SEED !="a" and SEED != "b":
+    SEED = ""
 
 import os
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123a');
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123%s' % SEED);
 fileList = os.listdir(os.getcwd());
 fileList.sort();
 
@@ -139,8 +135,8 @@ p1DevSet = RooDataSet("p1DevSet","p1DevSet",RooArgSet(p1Dev));
 p0Dev = RooRealVar("p0Dev","p0Dev",0);
 p0DevSet = RooDataSet("p0DevSet","p0DevSet",RooArgSet(p0Dev));
 
-p0End = 0.300
-p1End = 1.000
+p0End = 0.350 - (0.05 if SEED=="a" else 0.0)
+p1End = 1.000 + (0.05 if SEED=="b" else 0.0)
 
 for it in fileList:
     if it[-5:]!='.root':
@@ -222,7 +218,7 @@ os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
 if(not os.path.exists('p1HistPlots')):
     os.mkdir("p1HistPlots")
 os.chdir('p1HistPlots');
-theHistCanvas.SaveAs("p1Hist_%f.pdf" % currentTime); 
+theHistCanvas.SaveAs("p1Hist_p0=%.3f_p1=%.3f_%f.pdf" % (p0End, p1End, currentTime)); 
 
 raw_input("Press Enter to continue");
 
@@ -237,7 +233,7 @@ os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
 if(not os.path.exists('p0HistPlots')):
     os.mkdir("p0HistPlots")
 os.chdir('p0HistPlots');
-theHistCanvas.SaveAs("p0Hist_%f.pdf" % currentTime); 
+theHistCanvas.SaveAs("p0Hist_p0=%.3f_p1=%.3f_%f.pdf" % (p0End, p1End, currentTime));
 
 raw_input("Press Enter to continue");
 
