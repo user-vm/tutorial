@@ -211,13 +211,27 @@ currentTime = time.time();
 
 theHistCanvas = TCanvas();
 p1DevHist = RooAbsData.createHistogram(p1DevSet,"p1Dev",20);
-p1DevHist.Fit('gaus');
+p1FitResult = p1DevHist.Fit('gaus',"S").Get();
+p1DevHist.SetTitle("Pull plot for p1 (p0_gen = %.3f, p1_gen = %.3f)" % (p0End, p1End))
+p1DevHist.GetXaxis().SetTitle("(p1_fit-p1_gen)/sigma_p1_fit");
 p1DevHist.Draw('B');
+
+leg = TLegend(0.77,0.55,0.98,0.75,"Gaussian fit","NDC");
+leg.SetHeader("Gaussian fit");
+ROOT.SetOwnership(leg,False);
+#leg.AddEntry(TObject(),"crap");
+
+#leg.AddEntry(mistagVsEtaGraph,"data points","lep");
+
+for i in xrange(3):
+    leg.AddEntry(None,"%s = %.4f" % (p1FitResult.ParName(i),p1FitResult.Parameter(i)),"");
+leg.Draw();
 
 os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
 if(not os.path.exists('p1HistPlots')):
     os.mkdir("p1HistPlots")
 os.chdir('p1HistPlots');
+
 theHistCanvas.SaveAs("p1Hist_p0=%.3f_p1=%.3f_%f.pdf" % (p0End, p1End, currentTime)); 
 
 raw_input("Press Enter to continue");
@@ -226,8 +240,20 @@ theHistCanvas.Close();
 
 theHistCanvas = TCanvas();
 p0DevHist = RooAbsData.createHistogram(p0DevSet,"p0Dev",20);
-p0DevHist.Fit('gaus');
+p0FitResult = p0DevHist.Fit('gaus',"S").Get();
+
+p0DevHist.SetTitle("Pull plot for p0 (p0_gen = %.3f, p1_gen = %.3f)" % (p0End, p1End))
+p0DevHist.GetXaxis().SetTitle("(p0_fit-p0_gen)/sigma_p0_fit");
 p0DevHist.Draw('B');
+
+#leg = TLegend(0.9,1.1,0.3,0.5,"Gaussian fit","");
+#ROOT.SetOwnership(leg,False);
+leg.Clear()
+leg.SetHeader("Gaussian fit");
+
+for i in xrange(3):
+    leg.AddEntry(None,"%s = %.4f" % (p0FitResult.ParName(i),p0FitResult.Parameter(i)),"");
+leg.Draw();
 
 os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
 if(not os.path.exists('p0HistPlots')):

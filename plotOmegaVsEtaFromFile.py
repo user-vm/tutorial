@@ -106,7 +106,7 @@ if None == SEED:
 
 import os
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123a');
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123b');
 fileList = os.listdir(os.getcwd());
 fileList.sort();
 
@@ -120,7 +120,7 @@ graphHolder = TMultiGraph()
 
 #print fileList
 #sys.exit(0)
-fileList = ["fitresultlist123a_0000.root"]
+#fileList = ["fitresultlist123a_0000.root"]
 
 if(len(fileList)==0):
     print "No .root files found"
@@ -188,7 +188,7 @@ for it in fileList:
 
     graphHolder.Add(mistagVsEtaGraph)
     currentColor += 1
-    break;
+    #break;
 
 os.chdir("..")
 
