@@ -128,12 +128,10 @@ ROOT.SetOwnership(graphHolder,False);
 
 firstFile = -1
 
-p1Dev = RooRealVar("p1Dev","p1Dev",0);
-p1DevSet = RooDataSet("p1DevSet","p1DevSet",RooArgSet(p1Dev));
+from ROOT import TH1F
 
-
-p0Dev = RooRealVar("p0Dev","p0Dev",0);
-p0DevSet = RooDataSet("p0DevSet","p0DevSet",RooArgSet(p0Dev));
+hp0 = TH1F("hp0", "pull plot p_{0};#frac{p_{0}^{fit}-p_{0}^{gen}}{#sigma_{p_{0}}};number of pseudo-experiments", 40, -3., 3.)
+hp1 = TH1F("hp1", "pull plot p_{1};#frac{p_{1}^{fit}-p_{1}^{gen}}{#sigma_{p_{1}}};number of pseudo-experiments", 40, -3., 3.)
 
 p0End = 0.350 - (0.05 if SEED=="a" else 0.0)
 p1End = 1.000 + (0.05 if SEED=="b" else 0.0)
@@ -195,37 +193,27 @@ for it in fileList:
     print "FITRESULT PARAMETER 1"
     print fitresult.Parameter(1);
 
-    p1Dev.setVal((p1Fit - p1End) / p1FitError);
-    p1DevSet.add(RooArgSet(p1Dev))
+    hp1.Fill((p1Fit - p1End) / p1FitError)
 
     p0Fit = fitresult.Parameter(0)# - dsMeanVal.getValV();
     p0FitError = fitresult.ParError(0);
 
     print 'P0FIT = ', p0Fit, '\nDSMEANVAL = ', etaAvg.getValV(), '\nP0END = ', p0End, '\n'
 
-    p0Dev.setVal((p0Fit - p0End) / p0FitError);
-    p0DevSet.add(RooArgSet(p0Dev))
+    hp0.Fill((p0Fit - p0End) / p0FitError);
     #break;
+
+from ROOT import gStyle, TStyle
+gStyle.SetOptFit(1111);
+gStyle.SetOptStat(111111);
 
 currentTime = time.time();
 
 theHistCanvas = TCanvas();
-p1DevHist = RooAbsData.createHistogram(p1DevSet,"p1Dev",20);
-p1FitResult = p1DevHist.Fit('gaus',"S").Get();
-p1DevHist.SetTitle("Pull plot for p1 (p0_gen = %.3f, p1_gen = %.3f)" % (p0End, p1End))
-p1DevHist.GetXaxis().SetTitle("(p1_fit-p1_gen)/sigma_p1_fit");
-p1DevHist.Draw('B');
-
-leg = TLegend(0.77,0.55,0.98,0.75,"Gaussian fit","NDC");
-leg.SetHeader("Gaussian fit");
-ROOT.SetOwnership(leg,False);
+hp1.Fit("gaus", "ILL");
+hp1.Draw();
 #leg.AddEntry(TObject(),"crap");
-
 #leg.AddEntry(mistagVsEtaGraph,"data points","lep");
-
-for i in xrange(3):
-    leg.AddEntry(None,"%s = %.4f" % (p1FitResult.ParName(i),p1FitResult.Parameter(i)),"");
-leg.Draw();
 
 os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
 if(not os.path.exists('p1HistPlots')):
@@ -239,21 +227,11 @@ raw_input("Press Enter to continue");
 theHistCanvas.Close();
 
 theHistCanvas = TCanvas();
-p0DevHist = RooAbsData.createHistogram(p0DevSet,"p0Dev",20);
-p0FitResult = p0DevHist.Fit('gaus',"S").Get();
-
-p0DevHist.SetTitle("Pull plot for p0 (p0_gen = %.3f, p1_gen = %.3f)" % (p0End, p1End))
-p0DevHist.GetXaxis().SetTitle("(p0_fit-p0_gen)/sigma_p0_fit");
-p0DevHist.Draw('B');
+hp0.Fit("gaus", "ILL")
+hp0.Draw()
 
 #leg = TLegend(0.9,1.1,0.3,0.5,"Gaussian fit","");
 #ROOT.SetOwnership(leg,False);
-leg.Clear()
-leg.SetHeader("Gaussian fit");
-
-for i in xrange(3):
-    leg.AddEntry(None,"%s = %.4f" % (p0FitResult.ParName(i),p0FitResult.Parameter(i)),"");
-leg.Draw();
 
 os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
 if(not os.path.exists('p0HistPlots')):
