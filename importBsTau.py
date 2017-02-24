@@ -126,7 +126,7 @@ print keyList.GetSize()
 for i in range(keyList.GetSize()):
 	keyList.At(i).ReadObj().Print();
 '''
-tree1 = keyList.At(i).ReadObj();
+tree1 = keyList.At(0).ReadObj();
 print tree1.GetName();
 
 #tree1.Draw("Ds_TRUEID","",
