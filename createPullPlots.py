@@ -128,13 +128,13 @@ ROOT.SetOwnership(graphHolder,False);
 
 firstFile = -1
 
-from ROOT import TH1F
-
-hp0 = TH1F("hp0", "pull plot p_{0};#frac{p_{0}^{fit}-p_{0}^{gen}}{#sigma_{p_{0}}};number of pseudo-experiments", 40, -3., 3.)
-hp1 = TH1F("hp1", "pull plot p_{1};#frac{p_{1}^{fit}-p_{1}^{gen}}{#sigma_{p_{1}}};number of pseudo-experiments", 40, -3., 3.)
-
 p0End = 0.350 - (0.05 if SEED=="a" else 0.0)
 p1End = 1.000 + (0.05 if SEED=="b" else 0.0)
+
+from ROOT import TH1F
+
+hp0 = TH1F("hp0", "pull plot p_{0} (p_{0gen} = %.3f, p_{1gen} = %.3f);#frac{p_{0}^{fit}-p_{0}^{gen}}{#sigma_{p_{0}}};number of pseudo-experiments" % (p0End, p1End), 40, -3., 3.)
+hp1 = TH1F("hp1", "pull plot p_{1} (p_{0gen} = %.3f, p_{1gen} = %.3f);#frac{p_{1}^{fit}-p_{1}^{gen}}{#sigma_{p_{1}}};number of pseudo-experiments" % (p0End, p1End), 40, -3., 3.)
 
 for it in fileList:
     if it[-5:]!='.root':
@@ -206,6 +206,8 @@ for it in fileList:
 from ROOT import gStyle, TStyle
 gStyle.SetOptFit(1111);
 gStyle.SetOptStat(111111);
+gStyle.SetStatW(gStyle.GetStatW()/1.1);
+gStyle.SetStatH(gStyle.GetStatH()/1.1);
 
 currentTime = time.time();
 
