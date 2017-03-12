@@ -89,7 +89,7 @@ import ROOT
 from ROOT import TFile, RooFit, TTree, RooDataSet, RooArgSet, RooRealVar, TCanvas
 import sys,os,time
 
-def buildTimePdf(config, tupleDataSet):
+def buildTimePdf(config, tupleDataSet, tupleDict):
 
     from B2DXFitters.WS import WS
     print 'CONFIGURATION'
@@ -117,7 +117,7 @@ def buildTimePdf(config, tupleDataSet):
     """
     build time pdf, return pdf and associated data in dictionary
     """
-    '''
+    
     from B2DXFitters.WS import WS
     print 'CONFIGURATION'
     for k in sorted(config.keys()):
@@ -152,8 +152,8 @@ def buildTimePdf(config, tupleDataSet):
                  config['TrivialMistagParams']['omega0']), 0.5))
 
     mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
-    tageff = WS(ws, RooRealVar('tageff', 'tageff', 1.0))
-    timerr = WS(ws, tupleDataSet.get().ct()
+    tageff = WS(ws, RooRealVar('tageff', 'tageff', 0.60, 0.0, 1.0))
+    terrpdf = WS(ws, tupleDataSet.reduce('ct'));
     #timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
     # fit average mistag
     # add mistagged 
@@ -183,10 +183,7 @@ def buildTimePdf(config, tupleDataSet):
                     'Bs2DsPi_mistagpdf_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,
                     config['TrivialMistagParams'][sfx]))
         # build mistag pdf itself
-        mistagpdf = WS(ws, MistagDistribution(
-                'Bs2DsPi_mistagpdf', 'Bs2DsPi_mistagpdf',
-                eta, mistagpdfparams['omega0'], mistagpdfparams['omegaavg'],
-                mistagpdfparams['f']))
+        mistagpdf = WS(ws, [tupleDataSet.reduce('ssMistag'), tupleDataSet.reduce('osMistag')]);
         mistagcalibparams = {} # start with parameters of calibration
         for sfx in ('p0', 'p1', 'etaavg'):
             mistagcalibparams[sfx] = WS(ws, RooRealVar('Bs2DsPi_mistagcalib_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,config['MistagCalibParams'][sfx]));
@@ -201,7 +198,7 @@ def buildTimePdf(config, tupleDataSet):
             'Bs2DsPi_mistagcalib', 'Bs2DsPi_mistagcalib',
             eta, mistagcalibparams['p0'], mistagcalibparams['p1'],
             mistagcalibparams['etaavg']))
-
+    '''
     # build the time pdf
     if 'GEN' in config['Context']:
         pdf = buildBDecayTimePdf(
@@ -209,7 +206,7 @@ def buildTimePdf(config, tupleDataSet):
             time, timeerr, qt, qf, [ [ omega ] ], [ tageff ],
             Gamma, DGamma, Dm,
             C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
-            timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
+            timeresmodel = resmodel, acceptance = acc, timeerrpdf,
             mistagpdf = [mistagpdf], mistagobs = eta)
     else:
         pdf = buildBDecayTimePdf(
@@ -219,6 +216,16 @@ def buildTimePdf(config, tupleDataSet):
             C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
             timeresmodel = resmodel, acceptance = acc, timeerrpdf = None)
     '''
+
+    
+    pdf = buildBDecayTimePdf(
+        config, 'Bs2DsPi', ws,
+        time, timeerr, qt, qf, [ [ eta ] ], [ tageff ],
+        Gamma, DGamma, Dm,
+        C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
+        timeresmodel = resmodel, acceptance = acc, timeerrpdf = terrpdf,
+        mistagpdf = [mistagpdf], mistagobs = eta)
+    
     return { # return things
             'ws': ws,
             'pdf': pdf,
