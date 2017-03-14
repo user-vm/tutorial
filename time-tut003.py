@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 5
+NUMCAT = 1
 import time
 TIME_NOW = str(time.time())
 
@@ -406,6 +406,8 @@ genpdf = buildTimePdf(genconfig)
 # generate 150K events
 print '150K'
 ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
+#ds.Print();
+#sys.exit(0);
 #saveEta(ds);
 
 # HACK (2/2): restore correct eta range after generation
@@ -547,7 +549,7 @@ etaAvg.Print();
 
 print 'ETAAVGLIST'
 etaAvgList.Print();
-
+sys.exit(0);
 from ROOT import TFile
 g = TFile('fitresultlist123/fitresultlist123_%04d.root' % SEED, 'recreate')
 #g.WriteTObject(p0End, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
