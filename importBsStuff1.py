@@ -90,6 +90,116 @@ from ROOT import TFile, RooFit, TTree, RooDataSet, RooArgSet, RooRealVar,TCanvas
 from B2DXFitters.WS import WS
 import sys,os,time
 
+def buildTimePdf1(config):
+    """
+    build time pdf, return pdf and associated data in dictionary
+    """
+    from B2DXFitters.WS import WS
+    print 'CONFIGURATION'
+    for k in sorted(config.keys()):
+        print '    %32s: %32s' % (k, config[k])
+    
+    # start building the fit
+    ws = RooWorkspace('ws_%s' % config['Context'])
+    one = WS(ws, RooConstVar('one', '1', 1.0))
+    zero = WS(ws, RooConstVar('zero', '0', 0.0))
+    
+    # start by defining observables
+    time = WS(ws, RooRealVar('time', 'time [ps]', 0.2, 15.0))
+    qf = WS(ws, RooCategory('qf', 'final state charge'))
+    qf.defineType('h+', +1)
+    qf.defineType('h-', -1)
+    qt = WS(ws, RooCategory('qt', 'tagging decision'))
+    qt.defineType(      'B+', +1)
+    qt.defineType('Untagged',  0)
+    qt.defineType(      'B-', -1)
+    
+    # now other settings
+    Gamma  = WS(ws, RooRealVar( 'Gamma',  'Gamma',  0.661)) # ps^-1
+    DGamma = WS(ws, RooRealVar('DGamma', 'DGamma',  0.106)) # ps^-1
+    Dm     = WS(ws, RooRealVar(    'Dm',     'Dm', 17.719)) # ps^-1
+    
+    # HACK (1/2): be careful about lower bound on eta, since mistagpdf below
+    # is zero below a certain value - generation in accept/reject would get
+    # stuck
+    if 'GEN' in config['Context'] or 'FIT' in config['Context']:
+        eta = WS(ws, RooRealVar('eta', 'eta', 0.35,
+                 0.0 if 'FIT' in config['Context'] else (1. + 1e-5) * max(0.0,
+                 config['TrivialMistagParams']['omega0']), 0.5))
+
+    mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
+    tageff = WS(ws, RooRealVar('tageff', 'tageff', 1.0))
+    timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
+    # fit average mistag
+    # add mistagged 
+    #ge rid of untagged events by putting restriction on qf or something when reduceing ds
+    # now build the PDF
+    from B2DXFitters.timepdfutils import buildBDecayTimePdf
+    from B2DXFitters.resmodelutils import getResolutionModel
+    from B2DXFitters.acceptanceutils import buildSplineAcceptance
+    
+    if 'GEN' in config['Context']:
+        obs = [ qf, qt, time, eta]
+    else:
+        obs = [ qf, qt, time]
+    acc, accnorm = buildSplineAcceptance(ws, time, 'Bs2DsPi_accpetance',
+            config['SplineAcceptance']['KnotPositions'],
+            config['SplineAcceptance']['KnotCoefficients'][config['Context'][0:3]],
+            'FIT' in config['Context']) # float for fitting
+    if 'GEN' in config['Context']:
+        acc = accnorm # use normalised acceptance for generation
+    # get resolution model
+    resmodel, acc = getResolutionModel(ws, config, time, timeerr, acc)
+    if 'GEN' in config['Context']:
+        # build a (mock) mistag distribution
+        mistagpdfparams = {} # start with parameters of mock distribution
+        for sfx in ('omega0', 'omegaavg', 'f'):
+            mistagpdfparams[sfx] = WS(ws, RooRealVar(
+                    'Bs2DsPi_mistagpdf_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,
+                    config['TrivialMistagParams'][sfx]))
+        # build mistag pdf itself
+        mistagpdf = WS(ws, MistagDistribution(
+                'Bs2DsPi_mistagpdf', 'Bs2DsPi_mistagpdf',
+                eta, mistagpdfparams['omega0'], mistagpdfparams['omegaavg'],
+                mistagpdfparams['f']))
+        mistagcalibparams = {} # start with parameters of calibration
+        for sfx in ('p0', 'p1', 'etaavg'):
+            mistagcalibparams[sfx] = WS(ws, RooRealVar('Bs2DsPi_mistagcalib_%s' % sfx, 'Bs2DsPi_mistagpdf_%s' % sfx,config['MistagCalibParams'][sfx]));
+        
+        
+        for sfx in ('p0', 'p1'): # float calibration paramters
+            mistagcalibparams[sfx].setConstant(False)
+            mistagcalibparams[sfx].setError(0.1)
+        
+        # build mistag pdf itself
+        omega = WS(ws, MistagCalibration(
+            'Bs2DsPi_mistagcalib', 'Bs2DsPi_mistagcalib',
+            eta, mistagcalibparams['p0'], mistagcalibparams['p1'],
+            mistagcalibparams['etaavg']))
+
+    # build the time pdf
+    if 'GEN' in config['Context']:
+        pdf = buildBDecayTimePdf(
+            config, 'Bs2DsPi', ws,
+            time, timeerr, qt, qf, [ [ omega ] ], [ tageff ],
+            Gamma, DGamma, Dm,
+            C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
+            timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
+            mistagpdf = [mistagpdf], mistagobs = eta)
+    else:
+        pdf = buildBDecayTimePdf(
+            config, 'Bs2DsPi', ws,
+            time, timeerr, qt, qf, [ [ eta ] ], [ tageff ],
+            Gamma, DGamma, Dm,
+            C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
+            timeresmodel = resmodel, acceptance = acc, timeerrpdf = None)
+
+    return { # return things
+            'ws': ws,
+            'pdf': pdf,
+            'obs': obs
+            }
+
 def buildTimePdf(config, tupleDataSet, tupleDict, ws):
 
     from B2DXFitters.WS import WS
@@ -146,7 +256,7 @@ def buildTimePdf(config, tupleDataSet, tupleDict, ws):
     from B2DXFitters.resmodelutils import getResolutionModel
     from B2DXFitters.acceptanceutils import buildSplineAcceptance
     
-    obs = [ qf, qt, eta, time]
+    obs = [ qf, qt, time]
     acc, accnorm = buildSplineAcceptance(ws, time, 'Bs2DsPi_accpetance',
             config['SplineAcceptance']['KnotPositions'],
             config['SplineAcceptance']['KnotCoefficients'][config['Context'][0:3]],
@@ -366,7 +476,7 @@ else:
 
     from B2DXFitters.utils import configDictFromFile
     config = configDictFromFile('bsConfig.py');
-    config['Context'] = 'FIT'
+    config['Context'] = 'GEN'
 
     # start with RooFit stuff
     from ROOT import ( RooRealVar, RooConstVar, RooCategory, RooWorkspace,
@@ -390,10 +500,15 @@ else:
     ws = RooWorkspace('ws_FIT')
     tupleDataSet = WS(ws, tupleDataSet, varRenamedList)
 
+    #tupleDataSet = 
+
     tupleDataSet.Print();
-    fitpdf = buildTimePdf(config, tupleDataSet, tupleDict, ws);
-    ws = fitpdf['ws'];
-    #tupleDataSet = WS(ws, tupleDataSet);
+    
+    config['Context'] = 'FIT'
+    fitpdf = buildTimePdf1(config);
+    #ws = fitpdf['ws'];
+    tupleDataSet = WS(ws, tupleDataSet);
+    tupleDataSet = WS(fitpdf['ws'], tupleDataSet);
 
     # set constant what is supposed to be constant
     from B2DXFitters.utils import setConstantIfSoConfigured
