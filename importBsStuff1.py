@@ -86,18 +86,18 @@ exec $schedtool /usr/bin/time -v env python -O "$0" - "$@"
 __doc__ = """ real docstring """
 
 import ROOT
-from ROOT import TFile, RooFit, TTree, RooDataSet, RooArgSet, RooRealVar, TCanvas, RooWorkspace
+from ROOT import TFile, RooFit, TTree, RooDataSet, RooArgSet, RooRealVar,TCanvas, RooWorkspace,RooCategory
 from B2DXFitters.WS import WS
 import sys,os,time
 
-def buildTimePdf(config, tupleDataSet, tupleDict):
+def buildTimePdf(config, tupleDataSet, tupleDict, ws):
 
     from B2DXFitters.WS import WS
     print 'CONFIGURATION'
     for k in sorted(config.keys()):
         print '    %32s: %32s' % (k, config[k])
 
-    ws = RooWorkspace('ws_%s' % config['Context'])
+    #ws = RooWorkspace('ws_%s' % config['Context'])
     one = WS(ws, RooConstVar('one', '1', 1.0))
     zero = WS(ws, RooConstVar('zero', '0', 0.0))
     ###USE FIT CONTEXT
@@ -105,7 +105,7 @@ def buildTimePdf(config, tupleDataSet, tupleDict):
     build time pdf, return pdf and associated data in dictionary
     """
     # start by defining observables
-    time = WS(ws, tupleDataSet.get().find('ct'));
+    #time = WS(ws, tupleDataSet.get().find('ct'));
     #qt = WS(ws, tupleDataSet.get().find('ssDecision'));
     '''
     time = WS(ws, RooRealVar('time', 'time [ps]', 0.2, 15.0))
@@ -131,10 +131,11 @@ def buildTimePdf(config, tupleDataSet, tupleDict):
         eta = WS(ws, RooRealVar('eta', 'eta', 0.35,
                  0.0 if 'FIT' in config['Context'] else (1. + 1e-5) * max(0.0,
                  config['TrivialMistagParams']['omega0']), 0.5))
-
+    
+    time = WS(ws, RooRealVar('time', 'time [ps]', 0.2, 15.0))
     mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
     tageff = WS(ws, RooRealVar('tageff', 'tageff', 0.60, 0.0, 1.0))
-    terrpdf = WS(ws, tupleDataSet.get().find('cterr'));
+    #terrpdf = WS(ws, tupleDataSet.get().find('timeerr'));###?
     timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
     #MISTAGPDF
     # fit average mistag
@@ -145,14 +146,14 @@ def buildTimePdf(config, tupleDataSet, tupleDict):
     from B2DXFitters.resmodelutils import getResolutionModel
     from B2DXFitters.acceptanceutils import buildSplineAcceptance
     
-    obs = [ qf, qt, time]
+    obs = [ qf, qt, eta, time]
     acc, accnorm = buildSplineAcceptance(ws, time, 'Bs2DsPi_accpetance',
             config['SplineAcceptance']['KnotPositions'],
             config['SplineAcceptance']['KnotCoefficients'][config['Context'][0:3]],
             'FIT' in config['Context']) # float for fitting
     # get resolution model
     resmodel, acc = getResolutionModel(ws, config, time, timeerr, acc)
-    mistagpdf = WS(ws,RooArgList(tupleDataSet.get().find('ssMistag'),tupleDataSet.get().find('osMistag')));#???
+    #mistagpdf = WS(ws,RooArgList(tupleDataSet.get().find('ssMistag'),tupleDataSet.get().find('osMistag')));#???
     '''
     if 'GEN' in config['Context']:
         # build a (mock) mistag distribution
@@ -202,8 +203,7 @@ def buildTimePdf(config, tupleDataSet, tupleDict):
         time, timeerr, qt, qf, [ [ eta ] ], [ tageff ],
         Gamma, DGamma, Dm,
         C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
-        timeresmodel = resmodel, acceptance = acc, timeerrpdf = terrpdf,
-        mistagpdf = [mistagpdf], mistagobs = eta)
+        timeresmodel = resmodel, acceptance = acc, timeerrpdf = None)
     
     return { # return things
             'ws': ws,
@@ -232,16 +232,17 @@ def importTupleDict(name):
     return d
 
 #tupleDictFilename = "default filename"
-
+import sys
 tupleDictFilename = str(sys.argv[-1]);
+
+#print "WRONG"
+#sys.exit(1);
+
+if not os.path.isfile(tupleDictFilename) or tupleDictFilename == "-":
+    print "Filename argument invalid; running for default tuple dictionary file"
+    tupleDictFilename = os.environ["B2DXFITTERSROOT"] + "/tutorial/tupleDict2.py"
+
 if 'r' in sys.argv:
-    #print "WRONG"
-    #sys.exit(1);
-
-    if not os.path.isfile(tupleDictFilename) or tupleDictFilename == "-":
-        print "Filename argument invalid; running for default tuple dictionary file"
-        tupleDictFilename = os.environ["B2DXFITTERSROOT"] + "/tutorial/tupleDict2.py"
-
     in_file = TFile("/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root");
     ROOT.SetOwnership(in_file, False)
     keyList = in_file.GetListOfKeys()
@@ -259,23 +260,97 @@ if 'r' in sys.argv:
 
     for i in range(len(tupleDict)):
         varName = tupleDict.keys()[i]
-        varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
+        tree1.GetBranch(varName).Print();
+        if (tupleDict[varName] != 'qt'):
+            varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
+        else:
+            qtCat = RooCategory(varName,'tagging decision');
+            qtCat.defineType(      'B+', +1)
+            qtCat.defineType('Untagged',  0)
+            qtCat.defineType(      'B-', -1)
+            varList += [qtCat];
+        varRenamedList += [RooFit.RenameVariable(varName, tupleDict[varName])]
+        #RooFit.RenameVariable(varName, tupleDict[varName]);
+        #varList[i].SetName(tupleDict.keys()[i]);
+
+    #tupleDataSet = RooDataSet("treeData","treeData",tree1,RooArgSet(*varList));
+
+    weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
+    tupleDataSet = RooDataSet("tupleDataSet", "tupleDataSet",
+        RooArgSet(*varList),
+        RooFit.Import(tree1), RooFit.WeightVar(weightvar))
+    
+    #bCanvas = TCanvas();
+    #qtFrame = tupleDataSet.get().find('qt').frame();
+    #tupleDataSet.plotOn(qtFrame, RooFit.DrawOption('b'));
+    #qtFrame.Draw();
+    #raw_input();
+    #sys.exit(0);
+
+    from ROOT import TFile
+    import time
+    g = TFile('../BsStuff.root', 'recreate')
+    g.WriteTObject(tupleDataSet)
+    #g.WriteTObject(ws);
+    #g.WriteTObject(weightvar);
+    g.Close()
+    del g
+    sys.exit(0)
+
+else:
+    #print "Running without 'r' argument disabled" 
+    #sys.exit(0);
+    #rootInFile = TFile("../BsStuff.root");
+    #keyList = rootInFile.GetListOfKeys();
+    #keyList.At(0).ReadObj().Print();
+    #keyList.At(1).ReadObj().Print();
+    #tupleDataSet = rootInFile.Get('treeData');
+    
+    in_file = TFile('../BsStuff.root');
+    tupleDataSet = in_file.Get('tupleDataSet');
+    
+    #aCanvas = TCanvas();
+    #qtFrame = tupleDataSet.get().find('Bs_TAGDECISION_OS').frame();
+    #tupleDataSet.add
+    #tupleDataSet.Print();
+    '''
+    for i in tupleDataSet.numEntries():
+        tupleDataSet.get(i).find('Bs_TAGDECISION_OS').getVal
+    '''
+    tupleDataSet.get().find('Bs_TAGDECISION_OS').Print();
+    #tupleDataSet.plotOn(qtFrame, RooFit.DrawOption('b'));
+    #qtFrame.Draw();
+    #raw_input();
+
+    in_file.Close();
+    del in_file
+    #sys.exit(0);    
+
+    tupleDict = importTupleDict(tupleDictFilename);
+
+    print tupleDict.keys()
+    #sys.exit(0);
+
+    varList = []
+    varRenamedList = []
+
+    for i in range(len(tupleDict)):
+        varName = tupleDict.keys()[i]
+        #varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
         varRenamedList += [RooFit.RenameVariable(varName, tupleDict[varName])]
         #RooFit.RenameVariable(varName, tupleDict[varName]);
         #varList[i].SetName(tupleDict.keys()[i]);
 
     #tupleDataSet = RooDataSet("treeData","treeData",tree1,RooArgSet(*varList));
     
-    weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
-    tupleDataSet = RooDataSet("tupleDataSet", "tupleDataSet",
-        RooArgSet(*varList),
-        RooFit.Import(tree1), RooFit.WeightVar(weightvar))
-    
-    ws = RooWorkspace('ws_FIT')
-    tupleDataSet = WS(ws, tupleDataSet, varRenamedList)
+    #weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
 
-    tupleDataSet.Print();
-    sys.exit(0);
+    #ws = RooWorkspace('ws_FIT')
+
+
+    #sys.exit(0);
+
+    #sys.exit(0);
     #qt needs to be a category?
     # Manuel's shit...
     #weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
@@ -288,38 +363,10 @@ if 'r' in sys.argv:
     #ROOT.SetOwnership(tupleDataSet,False);
 
     #tupleDataSet.get().find(varName).Print();
-    '''
-    for i in range(len(tupleDict)):
-        varName = tupleDict.keys()[i];
-        a = tupleDataSet.get().find(varName);
-        a.SetName(tupleDict[varName]);
-        a.SetTitle(tupleDict[varName]);
-    
-    from ROOT import TFile
-    import time
-    g = TFile('../BsStuff.root', 'recreate')
-    g.WriteTObject(tupleDataSet)
-    g.Close()
-    del g'''
 
-else:
-    print "Running without 'r' argument disabled" 
-    sys.exit(0);
-    rootInFile = TFile("../BsStuff.root");
-    keyList = rootInFile.GetListOfKeys();
-    keyList.At(0).ReadObj().Print();
-    keyList.At(1).ReadObj().Print();
-    tupleDataSet = rootInFile.Get('treeData');
-
-    if not os.path.isfile(tupleDictFilename) or tupleDictFilename == "-":
-        print "Filename argument invalid; running for default tuple dictionary file"
-        tupleDictFilename = os.environ["B2DXFITTERSROOT"] + "/tutorial/tupleDict2.py"
-    
-    tupleDict = importTupleDict(tupleDictFilename);
-    tupleDataSet = tupleDataSet.reduce('osDecision==ssDecision');
-    
     from B2DXFitters.utils import configDictFromFile
     config = configDictFromFile('bsConfig.py');
+    config['Context'] = 'FIT'
 
     # start with RooFit stuff
     from ROOT import ( RooRealVar, RooConstVar, RooCategory, RooWorkspace,
@@ -337,11 +384,16 @@ else:
         'RooAdaptiveGaussKronrodIntegrator1D')
     RooAbsReal.defaultIntegratorConfig().method1DOpen().setLabel(
         'RooAdaptiveGaussKronrodIntegrator1D')
-    
+
     from B2DXFitters.WS import WS
-    fitpdf = buildTimePdf(config, tupleDataSet, tupleDict);
+    
+    ws = RooWorkspace('ws_FIT')
+    tupleDataSet = WS(ws, tupleDataSet, varRenamedList)
+
+    tupleDataSet.Print();
+    fitpdf = buildTimePdf(config, tupleDataSet, tupleDict, ws);
     ws = fitpdf['ws'];
-    tupleDataSet = WS(ws, tupleDataSet);
+    #tupleDataSet = WS(ws, tupleDataSet);
 
     # set constant what is supposed to be constant
     from B2DXFitters.utils import setConstantIfSoConfigured
@@ -352,7 +404,8 @@ else:
         RooFit.Strategy(config['FitConfig']['Strategy']),
         RooFit.Optimize(config['FitConfig']['Optimize']),
         RooFit.Offset(config['FitConfig']['Offset']),
-        RooFit.NumCPU(config['FitConfig']['NumCPU']) ]
+        RooFit.NumCPU(config['FitConfig']['NumCPU']),
+        RooFit.SumW2Error(True) ]
 
     # set up blinding for data
     fitopts.append(RooFit.Verbose(not (config['IsData'] and config['Blinding'])))
@@ -371,6 +424,7 @@ else:
     result = getDsHBlindFitResult(config['IsData'], config['Blinding'],
         rawfitresult)
     print result
+    sys.exit(0);
 
     '''
     doubleCanvas = TCanvas();
@@ -389,7 +443,7 @@ else:
     '''
     for i in range(len(tupleDict)):
         tupleDataSet.get().find(tupleDict.values()[i]).Print();
-    sys.exit(0);
+    #sys.exit(0);
     '''
     doubleCanvas.Update();
     raw_input('Press Enter to continue');
@@ -399,33 +453,33 @@ else:
     #print
     doubleCanvas.Close();'''
 
-tupleDataSet.Print();
+    tupleDataSet.Print();
 
-sys.exit(0);
+    sys.exit(0);
 
-dirName = "tupleTestPlots";
-currentTime = time.time();
+    dirName = "tupleTestPlots";
+    currentTime = time.time();
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
-if(not os.path.exists(dirName)):
-    os.mkdir(dirName)
-os.chdir(dirName);
-doubleCanvas.SaveAs("plot_%f.pdf" % currentTime);
+    os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
+    if(not os.path.exists(dirName)):
+        os.mkdir(dirName)
+    os.chdir(dirName);
+    doubleCanvas.SaveAs("plot_%f.pdf" % currentTime);
 
-raw_input("Press Enter to continue...")
-'''
-from B2DXFitters.WS import WS
-# for now, we're in the generation stage
-#-config['Context'] = 'GEN'
-#-genpdf = buildTimePdf(config)
-import copy
-# FIXME: need to deep-copy the config dictionary, and need to disable a few
-# tweaks that speed up fitting during generation (because they waste time there)
-genconfig = copy.deepcopy(config)
-genconfig['Context'] = 'GEN'
-genconfig['NBinsAcceptance'] = 0
-genconfig['NBinsProperTimeErr'] = 0
-genconfig['ParameteriseIntegral'] = False
-genpdf = buildTimePdf(genconfig)
-'''
+    raw_input("Press Enter to continue...")
+    '''
+    from B2DXFitters.WS import WS
+    # for now, we're in the generation stage
+    #-config['Context'] = 'GEN'
+    #-genpdf = buildTimePdf(config)
+    import copy
+    # FIXME: need to deep-copy the config dictionary, and need to disable a few
+    # tweaks that speed up fitting during generation (because they waste time there)
+    genconfig = copy.deepcopy(config)
+    genconfig['Context'] = 'GEN'
+    genconfig['NBinsAcceptance'] = 0
+    genconfig['NBinsProperTimeErr'] = 0
+    genconfig['ParameteriseIntegral'] = False
+    genpdf = buildTimePdf(genconfig)
+    '''
 #vim: sw=4:et
