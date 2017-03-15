@@ -410,6 +410,10 @@ def importTupleDict(name):
     return d
 
 from B2DXFitters.WS import WS
+from ROOT import RooDataSet, RooArgSet
+
+from ROOT import TList
+
 # for now, we're in the generation stage
 #-config['Context'] = 'GEN'
 #-genpdf = buildTimePdf(config)
@@ -424,22 +428,59 @@ genconfig['ParameteriseIntegral'] = False
 genpdf = buildTimePdf(genconfig)
 
 from ROOT import TFile, RooFit
-
+'''
 in_file = TFile('../BsStuff.root');
 ds = in_file.Get('tupleDataSet');
 
 in_file.Close();
 del in_file
 #sys.exit(0);
-
+'''
 import os
 
 tupleDictFilename = os.environ["B2DXFITTERSROOT"] + "/tutorial/tupleDict2.py"
 tupleDict = importTupleDict(tupleDictFilename);
 
+in_file = TFile("/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root");
+ROOT.SetOwnership(in_file, False)
+keyList = in_file.GetListOfKeys()
+
+tree1 = keyList.At(0).ReadObj();
+print tree1.GetName();
+
+tupleDict = importTupleDict(tupleDictFilename);
+
 print tupleDict.keys()
 #sys.exit(0);
 
+varList = []
+varRenamedList = []
+
+for i in range(len(tupleDict)):
+    varName = tupleDict.keys()[i]
+    tree1.GetBranch(varName).Print();
+    if (tupleDict[varName] != 'qt'):
+        varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
+    else:
+        qtCat = RooCategory(varName,'tagging decision');
+        qtCat.defineType(      'B+', +1)
+        qtCat.defineType('Untagged',  0)
+        qtCat.defineType(      'B-', -1)
+        varList += [qtCat];
+    varRenamedList += [RooFit.RenameVariable(varName, tupleDict[varName])]
+    #RooFit.RenameVariable(varName, tupleDict[varName]);
+    #varList[i].SetName(tupleDict.keys()[i]);
+
+#tupleDataSet = RooDataSet("treeData","treeData",tree1,RooArgSet(*varList));
+
+weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
+tupleDataSet = RooDataSet("tupleDataSet", "tupleDataSet",
+    RooArgSet(*varList),
+    RooFit.Import(tree1), RooFit.WeightVar(weightvar))
+
+print tupleDict.keys()
+#sys.exit(0);
+'''
 varList = []
 varRenamedList = []
 
@@ -451,9 +492,9 @@ qf = RooCategory('qf', 'final state charge')
 qf.defineType('h+', +1)
 qf.defineType('h-', -1)
 
-ds.addColumn(qf);
+ds.addColumn(qf);'''
 ws = RooWorkspace('ws_FIT');
-ds = WS(ws, ds, varRenamedList)
+ds = WS(ws, tupleDataSet, varRenamedList)
 
 print "\n\n\n\n\nEEEEEEEEEEEEEEEEEEEEEEEEEEE\n\n\n\n"
 ds.Print()
@@ -475,9 +516,7 @@ for o in genpdf['obs']:
     if not o.InheritsFrom('RooAbsCategory'): continue
     ds.table(o).Print('v')
 
-from ROOT import RooDataSet, RooArgSet
 
-from ROOT import TList
 
 mistagresultList = TList();
 etaAvgList = TList();

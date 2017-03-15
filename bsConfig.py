@@ -31,7 +31,7 @@
 
     'constParams': [
         '.*_scalefactor', # anything ending in '_scalefactor'...
-        'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+', # spline acceptance fixed
+        #'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+', # spline acceptance fixed
         ],
 
     'NBinsAcceptance': 100,
