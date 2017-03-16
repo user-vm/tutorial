@@ -371,14 +371,27 @@ if 'r' in sys.argv:
     for i in range(len(tupleDict)):
         varName = tupleDict.keys()[i]
         tree1.GetBranch(varName).Print();
-        if (tupleDict[varName] != 'qt'):
-            varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
-        else:
+        if (tupleDict[varName] == 'qt'):
             qtCat = RooCategory(varName,'tagging decision');
             qtCat.defineType(      'B+', +1)
             qtCat.defineType('Untagged',  0)
             qtCat.defineType(      'B-', -1)
             varList += [qtCat];
+            '''
+        elif (tupleDict[varName] == 'qf1'):
+            qf1Cat = RooCategory(varName,'final state charge 1');
+            qf1Cat.defineType(      'h+', +1)
+            qf1Cat.defineType(      'h-', -1)
+            varList += [qf1Cat];
+        '''
+        #USING Ds_ID
+        elif (tupleDict[varName] == 'qf'):
+            qf2Cat = RooCategory(varName,'final state charge 2');
+            qf2Cat.defineType(      'h+', +411)
+            qf2Cat.defineType(      'h-', -411)
+            varList += [qf2Cat];
+        else:
+            varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
         varRenamedList += [RooFit.RenameVariable(varName, tupleDict[varName])]
         #RooFit.RenameVariable(varName, tupleDict[varName]);
         #varList[i].SetName(tupleDict.keys()[i]);
@@ -390,13 +403,33 @@ if 'r' in sys.argv:
         RooArgSet(*varList),
         RooFit.Import(tree1), RooFit.WeightVar(weightvar))
     
-    #bCanvas = TCanvas();
-    #qtFrame = tupleDataSet.get().find('qt').frame();
-    #tupleDataSet.plotOn(qtFrame, RooFit.DrawOption('b'));
-    #qtFrame.Draw();
-    #raw_input();
+    
+    '''
+    halfDataSet = tupleDataSet.reduce('Ds_ID*Ds_TRUEID>0');
+    print "\n\n\nHALFDATASET"
+    halfDataSet.Print();
+    print "Ds_ID   "
+    halfDataSet.get().find('Ds_ID').Print();
+    print "Ds_TRUEID  "
+    halfDataSet.get().find('Ds_TRUEID').Print();
+    
+    print "\n\n\nTRUEDATASET"
+    tupleDataSet.Print();
+    #halfDataSet.get().find('Ds_ID').
+    bCanvas = TCanvas();
+    bCanvas.Divide(2,1,0,0);
+    bCanvas.cd(1);
+    qf1Frame = halfDataSet.get().find('Ds_ID').frame();
+    halfDataSet.plotOn(qf1Frame, RooFit.DrawOption('b'));
+    qf1Frame.Draw();
+    bCanvas.cd(2);
+    qf2Frame = halfDataSet.get().find('Ds_TRUEID').frame();
+    halfDataSet.plotOn(qf2Frame, RooFit.DrawOption('b'));
+    qf2Frame.Draw();
+    bCanvas.Update();
+    raw_input();
     #sys.exit(0);
-
+    '''
     from ROOT import TFile
     import time
     g = TFile('../BsStuff.root', 'recreate')

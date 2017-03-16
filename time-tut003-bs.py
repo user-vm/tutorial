@@ -459,14 +459,27 @@ varRenamedList = []
 for i in range(len(tupleDict)):
     varName = tupleDict.keys()[i]
     tree1.GetBranch(varName).Print();
-    if (tupleDict[varName] != 'qt'):
-        varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
-    else:
+    if (tupleDict[varName] == 'qt'):
         qtCat = RooCategory(varName,'tagging decision');
         qtCat.defineType(      'B+', +1)
         qtCat.defineType('Untagged',  0)
         qtCat.defineType(      'B-', -1)
         varList += [qtCat];
+        '''
+    elif (tupleDict[varName] == 'qf1'):
+        qf1Cat = RooCategory(varName,'final state charge 1');
+        qf1Cat.defineType(      'h+', +1)
+        qf1Cat.defineType(      'h-', -1)
+        varList += [qf1Cat];
+    '''
+    #USING Ds_ID
+    elif (tupleDict[varName] == 'qfbad'):
+        qf2Cat = RooCategory(varName,'final state charge bad');
+        qf2Cat.defineType(      'h+', +411)
+        qf2Cat.defineType(      'h-', -411)
+        varList += [qf2Cat];
+    else:
+        varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
     varRenamedList += [RooFit.RenameVariable(varName, tupleDict[varName])]
     #RooFit.RenameVariable(varName, tupleDict[varName]);
     #varList[i].SetName(tupleDict.keys()[i]);
@@ -477,6 +490,51 @@ weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
 tupleDataSet = RooDataSet("tupleDataSet", "tupleDataSet",
     RooArgSet(*varList),
     RooFit.Import(tree1), RooFit.WeightVar(weightvar))
+
+tupleDataSet.Print();
+
+qf = RooCategory('qf','final state charge');
+qf.defineType('h+',+1);
+qf.defineType('h-',-1);'''
+tupleDataSet.addColumn(qf);
+qf.setRange('h+','Ds_ID==Ds_ID::hplus');
+qf.setRange('h-','Ds_ID==Ds_ID::hminus');'''
+'''
+#PLOTTING
+qf1Frame = halfDataSet.get().find('Ds_ID').frame();
+halfDataSet.plotOn(qf1Frame, RooFit.DrawOption('b'));
+qf1Frame.Draw();
+'''
+print "/n/n/n/ZZZZZZZZZZZZ/n/n/n"
+tupleDataSet.get().find('Ds_ID').Print();
+tupleDataSet.table(tupleDataSet.get().find('Ds_ID')).Print('v');
+
+from ROOT import RooDataSet
+
+secondDataSet = RooDataSet('sds','sds',RooArgSet(qf));
+
+for i in range(tupleDataSet.numEntries()):
+    qf.setLabel(tupleDataSet.get(i).find('Ds_ID').getLabel());
+    secondDataSet.add(RooArgSet(qf));
+    #print i,
+
+tupleDataSet.merge(secondDataSet);
+
+#ff = RooFormulaVar(
+
+tdsArgSet = tupleDataSet.get();
+tdsArgSet.remove(tdsArgSet.find('Ds_ID'));
+'''
+tdsIt = tdsArgSet.createIterator();
+nameList = []
+
+while tdsIt!=0:
+    if tdsIt.GetName!='qtbad':
+        nameList += [tdsIt.GetName()];
+'''
+tupleDataSet = tupleDataSet.reduce(tdsArgSet);
+tupleDataSet.Print();
+tupleDataSet.get().find('qf').Print();
 
 print tupleDict.keys()
 #sys.exit(0);
@@ -493,8 +551,10 @@ qf.defineType('h+', +1)
 qf.defineType('h-', -1)
 
 ds.addColumn(qf);'''
-ws = RooWorkspace('ws_FIT');
-ds = WS(ws, tupleDataSet, varRenamedList)
+#ws = RooWorkspace('ws_FIT');
+#ds = WS(ws, tupleDataSet, varRenamedList)
+
+#ds
 
 print "\n\n\n\n\nEEEEEEEEEEEEEEEEEEEEEEEEEEE\n\n\n\n"
 ds.Print()
@@ -516,17 +576,22 @@ for o in genpdf['obs']:
     if not o.InheritsFrom('RooAbsCategory'): continue
     ds.table(o).Print('v')
 
+tdKeys = tupleDict.keys();
+qtKey = ''
 
+for i in range(len(tdKeys)):
+    if tupleDict[tdKeys[i]]=='qt':
+        qtKey = tdKeys[i];
 
 mistagresultList = TList();
 etaAvgList = TList();
 print "**** ADDING CATEGORIES ****"
-ds = ds.reduce("qt!=qt::Untagged");
+ds = ds.reduce("%s!=%s::Untagged" % (qtKey,qtKey));
 xRegions = createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT);
 ds.addColumn(xRegions)
 ds.table(xRegions).Print("v")
 
-keepvars = [ds.get().find(name) for name in ['qt', 'qf', 'tageffRegion', 'time']]
+#keepvars = [ds.get().find(name) for name in ['qt', 'qf', 'tageffRegion', 'time']]
 
 for i in xrange(NUMCAT):
     etaAvgList.AddLast(ds.reduce("tageffRegion == tageffRegion::Cat%u" % (i + 1,)).meanVar(ds.get().find('eta')));
@@ -560,7 +625,7 @@ for i in xrange(NUMCAT):
     #ds = WS(fitpdf['ws'],ds);
     # add data set to fitting workspace
     ds1 = WS(fitpdf['ws'], dspercat[i])
-
+    
     print 72 * "#"
     print "WS:" + str(fitpdf["ws"])
     print "PDF:" + str(fitpdf["pdf"])
