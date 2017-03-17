@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 5
+NUMCAT = 1
 import time
 TIME_NOW = str(time.time())
 
@@ -407,7 +407,6 @@ genpdf = buildTimePdf(genconfig)
 print '150K'
 ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
 #ds.Print();
-#ds.get().find('qt').Print();
 #sys.exit(0);
 #saveEta(ds);
 
@@ -536,7 +535,6 @@ for i in xrange(NUMCAT):
     rawfitresult.floatParsFinal().Print()
 
 ds.get().Print();
-sys.exit(0);
 '''
 for i in range(mistagresultList.GetSize()):
 

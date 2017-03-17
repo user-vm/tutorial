@@ -1,0 +1,82 @@
+Script started on Fri Mar 17 15:35:42 2017
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[?1034h[user@localhost tutorial]$ exit[2Pfg./time-tut003-bs.py 1234
+find: `/cvmfs/lhcb.cern.ch/lib/lhcb/COMPAT/COMPAT_v1r19/CompatSys/x86_64-slc6-gcc49-opt/lib': No such file or directory
+find: `/cvmfs/lhcb.cern.ch/lib/lhcb/COMPAT/COMPAT_v1r19/CompatSys/x86_64-slc6-gcc49-opt/lib': No such file or directory
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+DEBUG: argument - is no number, trying next argument asseed
+{'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'UseKFactor': False, "\n    # dummy shape for easy testing in toys:\n    #  ^              * zero from omega=0 to omega0\n    #  |      *  |    * quadratic rise starting at omega0\n    #  |     * * |    * turning point omega_c calculated\n    #  |    *   *|      to match desired average omega\n    #  |  **     * f  * from there, linear down to point (0.5, f)\n    #  ***-------+\n    #  0 omega0  0.5\n    'TrivialMistagParams': {\n        'omegaavg': 0.350, # desired expectation value of mistag distribution\n        'omega0': 0.07, # start quadratic increase at omega0\n        'f': 0.25, # final point P(0.5) = f\n        },\n\n    'MistagCalibParams': { # tagging calibration parameters\n        'p0':     0.350, #0.345\n        'p1':     1.000, #0.980\n        'etaavg': 0.350\n        },\n\tconstParams": ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 100}
+CONFIGURATION
+    
+    # dummy shape for easy testing in toys:
+    #  ^              * zero from omega=0 to omega0
+    #  |      *  |    * quadratic rise starting at omega0
+    #  |     * * |    * turning point omega_c calculated
+    #  |    *   *|      to match desired average omega
+    #  |  **     * f  * from there, linear down to point (0.5, f)
+    #  ***-------+
+    #  0 omega0  0.5
+    'TrivialMistagParams': {
+        'omegaavg': 0.350, # desired expectation value of mistag distribution
+        'omega0': 0.07, # start quadratic increase at omega0
+        'f': 0.25, # final point P(0.5) = f
+        },
+
+    'MistagCalibParams': { # tagging calibration parameters
+        'p0':     0.350, #0.345
+        'p1':     1.000, #0.980
+        'etaavg': 0.350
+        },
+	constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              GEN
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                  NBinsProperTimeErr:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+Traceback (most recent call last):
+  File "./time-tut003-bs.py", line 430, in <module>
+    genpdf = buildTimePdf(genconfig)
+  File "./time-tut003-bs.py", line 319, in buildTimePdf
+    config['TrivialMistagParams']['omega0']), 0.5))
+KeyError: 'TrivialMistagParams'
+Command exited with non-zero status 1
+	Command being timed: "env python -O ./time-tut003-bs.py - 1234"
+	User time (seconds): 4.43
+	System time (seconds): 1.09
+	Percent of CPU this job got: 67%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.14
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 302876
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2233
+	Minor (reclaiming a frame) page faults: 103928
+	Voluntary context switches: 22010
+	Involuntary context switches: 19848
+	Swaps: 0
+	File system inputs: 587488
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+]0;user@localhost:~/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/tutorial[user@localhost tutorial]$ exit
+exit
+
+Script done on Fri Mar 17 15:56:20 2017

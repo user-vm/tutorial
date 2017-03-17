@@ -28,28 +28,6 @@
                      1.1296e+00, 1.2232e+00, 1.2277e+00 ],
             },
         },
-	
-    # dummy shape for easy testing in toys:
-    #  ^              * zero from omega=0 to omega0
-    #  |      *  |    * quadratic rise starting at omega0
-    #  |     * * |    * turning point omega_c calculated
-    #  |    *   *|      to match desired average omega
-    #  |  **     * f  * from there, linear down to point (0.5, f)
-    #  ***-------+
-    #  0 omega0  0.5
-    'TrivialMistagParams': {
-        'omegaavg': 0.350, # desired expectation value of mistag distribution
-        'omega0': 0.07, # start quadratic increase at omega0
-        'f': 0.25, # final point P(0.5) = f
-        },
-
-    'MistagCalibParams': { # tagging calibration parameters
-        'p0':     0.350, #0.345
-        'p1':     1.000, #0.980
-        'etaavg': 0.350
-        },
-	
-
 
     'constParams': [
         '.*_scalefactor', # anything ending in '_scalefactor'...
@@ -58,5 +36,3 @@
 
     'NBinsAcceptance': 100,
 }
-
-#vim: sw=4:et
