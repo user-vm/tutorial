@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 1
+NUMCAT = 5
 import time
 TIME_NOW = str(time.time())
 
@@ -181,15 +181,20 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
 
     xRegions.writeToStream(ROOT.cout,False);
     xRegions.writeToStream(ROOT.cout,True);
-    '''
+    
     #etaSet = RooDataSet('etaSet','etaSet',ds,RooArgSet(ds.get().find['eta']));
     #etaSet.Print();
     #etaHist.SetAxisRange(0.1,0.2);
     #etaHist.SetAxisRange(0.1,0.3);
+
+    #from ROOT import TCanvas
+
+    #histCanvas = TCanvas();
+
     ROOT.gStyle.SetPalette(ROOT.kOcean);
     
     #create stack to contain the chopped TH1Ds
-    etaHistStack = THStack("etaHistStack", "Stack of TH1Ds");
+    etaHistStack = THStack("etaHistStack", "Distribution of #eta;#eta;number of pseudo-experiments");
 
     limList += [etaHist.GetNbinsX()];
     histCutterFunc = TF1("histCutterFunc","((x>=[0])?((x<[1])?1:0):0)*x",0.0,1.0);
@@ -206,8 +211,9 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
         etaHistStack.Add(etaHistClone);
 
     etaHistStack.Draw("hist PFC");
-    s = raw_input("Press Enter to continue...");'''
-    
+    s = raw_input("Press Enter to continue...");
+    sys.exit(0);    
+
     return xRegions#,x
 
 def saveEta(g, numBins = 100):

@@ -106,7 +106,7 @@ if None == SEED:
 
 import os
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123b');
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123');
 fileList = os.listdir(os.getcwd());
 fileList.sort();
 
@@ -126,13 +126,23 @@ if(len(fileList)==0):
     print "No .root files found"
     sys.exit(1);
 
-currentColor = 0
+currentColor = 2
 linFuncList = []
 ROOT.SetOwnership(graphHolder,False);
 
 firstFile = -1
 
-for it in fileList:
+sumP0 = 0.0;
+sumP1 = 0.0;
+numP = 0;
+
+from ROOT import RooRealVar, RooDataSet, RooArgSet
+
+p0Var = RooRealVar('p0Var','p0Var',0.5,0.0,1.0);
+p1Var = RooRealVar('p1Var','p1Var',1.0,0.5,1.5);
+pDataSet = RooDataSet('pDataSet','pDataSet',RooArgSet(p0Var,p1Var));
+
+for it in fileList[:1]:
     if it[-5:]!='.root':
         continue
     
@@ -180,14 +190,27 @@ for it in fileList:
         mistagVsEtaGraph.SetPointError(i,etaAvgValVarList.At(i).getError(),mistagList.At(i).getError())
         print etaAvgValVarList.At(i).getError(),mistagList.At(i).getError()
         #mistagVsEtaGraph.SetLineColor(currentColor)
-        #linFuncList[-1].SetLineColor(currentColor)
+        linFuncList[-1].SetLineColor(currentColor)
     
     fitresult = mistagVsEtaGraph.Fit(linFuncList[-1],"FQS","",0.0,0.5)
     p0 = fitresult.Parameter(0);
     p1 = fitresult.Parameter(1);
+    p0Error = fitresult.ParError(0);
+    p1Error = fitresult.ParError(1);
+    
+    p0Var.setVal(p0);
+    p0Var.setError(p0Error);
+    p1Var.setVal(p1);
+    p1Var.setError(p1Error);
+
+    pDataSet.add(RooArgSet(p0Var,p1Var));
+
+    sumP0 += float(p0);
+    sumP1 += float(p1);
+    numP += 1;
 
     graphHolder.Add(mistagVsEtaGraph)
-    currentColor += 1
+    currentColor = currentColor%9 + 1
     #break;
 
 os.chdir("..")
@@ -195,9 +218,9 @@ os.chdir("..")
 theCanvas = TCanvas()
     
 if (graphHolder.GetListOfGraphs().GetSize()==1):
-    graphHolder.SetTitle("Omega vs. Eta;Eta;Omega")
+    graphHolder.SetTitle("#omega vs. #eta_{i};#eta_{i};#omega(#eta_{i})")
 else:
-    graphHolder.SetTitle("Omega vs. Eta (multiple eta sets);Eta;Omega")
+    graphHolder.SetTitle("#omega vs. #eta_{i} (%d data sets);#eta_{i};#omega(#eta_{i})" % numP)
 
 graphHolder.Draw("ap");
 graphHolder.GetXaxis().SetLimits(0.0,0.5);
@@ -205,15 +228,21 @@ graphHolder.SetMinimum(0.0);
 graphHolder.SetMaximum(0.5);    
 #graphHolder.Draw("ap")
 
+graphHolder.GetYaxis().SetTitleSize(0.05);
+graphHolder.GetXaxis().SetTitleSize(0.05);
+
 leg = TLegend(0.1,0.7,0.4,0.9);#,"a fucking header","tlNDC");
 ROOT.SetOwnership(leg,False);
 #leg.AddEntry(TObject(),"crap");
 
 leg.AddEntry(mistagVsEtaGraph,"data points","lep");
 leg.AddEntry(linFuncList[-1],"linear fit","l");
-leg.AddEntry(None,"p0 = %.4f" % p0,"");
-leg.AddEntry(None,"p1 = %.4f" % p1,"");
+leg.AddEntry(None,"#bar{p_{0}} = %.4f" % (sumP0/numP),"");
+leg.AddEntry(None,"#bar{p_{1}} = %.4f" % (sumP1/numP),"");
 leg.Draw();
+
+pDataSet.meanVar(pDataSet.get().find('p0Var')).Print();
+pDataSet.meanVar(pDataSet.get().find('p1Var')).Print();
 
 '''
 theCanvas.Update()
@@ -238,6 +267,11 @@ mistagVsEtaGraph.GetXaxis().SetLimits(0.0,0.5);
 mistagVsEtaGraph.GetYaxis().SetRangeUser(0.0,0.5);
 mistagVsEtaGraph.Draw("ap");
 '''
+
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
+if(not os.path.exists('OmegaVsEtaGraphs')):
+    os.mkdir("OmegaVsEtaGraphs")
+os.chdir('OmegaVsEtaGraphs');
 
 if lastFile != firstFile:
     theCanvas.Print("omegaVsEtaGraph_%s-%s_%f.pdf" %(firstFile,lastFile,time.time()),"pdf");

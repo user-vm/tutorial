@@ -204,16 +204,27 @@ for it in fileList:
     #break;
 
 from ROOT import gStyle, TStyle
-gStyle.SetOptFit(1111);
-gStyle.SetOptStat(111111);
+gStyle.SetOptFit(111);
+gStyle.SetOptStat(11);
 gStyle.SetStatW(gStyle.GetStatW()/1.1);
 gStyle.SetStatH(gStyle.GetStatH()/1.1);
+gStyle.SetStatX(gStyle.GetStatX());
+gStyle.SetStatY(gStyle.GetStatY()-0.05);
 
 currentTime = time.time();
 
 theHistCanvas = TCanvas();
+theHistCanvas.SetBottomMargin(0.2);
+theHistCanvas.SetRightMargin(0.05);
 hp1.Fit("gaus", "ILL");
 hp1.Draw();
+
+hp1.GetYaxis().SetTitleSize(0.05);
+hp1.GetXaxis().SetTitleSize(0.05);
+hp1.GetXaxis().SetTitleOffset(1.5);
+
+theHistCanvas.Update();
+
 #leg.AddEntry(TObject(),"crap");
 #leg.AddEntry(mistagVsEtaGraph,"data points","lep");
 
@@ -229,8 +240,16 @@ raw_input("Press Enter to continue");
 theHistCanvas.Close();
 
 theHistCanvas = TCanvas();
+theHistCanvas.SetBottomMargin(0.2);
+theHistCanvas.SetRightMargin(0.05);
 hp0.Fit("gaus", "ILL")
 hp0.Draw()
+
+hp0.GetYaxis().SetTitleSize(0.05);
+hp0.GetXaxis().SetTitleSize(0.05);
+hp0.GetXaxis().SetTitleOffset(1.5);
+
+theHistCanvas.Update();
 
 #leg = TLegend(0.9,1.1,0.3,0.5,"Gaussian fit","");
 #ROOT.SetOwnership(leg,False);
