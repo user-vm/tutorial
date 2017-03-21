@@ -188,7 +188,47 @@ del i
 # create the spline itself
 tacc = RooCubicSplineFun('{}_SplineAcceptance'.format(mode), '', time,
                          '{}_knotbinning'.format(mode), coefflist)
-del lastmycoeffs, coefflist
+#del lastmycoeffs, coefflist
+
+from ROOT import TCanvas, TLine
+
+#tacc.DrawClass();
+
+aCanvas = canvas;
+
+import sys
+aFrame = time.frame()
+
+#argSet = RooArgSet();
+
+#polyvar.Print();
+#polyvar.getDependents(argSet);
+#argSet.Print();
+
+tacc.plotOn(aFrame);
+aFrame.SetTitle("Acceptance function and knot positions");
+aFrame.SetYTitle("acceptance");
+
+aFrame.Draw();
+aLine = [];
+
+import ROOT
+
+for i in spline_knots:
+    aLine += [TLine(i,0.0,i,1.8)];
+    aLine[-1].SetLineWidth(2)
+    aLine[-1].SetLineColor(ROOT.kRed);
+    aLine[-1].Draw();
+
+aFrame.GetYaxis().SetRangeUser(0.0,1.8);
+aFrame.GetXaxis().SetLimits(0.0,15.0);
+
+aCanvas.Update();
+aCanvas.SaveAs('acceptance plot.pdf')
+raw_input("Press Enter to continue");
+sys.exit()
+
+#del lastmycoeffs, coefflist
 
 # resolution model with decay time resolution and acceptance
 gresacc = RooGaussEfficiencyModel('{}_GaussianWithPEDTE'.format(tacc.GetName()),

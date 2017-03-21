@@ -57,6 +57,25 @@
         ],
 
     'NBinsAcceptance': 100,
+
+   
+    # file to read from
+	'DataFileName': '/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root',
+	# data set is in a workspace already
+	'DataWorkSpaceName':    None,
+	# name of data set inside workspace
+	'DataSetNames':         'DecayTree',
+	# mapping between observables and variable name in data set
+	'DataSetVarNameMapping': {
+            'time':    'Bs_ct',
+            'timeerr': 'Bs_cterr',
+            'eta':     'Bs_TAGOMEGA_OS',
+            'qf':      'Ds_ID',
+            'qt': 	   'Bs_TAGDECISION_OS',
+            'weight':  'weight'
+	},
+	'DataSetCuts':	None,
+
 }
 
 #vim: sw=4:et

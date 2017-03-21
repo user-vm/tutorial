@@ -134,7 +134,7 @@ def drawDsPlot(ds,catNum = 0):
 
 # histogram creation function, moved here to avoid recompilation-----
 
-def createCategoryHistogram(ds,x,numCat,etaKey,categoryList = None):
+def createCategoryHistogram(ds,x,numCat,categoryList = None):
 
     from ROOT import RooAbsData, RooDataSet, RooPrintable, RooThresholdCategory, THStack, TF1
     from ROOT.Math import GaussIntegrator
@@ -145,7 +145,7 @@ def createCategoryHistogram(ds,x,numCat,etaKey,categoryList = None):
         for i in range(numCat):
             categoryList += ["Cat"+str(i+1)]
 
-    etaHist = RooAbsData.createHistogram(ds,etaKey,100);
+    etaHist = RooAbsData.createHistogram(ds,'eta',100);
 
     histSum = etaHist.Integral();
     #print "HISTSUM",histSum, etaHist.Integral(0,50)+etaHist.Integral(51,100),etaHist.Integral(0,50),etaHist.Integral(51,100),"\n";
@@ -280,10 +280,7 @@ del rndm
 # easier setups of scenarios where you build with one pdf and fit with a
 # different one (e.g. per-event mistag in generation, average in fit to see
 # the gain in sensitivity from the per-event mistag)
-def buildTimePdf(config, ws = None):
-
-    #ONLY FIT CONTEXT IS USED HERE    
-
+def buildTimePdf(config):
     """
     build time pdf, return pdf and associated data in dictionary
     """
@@ -293,13 +290,12 @@ def buildTimePdf(config, ws = None):
         print '    %32s: %32s' % (k, config[k])
     
     # start building the fit
-    if(ws==None):
-        ws = RooWorkspace('ws_%s' % config['Context'])
+    ws = RooWorkspace('ws_%s' % config['Context'])
     one = WS(ws, RooConstVar('one', '1', 1.0))
     zero = WS(ws, RooConstVar('zero', '0', 0.0))
     
     # start by defining observables
-    time = WS(ws, RooRealVar('time', 'time [ps]', 0.2, 15.0))
+    time = WS(ws, RooRealVar('time', 'time [ps]', 0.3, 15.0))
     qf = WS(ws, RooCategory('qf', 'final state charge'))
     qf.defineType('h+', +1)
     qf.defineType('h-', -1)
@@ -316,14 +312,11 @@ def buildTimePdf(config, ws = None):
     # HACK (1/2): be careful about lower bound on eta, since mistagpdf below
     # is zero below a certain value - generation in accept/reject would get
     # stuck
-    if 'GEN' in config['Context'] or 'FIT' in config['Context']:
-        eta = WS(ws, RooRealVar('eta', 'eta', 0.35,
-                 0.0 if 'FIT' in config['Context'] else (1. + 1e-5) * max(0.0,
-                 config['TrivialMistagParams']['omega0']), 0.5))
+    eta = WS(ws, RooRealVar('eta', 'eta', 0.35, 0., 0.5))
 
     mistag = WS(ws, RooRealVar('mistag', 'mistag', 0.35, 0.0, 0.5))
     tageff = WS(ws, RooRealVar('tageff', 'tageff', 1.0))
-    timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.040, 0.001, 0.100))
+    timeerr = WS(ws, RooRealVar('timeerr', 'timeerr', 0.039)) #CHANGE THIS LATER
     # fit average mistag
     # add mistagged 
     #ge rid of untagged events by putting restriction on qf or something when reduceing ds
@@ -381,12 +374,17 @@ def buildTimePdf(config, ws = None):
             timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
             mistagpdf = [mistagpdf], mistagobs = eta)
     else:
+        adet = WS(ws, RooRealVar('adet', 'adet', 0., -.15, .15))
+        aprod = WS(ws, RooRealVar('aprod', 'aprod', 0., -.15, .15))
+        adet.setError(0.005)
+        aprod.setError(0.005)
         pdf = buildBDecayTimePdf(
             config, 'Bs2DsPi', ws,
             time, timeerr, qt, qf, [ [ eta ] ], [ tageff ],
             Gamma, DGamma, Dm,
             C = one, D = zero, Dbar = zero, S = zero, Sbar = zero,
-            timeresmodel = resmodel, acceptance = acc, timeerrpdf = None)
+            timeresmodel = resmodel, acceptance = acc, timeerrpdf = None,
+            aprod = aprod, adet = adet)
 
     return { # return things
             'ws': ws,
@@ -394,33 +392,7 @@ def buildTimePdf(config, ws = None):
             'obs': obs
             }
 
-def importTupleDict(name):
-    
-    try:
-        lines = file(name, 'r').readlines()
-    except:
-        print "Reading tuple dictionary from file failed."
-        sys.exit(1)
-    
-    if name != None:
-        where = name
-    else:
-        where = 'unknown location'
-    s = ''.join(lines)
-    
-    d = eval(compile(s, where, 'eval'))
-    if dict != type(d):
-        raise TypeError('configuration from %s does not evaluate to dictionary' % where)
-    
-    return d
-
 from B2DXFitters.WS import WS
-from ROOT import RooDataSet, RooArgSet
-
-from ROOT import TList
-
-#commented out due to no generation required
-
 # for now, we're in the generation stage
 #-config['Context'] = 'GEN'
 #-genpdf = buildTimePdf(config)
@@ -434,141 +406,47 @@ genconfig['NBinsProperTimeErr'] = 0
 genconfig['ParameteriseIntegral'] = False
 genpdf = buildTimePdf(genconfig)
 
-import copy
-
-from ROOT import TFile, RooFit
-import os
-
-tupleDictFilename = os.environ["B2DXFITTERSROOT"] + "/tutorial/tupleDict2.py"
-tupleDict = importTupleDict(tupleDictFilename);
-
-in_file = TFile("/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root");
-ROOT.SetOwnership(in_file, False)
-keyList = in_file.GetListOfKeys()
-
-tree1 = keyList.At(0).ReadObj();
-print tree1.GetName();
-
-tupleDict = importTupleDict(tupleDictFilename);
-
-print tupleDict.keys()
+# generate 150K events
+#print '150K'
+#ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
+from B2DXFitters import datasetio
+weight = WS(genpdf['ws'], RooRealVar('weight', 'weight', -1e9, 1e9))
+for v in genpdf['obs']:
+    v.Print('v')
+obsset = RooArgSet(weight, *genpdf['obs'])
+ds = datasetio.readDataSet(genconfig, genpdf['ws'], obsset)
+#ds.Print();
 #sys.exit(0);
-
-varList = []
-varRenamedList = []
-
-for i in range(len(tupleDict)):
-    varName = tupleDict.keys()[i]
-    tree1.GetBranch(varName).Print();
-    if (tupleDict[varName] == 'qt'):
-        qtCat = RooCategory(varName,'tagging decision');
-        qtCat.defineType(      'B+', +1)
-        qtCat.defineType('Untagged',  0)
-        qtCat.defineType(      'B-', -1)
-        varList += [qtCat];   
-        varRenamedList += [RooFit.RenameVariable(varName, tupleDict[varName])]
-
-    #USING Ds_ID
-    elif (tupleDict[varName] == 'qfbad'):
-        qf2Cat = RooCategory(varName,'final state charge bad');
-        qf2Cat.defineType(      'h+', +411)
-        qf2Cat.defineType(      'h-', -411)
-        varList += [qf2Cat];
-    else:
-        varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
-        varRenamedList += [RooFit.RenameVariable(varName, tupleDict[varName])]
-
-#tupleDataSet = RooDataSet("treeData","treeData",tree1,RooArgSet(*varList));
-
-weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
-tupleDataSet = RooDataSet("tupleDataSet", "tupleDataSet",
-    RooArgSet(*varList),
-    RooFit.Import(tree1), RooFit.WeightVar(weightvar))
-
-tupleDataSet.Print();
-
-qf = RooCategory('qf','final state charge');
-qf.defineType('h+',+1);
-qf.defineType('h-',-1);
-'''
-#PLOTTING
-qf1Frame = halfDataSet.get().find('Ds_ID').frame();
-halfDataSet.plotOn(qf1Frame, RooFit.DrawOption('b'));
-qf1Frame.Draw();
-'''
-
-print "/n/n/n/DS_ID/n/n/n"
-tupleDataSet.get().find('Ds_ID').Print();
-tupleDataSet.table(tupleDataSet.get().find('Ds_ID')).Print('v');
-
-from ROOT import RooDataSet
-
-#create data set containing proper qt values, merge with tupleDataSet, and remove Ds_ID from tupleDataSet
-secondDataSet = RooDataSet('sds','sds',RooArgSet(qf));
-
-for i in range(tupleDataSet.numEntries()):
-    qf.setLabel(tupleDataSet.get(i).find('Ds_ID').getLabel());
-    secondDataSet.add(RooArgSet(qf));
-
-tupleDataSet.merge(secondDataSet);
-
-tdsArgSet = tupleDataSet.get();
-tdsArgSet.remove(tdsArgSet.find('Ds_ID'));
-tupleDataSet = tupleDataSet.reduce(tdsArgSet);
-tupleDataSet.Print();
-tupleDataSet.get().find('qf').Print();
-
-print tupleDict.keys()
-
-#ds is tupleDataSet from now on
-ds = tupleDataSet;
-
-#qtKey and etaKey will contain the original (tree branch) variable names of qt and eta
-tdKeys = tupleDict.keys();
-qtKey = ''
-etaKey = ''
-
-for i in range(len(tdKeys)):
-    if tupleDict[tdKeys[i]]=='qt':
-        qtKey = tdKeys[i];
-    elif tupleDict[tdKeys[i]]=='eta':
-        etaKey = tdKeys[i];
+#saveEta(ds);
 
 # HACK (2/2): restore correct eta range after generation
-ds.get().find(etaKey).setRange(0.0, 0.5)
+ds.get().find('eta').setRange(0.0, 0.5)
+
+ds.Print('v')
+for o in genpdf['obs']:
+    if not o.InheritsFrom('RooAbsCategory'): continue
+    ds.table(o).Print('v')
+
+from ROOT import RooDataSet, RooArgSet
+
+from ROOT import TList
 
 mistagresultList = TList();
 etaAvgList = TList();
 print "**** ADDING CATEGORIES ****"
-ds = ds.reduce("%s!=%s::Untagged" % (qtKey,qtKey));
-
-xRegions = createCategoryHistogram(ds,ds.get().find(etaKey),NUMCAT,etaKey);
+ds = ds.reduce("qt!=qt::Untagged");
+xRegions = createCategoryHistogram(ds,ds.get().find('eta'),NUMCAT);
 ds.addColumn(xRegions)
 ds.table(xRegions).Print("v")
 
-print 'DS='
-ds.Print();
-
-varRenamedList += [RooFit.RenameVariable(xRegions.GetName(), xRegions.GetName())]
-
-#keepvars = [ds.get().find(name) for name in ['qt', 'qf', 'tageffRegion', 'time']]
-
-tdsArgSet = tupleDataSet.get();
-#tdsArgSet.remove(tdsArgSet.find('Bs_cterr'));
-tdsArgSet.add(ds.get().find('tageffRegion'));
-tdsArgSet.remove(tdsArgSet.find(etaKey));
-print "\n\n\n\n\nARGSET="
-tdsArgSet.Print();
-print "\n\n\n\n\n\n"
-
-#sys.exit(0)
+keepvars = [ds.get().find(name) for name in ['qt', 'qf', 'tageffRegion', 'time']]
 
 for i in xrange(NUMCAT):
-    etaAvgList.AddLast(ds.reduce("tageffRegion == tageffRegion::Cat%u" % (i +1,)).meanVar(ds.get().find(etaKey)));
+    etaAvgList.AddLast(ds.reduce("tageffRegion == tageffRegion::Cat%u" % (i + 1,)).meanVar(ds.get().find('eta')));
 
-etaAvg = ds.meanVar(ds.get().find(etaKey));
+etaAvg = ds.meanVar(ds.get().find('eta'));
 
-dspercat = [ ds.reduce(tdsArgSet,"tageffRegion == tageffRegion::Cat%u" % (i + 1,)) for i in xrange(NUMCAT) ]
+dspercat = [ ds.reduce(RooArgSet(*keepvars),"tageffRegion == tageffRegion::Cat%u" % (i + 1,)) for i in xrange(NUMCAT) ]
 
 i = 0
 for dspc in dspercat:
@@ -588,17 +466,12 @@ for i in xrange(NUMCAT):
     fitconfig = copy.deepcopy(config1)
     fitconfig['Context'] = 'FIT%u' % i
     fitconfig['NBinsAcceptance'] = 0
-    
-    ws = RooWorkspace('ws_%s' % fitconfig['Context'])
-    ds1 = WS(ws, dspercat[i], varRenamedList)
-    ds = WS(ws, ds, varRenamedList)
 
-    print "\n\n\n\nDS1=",ds1,"\n\n\n\n\n\n"
-
-    fitpdf = buildTimePdf(fitconfig, ws)
+    fitpdf = buildTimePdf(fitconfig)
     #ds = WS(fitpdf['ws'],ds);
     # add data set to fitting workspace
-        
+    ds1 = WS(fitpdf['ws'], dspercat[i])
+
     print 72 * "#"
     print "WS:" + str(fitpdf["ws"])
     print "PDF:" + str(fitpdf["pdf"])
@@ -607,14 +480,14 @@ for i in xrange(NUMCAT):
     fitpdf['ws'].Print("v")
     fitpdf['pdf'].Print("v")
     ds1.Print("v")
-    mistag = fitpdf['ws'].obj("mistag")
+    eta = fitpdf['ws'].obj("eta")
 
-    mistag.Print();
+    eta.Print();
 
     aveta = etaAvgList.At(i).getValV();
-    mistag.setVal(aveta);
-    mistag.setError(min([0.5 / NUMCAT / sqrt(12), abs(aveta) * 0.5, abs(aveta - 0.5) * 0.5]))
-    mistag.Print("v")
+    eta.setVal(aveta);
+    eta.setError(min([0.5 / NUMCAT / sqrt(12), abs(aveta) * 0.5, abs(aveta - 0.5) * 0.5]))
+    eta.Print("v")
     print 72 * "#"
 
     print "\n-------PRINTING DS1--------\n"
@@ -623,6 +496,19 @@ for i in xrange(NUMCAT):
         if not o.InheritsFrom('RooAbsCategory'): continue
         ds1.table(o).Print('v')
     print "\n---------------------------\n"
+
+    """
+    etaLow = ROOT.Double(0.0);
+    etaHigh = ROOT.Double(0.5);
+    ds1.getRange(ds1.get().find('eta'),etaLow,etaHigh);
+    ds1.get().find('eta').setRange(etaLow, etaHigh)
+    """
+    
+
+    #drawDsPlot(ds1,i);
+    #etaAvg = ds.meanVar(ds.get().find('eta'));
+    print "\n\n\nETA = ",ds.meanVar(ds.get().find('eta')).getValV(),"\n\n\n\n";
+    #raw_input('Press Enter to continue');
 
     # set constant what is supposed to be constant
     from B2DXFitters.utils import setConstantIfSoConfigured
@@ -644,6 +530,9 @@ for i in xrange(NUMCAT):
         fitopts.append(RooFit.PrintLevel(-1))
     fitOpts = RooLinkedList()
     for o in fitopts: fitOpts.Add(o)
+
+    #from B2DXFitters import utils
+    #utils.printPDFTermsOnDataSet(ds1, [fitpdf['pdf']])
     
     # fit
     rawfitresult = fitpdf['pdf'].fitTo(ds1, fitOpts)
