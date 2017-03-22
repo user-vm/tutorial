@@ -1,0 +1,61 @@
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+
+
+<ROOT.THashList object ("THashList") at 0x49b7d20> 
+
+
+
+
+
+4
+Collection name='TList', class='TList', size=5
+ RooRealVar::etaMean = 0.217603 +/- 0.000992316  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.322639 +/- 0.000454117  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.378929 +/- 0.00031527  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.424773 +/- 0.000292045  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.473575 +/- 0.000315963  L(-INF - +INF) 
+RooRealVar::etaMean = 0.366275 +/- 0.000900995  L(-INF - +INF) 
+Collection name='TList', class='TList', size=5
+ RooRealVar::eta = 0.244686 +/- 0.0267259  L(0 - 0.5) 
+ RooRealVar::eta = 0.325396 +/- 0.0285545  L(0 - 0.5) 
+ RooRealVar::eta = 0.389193 +/- 0.0268071  L(0 - 0.5) 
+ RooRealVar::eta = 0.382237 +/- 0.02757  L(0 - 0.5) 
+ RooRealVar::eta = 0.452687 +/- 0.0303357  L(0 - 0.5) 
+OBJ: TProcessID	ProcessID0	d057134e-0e61-11e7-9717-0100007fbeef
+0.000992315983176 0.0267259144952
+0.000454117208796 0.0285544840756
+0.000315269782811 0.0268071404952
+0.000292044724943 0.0275700407027
+0.000315963326249 0.0303357020516
+RooRealVar::p0VarMean = 0.360877  L(-INF - +INF) 
+RooRealVar::p1VarMean = 0.770654  L(-INF - +INF) 
+Info in <TCanvas::Print>: pdf file omegaVsEtaGraph_stMC_1490122711.354511.pdf has been created
+Press Enter to continueSHIT
+	Command being timed: "env python -O ./plotOmegaVsEtaFromFile.py - MC"
+	User time (seconds): 2.56
+	System time (seconds): 0.68
+	Percent of CPU this job got: 4%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:10.70
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 191608
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1971
+	Minor (reclaiming a frame) page faults: 35433
+	Voluntary context switches: 16595
+	Involuntary context switches: 11882
+	Swaps: 0
+	File system inputs: 482216
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

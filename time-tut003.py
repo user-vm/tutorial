@@ -187,30 +187,47 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
     #etaHist.SetAxisRange(0.1,0.2);
     #etaHist.SetAxisRange(0.1,0.3);
 
-    #from ROOT import TCanvas
+    from ROOT import TCanvas
 
-    #histCanvas = TCanvas();
+    histCanvas = TCanvas();
 
     ROOT.gStyle.SetPalette(ROOT.kOcean);
     
     #create stack to contain the chopped TH1Ds
-    etaHistStack = THStack("etaHistStack", "Distribution of #eta;#eta;number of pseudo-experiments");
+    #etaHistStack = THStack("etaHistStack", "Distribution of #eta;#eta;number of pseudo-experiments");
 
     limList += [etaHist.GetNbinsX()];
-    histCutterFunc = TF1("histCutterFunc","((x>=[0])?((x<[1])?1:0):0)*x",0.0,1.0);
+    histCutterFunc = TF1("histCutterFunc","((x>=[0])?((x<[1])?1:0):0)",0.0,1.0);
+
+    etaMax = etaHist.GetMaximum();
+    print etaMax
+
+    cloneList = []
+
+    etaHist.GetYaxis().SetRangeUser(0,etaMax*1.05);
+    
+    etaHist.SetLineColor(ROOT.kWhite);
+    etaHist.Draw("histSame");
+    etaHist.SetTitle('Distribution of #eta (toy)')
+    etaHist.GetXaxis().SetTitle('#eta')
 
     for i in range(len(limList)-1):
         
-        etaHistClone = etaHist.Clone();
+        cloneList = [etaHist.Clone()];
         #etaHistClone.SetBins(limList[i+1]-limList[i],etaHist.GetBinContent(limList[i]),etaHist.GetBinContent(limList[i+1]));
         histCutterFunc.SetParameter(0,etaHist.GetXaxis().GetBinCenter(limList[i]));
         histCutterFunc.SetParameter(1,etaHist.GetXaxis().GetBinCenter(limList[i+1]));
-        etaHistClone.Multiply(histCutterFunc);
-        etaHistClone.SetFillColor(38+i);
-        #etaHist.DrawCopy("hist PFC");
-        etaHistStack.Add(etaHistClone);
+        cloneList[-1].Multiply(histCutterFunc);
+        cloneList[-1].SetFillColor(38+i);
+        cloneList[-1].SetLineColor(ROOT.kBlack);
+        if i==0:
+            cloneList[-1].GetYaxis().SetRangeUser(0,etaMax*1.05);
+        cloneList[-1].Draw("histSAME");
+        #etaHistStack.Add(etaHistClone);
 
-    etaHistStack.Draw("hist PFC");
+    #etaHistStack.Draw();
+    histCanvas.Update();
+    histCanvas.SaveAs('catHist%d.pdf' % SEED);
     s = raw_input("Press Enter to continue...");
     sys.exit(0);    
 
@@ -409,7 +426,7 @@ genconfig['NBinsProperTimeErr'] = 0
 genconfig['ParameteriseIntegral'] = False
 genpdf = buildTimePdf(genconfig)
 
-# generate 150K events
+# generate 15K events
 print '150K'
 ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
 #ds.Print();

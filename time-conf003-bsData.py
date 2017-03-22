@@ -22,10 +22,18 @@
     'SplineAcceptance': { # configure spline acceptance parameters
         'KnotPositions':    [ 0.5, 1.0, 1.5, 2.0, 3.0, 12.0 ],
         'KnotCoefficients': { # different between generation and fit
-            'GEN': [ 4.51762e-01, 7.30942e-01, 1.19231,
-                     1.34329e+00, 1.60870e+00, 1.55630e+00 ],
-            'FIT': [ 4.51762e-01, 7.30942e-01, 1.19231,
-                     1.34329e+00, 1.60870e+00, 1.55630e+00 ],
+            #'GEN': [ 1.96857e-01, 3.46572e-01, 7.22944e-01, 
+            #         8.46754e-01, 1.23892e+00, 1.11654e+00 ],
+            #'FIT': [ 1.96857e-01, 3.46572e-01, 7.22944e-01, 
+            #         8.46754e-01, 1.23892e+00, 1.11654e+00 ],
+			'GEN': [ 1.96857e-01, 3.46572e-01, 7.22944e-01, 
+                     8.46754e-01, 1.23892e+00, 1.11654e+00 ],
+            'FIT': [ 1.96857e-01, 3.46572e-01, 7.22944e-01, 
+                     8.46754e-01, 1.23892e+00, 1.11654e+00 ],
+			#'GEN': [ 4.5853e-01, 6.8963e-01, 8.8528e-01,
+            #         1.1296e+00, 1.2232e+00, 1.2277e+00 ],
+            #'FIT': [ 4.5853e-01, 6.8963e-01, 8.8528e-01,
+            #         1.1296e+00, 1.2232e+00, 1.2277e+00 ],
             },
         },
 	
@@ -60,7 +68,7 @@
 
    
     # file to read from
-	'DataFileName': '/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root',
+	'DataFileName': '/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root',
 	# data set is in a workspace already
 	'DataWorkSpaceName':    None,
 	# name of data set inside workspace
@@ -72,7 +80,7 @@
             'eta':     'Bs_TAGOMEGA_OS',
             'qf':      'Ds_ID',
             'qt': 	   'Bs_TAGDECISION_OS',
-            'weight':  'weight',
+            'weight':  'N_Bs_sw',
 	},
 	'DataSetCuts':	None,
 

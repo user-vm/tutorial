@@ -110,8 +110,22 @@ exec $schedtool /usr/bin/time -v env python -O "$0" - "$@"
 import ROOT
 from ROOT import TFile, RooRealVar, RooDataSet, RooArgSet, RooFit
 
-#in_file = TFile("/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root");
-in_file = TFile("/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root");
+import sys
+
+originSuffix = ''
+
+for SEED in sys.argv:
+    if SEED.upper() == 'DATA' or SEED.upper() == 'MC':
+        originSuffix = SEED.upper();
+        break;
+
+if originSuffix == '':
+    originSuffix = 'MC'
+
+if originSuffix == 'MC':
+    in_file = TFile('/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root', 'READ')
+else:
+    in_file = TFile('/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root', 'READ')
 
 ROOT.SetOwnership(in_file, False)
 keyList = in_file.GetListOfKeys()
@@ -130,8 +144,16 @@ for varName in varNames:
     varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
     maxV = max(maxV,tree1.GetMaximum(varName));
 
-weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
-varName = 'weight'
+## variables
+if originSuffix == 'MC':
+    weight = RooRealVar('weight', 'weight', -1e7, 1e7) # MC
+    varName = 'weight'
+else:
+    weight = RooRealVar('N_Bs_sw', 'weight', -1e7, 1e7) # data
+    varName = 'N_Bs_sw'
+
+weightVarName = varName
+
 varList += [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
 
 tupleDataSet = RooDataSet("tupleDataSet", "tupleDataSet",
@@ -151,9 +173,9 @@ tHist = TH1D('tDataSet','tDataSet',100,-0.3,0.3)#RooArgSet(tmt,weightvar), RooFi
 for i in range(tupleDataSet.numEntries()):
     
     tmt.setVal(tupleDataSet.get(i).find('Bs_ct').getValV()-tupleDataSet.get(i).find('Bs_TRUETAU').getValV()*1000.0);
-    #tDataSet.add(RooArgSet(tmt,weightvar),tupleDataSet.get(i).find('weight').getValV());
-    tHist.Fill(tmt.getValV(),tupleDataSet.get(i).find('weight').getValV());
-    #print tupleDataSet.get(i).find('weight').getValV(),"   ",tDataSet.weight()
+    #tDataSet.add(RooArgSet(tmt,weightvar),tupleDataSet.get(i).find(weightVarName).getValV());
+    tHist.Fill(tmt.getValV(),tupleDataSet.get(i).find(weightVarName).getValV());
+    #print tupleDataSet.get(i).find(weightVarName).getValV(),"   ",tDataSet.weight()
 
 #tupleDataSet.merge(tDataSet);
 
@@ -173,9 +195,11 @@ tmt.setMin(-0.3);
 aFrame = tmt.frame()
 
 tDataSet.plotOn(aFrame);'''
+
+tHist.setTitle(
 tHist.Draw();
 
-aCanvas.SaveAs('a_plot_t.pdf')
+aCanvas.SaveAs('a_plot_t_%s.pdf' % originSuffix)
 
 raw_input('Press Enter to continue');
 
@@ -200,3 +224,5 @@ for i in range(objList.GetEntries()):
     print objList.At(i).GetName();
 
 in_file.Close();
+
+#vim: sw=4:et

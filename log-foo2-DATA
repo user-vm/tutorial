@@ -1,0 +1,575 @@
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+[#1] INFO:Eval -- RooTreeDataStore::loadValues(ds) Ignored 46 out of range events
+DataStore ds (ds)
+  Contains 22543 entries
+  Observables: 
+    1)  Bs_ct = 3.71011  L(0.3 - 15) B(50)  "B_{s} decay time [ps]"
+  Dataset variable "N_Bs_sw" is interpreted as the event weight
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+ **********
+ **   14 **MIGRAD        3000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+
+prevFCN = 10243.2648   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN = 10243.2648  acc_coeff0=0.4563, 
+prevFCN = 10246.2685  acc_coeff0=0.4472, 
+prevFCN = 10240.3476  acc_coeff0=0.4866, 
+prevFCN = 10267.94609  acc_coeff0=0.4178, 
+prevFCN = 10223.8656  acc_coeff0=0.4518, acc_coeff1=0.7383, 
+prevFCN = 10242.66372  acc_coeff1=0.7236, 
+prevFCN = 10243.91815  acc_coeff1=0.8032, 
+prevFCN = 10240.49002  acc_coeff1=0.6602, 
+prevFCN = 10251.51296  acc_coeff1=0.7309, acc_coeff2=1.204, 
+prevFCN = 10244.45617  acc_coeff2=1.18, 
+prevFCN = 10242.09576  acc_coeff2=1.367, 
+prevFCN = 10263.02263  acc_coeff2=1.011, 
+prevFCN = 10228.50048  acc_coeff2=1.192, acc_coeff3=1.357, 
+prevFCN = 10243.59645  acc_coeff3=1.33, 
+prevFCN = 10242.96804  acc_coeff3=1.499, 
+prevFCN = 10249.1756  acc_coeff3=1.177, 
+prevFCN = 10242.36481  acc_coeff3=1.343, acc_coeff4=1.625, 
+prevFCN = 10240.77967  acc_coeff4=1.592, 
+prevFCN = 10245.88103  acc_coeff4=1.705, 
+prevFCN = 10229.81911  acc_coeff4=1.503, 
+prevFCN = 10261.7289  acc_coeff4=1.609, acc_coeff5=1.572, 
+prevFCN = 10242.34848  acc_coeff5=1.54, 
+prevFCN = 10244.21314  acc_coeff5=1.736, 
+prevFCN = 10233.90837  acc_coeff5=1.345, 
+prevFCN = 10257.61068  acc_coeff0=0.4525, acc_coeff5=1.556, 
+prevFCN = 10243.7502  acc_coeff0=0.451, 
+prevFCN = 10242.78171  acc_coeff0=0.4518, acc_coeff1=0.7325, 
+prevFCN = 10243.13619  acc_coeff1=0.7294, 
+prevFCN = 10243.39564  acc_coeff1=0.7312, 
+prevFCN = 10243.2389  acc_coeff1=0.7306, 
+prevFCN = 10243.29079  acc_coeff1=0.7309, acc_coeff2=1.196, 
+prevFCN = 10243.65674  acc_coeff2=1.188, 
+prevFCN = 10242.87531  acc_coeff2=1.192, acc_coeff3=1.347, 
+prevFCN = 10243.34913  acc_coeff3=1.34, 
+prevFCN = 10243.18291  acc_coeff3=1.344, 
+prevFCN = 10243.28147  acc_coeff3=1.343, 
+prevFCN = 10243.24823  acc_coeff3=1.343, acc_coeff4=1.611, 
+prevFCN = 10242.91857  acc_coeff4=1.606, 
+prevFCN = 10243.61347  acc_coeff4=1.609, acc_coeff5=1.561, 
+prevFCN = 10243.00824  acc_coeff5=1.552, 
+prevFCN = 10243.52381  acc_coeff0=0.4866, acc_coeff1=0.8032, acc_coeff5=1.556, 
+prevFCN = 10260.88677  acc_coeff1=0.7309, acc_coeff2=1.367, 
+prevFCN = 10286.74037  acc_coeff0=0.4518, acc_coeff1=0.8032, 
+prevFCN = 10261.78051  acc_coeff0=0.4866, acc_coeff1=0.7309, acc_coeff2=1.192, acc_coeff3=1.499, 
+prevFCN = 10272.65962  acc_coeff0=0.4518, acc_coeff1=0.8032, 
+prevFCN = 10246.33406  acc_coeff1=0.7309, acc_coeff2=1.367, 
+prevFCN = 10269.64988  acc_coeff0=0.4866, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.705, 
+prevFCN = 10253.40949  acc_coeff0=0.4518, acc_coeff1=0.8032, 
+prevFCN = 10226.67521  acc_coeff1=0.7309, acc_coeff2=1.367, 
+prevFCN = 10246.75954  acc_coeff2=1.192, acc_coeff3=1.499, 
+prevFCN = 10234.68276  acc_coeff0=0.4866, acc_coeff3=1.343, acc_coeff4=1.609, acc_coeff5=1.736, 
+prevFCN = 10257.98836  acc_coeff0=0.4518, acc_coeff1=0.8032, 
+prevFCN = 10230.92951  acc_coeff1=0.7309, acc_coeff2=1.367, 
+prevFCN = 10252.02135  acc_coeff2=1.192, acc_coeff3=1.499, 
+prevFCN = 10238.12982  acc_coeff3=1.343, acc_coeff4=1.705, 
+prevFCN = 10221.55753   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=10243.3 FROM HESSE     STATUS=OK             56 CALLS          57 TOTAL
+                     EDM=183.672    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  acc_coeff0   4.51762e-01   4.12680e-02   4.11236e-02   5.47615e+02
+   2  acc_coeff1   7.30942e-01   7.29062e-02   7.43318e-02  -8.26200e+01
+   3  acc_coeff2   1.19231e+00   1.16488e-01   1.82364e-01   9.68781e+01
+   4  acc_coeff3   1.34329e+00   1.08970e-01   1.72079e-01   2.18777e+01
+   5  acc_coeff4   1.60870e+00   7.62090e-02   1.27809e-01  -1.23230e+02
+   6  acc_coeff5   1.55630e+00   1.16902e-01   2.37467e-01  -4.90657e+01
+                               ERR DEF= 0.5
+acc_coeff0=0.01731, acc_coeff1=0.06036, acc_coeff2=0.07142, acc_coeff3=0.2119, acc_coeff4=0.7661, acc_coeff5=0.6494, [#0] WARNING:Minization -- RooMinuitGlue: Minimized function has error status.
+Returning maximum FCN so far (1.029e+04) to force MIGRAD to back out of this region. Error log follows
+Parameter values: acc_coeff0=0.01731, acc_coeff1=0.06036, acc_coeff2=0.07142, acc_coeff3=0.2119, acc_coeff4=0.7661, acc_coeff5=0.6494
+RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.003742), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.7404e-22, !convVar=Bs_ct=0.423431, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00374165/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 8.37018e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000953198,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0025856), t=Bs_ct=0.423431, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.7404e-22, !convVar=Bs_ct=0.423431, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00374165/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 8.37018e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000953198,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0025856), t=Bs_ct=0.423431, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.012327), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-5.55885e-20, !convVar=Bs_ct=0.401905, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.012327/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000261703,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00609281,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00673102), t=Bs_ct=0.401905, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-5.55885e-20, !convVar=Bs_ct=0.401905, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.012327/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000261703,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00609281,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00673102), t=Bs_ct=0.401905, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.009071), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-7.53715e-21, !convVar=Bs_ct=0.409997, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00907119/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.00019647,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00372755,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00554447), t=Bs_ct=0.409997, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-7.53715e-21, !convVar=Bs_ct=0.409997, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00907119/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.00019647,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00372755,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00554447), t=Bs_ct=0.409997, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.043202), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.72483e-13, !convVar=Bs_ct=0.329119, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.043202/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000750581,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0285398,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0140737), t=Bs_ct=0.329119, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.72483e-13, !convVar=Bs_ct=0.329119, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.043202/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000750581,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0285398,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0140737), t=Bs_ct=0.329119, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.011378), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.1502e-20, !convVar=Bs_ct=0.404255, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0113778/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000242967,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00535935,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00644205), t=Bs_ct=0.404255, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.1502e-20, !convVar=Bs_ct=0.404255, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0113778/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000242967,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00535935,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00644205), t=Bs_ct=0.404255, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.023957), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.02652e-17, !convVar=Bs_ct=0.373678, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0239568/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000472777,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0166723,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00577772), t=Bs_ct=0.373678, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.02652e-17, !convVar=Bs_ct=0.373678, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0239568/0.833152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000472777,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0166723,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00577772), t=Bs_ct=0.373678, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+    ... (remaining 506 messages suppressed)
+RooNLLVar::nll_model3_ds[ paramSet=(acc_coeff0,acc_coeff1,acc_coeff2,acc_coeff3,acc_coeff4,acc_coeff5,dGamma,dM,gamma) ]
+     function value is NAN @ paramSet=(acc_coeff0 = 0.0173052 +/- 0.0451762,acc_coeff1 = 0.0603569 +/- 0.0730942,acc_coeff2 = 0.0714209 +/- 0.119231,acc_coeff3 = 0.211923 +/- 0.134329,acc_coeff4 = 0.766099 +/- 0.16087,acc_coeff5 = 0.64945 +/- 0.15563,dGamma = -0.106,dM = 17.768,gamma = 0.661)
+
+
+prevFCN = 10287.74037  acc_coeff0=0.1931, acc_coeff1=0.359, acc_coeff2=0.5888, acc_coeff3=0.7909, acc_coeff4=1.254, acc_coeff5=1.166, [#0] WARNING:Minization -- RooMinuitGlue: Minimized function has error status.
+Returning maximum FCN so far (1.029e+04) to force MIGRAD to back out of this region. Error log follows
+Parameter values: acc_coeff0=0.1931, acc_coeff1=0.359, acc_coeff2=0.5888, acc_coeff3=0.7909, acc_coeff4=1.254, acc_coeff5=1.166
+RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.002278), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-4.84765e-13, !convVar=Bs_ct=0.304734, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00227845/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 3.66414e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00105449,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00130562), t=Bs_ct=0.304734, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-4.84765e-13, !convVar=Bs_ct=0.304734, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00227845/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 3.66414e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00105449,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00130562), t=Bs_ct=0.304734, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.010020), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-4.45041e-12, !convVar=Bs_ct=0.300002, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0100201/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000158627,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00413879,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.006111), t=Bs_ct=0.300002, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-4.45041e-12, !convVar=Bs_ct=0.300002, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0100201/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000158627,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00413879,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.006111), t=Bs_ct=0.300002, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.004890), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.33586e-12, !convVar=Bs_ct=0.303135, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0048896/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 7.82188e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00218243,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00286506), t=Bs_ct=0.303135, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.33586e-12, !convVar=Bs_ct=0.303135, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0048896/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 7.82188e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00218243,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00286506), t=Bs_ct=0.303135, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.000708), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.29426e-13, !convVar=Bs_ct=0.305698, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.000707692/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 1.1417e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000334424,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00039986), t=Bs_ct=0.305698, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.29426e-13, !convVar=Bs_ct=0.305698, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.000707692/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 1.1417e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000334424,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00039986), t=Bs_ct=0.305698, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.008934), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.58208e-12, !convVar=Bs_ct=0.300664, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00893377/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000141744,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00375395,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0054047), t=Bs_ct=0.300664, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.58208e-12, !convVar=Bs_ct=0.300664, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00893377/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000141744,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00375395,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0054047), t=Bs_ct=0.300664, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.003587), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-8.65138e-13, !convVar=Bs_ct=0.303933, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00358664/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 5.75269e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00163049,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00207869), t=Bs_ct=0.303933, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-8.65138e-13, !convVar=Bs_ct=0.303933, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00358664/1.84965,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 5.75269e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00163049,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00207869), t=Bs_ct=0.303933, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+    ... (remaining 12 messages suppressed)
+RooNLLVar::nll_model3_ds[ paramSet=(acc_coeff0,acc_coeff1,acc_coeff2,acc_coeff3,acc_coeff4,acc_coeff5,dGamma,dM,gamma) ]
+     function value is NAN @ paramSet=(acc_coeff0 = 0.193065 +/- 0.0451762,acc_coeff1 = 0.359042 +/- 0.0730942,acc_coeff2 = 0.588785 +/- 0.119231,acc_coeff3 = 0.790861 +/- 0.134329,acc_coeff4 = 1.25442 +/- 0.16087,acc_coeff5 = 1.1663 +/- 0.15563,dGamma = -0.106,dM = 17.768,gamma = 0.661)
+
+
+prevFCN = 10287.74037  acc_coeff0=0.3396, acc_coeff1=0.5751, acc_coeff2=0.9508, acc_coeff3=1.129, acc_coeff4=1.478, acc_coeff5=1.411, 
+prevFCN = 10187.29161  acc_coeff0=0.3406, 
+prevFCN = 10187.80434  acc_coeff0=0.3387, 
+prevFCN = 10186.78786  acc_coeff0=0.3403, 
+prevFCN = 10187.66777  acc_coeff0=0.3389, 
+prevFCN = 10186.9203  acc_coeff0=0.3396, acc_coeff1=0.5771, 
+prevFCN = 10187.13602  acc_coeff1=0.5731, 
+prevFCN = 10187.45688  acc_coeff1=0.5765, 
+prevFCN = 10187.1804  acc_coeff1=0.5736, 
+prevFCN = 10187.40768  acc_coeff1=0.5751, acc_coeff2=0.9565, 
+prevFCN = 10187.64863  acc_coeff2=0.9451, 
+prevFCN = 10186.944  acc_coeff2=0.9549, 
+prevFCN = 10187.54703  acc_coeff2=0.9467, 
+prevFCN = 10187.04104  acc_coeff2=0.9508, acc_coeff3=1.135, 
+prevFCN = 10187.35305  acc_coeff3=1.124, 
+prevFCN = 10187.23817  acc_coeff3=1.134, 
+prevFCN = 10187.33877  acc_coeff3=1.125, 
+prevFCN = 10187.24931  acc_coeff3=1.129, acc_coeff4=1.481, 
+prevFCN = 10186.97497  acc_coeff4=1.474, 
+prevFCN = 10187.61336  acc_coeff4=1.478, acc_coeff5=1.418, 
+prevFCN = 10187.06128  acc_coeff5=1.404, 
+prevFCN = 10187.5268  acc_coeff0=0.1153, acc_coeff1=0.2598, acc_coeff2=0.4371, acc_coeff3=0.6333, acc_coeff4=1.07, acc_coeff5=0.948, [#0] WARNING:Minization -- RooMinuitGlue: Minimized function has error status.
+Returning maximum FCN so far (1.029e+04) to force MIGRAD to back out of this region. Error log follows
+Parameter values: acc_coeff0=0.1153, acc_coeff1=0.2598, acc_coeff2=0.4371, acc_coeff3=0.6333, acc_coeff4=1.07, acc_coeff5=0.948
+RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.052980), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-2.11522e-13, !convVar=Bs_ct=0.329119, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.05298/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000920461,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0349993,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0172591), t=Bs_ct=0.329119, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-2.11522e-13, !convVar=Bs_ct=0.329119, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.05298/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000920461,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0349993,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0172591), t=Bs_ct=0.329119, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.084796), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.22322e-11, !convVar=Bs_ct=0.307203, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0847957/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.00137475,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0413375,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0468225), t=Bs_ct=0.307203, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.22322e-11, !convVar=Bs_ct=0.307203, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0847957/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.00137475,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0413375,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0468225), t=Bs_ct=0.307203, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.010482), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.95565e-16, !convVar=Bs_ct=0.359407, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0104817/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000198926,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00769553,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000617159), t=Bs_ct=0.359407, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.95565e-16, !convVar=Bs_ct=0.359407, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0104817/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000198926,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00769553,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000617159), t=Bs_ct=0.359407, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.013652), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.89386e-16, !convVar=Bs_ct=0.357106, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0136522/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000257434,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0100478,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000393374), t=Bs_ct=0.357106, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.89386e-16, !convVar=Bs_ct=0.357106, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0136522/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000257434,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0100478,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000393374), t=Bs_ct=0.357106, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.039998), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.33282e-14, !convVar=Bs_ct=0.338245, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0399977/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000714249,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0281797,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00859333), t=Bs_ct=0.338245, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.33282e-14, !convVar=Bs_ct=0.338245, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0399977/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000714249,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0281797,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00859333), t=Bs_ct=0.338245, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     p.d.f value is less than zero (-0.036120), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.86223e-14, !convVar=Bs_ct=0.340992, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.03612/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000650261,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0257959,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0065094), t=Bs_ct=0.340992, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+     getLogVal() top-level p.d.f evaluates to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.86223e-14, !convVar=Bs_ct=0.340992, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.03612/1.49854,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000650261,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0257959,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0065094), t=Bs_ct=0.340992, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+    ... (remaining 174 messages suppressed)
+RooNLLVar::nll_model3_ds[ paramSet=(acc_coeff0,acc_coeff1,acc_coeff2,acc_coeff3,acc_coeff4,acc_coeff5,dGamma,dM,gamma) ]
+     function value is NAN @ paramSet=(acc_coeff0 = 0.115283 +/- 0.0451762,acc_coeff1 = 0.25982 +/- 0.0730942,acc_coeff2 = 0.437125 +/- 0.119231,acc_coeff3 = 0.633313 +/- 0.134329,acc_coeff4 = 1.06984 +/- 0.16087,acc_coeff5 = 0.947951 +/- 0.15563,dGamma = -0.106,dM = 17.768,gamma = 0.661)
+
+
+prevFCN = 10287.74037  acc_coeff0=0.2712, acc_coeff1=0.4841, acc_coeff2=0.8085, acc_coeff3=0.9977, acc_coeff4=1.377, acc_coeff5=1.295, 
+prevFCN = 10165.1199  acc_coeff0=0.2718, 
+prevFCN = 10165.25526  acc_coeff0=0.2705, 
+prevFCN = 10164.99836  acc_coeff0=0.2715, 
+prevFCN = 10165.19846  acc_coeff0=0.2708, 
+prevFCN = 10165.04619  acc_coeff0=0.2712, acc_coeff1=0.4855, 
+prevFCN = 10165.16947  acc_coeff1=0.4828, 
+prevFCN = 10165.08662  acc_coeff1=0.4849, 
+prevFCN = 10165.14484  acc_coeff1=0.4834, 
+prevFCN = 10165.09981  acc_coeff1=0.4841, acc_coeff2=0.8125, 
+prevFCN = 10165.23943  acc_coeff2=0.8045, 
+prevFCN = 10165.007  acc_coeff2=0.812, 
+prevFCN = 10165.22171  acc_coeff2=0.8051, 
+prevFCN = 10165.02294  acc_coeff2=0.8085, acc_coeff3=1.002, 
+prevFCN = 10165.12747  acc_coeff3=0.9935, 
+prevFCN = 10165.11871  acc_coeff3=1.001, 
+prevFCN = 10165.12614  acc_coeff3=0.9941, 
+prevFCN = 10165.11851  acc_coeff3=0.9977, acc_coeff4=1.38, 
+prevFCN = 10164.96696  acc_coeff4=1.373, 
+prevFCN = 10165.27809  acc_coeff4=1.377, acc_coeff5=1.302, 
+prevFCN = 10165.00753  acc_coeff5=1.288, 
+prevFCN = 10165.23746  acc_coeff0=0.1487, acc_coeff1=0.2202, acc_coeff2=0.6991, acc_coeff3=0.7506, acc_coeff4=1.19, acc_coeff5=1.073, 
+prevFCN = 10173.49255  acc_coeff0=0.2196, acc_coeff1=0.3716, acc_coeff2=0.7655, acc_coeff3=0.9004, acc_coeff4=1.305, acc_coeff5=1.21, 
+prevFCN = 10158.88653  acc_coeff0=0.2199, 
+prevFCN = 10158.98549  acc_coeff0=0.2193, 
+prevFCN = 10158.79031  acc_coeff0=0.22, 
+prevFCN = 10159.0186  acc_coeff0=0.2191, 
+prevFCN = 10158.7593  acc_coeff0=0.2196, acc_coeff1=0.3723, 
+prevFCN = 10158.81008  acc_coeff1=0.371, 
+prevFCN = 10158.96543  acc_coeff1=0.3726, 
+prevFCN = 10158.77983  acc_coeff1=0.3707, 
+prevFCN = 10158.99807  acc_coeff1=0.3716, acc_coeff2=0.7689, 
+prevFCN = 10158.89306  acc_coeff2=0.7621, 
+prevFCN = 10158.88591  acc_coeff2=0.7685, 
+prevFCN = 10158.89219  acc_coeff2=0.7624, 
+prevFCN = 10158.88571  acc_coeff2=0.7655, acc_coeff3=0.904, 
+prevFCN = 10158.87911  acc_coeff3=0.8968, 
+prevFCN = 10158.89964  acc_coeff3=0.9004, acc_coeff4=1.309, 
+prevFCN = 10158.86107  acc_coeff4=1.302, 
+prevFCN = 10158.9172  acc_coeff4=1.305, acc_coeff5=1.217, 
+prevFCN = 10158.87388  acc_coeff5=1.203, 
+prevFCN = 10158.90439  acc_coeff0=0.1881, acc_coeff1=0.3407, acc_coeff2=0.753, acc_coeff3=0.8635, acc_coeff4=1.257, acc_coeff5=1.146, 
+prevFCN = 10158.82411  acc_coeff0=0.2034, acc_coeff1=0.3559, acc_coeff2=0.7592, acc_coeff3=0.8817, acc_coeff4=1.281, acc_coeff5=1.178, 
+prevFCN = 10157.39502  acc_coeff0=0.2038, 
+prevFCN = 10157.41404  acc_coeff0=0.203, 
+prevFCN = 10157.38384  acc_coeff0=0.2037, 
+prevFCN = 10157.40934  acc_coeff0=0.2031, 
+prevFCN = 10157.38555  acc_coeff0=0.2034, acc_coeff1=0.3568, 
+prevFCN = 10157.38174  acc_coeff1=0.3549, 
+prevFCN = 10157.41688  acc_coeff1=0.3565, 
+prevFCN = 10157.38422  acc_coeff1=0.3552, 
+prevFCN = 10157.41067  acc_coeff1=0.3559, acc_coeff2=0.7622, 
+prevFCN = 10157.4127  acc_coeff2=0.7561, 
+prevFCN = 10157.38235  acc_coeff2=0.7592, acc_coeff3=0.885, 
+prevFCN = 10157.40808  acc_coeff3=0.8784, 
+prevFCN = 10157.38695  acc_coeff3=0.8817, acc_coeff4=1.284, 
+prevFCN = 10157.38902  acc_coeff4=1.277, 
+prevFCN = 10157.40608  acc_coeff4=1.281, acc_coeff5=1.185, 
+prevFCN = 10157.39369  acc_coeff5=1.171, 
+prevFCN = 10157.40142  acc_coeff0=0.2008, acc_coeff1=0.3563, acc_coeff2=0.7192, acc_coeff3=0.8572, acc_coeff4=1.261, acc_coeff5=1.148, 
+prevFCN = 10157.43379  acc_coeff0=0.2023, acc_coeff1=0.3561, acc_coeff2=0.7413, acc_coeff3=0.8708, acc_coeff4=1.272, acc_coeff5=1.165, 
+prevFCN = 10157.32365  acc_coeff0=0.2026, 
+prevFCN = 10157.32638  acc_coeff0=0.2019, 
+prevFCN = 10157.32634  acc_coeff0=0.2023, acc_coeff1=0.3567, 
+prevFCN = 10157.32557  acc_coeff1=0.3554, 
+prevFCN = 10157.32725  acc_coeff1=0.3561, acc_coeff2=0.7443, 
+prevFCN = 10157.32259  acc_coeff2=0.7383, 
+prevFCN = 10157.32968  acc_coeff2=0.7413, acc_coeff3=0.8741, 
+prevFCN = 10157.32412  acc_coeff3=0.8675, 
+prevFCN = 10157.32816  acc_coeff3=0.8708, acc_coeff4=1.275, 
+prevFCN = 10157.33264  acc_coeff4=1.269, 
+prevFCN = 10157.31956  acc_coeff4=1.272, acc_coeff5=1.171, 
+prevFCN = 10157.33285  acc_coeff5=1.158, 
+prevFCN = 10157.31936  acc_coeff0=0.2006, acc_coeff1=0.3534, acc_coeff2=0.7368, acc_coeff3=0.8649, acc_coeff4=1.264, acc_coeff5=1.151, 
+prevFCN = 10157.30928  acc_coeff0=0.1976, acc_coeff1=0.3485, acc_coeff2=0.7283, acc_coeff3=0.8539, acc_coeff4=1.248, acc_coeff5=1.126, 
+prevFCN = 10157.29946  acc_coeff0=0.1979, 
+prevFCN = 10157.29431  acc_coeff0=0.1972, 
+prevFCN = 10157.30979  acc_coeff0=0.1976, acc_coeff1=0.3492, 
+prevFCN = 10157.30838  acc_coeff1=0.3479, 
+prevFCN = 10157.29577  acc_coeff1=0.3485, acc_coeff2=0.7313, 
+prevFCN = 10157.30258  acc_coeff2=0.7254, 
+prevFCN = 10157.30134  acc_coeff2=0.7283, acc_coeff3=0.8571, 
+prevFCN = 10157.30518  acc_coeff3=0.8507, 
+prevFCN = 10157.29875  acc_coeff3=0.8539, acc_coeff4=1.252, 
+prevFCN = 10157.30492  acc_coeff4=1.245, 
+prevFCN = 10157.29913  acc_coeff4=1.248, acc_coeff5=1.132, 
+prevFCN = 10157.30151  acc_coeff5=1.119, 
+prevFCN = 10157.30255  acc_coeff0=0.1964, acc_coeff1=0.3456, acc_coeff2=0.7236, acc_coeff3=0.8441, acc_coeff4=1.239, acc_coeff5=1.114, 
+prevFCN = 10157.29139  acc_coeff0=0.1965, acc_coeff1=0.3459, acc_coeff2=0.724, acc_coeff3=0.845, acc_coeff4=1.24, acc_coeff5=1.115, 
+prevFCN = 10157.29129  acc_coeff0=0.1968, 
+prevFCN = 10157.29264  acc_coeff0=0.1962, 
+prevFCN = 10157.29464  acc_coeff0=0.1965, acc_coeff1=0.3465, 
+prevFCN = 10157.29408  acc_coeff1=0.3453, 
+prevFCN = 10157.29317  acc_coeff1=0.3459, acc_coeff2=0.7269, 
+prevFCN = 10157.29394  acc_coeff2=0.7211, 
+prevFCN = 10157.29356  acc_coeff2=0.724, acc_coeff3=0.8482, 
+prevFCN = 10157.29234  acc_coeff3=0.8419, 
+prevFCN = 10157.29517  acc_coeff3=0.845, acc_coeff4=1.243, 
+prevFCN = 10157.29523  acc_coeff4=1.236, 
+prevFCN = 10157.29231  acc_coeff4=1.24, acc_coeff5=1.122, 
+prevFCN = 10157.29455  acc_coeff5=1.109, 
+prevFCN = 10157.29296  acc_coeff0=0.1969, acc_coeff1=0.3465, acc_coeff2=0.7218, acc_coeff3=0.8475, acc_coeff4=1.238, acc_coeff5=1.116, 
+prevFCN = 10157.29082  acc_coeff0=0.1967, acc_coeff1=0.3463, acc_coeff2=0.7227, acc_coeff3=0.8466, acc_coeff4=1.239, acc_coeff5=1.116, 
+prevFCN = 10157.29052  acc_coeff0=0.197, 
+prevFCN = 10157.29303  acc_coeff0=0.1964, 
+prevFCN = 10157.29284  acc_coeff0=0.1967, acc_coeff1=0.3469, 
+prevFCN = 10157.29256  acc_coeff1=0.3457, 
+prevFCN = 10157.29331  acc_coeff1=0.3463, acc_coeff2=0.7256, 
+prevFCN = 10157.29249  acc_coeff2=0.7198, 
+prevFCN = 10157.2934  acc_coeff2=0.7227, acc_coeff3=0.8497, 
+prevFCN = 10157.29308  acc_coeff3=0.8434, 
+prevFCN = 10157.2928  acc_coeff3=0.8466, acc_coeff4=1.242, 
+prevFCN = 10157.29355  acc_coeff4=1.236, 
+prevFCN = 10157.29235  acc_coeff4=1.239, acc_coeff5=1.122, 
+prevFCN = 10157.29288  acc_coeff5=1.109, 
+prevFCN = 10157.29301  acc_coeff0=0.1969, acc_coeff1=0.3467, acc_coeff2=0.723, acc_coeff3=0.8468, acc_coeff4=1.239, acc_coeff5=1.117, 
+prevFCN = 10157.29045  acc_coeff0=0.1969, acc_coeff1=0.3466, acc_coeff2=0.7229, acc_coeff3=0.8468, acc_coeff4=1.239, acc_coeff5=1.117, 
+prevFCN = 10157.29044  acc_coeff0=0.1972, 
+prevFCN = 10157.29287  acc_coeff0=0.1965, 
+prevFCN = 10157.29287  acc_coeff0=0.1969, acc_coeff1=0.3472, 
+prevFCN = 10157.29288  acc_coeff1=0.3459, 
+prevFCN = 10157.29286  acc_coeff1=0.3466, acc_coeff2=0.7258, 
+prevFCN = 10157.29287  acc_coeff2=0.7201, 
+prevFCN = 10157.29285  acc_coeff2=0.7229, acc_coeff3=0.8499, 
+prevFCN = 10157.29285  acc_coeff3=0.8436, 
+prevFCN = 10157.29287  acc_coeff3=0.8468, acc_coeff4=1.242, 
+prevFCN = 10157.29285  acc_coeff4=1.236, 
+prevFCN = 10157.29287  acc_coeff4=1.239, acc_coeff5=1.123, 
+prevFCN = 10157.29284  acc_coeff5=1.11, 
+prevFCN = 10157.29288   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+acc_coeff5=1.117, 
+prevFCN = 10157.29044  acc_coeff0=0.1972, 
+prevFCN = 10157.29287  acc_coeff0=0.1965, 
+prevFCN = 10157.29287  acc_coeff0=0.1969, acc_coeff1=0.3472, 
+prevFCN = 10157.29288  acc_coeff1=0.3459, 
+prevFCN = 10157.29286  acc_coeff1=0.3466, acc_coeff2=0.7258, 
+prevFCN = 10157.29287  acc_coeff2=0.7201, 
+prevFCN = 10157.29285  acc_coeff2=0.7229, acc_coeff3=0.8499, 
+prevFCN = 10157.29285  acc_coeff3=0.8436, 
+prevFCN = 10157.29287  acc_coeff3=0.8468, acc_coeff4=1.242, 
+prevFCN = 10157.29285  acc_coeff4=1.236, 
+prevFCN = 10157.29287  acc_coeff4=1.239, acc_coeff5=1.123, 
+prevFCN = 10157.29284  acc_coeff5=1.11, 
+prevFCN = 10157.29288  acc_coeff0=0.1969, acc_coeff5=1.117, 
+prevFCN = 10157.29054  acc_coeff0=0.1968, 
+prevFCN = 10157.29053  acc_coeff0=0.1969, 
+prevFCN = 10157.29045  acc_coeff0=0.1968, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff1=0.3467, 
+prevFCN = 10157.29053  acc_coeff1=0.3464, 
+prevFCN = 10157.29054  acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3465, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, acc_coeff2=0.7235, 
+prevFCN = 10157.29054  acc_coeff2=0.7224, 
+prevFCN = 10157.29053  acc_coeff2=0.7231, 
+prevFCN = 10157.29044  acc_coeff2=0.7228, 
+prevFCN = 10157.29044  acc_coeff2=0.7229, acc_coeff3=0.8474, 
+prevFCN = 10157.29054  acc_coeff3=0.8461, 
+prevFCN = 10157.29054  acc_coeff3=0.8469, 
+prevFCN = 10157.29044  acc_coeff3=0.8466, 
+prevFCN = 10157.29044  acc_coeff3=0.8468, acc_coeff4=1.24, 
+prevFCN = 10157.29054  acc_coeff4=1.238, 
+prevFCN = 10157.29054  acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, acc_coeff5=1.118, 
+prevFCN = 10157.29053  acc_coeff5=1.115, 
+prevFCN = 10157.29054  acc_coeff5=1.117, 
+prevFCN = 10157.29044  acc_coeff5=1.116, 
+prevFCN = 10157.29044  acc_coeff0=0.1972, acc_coeff1=0.3472, acc_coeff5=1.117, 
+prevFCN = 10157.29087  acc_coeff1=0.3466, acc_coeff2=0.7258, 
+prevFCN = 10157.29501  acc_coeff0=0.1969, acc_coeff1=0.3472, 
+prevFCN = 10157.29619  acc_coeff0=0.1972, acc_coeff1=0.3466, acc_coeff2=0.7229, acc_coeff3=0.8499, 
+prevFCN = 10157.29478  acc_coeff0=0.1969, acc_coeff1=0.3472, 
+prevFCN = 10157.29532  acc_coeff1=0.3466, acc_coeff2=0.7258, 
+prevFCN = 10157.29668  acc_coeff0=0.1972, acc_coeff2=0.7229, acc_coeff3=0.8468, acc_coeff4=1.242, 
+prevFCN = 10157.29452  acc_coeff0=0.1969, acc_coeff1=0.3472, 
+prevFCN = 10157.29505  acc_coeff1=0.3466, acc_coeff2=0.7258, 
+prevFCN = 10157.29165  acc_coeff2=0.7229, acc_coeff3=0.8499, 
+prevFCN = 10157.29342  acc_coeff0=0.1972, acc_coeff3=0.8468, acc_coeff4=1.239, acc_coeff5=1.123, 
+prevFCN = 10157.29483  acc_coeff0=0.1969, acc_coeff1=0.3472, 
+prevFCN = 10157.29513  acc_coeff1=0.3466, acc_coeff2=0.7258, 
+prevFCN = 10157.29305  acc_coeff2=0.7229, acc_coeff3=0.8499, 
+prevFCN = 10157.29244  acc_coeff3=0.8468, acc_coeff4=1.242, 
+prevFCN = 10157.2968   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=10157.3 FROM MIGRAD    STATUS=CONVERGED     265 CALLS         266 TOTAL
+                     EDM=4.81699e-07    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  acc_coeff0   1.96857e-01   2.63799e-02   5.28349e-04   4.91126e-02
+   2  acc_coeff1   3.46572e-01   4.81861e-02   8.32140e-04  -2.21309e-02
+   3  acc_coeff2   7.22944e-01   9.51008e-02   3.00490e-03   5.03137e-03
+   4  acc_coeff3   8.46754e-01   1.13990e-01   3.18337e-03  -1.34547e-03
+   5  acc_coeff4   1.23892e+00   1.42399e-01   3.35803e-03  -4.50512e-04
+   6  acc_coeff5   1.11654e+00   2.06996e-01   6.44244e-03  -2.87551e-03
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  6.964e-04  1.249e-03  1.690e-03  2.583e-03  3.196e-03  4.405e-03 
+  1.249e-03  2.325e-03  2.882e-03  4.618e-03  5.636e-03  7.817e-03 
+  1.690e-03  2.882e-03  9.074e-03  7.195e-03  1.171e-02  1.429e-02 
+  2.583e-03  4.618e-03  7.195e-03  1.305e-02  1.333e-02  2.044e-02 
+  3.196e-03  5.636e-03  1.171e-02  1.333e-02  2.042e-02  2.231e-02 
+  4.405e-03  7.817e-03  1.429e-02  2.044e-02  2.231e-02  4.348e-02 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.98523   1.000  0.981  0.672  0.857  0.847  0.801
+        2  0.98227   0.981  1.000  0.628  0.838  0.818  0.777
+        3  0.90011   0.672  0.628  1.000  0.661  0.860  0.720
+        4  0.91837   0.857  0.838  0.661  1.000  0.817  0.858
+        5  0.94474   0.847  0.818  0.860  0.817  1.000  0.749
+        6  0.89747   0.801  0.777  0.720  0.858  0.749  1.000
+ **********
+ **   19 **HESSE        3000
+ **********
+
+prevFCN = 10157.29044  acc_coeff0=0.1969, 
+prevFCN = 10157.29045  acc_coeff0=0.1968, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, acc_coeff2=0.7231, 
+prevFCN = 10157.29044  acc_coeff2=0.7228, 
+prevFCN = 10157.29044  acc_coeff2=0.7229, acc_coeff3=0.8469, 
+prevFCN = 10157.29044  acc_coeff3=0.8466, 
+prevFCN = 10157.29044  acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, acc_coeff5=1.117, 
+prevFCN = 10157.29044  acc_coeff5=1.116, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff5=1.117, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, acc_coeff2=0.723, 
+prevFCN = 10157.29044  acc_coeff2=0.7229, 
+prevFCN = 10157.29044  acc_coeff2=0.7229, acc_coeff3=0.8468, 
+prevFCN = 10157.29044  acc_coeff3=0.8467, 
+prevFCN = 10157.29044  acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff4=1.239, acc_coeff5=1.117, 
+prevFCN = 10157.29044  acc_coeff5=1.116, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff1=0.3466, acc_coeff5=1.117, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, acc_coeff2=0.7231, 
+prevFCN = 10157.29045  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff1=0.3466, acc_coeff2=0.7229, acc_coeff3=0.8469, 
+prevFCN = 10157.29045  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, acc_coeff2=0.7231, 
+prevFCN = 10157.29045  acc_coeff0=0.1969, acc_coeff2=0.7229, acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, acc_coeff2=0.7231, 
+prevFCN = 10157.29044  acc_coeff2=0.7229, acc_coeff3=0.8469, 
+prevFCN = 10157.29044  acc_coeff0=0.1969, acc_coeff3=0.8468, acc_coeff4=1.239, acc_coeff5=1.117, 
+prevFCN = 10157.29045  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 10157.29044  acc_coeff1=0.3466, acc_coeff2=0.7231, 
+prevFCN = 10157.29044  acc_coeff2=0.7229, acc_coeff3=0.8469, 
+prevFCN = 10157.29044  acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 10157.29044   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=10157.3 FROM HESSE     STATUS=OK             40 CALLS         306 TOTAL
+                     EDM=4.66364e-07    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  acc_coeff0   1.96857e-01   2.48795e-02   2.11340e-05  -9.32552e-01
+   2  acc_coeff1   3.46572e-01   4.54675e-02   6.65712e-06  -7.12104e-01
+   3  acc_coeff2   7.22944e-01   9.25412e-02   1.20196e-04  -2.80728e-01
+   4  acc_coeff3   8.46754e-01   1.09010e-01   1.27335e-04  -1.53853e-01
+   5  acc_coeff4   1.23892e+00   1.36436e-01   2.68642e-05   2.41256e-01
+   6  acc_coeff5   1.11654e+00   1.98962e-01   2.57698e-04   1.16805e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  6.194e-04  1.108e-03  1.496e-03  2.290e-03  2.835e-03  3.897e-03 
+  1.108e-03  2.070e-03  2.528e-03  4.085e-03  4.977e-03  6.894e-03 
+  1.496e-03  2.528e-03  8.590e-03  6.438e-03  1.080e-02  1.299e-02 
+  2.290e-03  4.085e-03  6.438e-03  1.193e-02  1.194e-02  1.850e-02 
+  2.835e-03  4.977e-03  1.080e-02  1.194e-02  1.874e-02  1.989e-02 
+  3.897e-03  6.894e-03  1.299e-02  1.850e-02  1.989e-02  4.013e-02 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.98338   1.000  0.979  0.649  0.842  0.832  0.782
+        2  0.98005   0.979  1.000  0.600  0.822  0.799  0.756
+        3  0.89416   0.649  0.600  1.000  0.636  0.851  0.699
+        4  0.91033   0.842  0.822  0.636  1.000  0.799  0.846
+        5  0.93961   0.832  0.799  0.851  0.799  1.000  0.725
+        6  0.88836   0.782  0.756  0.699  0.846  0.725  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(model3) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   24 **HESSE        3000
+ **********
+
+prevFCN = 11712.88338  acc_coeff0=0.1969, 
+prevFCN = 11712.88296  acc_coeff0=0.1969, 
+prevFCN = 11712.88381  acc_coeff0=0.1971, 
+prevFCN = 11712.84211  acc_coeff0=0.1966, 
+prevFCN = 11712.92892  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 11712.88341  acc_coeff1=0.3466, 
+prevFCN = 11712.88336  acc_coeff1=0.3467, 
+prevFCN = 11712.88618  acc_coeff1=0.3465, 
+prevFCN = 11712.88076  acc_coeff1=0.3466, acc_coeff2=0.723, 
+prevFCN = 11712.88236  acc_coeff2=0.7229, 
+prevFCN = 11712.8844  acc_coeff2=0.7253, 
+prevFCN = 11712.78129  acc_coeff2=0.7206, 
+prevFCN = 11712.98933  acc_coeff2=0.7229, acc_coeff3=0.8468, 
+prevFCN = 11712.88247  acc_coeff3=0.8467, 
+prevFCN = 11712.8843  acc_coeff3=0.8493, 
+prevFCN = 11712.79182  acc_coeff3=0.8442, 
+prevFCN = 11712.97883  acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 11712.88355  acc_coeff4=1.239, 
+prevFCN = 11712.88322  acc_coeff4=1.239, 
+prevFCN = 11712.90018  acc_coeff4=1.238, 
+prevFCN = 11712.86673  acc_coeff4=1.239, acc_coeff5=1.117, 
+prevFCN = 11712.88484  acc_coeff5=1.116, 
+prevFCN = 11712.88192  acc_coeff5=1.122, 
+prevFCN = 11713.03382  acc_coeff5=1.111, 
+prevFCN = 11712.73635  acc_coeff0=0.1969, acc_coeff5=1.117, 
+prevFCN = 11712.87479  acc_coeff0=0.1968, 
+prevFCN = 11712.89214  acc_coeff0=0.1969, acc_coeff1=0.3466, 
+prevFCN = 11712.88393  acc_coeff1=0.3466, 
+prevFCN = 11712.88284  acc_coeff1=0.3466, acc_coeff2=0.7234, 
+prevFCN = 11712.86266  acc_coeff2=0.7225, 
+prevFCN = 11712.90426  acc_coeff2=0.7229, acc_coeff3=0.8473, 
+prevFCN = 11712.86476  acc_coeff3=0.8462, 
+prevFCN = 11712.90216  acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 11712.88673  acc_coeff4=1.239, 
+prevFCN = 11712.88004  acc_coeff4=1.239, acc_coeff5=1.118, 
+prevFCN = 11712.9132  acc_coeff5=1.115, 
+prevFCN = 11712.8537  acc_coeff0=0.1971, acc_coeff1=0.3467, acc_coeff5=1.117, 
+prevFCN = 11712.84413  acc_coeff1=0.3466, acc_coeff2=0.7253, 
+prevFCN = 11712.73981  acc_coeff0=0.1969, acc_coeff1=0.3467, 
+prevFCN = 11712.78423  acc_coeff0=0.1971, acc_coeff1=0.3466, acc_coeff2=0.7229, acc_coeff3=0.8493, 
+prevFCN = 11712.75016  acc_coeff0=0.1969, acc_coeff1=0.3467, 
+prevFCN = 11712.79462  acc_coeff1=0.3466, acc_coeff2=0.7253, 
+prevFCN = 11712.6909  acc_coeff0=0.1971, acc_coeff2=0.7229, acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 11712.85879  acc_coeff0=0.1969, acc_coeff1=0.3467, 
+prevFCN = 11712.90297  acc_coeff1=0.3466, acc_coeff2=0.7253, 
+prevFCN = 11712.79753  acc_coeff2=0.7229, acc_coeff3=0.8493, 
+prevFCN = 11712.80833  acc_coeff0=0.1971, acc_coeff3=0.8468, acc_coeff4=1.239, acc_coeff5=1.122, 
+prevFCN = 11712.99221  acc_coeff0=0.1969, acc_coeff1=0.3467, 
+prevFCN = 11713.03659  acc_coeff1=0.3466, acc_coeff2=0.7253, 
+prevFCN = 11712.93001  acc_coeff2=0.7229, acc_coeff3=0.8493, 
+prevFCN = 11712.94006  acc_coeff3=0.8468, acc_coeff4=1.239, 
+prevFCN = 11713.05083   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=11712.9 FROM HESSE     STATUS=OK             52 CALLS         358 TOTAL
+                     EDM=7.0984    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  acc_coeff0   1.96857e-01   2.04160e-02   4.31133e-04  -9.32552e-01
+   2  acc_coeff1   3.46572e-01   3.68933e-02   1.35805e-04  -7.12104e-01
+   3  acc_coeff2   7.22944e-01   8.87349e-02   2.45200e-03  -2.80728e-01
+   4  acc_coeff3   8.46754e-01   9.81450e-02   2.59763e-03  -1.53853e-01
+   5  acc_coeff4   1.23892e+00   1.28282e-01   5.48030e-04   2.41256e-01
+   6  acc_coeff5   1.11654e+00   2.03369e-01   5.25703e-03   1.16805e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  4.170e-04  7.357e-04  1.188e-03  1.663e-03  2.153e-03  3.281e-03 
+  7.357e-04  1.362e-03  1.975e-03  2.919e-03  3.715e-03  5.706e-03 
+  1.188e-03  1.975e-03  7.896e-03  5.659e-03  9.884e-03  1.328e-02 
+  1.663e-03  2.919e-03  5.659e-03  9.664e-03  1.001e-02  1.721e-02 
+  2.153e-03  3.715e-03  9.884e-03  1.001e-02  1.655e-02  1.966e-02 
+  3.281e-03  5.706e-03  1.328e-02  1.721e-02  1.966e-02  4.195e-02 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.98129   1.000  0.976  0.655  0.828  0.819  0.784
+        2  0.97742   0.976  1.000  0.602  0.805  0.782  0.755
+        3  0.90430   0.655  0.602  1.000  0.648  0.864  0.730
+        4  0.90804   0.828  0.805  0.648  1.000  0.791  0.855
+        5  0.93871   0.819  0.782  0.864  0.791  1.000  0.746
+        6  0.89947   0.784  0.755  0.730  0.855  0.746  1.000
+setting parameter 0 error to 0.03167
+setting parameter 1 error to 0.05824
+setting parameter 2 error to 0.1015
+setting parameter 3 error to 0.1286
+setting parameter 4 error to 0.1552
+setting parameter 5 error to 0.2075
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+[#1] INFO:InputArguments -- RooAbsData::plotOn(ds) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+Info in <TCanvas::Print>: pdf file foo-acceptance-DATA.pdf has been created
+XMAX --->  710.599323456
+	Command being timed: "env python -O ./foo2.py - DATA"
+	User time (seconds): 65.79
+	System time (seconds): 2.02
+	Percent of CPU this job got: 96%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:10.45
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1062208
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2304
+	Minor (reclaiming a frame) page faults: 263472
+	Voluntary context switches: 21250
+	Involuntary context switches: 17716
+	Swaps: 0
+	File system inputs: 598568
+	File system outputs: 48
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

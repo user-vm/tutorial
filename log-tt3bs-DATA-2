@@ -1,0 +1,1349 @@
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+ORIGINSUFFIX =  DATA
+NUMCAT =  2
+CONFIG --->  {'ParameteriseIntegral': False, 'UseKFactor': False, 'DataSetNames': 'DecayTree', 'TrivialMistagParams': {'f': 0.25, 'omega0': 0.07, 'omegaavg': 0.35}, 'IsData': False, 'MistagCalibParams': {'p0': 0.35, 'p1': 1.0, 'etaavg': 0.35}, 'AcceptanceFunction': 'Spline', 'NBinsAcceptance': 100, 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.039]}, 'DataSetCuts': None, 'DecayTimeResolutionScaleFactor': 1.0, 'DecayTimeResolutionBias': 0.0, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DataSetVarNameMapping': {'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}, 'Debug': True, 'DataWorkSpaceName': None, 'DataFileName': '/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root', 'Blinding': True, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']}
+CONFIG1 --->  {'DecayTimeResolutionBias': 0.0, 'IsData': False, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.039]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 100}
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              GEN
+                        DataFileName: /mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root
+                         DataSetCuts:                             None
+                        DataSetNames:                        DecayTree
+               DataSetVarNameMapping: {'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}
+                   DataWorkSpaceName:                             None
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.039]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                   MistagCalibParams: {'p0': 0.35, 'p1': 1.0, 'etaavg': 0.35}
+                     NBinsAcceptance:                                0
+                  NBinsProperTimeErr:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                 TrivialMistagParams: {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+=>resmodelutils.getResolutionModel(): using list/tuple/dict to build resolution.
+########################################################################
+buildBDecayTimePdf(
+	acceptance = <ROOT.RooProduct object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised") at 0xb5bb220>
+	Dbar = <ROOT.RooConstVar object ("zero") at 0x8b38c20>
+	mistagpdf = [<ROOT.MistagDistribution object ("Bs2DsPi_mistagpdf") at 0xc0a8720>]
+	mistag = [[<ROOT.MistagCalibration object ("Bs2DsPi_mistagcalib") at 0xb87fba0>]]
+	mistagobs = <ROOT.RooRealVar object ("eta") at 0xa505b20>
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x81be420>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x7644020>]
+	kvar = None
+	atageff = None
+	config = {'UseKFactor': False, 'DataSetNames': 'DecayTree', 'IsData': False, 'MistagCalibParams': {'p0': 0.35, 'p1': 1.0, 'etaavg': 0.35}, 'DecayTimeResolutionBias': 0.0, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'DataSetVarNameMapping': {'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}, 'Blinding': True, 'ParameteriseIntegral': False, 'DataSetCuts': None, 'FitConfig': {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.039]}, 'DataFileName': '/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root', 'Context': 'GEN', 'Debug': True, 'DataWorkSpaceName': None, 'TrivialMistagParams': {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}, 'NBinsAcceptance': 0, 'NBinsProperTimeErr': 0, 'DecayTimeResolutionScaleFactor': 1.0, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}}
+	C = <ROOT.RooConstVar object ("one") at 0x725ec20>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0x8b38c20>
+	time = <ROOT.RooRealVar object ("time") at 0x908cd20>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0x8b38c20>
+	ws = <ROOT.RooWorkspace object ("ws_GEN") at 0x77b7620>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x7e58420>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x3dc7220>
+	qt = <ROOT.RooCategory object ("qt") at 0xb582320>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0x8b38c20>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x7cfdfa0>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel") at 0xbfa8820>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xb581e20>
+	)
+########################################################################
+RooRealVar::weight = 0  L(-1e+09 - 1e+09) 
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes: 
+  Address: 0xb581e20
+  Clients: 
+    (0x5dce020,V-) DecRateCoeff::Bs2DsPi_cosh "Bs2DsPi_cosh"
+    (0x8962020,V-) DecRateCoeff::Bs2DsPi_sinh "Bs2DsPi_sinh"
+    (0x5dcc020,V-) DecRateCoeff::Bs2DsPi_cos "Bs2DsPi_cos"
+    (0xa198020,V-) DecRateCoeff::Bs2DsPi_sin "Bs2DsPi_sin"
+  Servers: 
+  Proxies: 
+--- RooAbsCategory ---
+  Value is "h+" (1)
+  Has the following possible values:
+        h+ = 1
+        h- = -1
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes: 
+  Address: 0xb582320
+  Clients: 
+    (0x5dce020,V-) DecRateCoeff::Bs2DsPi_cosh "Bs2DsPi_cosh"
+    (0x8962020,V-) DecRateCoeff::Bs2DsPi_sinh "Bs2DsPi_sinh"
+    (0x5dcc020,V-) DecRateCoeff::Bs2DsPi_cos "Bs2DsPi_cos"
+    (0xa198020,V-) DecRateCoeff::Bs2DsPi_sin "Bs2DsPi_sin"
+  Servers: 
+  Proxies: 
+--- RooAbsCategory ---
+  Value is "B+" (1)
+  Has the following possible values:
+        B+ = 1
+        Untagged = 0
+        B- = -1
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes: 
+  Address: 0x908cd20
+  Clients: 
+    (0x77b8c20,V-) RooCubicSplineFun::Bs2DsPi_accpetance_SplineAcceptance "Bs2DsPi_accpetance_SplineAcceptance"
+    (0xc068a20,V-) RooGaussModel::resmodel00 "resmodel00"
+    (0xbfa8820,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel "Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel"
+    (0x6522b20,V-) RooBDecay::Bs2DsPi_RawTimePdf "Bs2DsPi raw time pdf"
+    (0xc46d420,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel convoluted with basis function exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma"
+    (0xc469e20,V-) RooFormulaVar::exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*cosh(@0*@2/2)"
+    (0xc477120,V-) RooGaussModel::resmodel00_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "resmodel00 convoluted with basis function exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma"
+    (0xc46a320,V-) RooFormulaVar::exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*cosh(@0*@2/2)"
+    (0xc46de20,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel convoluted with basis function exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma"
+    (0xc46a820,V-) RooFormulaVar::exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*sinh(@0*@2/2)"
+    (0xc477820,V-) RooGaussModel::resmodel00_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "resmodel00 convoluted with basis function exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma"
+    (0xc46ad20,V-) RooFormulaVar::exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*sinh(@0*@2/2)"
+    (0xc46e820,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel convoluted with basis function exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm"
+    (0xc46b220,V-) RooFormulaVar::exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*cos(@0*@2)"
+    (0xc5b6720,V-) RooGaussModel::resmodel00_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "resmodel00 convoluted with basis function exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm"
+    (0xc46b720,V-) RooFormulaVar::exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*cos(@0*@2)"
+    (0xc46f220,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel convoluted with basis function exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm"
+    (0xc5ba020,V-) RooFormulaVar::exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*sin(@0*@2)"
+    (0xc5b7520,V-) RooGaussModel::resmodel00_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "resmodel00 convoluted with basis function exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm"
+    (0xc5ba520,V-) RooFormulaVar::exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*sin(@0*@2)"
+  Servers: 
+  Proxies: 
+--- RooAbsReal ---
+
+  Plot label is "time"
+--- RooAbsRealLValue ---
+  Fit range is [ 0.3 , 15 ]
+--- RooRealVar ---
+  Error = 0
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes: 
+  Address: 0xa505b20
+  Clients: 
+    (0xc0a8720,V-) MistagDistribution::Bs2DsPi_mistagpdf "Bs2DsPi_mistagpdf"
+    (0xb87fba0,V-) MistagCalibration::Bs2DsPi_mistagcalib "Bs2DsPi_mistagcalib"
+    (0x5dce618,V-) RooUniform::Bs2DsPi_mistagpdf_untagged "Bs2DsPi_mistagpdf_untagged"
+    (0x5dce020,V-) DecRateCoeff::Bs2DsPi_cosh "Bs2DsPi_cosh"
+    (0xb87e5a0,V-) RooUniform::Bs2DsPi_mistagpdf_untagged "Bs2DsPi_mistagpdf_untagged"
+    (0x8962618,V-) RooUniform::Bs2DsPi_mistagpdf_untagged "Bs2DsPi_mistagpdf_untagged"
+    (0x8962020,V-) DecRateCoeff::Bs2DsPi_sinh "Bs2DsPi_sinh"
+    (0x5dcc618,V-) RooUniform::Bs2DsPi_mistagpdf_untagged "Bs2DsPi_mistagpdf_untagged"
+    (0x5dcc020,V-) DecRateCoeff::Bs2DsPi_cos "Bs2DsPi_cos"
+    (0xa198618,V-) RooUniform::Bs2DsPi_mistagpdf_untagged "Bs2DsPi_mistagpdf_untagged"
+    (0xa198020,V-) DecRateCoeff::Bs2DsPi_sin "Bs2DsPi_sin"
+  Servers: 
+  Proxies: 
+--- RooAbsReal ---
+
+  Plot label is "eta"
+--- RooAbsRealLValue ---
+  Fit range is [ 0 , 0.5 ]
+--- RooRealVar ---
+  Error = 0
+{'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}
+{'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}
+{'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}
+{'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}
+{'qt': 'Bs_TAGDECISION_OS', 'weight': 'N_Bs_sw', 'timeerr': 'Bs_cterr', 'time': 'Bs_ct', 'eta': 'Bs_TAGOMEGA_OS', 'qf': 'Ds_ID'}
+[#1] INFO:Eval -- RooAbsReal::attachToTree(Ds_ID) TTree Int_t branch Ds_ID will be converted to double precision
+[#1] INFO:Eval -- RooAbsReal::attachToTree(Bs_TAGDECISION_OS) TTree Int_t branch Bs_TAGDECISION_OS will be converted to double precision
+[#1] INFO:ObjectHandling -- RooWorkspace::import(tempWorkSpace) importing dataset DecayTree
+DataStore DecayTree (DecayTree)
+  Contains 22589 entries
+  Observables: 
+    1)            N_Bs_sw = 1.10518  L(-INF - +INF)  "N_Bs_sw"
+    2)              Ds_ID = 411  L(-INF - +INF)  "Ds_ID"
+    3)  Bs_TAGDECISION_OS = 0  L(-INF - +INF)  "Bs_TAGDECISION_OS"
+    4)              Bs_ct = 3.71011  L(-INF - +INF)  "Bs_ct"
+    5)     Bs_TAGOMEGA_OS = 0.5  L(-INF - +INF)  "Bs_TAGOMEGA_OS"
+Dataset conversion and fixup: progress: *********************************************************************************************************************************************************************************, done - 8892 events
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_GEN) importing dataset agglomeration
+DataStore agglomeration (of positronic circuits)
+  Contains 8892 entries
+  Observables: 
+    1)    qf = h+(idx = 1)
+  "final state charge"
+    2)   eta = 0.347556  L(0 - 0.5)  "eta"
+    3)    qt = B+(idx = 1)
+  "tagging decision"
+    4)  time = 2.02615  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+
+  Table qt : agglomeration
+  +----------+------+
+  |       B+ | 1176.32 |
+  | Untagged |    0 |
+  |       B- | 1169.73 |
+  +----------+------+
+
+
+  Table qf : agglomeration
+  +----+------+
+  | h+ | 1141.8 |
+  | h- | 1204.25 |
+  +----+------+
+
+
+  Table (qt x qf) : agglomeration
+  +---------------+-----+
+  |       {B+;h+} | 556.221 |
+  | {Untagged;h+} |   0 |
+  |       {B-;h+} | 585.576 |
+  |       {B+;h-} | 620.098 |
+  | {Untagged;h-} |   0 |
+  |       {B-;h-} | 584.151 |
+  +---------------+-----+
+
+DataStore agglomeration (of positronic circuits)
+  Contains 8892 entries
+  Observables: 
+    1)    qf = h+(idx = 1)
+  "final state charge"
+    2)   eta = 0.347556  L(0 - 0.5)  "eta"
+    3)    qt = B+(idx = 1)
+  "tagging decision"
+    4)  time = 2.02615  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+
+  Table qf : agglomeration
+  +----+------+
+  | h+ | 1141.8 |
+  | h- | 1204.25 |
+  +----+------+
+
+
+  Table qt : agglomeration
+  +----------+------+
+  |       B+ | 1176.32 |
+  | Untagged |    0 |
+  |       B- | 1169.73 |
+  +----------+------+
+
+**** ADDING CATEGORIES ****
+[0, 77]
+Cat1:<0.3825 Cat2:*Cat1
+  Table tageffRegion : agglomeration
+  +------+------+
+  | Cat2 | 1194.22 |
+  | Cat1 | 1151.82 |
+  +------+------+
+
+**** CAT 0 ****
+DataStore agglomeration (of positronic circuits)
+  Contains 4298 entries
+  Observables: 
+    1)            qt = B+(idx = 1)
+  "tagging decision"
+    2)            qf = h+(idx = 1)
+  "final state charge"
+    3)  tageffRegion = Cat1(idx = 1)
+  "region of tageff"
+    4)          time = 2.02615  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+**** CAT 1 ****
+DataStore agglomeration (of positronic circuits)
+  Contains 4594 entries
+  Observables: 
+    1)            qt = B-(idx = -1)
+  "tagging decision"
+    2)            qf = h+(idx = 1)
+  "final state charge"
+    3)  tageffRegion = Cat2(idx = 0)
+  "region of tageff"
+    4)          time = 1.60027  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                             FIT0
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.039]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+=>resmodelutils.getResolutionModel(): using list/tuple/dict to build resolution.
+=>resmodelutils.getResolutionModel(): multiplying resolution by spline acceptance
+=>resmodelutils.getResolutionModel(): using spline acceptance in fitting stage. Returning null acceptance (already included in resolution.)
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0x29b4d020>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("eta") at 0xc616da0>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0xa6fad20>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x733f6a0>]
+	kvar = None
+	atageff = None
+	config = {'ParameteriseIntegral': False, 'UseKFactor': False, 'Context': 'FIT0', 'IsData': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'NBinsAcceptance': 0, 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.039]}, 'DecayTimeResolutionBias': 0.0, 'Debug': True, 'AcceptanceFunction': 'Spline', 'FitConfig': {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'Blinding': True, 'DecayTimeResolutionScaleFactor': 1.0}
+	C = <ROOT.RooConstVar object ("one") at 0x29b4c420>
+	aprod = <ROOT.RooRealVar object ("aprod") at 0x90836a0>
+	D = <ROOT.RooConstVar object ("zero") at 0x29b4d020>
+	time = <ROOT.RooRealVar object ("time") at 0xa46a4a0>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0x29b4d020>
+	ws = <ROOT.RooWorkspace object ("ws_FIT0") at 0x29c4e020>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x764b1a0>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x29ae76a0>
+	qt = <ROOT.RooCategory object ("qt") at 0x247b5e20>
+	adet = <ROOT.RooRealVar object ("adet") at 0xc4828a0>
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0x29b4d020>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0xc481220>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0xcdf2a20>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xc5baa20>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT0) importing dataset agglomeration
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT0) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT0) ERROR: unrecognized command: Silence
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT0) importing RooCategory::tageffRegion
+########################################################################
+WS:<ROOT.RooWorkspace object ("ws_FIT0") at 0x29c4e020>
+PDF:<ROOT.RooBDecay object ("Bs2DsPi_TimePdf") at 0x655eb20>
+OBS:[<ROOT.RooCategory object ("qf") at 0xc5baa20>, <ROOT.RooCategory object ("qt") at 0x247b5e20>, <ROOT.RooRealVar object ("time") at 0xa46a4a0>]
+DS:<ROOT.RooDataSet object ("agglomeration") at 0xc84b7c4>
+
+RooWorkspace(ws_FIT0) ws_FIT0 contents
+
+variables
+---------
+(Bs2DsPi_accpetance_SplineAccCoeff0,Bs2DsPi_accpetance_SplineAccCoeff1,Bs2DsPi_accpetance_SplineAccCoeff2,Bs2DsPi_accpetance_SplineAccCoeff3,Bs2DsPi_accpetance_SplineAccCoeff4,Bs2DsPi_accpetance_SplineAccCoeff5,DGamma,Dm,Gamma,adet,aprod,eta,mistag,qf,qt,resmodel00_sigma,tageff,tageffRegion,time,timeerr,timeerr_bias,timeerr_scalefactor)
+
+p.d.f.s
+-------
+RooBDecay::Bs2DsPi_TimePdf[ t=time tau=GammaTau dgamma=DGamma f0=Bs2DsPi_cosh f1=Bs2DsPi_sinh f2=Bs2DsPi_cos f3=Bs2DsPi_sin dm=Dm ] = 0.0117052
+
+analytical resolution models
+----------------------------
+RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel[ x=time ( + [%] * Bs2DsPi_accpetance_SplineAcceptance_resmodel00) ] = 0
+RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00[ x=time eff=Bs2DsPi_accpetance_SplineAcceptance mean=timeerr_bias sigma=resmodel00_sigma msf=timeerr_scalefactor ssf=timeerr_scalefactor ] = 0
+
+functions
+--------
+RooPolyVar::Bs2DsPi_accpetance_SplineAccCoeff7[ x=Bs2DsPi_accpetance_SplineAccCoeff5 coefList=(Bs2DsPi_accpetance_SplineAccCoeff7_coeff0,Bs2DsPi_accpetance_SplineAccCoeff7_coeff1) ] = 0.961153
+RooCubicSplineFun::Bs2DsPi_accpetance_SplineAcceptance[ x=time coefList=(Bs2DsPi_accpetance_SplineAccCoeff0,Bs2DsPi_accpetance_SplineAccCoeff1,Bs2DsPi_accpetance_SplineAccCoeff2,Bs2DsPi_accpetance_SplineAccCoeff3,Bs2DsPi_accpetance_SplineAccCoeff4,Bs2DsPi_accpetance_SplineAccCoeff5,one,Bs2DsPi_accpetance_SplineAccCoeff7) ] = 1.05631
+DecRateCoeff::Bs2DsPi_cos[ qf=qf qts=(qt) Cf=one Cfbar=one etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 0.3
+DecRateCoeff::Bs2DsPi_cosh[ qf=qf qts=(qt) Cf=one Cfbar=one etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 1
+DecRateCoeff::Bs2DsPi_sin[ qf=qf qts=(qt) Cf=zero Cfbar=zero etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 0
+DecRateCoeff::Bs2DsPi_sinh[ qf=qf qts=(qt) Cf=zero Cfbar=zero etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 0
+Inverse::GammaTau[ val=Gamma ] = 1.51286
+
+datasets
+--------
+RooDataSet::agglomeration(qt,qf,tageffRegion,time)
+
+generic objects
+---------------
+RooBinning::Bs2DsPi_accpetance_knotbinning
+
+--- RooAbsArg ---
+  Value State: DIRTY
+  Shape State: DIRTY
+  Attributes: 
+  Address: 0x655eb20
+  Clients: 
+  Servers: 
+    (0x38673e20,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma"
+    (0x38674820,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma"
+    (0x38675220,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm"
+    (0x24a22020,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm"
+    (0xcdf2a20,--) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel "Bs2DsPi_accpetance_SplineAcceptance_resmodel"
+    (0xa46a4a0,V-) RooRealVar::time "time [ps]"
+    (0x3ceeda0,V-) Inverse::GammaTau "Gamma #tau"
+    (0xa6fad20,V-) RooRealVar::DGamma "DGamma"
+    (0xce29020,V-) DecRateCoeff::Bs2DsPi_cosh "Bs2DsPi_cosh"
+    (0x8964020,V-) DecRateCoeff::Bs2DsPi_sinh "Bs2DsPi_sinh"
+    (0xce2a020,V-) DecRateCoeff::Bs2DsPi_cos "Bs2DsPi_cos"
+    (0xce2b020,V-) DecRateCoeff::Bs2DsPi_sin "Bs2DsPi_sin"
+    (0x764b1a0,V-) RooRealVar::Dm "Dm"
+  Proxies: 
+    !model -> Bs2DsPi_accpetance_SplineAcceptance_resmodel
+    !convVar -> time
+    !convSet -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+      2)  Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+      3)         Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+      4)         Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+    t -> time
+    tau -> GammaTau
+    dgamma -> DGamma
+    f0 -> Bs2DsPi_cosh
+    f1 -> Bs2DsPi_sinh
+    f2 -> Bs2DsPi_cos
+    f3 -> Bs2DsPi_sin
+    dm -> Dm
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_TimePdf"
+--- RooAbsPdf ---
+Cached value = 0
+--- RooAbsAnaConvPdf ---
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x38673e20
+  Clients: 
+    (0x655eb20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xce94020,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma"
+    (0xa46a4a0,V-) RooRealVar::time "time [ps]"
+    (0x3ceeda0,V-) Inverse::GammaTau "Gamma #tau"
+    (0xa6fad20,V-) RooRealVar::DGamma "DGamma"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = 0.0145761
+--- RooResolutionModel ---
+basis function = 0x3c948520 exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*cosh(@0*@2/2)"
+--- RooAbsArg ---
+  Value State: DIRTY
+  Shape State: DIRTY
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x38674820
+  Clients: 
+    (0x655eb20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xcdca020,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma"
+    (0xa46a4a0,V-) RooRealVar::time "time [ps]"
+    (0x3ceeda0,V-) Inverse::GammaTau "Gamma #tau"
+    (0xa6fad20,V-) RooRealVar::DGamma "DGamma"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = 0
+--- RooResolutionModel ---
+basis function = 0x3c948f20 exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*sinh(@0*@2/2)"
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x38675220
+  Clients: 
+    (0x655eb20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xce79520,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm"
+    (0xa46a4a0,V-) RooRealVar::time "time [ps]"
+    (0x3ceeda0,V-) Inverse::GammaTau "Gamma #tau"
+    (0x764b1a0,V-) RooRealVar::Dm "Dm"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = -0.00956952
+--- RooResolutionModel ---
+basis function = 0x3c949920 exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*cos(@0*@2)"
+--- RooAbsArg ---
+  Value State: DIRTY
+  Shape State: DIRTY
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x24a22020
+  Clients: 
+    (0x655eb20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xce78e20,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm"
+    (0xa46a4a0,V-) RooRealVar::time "time [ps]"
+    (0x3ceeda0,V-) Inverse::GammaTau "Gamma #tau"
+    (0x764b1a0,V-) RooRealVar::Dm "Dm"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = 0
+--- RooResolutionModel ---
+basis function = 0x3c94a320 exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*sin(@0*@2)"
+DataStore agglomeration (of positronic circuits)
+  Contains 4298 entries
+  Observables: 
+    1)            qt = B+(idx = 1)
+  "tagging decision"
+    2)            qf = h+(idx = 1)
+  "final state charge"
+    3)  tageffRegion = Cat1(idx = 1)
+  "region of tageff"
+    4)          time = 2.02615  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+RooRealVar::eta = 0.35  L(0 - 0.5) 
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes: 
+  Address: 0xc616da0
+  Clients: 
+    (0xce29020,V-) DecRateCoeff::Bs2DsPi_cosh "Bs2DsPi_cosh"
+    (0x8964020,V-) DecRateCoeff::Bs2DsPi_sinh "Bs2DsPi_sinh"
+    (0xce2a020,V-) DecRateCoeff::Bs2DsPi_cos "Bs2DsPi_cos"
+    (0xce2b020,V-) DecRateCoeff::Bs2DsPi_sin "Bs2DsPi_sin"
+  Servers: 
+  Proxies: 
+--- RooAbsReal ---
+
+  Plot label is "eta"
+--- RooAbsRealLValue ---
+  Fit range is [ 0 , 0.5 ]
+--- RooRealVar ---
+  Error = 0.0721688
+########################################################################
+
+-------PRINTING DS1--------
+
+DataStore agglomeration (of positronic circuits)
+  Contains 4298 entries
+  Observables: 
+    1)            qt = B+(idx = 1)
+  "tagging decision"
+    2)            qf = h+(idx = 1)
+  "final state charge"
+    3)  tageffRegion = Cat1(idx = 1)
+  "region of tageff"
+    4)          time = 2.02615  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+
+  Table qf : agglomeration
+  +----+-----+
+  | h+ | 553.179 |
+  | h- | 598.645 |
+  +----+-----+
+
+
+  Table qt : agglomeration
+  +----------+-----+
+  |       B+ | 590.384 |
+  | Untagged |   0 |
+  |       B- | 561.44 |
+  +----------+-----+
+
+
+---------------------------
+
+
+
+
+ETA =  0.366732609155 
+
+
+
+
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+ **********
+ **   14 **MIGRAD        1500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_agglomeration) first = 0 last = 4298 Likelihood offset now set to 3475.39
+
+prevFCN-offset = 0   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = 0  adet=0.0005001, 
+prevFCN-offset = 0.02288125297  adet=-0.0005001, 
+prevFCN-offset = -0.02259319138  adet=0, aprod=0.0005001, 
+prevFCN-offset = -0.005049130987  aprod=-0.0005001, 
+prevFCN-offset = 0.00515477929  aprod=0.0007602, 
+prevFCN-offset = -0.007633690228  aprod=-0.0007602, 
+prevFCN-offset = 0.007877829691  aprod=0, eta=0.2978, 
+prevFCN-offset = -1.115253862  eta=0.2832, 
+prevFCN-offset = 1.207926567  eta=0.2913, 
+prevFCN-offset = -0.1156695604  eta=0.2898, 
+prevFCN-offset = 0.1165964382  adet=1.017e-05, eta=0.2905, 
+prevFCN-offset = 0.0004626009318  adet=-1.017e-05, 
+prevFCN-offset = -0.0004624817216  adet=0, aprod=1.68e-05, 
+prevFCN-offset = -0.0001713212255  aprod=-1.68e-05, 
+prevFCN-offset = 0.0001714404361  aprod=0, eta=0.2905, 
+prevFCN-offset = -0.00131697886  eta=0.2905, 
+prevFCN-offset = 0.00131709807  adet=0.0005001, aprod=0.0007602, eta=0.2905, 
+prevFCN-offset = 0.01524756274  aprod=0, eta=0.2913, 
+prevFCN-offset = -0.09278830739  adet=0, aprod=0.0007602, 
+prevFCN-offset = -0.1232715459   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=0 FROM HESSE     STATUS=OK             20 CALLS          21 TOTAL
+                     EDM=8.20219    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  adet         0.00000e+00   2.92760e-02   3.33395e-03   6.81992e+00
+   2  aprod        0.00000e+00   4.79083e-02   5.06813e-03  -1.53031e+00
+   3  eta          2.90518e-01   2.41033e-02   2.97273e-03  -3.90660e+01
+                               ERR DEF= 0.5
+adet=-0.03902, aprod=0.01182, eta=0.3772, 
+prevFCN-offset = -8.886346799  adet=-0.04248, aprod=0.01289, eta=0.3844, 
+prevFCN-offset = -9.042198443  adet=-0.04567, aprod=0.01389, eta=0.3909, 
+prevFCN-offset = -9.107433528  adet=-0.04561, 
+prevFCN-offset = -9.107861353  adet=-0.04573, 
+prevFCN-offset = -9.107001592  adet=-0.04567, aprod=0.014, 
+prevFCN-offset = -9.107379032  aprod=0.01379, 
+prevFCN-offset = -9.10748404  aprod=0.01389, eta=0.391, 
+prevFCN-offset = -9.107774687  eta=0.3909, 
+prevFCN-offset = -9.107089711  eta=0.391, 
+prevFCN-offset = -9.1078809  eta=0.3909, 
+prevFCN-offset = -9.106981574  adet=-0.04017, aprod=0.01223, eta=0.3948, 
+prevFCN-offset = -9.150260473  adet=-0.03874, aprod=0.0118, eta=0.3958, 
+prevFCN-offset = -9.152124604  adet=-0.03867, 
+prevFCN-offset = -9.152067429  adet=-0.0388, 
+prevFCN-offset = -9.152176977  adet=-0.03874, aprod=0.01191, 
+prevFCN-offset = -9.15212539  aprod=0.01169, 
+prevFCN-offset = -9.152119223  aprod=0.0118, eta=0.3959, 
+prevFCN-offset = -9.152189975  eta=0.3958, 
+prevFCN-offset = -9.152054867  adet=-0.03933, aprod=0.01176, eta=0.3965, 
+prevFCN-offset = -9.152917734  adet=-0.0395, aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152961374  adet=-0.03944, 
+prevFCN-offset = -9.152960899  adet=-0.03956, 
+prevFCN-offset = -9.152957265  adet=-0.0395, aprod=0.01186, 
+prevFCN-offset = -9.15295971  aprod=0.01164, 
+prevFCN-offset = -9.152958439  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152960803  eta=0.3966, 
+prevFCN-offset = -9.152957387   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+eta=0.3967, 
+prevFCN-offset = -9.152961374  adet=-0.03944, 
+prevFCN-offset = -9.152960899  adet=-0.03956, 
+prevFCN-offset = -9.152957265  adet=-0.0395, aprod=0.01186, 
+prevFCN-offset = -9.15295971  aprod=0.01164, 
+prevFCN-offset = -9.152958439  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152960803  eta=0.3966, 
+prevFCN-offset = -9.152957387  adet=-0.03949, eta=0.3967, 
+prevFCN-offset = -9.152961646  adet=-0.03951, 
+prevFCN-offset = -9.152960919  adet=-0.0395, aprod=0.01177, 
+prevFCN-offset = -9.152961409  aprod=0.01173, 
+prevFCN-offset = -9.152961155  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152961624  eta=0.3966, 
+prevFCN-offset = -9.152960941  adet=-0.03944, aprod=0.01186, eta=0.3967, 
+prevFCN-offset = -9.152959235  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152960328  adet=-0.0395, aprod=0.01186, 
+prevFCN-offset = -9.152958824   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-9.15296 FROM MIGRAD    STATUS=CONVERGED      63 CALLS          64 TOTAL
+                     EDM=1.41883e-06    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  adet        -3.94981e-02   2.92400e-02   4.35622e-04  -4.17228e-03
+   2  aprod        1.17491e-02   5.11554e-02   7.46972e-04  -8.50675e-04
+   3  eta          3.96655e-01   2.67639e-02   2.82397e-04  -6.04700e-03
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  34    NPAR=  3    ERR DEF=0.5
+  8.669e-04  0.000e+00  0.000e+00 
+  0.000e+00  2.726e-03 -9.639e-05 
+  0.000e+00 -9.639e-05  7.205e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.00000   1.000  0.000  0.000
+        2  0.06878   0.000  1.000 -0.069
+        3  0.06878   0.000 -0.069  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:02, CP time 2.490
+[#1] INFO:Minization -- Session timer: Real time 0:00:02, CP time 2.490, 2 slices
+ **********
+ **   19 **HESSE        1500
+ **********
+
+prevFCN-offset = -9.152961374  adet=-0.03949, 
+prevFCN-offset = -9.152961646  adet=-0.03951, 
+prevFCN-offset = -9.152960919  adet=-0.0395, aprod=0.01177, 
+prevFCN-offset = -9.152961409  aprod=0.01173, 
+prevFCN-offset = -9.152961155  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152961624  eta=0.3966, 
+prevFCN-offset = -9.152960941  adet=-0.0395, eta=0.3967, 
+prevFCN-offset = -9.152961443  adet=-0.0395, 
+prevFCN-offset = -9.152961298  adet=-0.0395, aprod=0.01175, 
+prevFCN-offset = -9.152961396  aprod=0.01174, 
+prevFCN-offset = -9.152961345  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152961439  eta=0.3967, 
+prevFCN-offset = -9.152961302  adet=-0.03949, aprod=0.01177, eta=0.3967, 
+prevFCN-offset = -9.152961681  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -9.152961896  adet=-0.0395, aprod=0.01177, 
+prevFCN-offset = -9.152961647   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-9.15296 FROM HESSE     STATUS=OK             16 CALLS          80 TOTAL
+                     EDM=1.41881e-06    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  adet        -3.94981e-02   2.92400e-02   8.71244e-05  -2.66463e-01
+   2  aprod        1.17491e-02   5.11554e-02   1.49394e-04   7.84080e-02
+   3  eta          3.96655e-01   2.67638e-02   5.64794e-05   6.26881e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  34    NPAR=  3    ERR DEF=0.5
+  8.669e-04  3.815e-09 -1.350e-10 
+  3.815e-09  2.726e-03 -9.642e-05 
+ -1.350e-10 -9.642e-05  7.205e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.00000   1.000  0.000 -0.000
+        2  0.06880   0.000  1.000 -0.069
+        3  0.06880  -0.000 -0.069  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.640
+[#1] INFO:Minization -- Session timer: Real time 0:00:03, CP time 3.130, 3 slices
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(Bs2DsPi_TimePdf) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   24 **HESSE        1500
+ **********
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_agglomeration) first = 0 last = 4298 Likelihood offset now set to 4050
+
+prevFCN-offset = -4.547473509e-13  adet=-0.0395, 
+prevFCN-offset = -8.035552128e-06  adet=-0.0395, 
+prevFCN-offset = 8.044142305e-06  adet=-0.03924, 
+prevFCN-offset = -0.00077535329  adet=-0.03976, 
+prevFCN-offset = 0.0008647323552  adet=-0.0395, aprod=0.01175, 
+prevFCN-offset = -2.991025212e-06  aprod=0.01174, 
+prevFCN-offset = 2.999697699e-06  aprod=0.0122, 
+prevFCN-offset = -0.0002604203992  aprod=0.01129, 
+prevFCN-offset = 0.0003506536818  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -1.741601864e-06  eta=0.3967, 
+prevFCN-offset = 1.750209776e-06  eta=0.3969, 
+prevFCN-offset = -0.0001333404966  eta=0.3964, 
+prevFCN-offset = 0.0002229040824  adet=-0.03949, eta=0.3967, 
+prevFCN-offset = -2.988958613e-05  adet=-0.03951, 
+prevFCN-offset = 3.000879497e-05  adet=-0.0395, aprod=0.01177, 
+prevFCN-offset = -1.104546118e-05  aprod=0.01173, 
+prevFCN-offset = 1.116467001e-05  aprod=0.01175, eta=0.3967, 
+prevFCN-offset = -6.437358934e-06  eta=0.3966, 
+prevFCN-offset = 6.556567769e-06  adet=-0.03924, aprod=0.0122, eta=0.3967, 
+prevFCN-offset = -0.001035773689  aprod=0.01175, eta=0.3969, 
+prevFCN-offset = -0.0009086937857  adet=-0.0395, aprod=0.0122, 
+prevFCN-offset = -0.0003889900372   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-4.54747e-13 FROM HESSE     STATUS=OK             22 CALLS         102 TOTAL
+                     EDM=0.00885229    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  adet        -3.94981e-02   2.70444e-02   1.77734e-03  -2.66463e-01
+   2  aprod        1.17491e-02   4.72227e-02   3.04764e-03   7.84080e-02
+   3  eta          3.96655e-01   2.46230e-02   1.15218e-03   6.26881e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  34    NPAR=  3    ERR DEF=0.5
+  7.401e-04  3.530e-13 -3.418e-12 
+  3.530e-13  2.308e-03 -6.294e-05 
+ -3.418e-12 -6.294e-05  6.093e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.00000   1.000  0.000 -0.000
+        2  0.05307   0.000  1.000 -0.053
+        3  0.05307  -0.000 -0.053  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.880
+[#1] INFO:Minization -- Session timer: Real time 0:00:04, CP time 4.010, 4 slices
+setting parameter 0 error to 0.03161
+setting parameter 1 error to 0.05542
+setting parameter 2 error to 0.02909
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+RESULT FIT RESULT: FCN -4.54747e-13 STATUS  0 COV               -1 EDM   0.00885229
+
+NR PARAMETER                     INITIAL        FINAL        ERROR
+
+ 0 adet                                0   -0.0394981    0.0316137 L(       -0.15,         0.15)
+ 1 aprod                               0    0.0117491    0.0554226 L(       -0.15,         0.15)
+ 2 eta                          0.290518     0.396655    0.0290943 L(           0,          0.5)
+
+CORRELATION MATRIX
+
+        0      1      2
+ 0  1.000  0.000 -0.000
+ 1  0.000  1.000 -0.085
+ 2 -0.000 -0.085  1.000
+
+RooArgList:: = (adet,aprod,eta)
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                             FIT1
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.039]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                     NBinsAcceptance:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+=>resmodelutils.getResolutionModel(): using list/tuple/dict to build resolution.
+=>resmodelutils.getResolutionModel(): multiplying resolution by spline acceptance
+=>resmodelutils.getResolutionModel(): using spline acceptance in fitting stage. Returning null acceptance (already included in resolution.)
+########################################################################
+buildBDecayTimePdf(
+	acceptance = None
+	Dbar = <ROOT.RooConstVar object ("zero") at 0x2dd7f020>
+	mistagpdf = None
+	mistag = [[<ROOT.RooRealVar object ("eta") at 0x3ccd620>]]
+	mistagobs = None
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x81bfaa0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x293d0020>]
+	kvar = None
+	atageff = None
+	config = {'ParameteriseIntegral': False, 'UseKFactor': False, 'Context': 'FIT1', 'IsData': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654], 'FIT': [0.196857, 0.346572, 0.722944, 0.846754, 1.23892, 1.11654]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'NBinsAcceptance': 0, 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.039]}, 'DecayTimeResolutionBias': 0.0, 'Debug': True, 'AcceptanceFunction': 'Spline', 'FitConfig': {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'Blinding': True, 'DecayTimeResolutionScaleFactor': 1.0}
+	C = <ROOT.RooConstVar object ("one") at 0x2dd7fc20>
+	aprod = <ROOT.RooRealVar object ("aprod") at 0x2436faa0>
+	D = <ROOT.RooConstVar object ("zero") at 0x2dd7f020>
+	time = <ROOT.RooRealVar object ("time") at 0x293fd220>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0x2dd7f020>
+	ws = <ROOT.RooWorkspace object ("ws_FIT1") at 0x294630a0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0xc481b20>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0xa4f4920>
+	qt = <ROOT.RooCategory object ("qt") at 0xb580520>
+	adet = <ROOT.RooRealVar object ("adet") at 0x37ffd220>
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0x2dd7f020>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0x2436c920>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptance_resmodel") at 0x380c8820>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0x247b4a20>
+	)
+########################################################################
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT1) importing dataset agglomeration
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT1) ERROR: unrecognized command: RecycleConflictNodes
+[#0] ERROR:InputArguments -- RooWorkspace::import(ws_FIT1) ERROR: unrecognized command: Silence
+[#1] INFO:ObjectHandling -- RooWorkspace::import(ws_FIT1) importing RooCategory::tageffRegion
+########################################################################
+WS:<ROOT.RooWorkspace object ("ws_FIT1") at 0x294630a0>
+PDF:<ROOT.RooBDecay object ("Bs2DsPi_TimePdf") at 0x655ac20>
+OBS:[<ROOT.RooCategory object ("qf") at 0x247b4a20>, <ROOT.RooCategory object ("qt") at 0xb580520>, <ROOT.RooRealVar object ("time") at 0x293fd220>]
+DS:<ROOT.RooDataSet object ("agglomeration") at 0xc84bd04>
+
+RooWorkspace(ws_FIT1) ws_FIT1 contents
+
+variables
+---------
+(Bs2DsPi_accpetance_SplineAccCoeff0,Bs2DsPi_accpetance_SplineAccCoeff1,Bs2DsPi_accpetance_SplineAccCoeff2,Bs2DsPi_accpetance_SplineAccCoeff3,Bs2DsPi_accpetance_SplineAccCoeff4,Bs2DsPi_accpetance_SplineAccCoeff5,DGamma,Dm,Gamma,adet,aprod,eta,mistag,qf,qt,resmodel00_sigma,tageff,tageffRegion,time,timeerr,timeerr_bias,timeerr_scalefactor)
+
+p.d.f.s
+-------
+RooBDecay::Bs2DsPi_TimePdf[ t=time tau=GammaTau dgamma=DGamma f0=Bs2DsPi_cosh f1=Bs2DsPi_sinh f2=Bs2DsPi_cos f3=Bs2DsPi_sin dm=Dm ] = 0.01171
+
+analytical resolution models
+----------------------------
+RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel[ x=time ( + [%] * Bs2DsPi_accpetance_SplineAcceptance_resmodel00) ] = 0
+RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00[ x=time eff=Bs2DsPi_accpetance_SplineAcceptance mean=timeerr_bias sigma=resmodel00_sigma msf=timeerr_scalefactor ssf=timeerr_scalefactor ] = 0
+
+functions
+--------
+RooPolyVar::Bs2DsPi_accpetance_SplineAccCoeff7[ x=Bs2DsPi_accpetance_SplineAccCoeff5 coefList=(Bs2DsPi_accpetance_SplineAccCoeff7_coeff0,Bs2DsPi_accpetance_SplineAccCoeff7_coeff1) ] = 0.9612
+RooCubicSplineFun::Bs2DsPi_accpetance_SplineAcceptance[ x=time coefList=(Bs2DsPi_accpetance_SplineAccCoeff0,Bs2DsPi_accpetance_SplineAccCoeff1,Bs2DsPi_accpetance_SplineAccCoeff2,Bs2DsPi_accpetance_SplineAccCoeff3,Bs2DsPi_accpetance_SplineAccCoeff4,Bs2DsPi_accpetance_SplineAccCoeff5,one,Bs2DsPi_accpetance_SplineAccCoeff7) ] = 1.056
+DecRateCoeff::Bs2DsPi_cos[ qf=qf qts=(qt) Cf=one Cfbar=one etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 0.3
+DecRateCoeff::Bs2DsPi_cosh[ qf=qf qts=(qt) Cf=one Cfbar=one etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 1
+DecRateCoeff::Bs2DsPi_sin[ qf=qf qts=(qt) Cf=zero Cfbar=zero etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 0
+DecRateCoeff::Bs2DsPi_sinh[ qf=qf qts=(qt) Cf=zero Cfbar=zero etaobs=NULL etapdfs=() tageffs=(one,tageff,tageff) etas=(one,eta,eta) aprod=aprod adet=adet atageffs=(one,zero,zero) ] = 0
+Inverse::GammaTau[ val=Gamma ] = 1.513
+
+datasets
+--------
+RooDataSet::agglomeration(qt,qf,tageffRegion,time)
+
+generic objects
+---------------
+RooBinning::Bs2DsPi_accpetance_knotbinning
+
+--- RooAbsArg ---
+  Value State: DIRTY
+  Shape State: DIRTY
+  Attributes: 
+  Address: 0x655ac20
+  Clients: 
+  Servers: 
+    (0x336daa20,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma"
+    (0x336da020,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma"
+    (0x293cb220,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm"
+    (0x293ca820,V-) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel convoluted with basis function exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm"
+    (0x380c8820,--) RooAddModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel "Bs2DsPi_accpetance_SplineAcceptance_resmodel"
+    (0x293fd220,V-) RooRealVar::time "time [ps]"
+    (0x74cd6a0,V-) Inverse::GammaTau "Gamma #tau"
+    (0x81bfaa0,V-) RooRealVar::DGamma "DGamma"
+    (0x380fd020,V-) DecRateCoeff::Bs2DsPi_cosh "Bs2DsPi_cosh"
+    (0x380fc020,V-) DecRateCoeff::Bs2DsPi_sinh "Bs2DsPi_sinh"
+    (0x383a1020,V-) DecRateCoeff::Bs2DsPi_cos "Bs2DsPi_cos"
+    (0x3c97f020,V-) DecRateCoeff::Bs2DsPi_sin "Bs2DsPi_sin"
+    (0xc481b20,V-) RooRealVar::Dm "Dm"
+  Proxies: 
+    !model -> Bs2DsPi_accpetance_SplineAcceptance_resmodel
+    !convVar -> time
+    !convSet -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+      2)  Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+      3)         Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+      4)         Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+    t -> time
+    tau -> GammaTau
+    dgamma -> DGamma
+    f0 -> Bs2DsPi_cosh
+    f1 -> Bs2DsPi_sinh
+    f2 -> Bs2DsPi_cos
+    f3 -> Bs2DsPi_sin
+    dm -> Dm
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_TimePdf"
+--- RooAbsPdf ---
+Cached value = 0
+--- RooAbsAnaConvPdf ---
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x336daa20
+  Clients: 
+    (0x655ac20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xcbb8a20,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma"
+    (0x293fd220,V-) RooRealVar::time "time [ps]"
+    (0x74cd6a0,V-) Inverse::GammaTau "Gamma #tau"
+    (0x81bfaa0,V-) RooRealVar::DGamma "DGamma"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = 0.01458
+--- RooResolutionModel ---
+basis function = 0xc5bc320 exp(-@0/@1)*cosh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*cosh(@0*@2/2)"
+--- RooAbsArg ---
+  Value State: DIRTY
+  Shape State: DIRTY
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x336da020
+  Clients: 
+    (0x655ac20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xcbb9120,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma"
+    (0x293fd220,V-) RooRealVar::time "time [ps]"
+    (0x74cd6a0,V-) Inverse::GammaTau "Gamma #tau"
+    (0x81bfaa0,V-) RooRealVar::DGamma "DGamma"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = 0
+--- RooResolutionModel ---
+basis function = 0x247b7720 exp(-@0/@1)*sinh(@0*@2/2)_time_GammaTau_DGamma "exp(-@0/@1)*sinh(@0*@2/2)"
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x293cb220
+  Clients: 
+    (0x655ac20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xcbb6020,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm"
+    (0x293fd220,V-) RooRealVar::time "time [ps]"
+    (0x74cd6a0,V-) Inverse::GammaTau "Gamma #tau"
+    (0xc481b20,V-) RooRealVar::Dm "Dm"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = -0.00957
+--- RooResolutionModel ---
+basis function = 0xae8b720 exp(-@0/@1)*cos(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*cos(@0*@2)"
+--- RooAbsArg ---
+  Value State: DIRTY
+  Shape State: DIRTY
+  Attributes:  [NOCacheAndTrack,SnapShot_ExtRefClone] 
+  Address: 0x293ca820
+  Clients: 
+    (0x655ac20,V-) RooBDecay::Bs2DsPi_TimePdf "Bs2DsPi full time pdf"
+  Servers: 
+    (0xcbe0320,V-) RooGaussEfficiencyModel::Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf] "Bs2DsPi_accpetance_SplineAcceptance_resmodel00 convoluted with basis function exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm"
+    (0x293fd220,V-) RooRealVar::time "time [ps]"
+    (0x74cd6a0,V-) Inverse::GammaTau "Gamma #tau"
+    (0xc481b20,V-) RooRealVar::Dm "Dm"
+  Proxies: 
+    x -> time
+    !refCoefNorm -> 
+    !pdfs -> 
+      1)  Bs2DsPi_accpetance_SplineAcceptance_resmodel00_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]
+    !coefficients -> 
+--- RooAbsReal ---
+
+  Plot label is "Bs2DsPi_accpetance_SplineAcceptance_resmodel_conv_exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm_[Bs2DsPi_RawTimePdf]"
+--- RooAbsPdf ---
+Cached value = 0
+--- RooResolutionModel ---
+basis function = 0xc468020 exp(-@0/@1)*sin(@0*@2)_time_GammaTau_Dm "exp(-@0/@1)*sin(@0*@2)"
+DataStore agglomeration (of positronic circuits)
+  Contains 4594 entries
+  Observables: 
+    1)            qt = B-(idx = -1)
+  "tagging decision"
+    2)            qf = h+(idx = 1)
+  "final state charge"
+    3)  tageffRegion = Cat2(idx = 0)
+  "region of tageff"
+    4)          time = 1.6  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+RooRealVar::eta = 0.35  L(0 - 0.5) 
+--- RooAbsArg ---
+  Value State: clean
+  Shape State: clean
+  Attributes: 
+  Address: 0x3ccd620
+  Clients: 
+    (0x380fd020,V-) DecRateCoeff::Bs2DsPi_cosh "Bs2DsPi_cosh"
+    (0x380fc020,V-) DecRateCoeff::Bs2DsPi_sinh "Bs2DsPi_sinh"
+    (0x383a1020,V-) DecRateCoeff::Bs2DsPi_cos "Bs2DsPi_cos"
+    (0x3c97f020,V-) DecRateCoeff::Bs2DsPi_sin "Bs2DsPi_sin"
+  Servers: 
+  Proxies: 
+--- RooAbsReal ---
+
+  Plot label is "eta"
+--- RooAbsRealLValue ---
+  Fit range is [ 0 , 0.5 ]
+--- RooRealVar ---
+  Error = 0.02988
+########################################################################
+
+-------PRINTING DS1--------
+
+DataStore agglomeration (of positronic circuits)
+  Contains 4594 entries
+  Observables: 
+    1)            qt = B-(idx = -1)
+  "tagging decision"
+    2)            qf = h+(idx = 1)
+  "final state charge"
+    3)  tageffRegion = Cat2(idx = 0)
+  "region of tageff"
+    4)          time = 1.6  L(0.3 - 15)  "time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+
+  Table qf : agglomeration
+  +----+-----+
+  | h+ | 588.6 |
+  | h- | 605.6 |
+  +----+-----+
+
+
+  Table qt : agglomeration
+  +----------+-----+
+  |       B+ | 585.9 |
+  | Untagged |   0 |
+  |       B- | 608.3 |
+  +----------+-----+
+
+
+---------------------------
+
+
+
+
+ETA =  0.366732609155 
+
+
+
+
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+ **********
+ **   14 **MIGRAD        1500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_agglomeration) first = 0 last = 4594 Likelihood offset now set to 3623
+
+prevFCN-offset = -4.547473509e-13   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN-offset = -4.547473509e-13  adet=0.0005001, 
+prevFCN-offset = 0.008643446529  adet=-0.0005001, 
+prevFCN-offset = -0.008344781156  adet=0.0004521, 
+prevFCN-offset = 0.007801797811  adet=-0.0004521, 
+prevFCN-offset = -0.007557657028  adet=0, aprod=0.0005001, 
+prevFCN-offset = -0.01722159667  aprod=-0.0005001, 
+prevFCN-offset = 0.01731424558  aprod=0.0008118, 
+prevFCN-offset = -0.02790893409  aprod=-0.0008118, 
+prevFCN-offset = 0.02815307326  aprod=0, eta=0.4433, 
+prevFCN-offset = -0.130594256  eta=0.4371, 
+prevFCN-offset = 0.1477580679  eta=0.4406, 
+prevFCN-offset = -0.0164588707  eta=0.4399, 
+prevFCN-offset = 0.01670300646  adet=9.991e-06, eta=0.4402, 
+prevFCN-offset = 0.000169759398  adet=-9.991e-06, 
+prevFCN-offset = -0.0001696401891  adet=0, aprod=1.794e-05, 
+prevFCN-offset = -0.0006193487152  aprod=-1.794e-05, 
+prevFCN-offset = 0.0006194679254  aprod=0, eta=0.4402, 
+prevFCN-offset = -0.0003663287748  eta=0.4402, 
+prevFCN-offset = 0.0003664479832  adet=0.0004521, aprod=0.0008118, eta=0.4402, 
+prevFCN-offset = -0.02010713628  aprod=0, eta=0.4406, 
+prevFCN-offset = -0.008657072887  adet=0, aprod=0.0008118, 
+prevFCN-offset = -0.04438103663   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-4.54747e-13 FROM HESSE     STATUS=OK             22 CALLS          23 TOTAL
+                     EDM=2.40293    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  adet         0.00000e+00   2.87581e-02   3.01430e-03   2.54777e+00
+   2  aprod        0.00000e+00   5.09948e-02   5.41202e-03  -5.17943e+00
+   3  eta          4.40242e-01   2.35054e-02   2.26898e-03  -7.30754e+00
+                               ERR DEF= 0.5
+adet=-0.0142, aprod=0.08996, eta=0.4648, 
+prevFCN-offset = -2.497705771  adet=-0.01417, 
+prevFCN-offset = -2.497704188  adet=-0.01424, 
+prevFCN-offset = -2.497705938  adet=-0.0142, aprod=0.09001, 
+prevFCN-offset = -2.497830916  aprod=0.08991, 
+prevFCN-offset = -2.497579677  aprod=0.09002, 
+prevFCN-offset = -2.497859181  aprod=0.0899, 
+prevFCN-offset = -2.497550932  aprod=0.08996, eta=0.4648, 
+prevFCN-offset = -2.497995514  eta=0.4648, 
+prevFCN-offset = -2.497415211  eta=0.4648, 
+prevFCN-offset = -2.498088711  eta=0.4647, 
+prevFCN-offset = -2.497321402  adet=-0.01432, aprod=0.09583, eta=0.4699, 
+prevFCN-offset = -2.554937153  adet=-0.01438, aprod=0.09904, eta=0.4726, 
+prevFCN-offset = -2.565660014  adet=-0.0144, aprod=0.09963, eta=0.4731, 
+prevFCN-offset = -2.566104743  adet=-0.01436, 
+prevFCN-offset = -2.566111218  adet=-0.01443, 
+prevFCN-offset = -2.566096807  adet=-0.0144, aprod=0.09968, 
+prevFCN-offset = -2.566068038  aprod=0.09957, 
+prevFCN-offset = -2.566140242  aprod=0.09963, eta=0.4731, 
+prevFCN-offset = -2.566135647  eta=0.4731, 
+prevFCN-offset = -2.566072805  eta=0.4731, 
+prevFCN-offset = -2.566141366  eta=0.473, 
+prevFCN-offset = -2.566066658  adet=-0.01424, aprod=0.0989, eta=0.4735, 
+prevFCN-offset = -2.566845637  adet=-0.0141, aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567057481  adet=-0.01406, 
+prevFCN-offset = -2.567051537  adet=-0.01413, 
+prevFCN-offset = -2.567061961  adet=-0.0141, aprod=0.09831, 
+prevFCN-offset = -2.567051599  aprod=0.09818, 
+prevFCN-offset = -2.567061851  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567054521  eta=0.4739, 
+prevFCN-offset = -2.567059042   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+eta=0.4739, 
+prevFCN-offset = -2.567057481  adet=-0.01406, 
+prevFCN-offset = -2.567051537  adet=-0.01413, 
+prevFCN-offset = -2.567061961  adet=-0.0141, aprod=0.09831, 
+prevFCN-offset = -2.567051599  aprod=0.09818, 
+prevFCN-offset = -2.567061851  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567054521  eta=0.4739, 
+prevFCN-offset = -2.567059042  adet=-0.01409, eta=0.4739, 
+prevFCN-offset = -2.567056409  adet=-0.01411, 
+prevFCN-offset = -2.567058494  adet=-0.0141, aprod=0.09826, 
+prevFCN-offset = -2.567056425  aprod=0.09824, 
+prevFCN-offset = -2.567058476  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567057  eta=0.4739, 
+prevFCN-offset = -2.567057905  adet=-0.01406, aprod=0.09831, eta=0.4739, 
+prevFCN-offset = -2.567045656  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567048577  adet=-0.0141, aprod=0.09831, 
+prevFCN-offset = -2.567048732   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-2.56706 FROM MIGRAD    STATUS=CONVERGED      68 CALLS          69 TOTAL
+                     EDM=4.07199e-05    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  adet        -1.40981e-02   2.87526e-02   2.34369e-04   2.22364e-02
+   2  aprod        9.82479e-02   5.04361e-02   5.65754e-04   9.06115e-03
+   3  eta          4.73892e-01   2.57776e-02   2.76056e-04   8.19032e-03
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  34    NPAR=  3    ERR DEF=0.5
+  8.371e-04  0.000e+00  0.000e+00 
+  0.000e+00  2.732e-03  8.750e-05 
+  0.000e+00  8.750e-05  6.767e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.00000   1.000  0.000  0.000
+        2  0.06435   0.000  1.000  0.064
+        3  0.06435   0.000  0.064  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:03, CP time 3.020
+[#1] INFO:Minization -- Session timer: Real time 0:00:03, CP time 3.020, 2 slices
+ **********
+ **   19 **HESSE        1500
+ **********
+
+prevFCN-offset = -2.567057481  adet=-0.01409, 
+prevFCN-offset = -2.567056409  adet=-0.01411, 
+prevFCN-offset = -2.567058494  adet=-0.0141, aprod=0.09826, 
+prevFCN-offset = -2.567056425  aprod=0.09824, 
+prevFCN-offset = -2.567058476  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567057  eta=0.4739, 
+prevFCN-offset = -2.567057905  adet=-0.0141, eta=0.4739, 
+prevFCN-offset = -2.567057271  adet=-0.0141, 
+prevFCN-offset = -2.567057688  adet=-0.0141, aprod=0.09825, 
+prevFCN-offset = -2.567057274  aprod=0.09825, 
+prevFCN-offset = -2.567057684  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567057389  eta=0.4739, 
+prevFCN-offset = -2.56705757  adet=-0.01409, aprod=0.09826, eta=0.4739, 
+prevFCN-offset = -2.567055354  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.567055929  adet=-0.0141, aprod=0.09826, 
+prevFCN-offset = -2.567055949   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-2.56706 FROM HESSE     STATUS=OK             16 CALLS          85 TOTAL
+                     EDM=4.07203e-05    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  adet        -1.40981e-02   2.87527e-02   4.68737e-05  -9.41260e-02
+   2  aprod        9.82479e-02   5.04363e-02   1.13151e-04   7.14164e-01
+   3  eta          4.73892e-01   2.57778e-02   5.52113e-05   1.10971e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  34    NPAR=  3    ERR DEF=0.5
+  8.371e-04 -1.236e-08 -6.364e-09 
+ -1.236e-08  2.732e-03  8.753e-05 
+ -6.364e-09  8.753e-05  6.767e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.00001   1.000 -0.000 -0.000
+        2  0.06438  -0.000  1.000  0.064
+        3  0.06438  -0.000  0.064  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.700
+[#1] INFO:Minization -- Session timer: Real time 0:00:03, CP time 3.720, 3 slices
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(Bs2DsPi_TimePdf) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   24 **HESSE        1500
+ **********
+[#1] INFO:Minization -- RooNLLVar::evaluatePartition(nll_Bs2DsPi_TimePdf_agglomeration) first = 0 last = 4594 Likelihood offset now set to 4223
+
+prevFCN-offset = 0  adet=-0.0141, 
+prevFCN-offset = -1.043542215e-05  adet=-0.0141, 
+prevFCN-offset = 1.043816519e-05  adet=-0.01396, 
+prevFCN-offset = -0.001050281389  adet=-0.01424, 
+prevFCN-offset = 0.001078821661  adet=-0.0141, aprod=0.09825, 
+prevFCN-offset = 2.555691481e-05  aprod=0.09825, 
+prevFCN-offset = -2.555456376e-05  aprod=0.09851, 
+prevFCN-offset = 0.00261888351  aprod=0.09799, 
+prevFCN-offset = -0.002594423857  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -2.72551797e-05  eta=0.4739, 
+prevFCN-offset = 2.725841841e-05  eta=0.474, 
+prevFCN-offset = -0.002763373137  eta=0.4738, 
+prevFCN-offset = 0.002797075084  adet=-0.01409, eta=0.4739, 
+prevFCN-offset = -6.874115843e-05  adet=-0.01411, 
+prevFCN-offset = 6.886036772e-05  adet=-0.0141, aprod=0.09827, 
+prevFCN-offset = 0.00018203744  aprod=0.09823, 
+prevFCN-offset = -0.0001819182307  aprod=0.09825, eta=0.4739, 
+prevFCN-offset = -0.0001652897836  eta=0.4739, 
+prevFCN-offset = 0.0001654089929  adet=-0.01396, aprod=0.09851, eta=0.4739, 
+prevFCN-offset = 0.001568602122  aprod=0.09825, eta=0.474, 
+prevFCN-offset = -0.003813654525  adet=-0.0141, aprod=0.09851, 
+prevFCN-offset = -0.0001466831181   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=0 FROM HESSE     STATUS=OK             22 CALLS         107 TOTAL
+                     EDM=0.511036    STRATEGY= 2      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  adet        -1.40981e-02   2.65873e-02   9.56223e-04  -9.41260e-02
+   2  aprod        9.82479e-02   5.11403e-02   2.30828e-03   7.14164e-01
+   3  eta          4.73892e-01   2.15072e-02   1.12631e-03   1.10971e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  34    NPAR=  3    ERR DEF=0.5
+  7.145e-04 -5.215e-11 -1.854e-11 
+ -5.215e-11  2.815e-03  8.773e-05 
+ -1.854e-11  8.773e-05  4.684e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.00000   1.000 -0.000 -0.000
+        2  0.07640  -0.000  1.000  0.076
+        3  0.07640  -0.000  0.076  1.000
+[#1] INFO:Minization -- Command timer: Real time 0:00:00, CP time 0.940
+[#1] INFO:Minization -- Session timer: Real time 0:00:04, CP time 4.660, 4 slices
+setting parameter 0 error to 0.03109
+setting parameter 1 error to 0.04974
+setting parameter 2 error to 0.0309
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+RESULT FIT RESULT: FCN            0 STATUS  0 COV               -1 EDM     0.511036
+
+NR PARAMETER                     INITIAL        FINAL        ERROR
+
+ 0 adet                                0   -0.0140981    0.0310945 L(       -0.15,         0.15)
+ 1 aprod                               0    0.0982479    0.0497421 L(       -0.15,         0.15)
+ 2 eta                          0.440242     0.473892    0.0309049 L(           0,          0.5)
+
+CORRELATION MATRIX
+
+        0      1      2
+ 0  1.000 -0.000 -0.000
+ 1 -0.000  1.000  0.055
+ 2 -0.000  0.055  1.000
+
+RooArgList:: = (adet,aprod,eta)
+RooArgSet:: = (qf,eta,qt,time,tageffRegion)
+GENETALIST
+Collection name='TList', class='TList', size=2
+ RooRealVar::eta = 0.3967 +/- 0.02909  L(0 - 0.5) 
+ RooRealVar::eta = 0.4739 +/- 0.0309  L(0 - 0.5) 
+ETAAVG
+RooRealVar::etaMean = 0.3667 +/- 0.001919  L(-INF - +INF) 
+ETAAVGLIST
+Collection name='TList', class='TList', size=2
+ RooRealVar::etaMean = 0.2905 +/- 0.002099  L(-INF - +INF) 
+ RooRealVar::etaMean = 0.4402 +/- 0.0009499  L(-INF - +INF) 
+	Command being timed: "env python -O ./time-tut003-bs.py - DATA 2"
+	User time (seconds): 45.07
+	System time (seconds): 1.88
+	Percent of CPU this job got: 93%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:50.01
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1079528
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2330
+	Minor (reclaiming a frame) page faults: 459942
+	Voluntary context switches: 24188
+	Involuntary context switches: 25854
+	Swaps: 0
+	File system inputs: 604968
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

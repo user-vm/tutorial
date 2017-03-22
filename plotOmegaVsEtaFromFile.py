@@ -104,11 +104,31 @@ if None == SEED:
 
 #SEED = 42
 
-import os
+import os,sys
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist123');
+originSuffix = ''
+
+for SEED in sys.argv:
+    if SEED.upper() == 'DATA' or SEED.upper() == 'MC':
+        originSuffix = SEED.upper();
+        break;
+
+if originSuffix == '':
+    originSuffix = 'MC'
+
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist%s' % originSuffix);
 fileList = os.listdir(os.getcwd());
 fileList.sort();
+
+numFiles = len(fileList)
+i=0
+
+while i<numFiles:
+    if '_' not in fileList[i] or fileList[i][-6:]=='1.root':
+        fileList.pop(i)
+        numFiles-=1
+    else:
+        i+=1
 
 import ROOT
 from ROOT import TGraphErrors, TGraph, gPad, TMultiGraph, TFile, TCanvas, TF1,TPaveStats, TLegend, TObject 
@@ -138,11 +158,11 @@ numP = 0;
 
 from ROOT import RooRealVar, RooDataSet, RooArgSet
 
-p0Var = RooRealVar('p0Var','p0Var',0.5,0.0,1.0);
-p1Var = RooRealVar('p1Var','p1Var',1.0,0.5,1.5);
+p0Var = RooRealVar('p0Var','p0Var',0.5,-1.0,1.0);
+p1Var = RooRealVar('p1Var','p1Var',1.0,0.0,1.5);
 pDataSet = RooDataSet('pDataSet','pDataSet',RooArgSet(p0Var,p1Var));
 
-for it in fileList[:1]:
+for it in fileList:
     if it[-5:]!='.root':
         continue
     
@@ -173,6 +193,10 @@ for it in fileList[:1]:
     etaAvgValVarList = keyList.At(0).ReadObj();
     etaAvg = keyList.At(1).ReadObj();
     mistagList = keyList.At(2).ReadObj();
+
+    etaAvgValVarList.Print()
+    etaAvg.Print()
+    mistagList.Print()
 
     in_file.Close();
     mistagVsEtaGraph = TGraphErrors(etaAvgValVarList.GetSize())

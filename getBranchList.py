@@ -107,11 +107,25 @@ ulimit -s $((   8 * 1024))
 exec $schedtool /usr/bin/time -v env python -O "$0" - "$@"
 """
 
-import ROOT
+import ROOT, sys
 from ROOT import TFile
 
-#in_file = TFile("/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root");
-in_file = TFile("/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root");
+originSuffix = ''
+
+for SEED in sys.argv:
+    if SEED.upper() == 'DATA' or SEED.upper() == 'MC':
+        originSuffix = SEED.upper();
+        break;
+
+if originSuffix == '':
+    originSuffix = 'MC'
+
+if originSuffix == 'DATA':
+    fname = 'data_Bs2Dspipipi_11_final_sweight'
+else:
+    fname = 'Bs2Dspipipi_MC_fullSel_reweighted_combined'
+
+in_file = TFile("/mnt/cdrom/%s.root" % fname);
 
 ROOT.SetOwnership(in_file, False)
 keyList = in_file.GetListOfKeys()
@@ -133,7 +147,21 @@ for i in range(keyList.GetEntries()):
 
 objList = tree1.GetListOfBranches().Clone();
 
-for i in range(objList.GetEntries()):
-    print objList.At(i).GetName();
+bList = []
 
+for i in range(objList.GetEntries()):
+    bList += [objList.At(i).GetName()]
+
+#bList.sort();
+
+import os
+outName = os.environ['B2DXFITTERSROOT']+'/tutorial/'+fname;
+
+f = file(outName,'w')
+
+for i in bList:
+    print i
+    f.write(i+'\n');
+
+f.close();
 in_file.Close();

@@ -1,0 +1,471 @@
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+DEBUG: argument - is no number, trying next argument asseed
+{'DecayTimeResolutionBias': 0.0, 'IsData': False, 'MistagCalibParams': {'p0': 0.35, 'p1': 1.0, 'etaavg': 0.35}, 'AcceptanceFunction': 'Spline', 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'UseKFactor': False, 'Debug': True, 'Blinding': True, 'ParameteriseIntegral': False, 'TrivialMistagParams': {'f': 0.25, 'omega0': 0.07, 'omegaavg': 0.35}, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'FitConfig': {'NumCPU': 1, 'Strategy': 2, 'Optimize': 1, 'Offset': True}, 'DecayTimeResolutionScaleFactor': 1.0, 'NBinsAcceptance': 100}
+CONFIGURATION
+                  AcceptanceFunction:                           Spline
+                            Blinding:                             True
+                             Context:                              GEN
+                               Debug:                             True
+             DecayTimeResolutionBias:                              0.0
+            DecayTimeResolutionModel: {'fractions': [], 'sigmas': [0.04]}
+      DecayTimeResolutionScaleFactor:                              1.0
+                           FitConfig: {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}
+                              IsData:                            False
+                   MistagCalibParams: {'p0': 0.35, 'p1': 1.0, 'etaavg': 0.35}
+                     NBinsAcceptance:                                0
+                  NBinsProperTimeErr:                                0
+                ParameteriseIntegral:                            False
+                    SplineAcceptance: {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}
+                 TrivialMistagParams: {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}
+                          UseKFactor:                            False
+                         constParams: ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+']
+=>resmodelutils.getResolutionModel(): using list/tuple/dict to build resolution.
+########################################################################
+buildBDecayTimePdf(
+	acceptance = <ROOT.RooProduct object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised") at 0xc694020>
+	Dbar = <ROOT.RooConstVar object ("zero") at 0x2d78c20>
+	mistagpdf = [<ROOT.MistagDistribution object ("Bs2DsPi_mistagpdf") at 0xcda0320>]
+	mistag = [[<ROOT.MistagCalibration object ("Bs2DsPi_mistagcalib") at 0xc64eb20>]]
+	mistagobs = <ROOT.RooRealVar object ("eta") at 0xb3248a0>
+	DeltaGamma = <ROOT.RooRealVar object ("DGamma") at 0x8ef51a0>
+	tageff = [<ROOT.RooRealVar object ("tageff") at 0x5074da0>]
+	kvar = None
+	atageff = None
+	config = {'Context': 'GEN', 'ParameteriseIntegral': False, 'AcceptanceFunction': 'Spline', 'TrivialMistagParams': {'omegaavg': 0.35, 'omega0': 0.07, 'f': 0.25}, 'IsData': False, 'MistagCalibParams': {'p0': 0.35, 'p1': 1.0, 'etaavg': 0.35}, 'UseKFactor': False, 'SplineAcceptance': {'KnotCoefficients': {'GEN': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277], 'FIT': [0.45853, 0.68963, 0.88528, 1.1296, 1.2232, 1.2277]}, 'KnotPositions': [0.5, 1.0, 1.5, 2.0, 3.0, 12.0]}, 'NBinsAcceptance': 0, 'DecayTimeResolutionModel': {'fractions': [], 'sigmas': [0.04]}, 'Debug': True, 'DecayTimeResolutionBias': 0.0, 'NBinsProperTimeErr': 0, 'FitConfig': {'NumCPU': 1, 'Offset': True, 'Optimize': 1, 'Strategy': 2}, 'constParams': ['.*_scalefactor', 'Bs2DsPi_accpetance_SplineAccCoeff[0-9]+'], 'Blinding': True, 'DecayTimeResolutionScaleFactor': 1.0}
+	C = <ROOT.RooConstVar object ("one") at 0x2d77420>
+	aprod = None
+	D = <ROOT.RooConstVar object ("zero") at 0x2d78c20>
+	time = <ROOT.RooRealVar object ("time") at 0x833ad20>
+	timeerrpdf = None
+	S = <ROOT.RooConstVar object ("zero") at 0x2d78c20>
+	ws = <ROOT.RooWorkspace object ("ws_GEN") at 0x94630a0>
+	DeltaM = <ROOT.RooRealVar object ("Dm") at 0x857db20>
+	Gamma = <ROOT.RooRealVar object ("Gamma") at 0x8330020>
+	qt = <ROOT.RooCategory object ("qt") at 0xc34a320>
+	adet = None
+	name = Bs2DsPi
+	Sbar = <ROOT.RooConstVar object ("zero") at 0x2d78c20>
+	timeerr = <ROOT.RooRealVar object ("timeerr") at 0xb323220>
+	timeresmodel = <ROOT.RooAddModel object ("Bs2DsPi_accpetance_SplineAcceptanceNormalised_resmodel") at 0xcd73420>
+	kfactorpdf = None
+	qf = <ROOT.RooCategory object ("qf") at 0xc349e20>
+	)
+########################################################################
+150K
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_1986578496_INT_2426992733_NORM_2426992733_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_1986578496_INT_2426992733_NORM_2426992733_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_419022922_INT_2426992733_NORM_2426992733_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_419022922_INT_2426992733_NORM_2426992733_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_4249935471_INT_2426992733_NORM_2426992733_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_4249935471_INT_2426992733_NORM_2426992733_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4177963078_INT_2426992733_NORM_2426992733_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4177963078_INT_2426992733_NORM_2426992733_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_3669314882_INT_3466874054_NORM_3466874054_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_3669314882_INT_3466874054_NORM_3466874054_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_3323568051_INT_3504660117_NORM_2426992733_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_3323568051_INT_3504660117_NORM_2426992733_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_341185032_INT_3504660117_NORM_2426992733_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_341185032_INT_3504660117_NORM_2426992733_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_768250011_INT_3504660117_NORM_2426992733_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_768250011_INT_3504660117_NORM_2426992733_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_1986578496_INT_3466874054_NORM_3466874054_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cosh_1986578496_INT_3466874054_NORM_3466874054_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_419022922_INT_3466874054_NORM_3466874054_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sinh_419022922_INT_3466874054_NORM_3466874054_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_4249935471_INT_3466874054_NORM_3466874054_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_cos_4249935471_INT_3466874054_NORM_3466874054_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4177963078_INT_3466874054_NORM_3466874054_RANGE__IDX_2_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(Bs2DsPi_sin_4177963078_INT_3466874054_NORM_3466874054_RANGE__IDX_1_prod_eta_Int[eta]_Norm[eta]) using numeric integrator RooAdaptiveGaussKronrodIntegrator1D to calculate Int(eta)
+RooAcceptReject: accepted event (used 1000 of 6000 so far)
+RooAcceptReject: accepted event (used 3000 of 6000 so far)
+RooAcceptReject: accepted event (used 5000 of 6000 so far)
+RooAcceptReject: generated 10000 events so far.
+RooAcceptReject: generated 20000 events so far.
+RooAcceptReject: generated 30000 events so far.
+RooAcceptReject: generated 40000 events so far.
+RooAcceptReject: generated 50000 events so far.
+RooAcceptReject: generated 60000 events so far.
+RooAcceptReject: generated 70000 events so far.
+RooAcceptReject: generated 80000 events so far.
+RooAcceptReject: generated 90000 events so far.
+RooAcceptReject: generated 100000 events so far.
+RooAcceptReject: generated 110000 events so far.
+RooAcceptReject: generated 120000 events so far.
+RooAcceptReject: generated 130000 events so far.
+RooAcceptReject: generated 140000 events so far.
+RooAcceptReject: generated 150000 events so far.
+RooAcceptReject: generated 160000 events so far.
+RooAcceptReject: generated 170000 events so far.
+RooAcceptReject: generated 180000 events so far.
+RooAcceptReject: generated 190000 events so far.
+RooAcceptReject: generated 200000 events so far.
+RooAcceptReject: generated 210000 events so far.
+RooAcceptReject: generated 220000 events so far.
+RooAcceptReject: generated 230000 events so far.
+RooAcceptReject: generated 240000 events so far.
+RooAcceptReject: generated 250000 events so far.
+RooAcceptReject: generated 260000 events so far.
+RooAcceptReject: generated 270000 events so far.
+RooAcceptReject: generated 280000 events so far.
+RooAcceptReject: generated 290000 events so far.
+RooAcceptReject: generated 300000 events so far.
+RooAcceptReject: generated 310000 events so far.
+RooAcceptReject: generated 320000 events so far.
+RooAcceptReject: generated 330000 events so far.
+RooAcceptReject: generated 340000 events so far.
+RooAcceptReject: generated 350000 events so far.
+RooAcceptReject: generated 360000 events so far.
+RooAcceptReject: generated 370000 events so far.
+RooAcceptReject: generated 380000 events so far.
+RooAcceptReject: generated 390000 events so far.
+RooAcceptReject: generated 400000 events so far.
+RooAcceptReject: generated 410000 events so far.
+RooAcceptReject: generated 420000 events so far.
+RooAcceptReject: generated 430000 events so far.
+RooAcceptReject: generated 440000 events so far.
+RooAcceptReject: generated 450000 events so far.
+RooAcceptReject: generated 460000 events so far.
+RooAcceptReject: generated 470000 events so far.
+RooAcceptReject: generated 480000 events so far.
+RooAcceptReject: generated 490000 events so far.
+RooAcceptReject: generated 500000 events so far.
+RooAcceptReject: generated 510000 events so far.
+RooAcceptReject: generated 520000 events so far.
+RooAcceptReject: generated 530000 events so far.
+RooAcceptReject: generated 540000 events so far.
+RooAcceptReject: generated 550000 events so far.
+RooAcceptReject: generated 560000 events so far.
+RooAcceptReject: generated 570000 events so far.
+RooAcceptReject: generated 580000 events so far.
+RooAcceptReject: generated 590000 events so far.
+RooAcceptReject: accepted event (used 4000 of 589196 so far)
+RooAcceptReject: accepted event (used 5000 of 589196 so far)
+RooAcceptReject: accepted event (used 8000 of 589196 so far)
+RooAcceptReject: accepted event (used 10000 of 589196 so far)
+RooAcceptReject: accepted event (used 12000 of 589196 so far)
+RooAcceptReject: accepted event (used 14000 of 589196 so far)
+RooAcceptReject: accepted event (used 15000 of 589196 so far)
+RooAcceptReject: accepted event (used 16000 of 589196 so far)
+RooAcceptReject: accepted event (used 17000 of 589196 so far)
+RooAcceptReject: accepted event (used 19000 of 589196 so far)
+RooAcceptReject: accepted event (used 20000 of 589196 so far)
+RooAcceptReject: accepted event (used 26000 of 589196 so far)
+RooAcceptReject: accepted event (used 28000 of 589196 so far)
+RooAcceptReject: accepted event (used 29000 of 589196 so far)
+RooAcceptReject: accepted event (used 30000 of 589196 so far)
+RooAcceptReject: accepted event (used 32000 of 589196 so far)
+RooAcceptReject: accepted event (used 36000 of 589196 so far)
+RooAcceptReject: accepted event (used 37000 of 589196 so far)
+RooAcceptReject: accepted event (used 38000 of 589196 so far)
+RooAcceptReject: accepted event (used 41000 of 589196 so far)
+RooAcceptReject: accepted event (used 42000 of 589196 so far)
+RooAcceptReject: accepted event (used 57000 of 589196 so far)
+RooAcceptReject: accepted event (used 60000 of 589196 so far)
+RooAcceptReject: accepted event (used 61000 of 589196 so far)
+RooAcceptReject: accepted event (used 65000 of 589196 so far)
+RooAcceptReject: accepted event (used 67000 of 589196 so far)
+RooAcceptReject: accepted event (used 70000 of 589196 so far)
+RooAcceptReject: accepted event (used 76000 of 589196 so far)
+RooAcceptReject: accepted event (used 82000 of 589196 so far)
+RooAcceptReject: accepted event (used 83000 of 589196 so far)
+RooAcceptReject: accepted event (used 88000 of 589196 so far)
+RooAcceptReject: accepted event (used 91000 of 589196 so far)
+RooAcceptReject: accepted event (used 96000 of 589196 so far)
+RooAcceptReject: accepted event (used 99000 of 589196 so far)
+RooAcceptReject: accepted event (used 111000 of 589196 so far)
+RooAcceptReject: accepted event (used 113000 of 589196 so far)
+RooAcceptReject: accepted event (used 116000 of 589196 so far)
+RooAcceptReject: accepted event (used 121000 of 589196 so far)
+RooAcceptReject: accepted event (used 130000 of 589196 so far)
+RooAcceptReject: accepted event (used 131000 of 589196 so far)
+RooAcceptReject: accepted event (used 132000 of 589196 so far)
+RooAcceptReject: accepted event (used 133000 of 589196 so far)
+RooAcceptReject: accepted event (used 137000 of 589196 so far)
+RooAcceptReject: accepted event (used 144000 of 589196 so far)
+RooAcceptReject: accepted event (used 150000 of 589196 so far)
+RooAcceptReject: accepted event (used 151000 of 589196 so far)
+RooAcceptReject: accepted event (used 153000 of 589196 so far)
+RooAcceptReject: accepted event (used 154000 of 589196 so far)
+RooAcceptReject: accepted event (used 155000 of 589196 so far)
+RooAcceptReject: accepted event (used 157000 of 589196 so far)
+RooAcceptReject: accepted event (used 174000 of 589196 so far)
+RooAcceptReject: accepted event (used 176000 of 589196 so far)
+RooAcceptReject: accepted event (used 179000 of 589196 so far)
+RooAcceptReject: accepted event (used 181000 of 589196 so far)
+RooAcceptReject: accepted event (used 184000 of 589196 so far)
+RooAcceptReject: accepted event (used 192000 of 589196 so far)
+RooAcceptReject: accepted event (used 193000 of 589196 so far)
+RooAcceptReject: accepted event (used 194000 of 589196 so far)
+RooAcceptReject: accepted event (used 205000 of 589196 so far)
+RooAcceptReject: accepted event (used 213000 of 589196 so far)
+RooAcceptReject: accepted event (used 217000 of 589196 so far)
+RooAcceptReject: accepted event (used 218000 of 589196 so far)
+RooAcceptReject: accepted event (used 220000 of 589196 so far)
+RooAcceptReject: accepted event (used 221000 of 589196 so far)
+RooAcceptReject: accepted event (used 229000 of 589196 so far)
+RooAcceptReject: accepted event (used 231000 of 589196 so far)
+RooAcceptReject: accepted event (used 232000 of 589196 so far)
+RooAcceptReject: accepted event (used 235000 of 589196 so far)
+RooAcceptReject: accepted event (used 252000 of 589196 so far)
+RooAcceptReject: accepted event (used 255000 of 589196 so far)
+RooAcceptReject: accepted event (used 260000 of 589196 so far)
+RooAcceptReject: accepted event (used 262000 of 589196 so far)
+RooAcceptReject: accepted event (used 264000 of 589196 so far)
+RooAcceptReject: accepted event (used 268000 of 589196 so far)
+RooAcceptReject: accepted event (used 269000 of 589196 so far)
+RooAcceptReject: accepted event (used 273000 of 589196 so far)
+RooAcceptReject: accepted event (used 274000 of 589196 so far)
+RooAcceptReject: accepted event (used 277000 of 589196 so far)
+RooAcceptReject: accepted event (used 279000 of 589196 so far)
+RooAcceptReject: accepted event (used 281000 of 589196 so far)
+RooAcceptReject: accepted event (used 282000 of 589196 so far)
+RooAcceptReject: accepted event (used 285000 of 589196 so far)
+RooAcceptReject: accepted event (used 288000 of 589196 so far)
+RooAcceptReject: accepted event (used 290000 of 589196 so far)
+RooAcceptReject: accepted event (used 292000 of 589196 so far)
+RooAcceptReject: accepted event (used 295000 of 589196 so far)
+RooAcceptReject: accepted event (used 297000 of 589196 so far)
+RooAcceptReject: accepted event (used 306000 of 589196 so far)
+RooAcceptReject: accepted event (used 309000 of 589196 so far)
+RooAcceptReject: accepted event (used 311000 of 589196 so far)
+RooAcceptReject: accepted event (used 312000 of 589196 so far)
+RooAcceptReject: accepted event (used 314000 of 589196 so far)
+RooAcceptReject: accepted event (used 320000 of 589196 so far)
+RooAcceptReject: accepted event (used 321000 of 589196 so far)
+RooAcceptReject: accepted event (used 330000 of 589196 so far)
+RooAcceptReject: accepted event (used 331000 of 589196 so far)
+RooAcceptReject: accepted event (used 335000 of 589196 so far)
+RooAcceptReject: accepted event (used 337000 of 589196 so far)
+RooAcceptReject: accepted event (used 343000 of 589196 so far)
+RooAcceptReject: accepted event (used 344000 of 589196 so far)
+RooAcceptReject: accepted event (used 345000 of 589196 so far)
+RooAcceptReject: accepted event (used 350000 of 589196 so far)
+RooAcceptReject: accepted event (used 351000 of 589196 so far)
+RooAcceptReject: accepted event (used 353000 of 589196 so far)
+RooAcceptReject: accepted event (used 354000 of 589196 so far)
+RooAcceptReject: accepted event (used 357000 of 589196 so far)
+RooAcceptReject: accepted event (used 361000 of 589196 so far)
+RooAcceptReject: accepted event (used 368000 of 589196 so far)
+RooAcceptReject: accepted event (used 379000 of 589196 so far)
+RooAcceptReject: accepted event (used 385000 of 589196 so far)
+RooAcceptReject: accepted event (used 387000 of 589196 so far)
+RooAcceptReject: accepted event (used 396000 of 589196 so far)
+RooAcceptReject: accepted event (used 400000 of 589196 so far)
+RooAcceptReject: accepted event (used 413000 of 589196 so far)
+RooAcceptReject: accepted event (used 416000 of 589196 so far)
+RooAcceptReject: accepted event (used 418000 of 589196 so far)
+RooAcceptReject: accepted event (used 426000 of 589196 so far)
+RooAcceptReject: accepted event (used 432000 of 589196 so far)
+RooAcceptReject: accepted event (used 435000 of 589196 so far)
+RooAcceptReject: accepted event (used 441000 of 589196 so far)
+RooAcceptReject: accepted event (used 451000 of 589196 so far)
+RooAcceptReject: accepted event (used 453000 of 589196 so far)
+RooAcceptReject: accepted event (used 461000 of 589196 so far)
+RooAcceptReject: accepted event (used 463000 of 589196 so far)
+RooAcceptReject: accepted event (used 466000 of 589196 so far)
+RooAcceptReject: accepted event (used 471000 of 589196 so far)
+RooAcceptReject: accepted event (used 474000 of 589196 so far)
+RooAcceptReject: accepted event (used 486000 of 589196 so far)
+RooAcceptReject: accepted event (used 487000 of 589196 so far)
+RooAcceptReject: accepted event (used 489000 of 589196 so far)
+RooAcceptReject: accepted event (used 490000 of 589196 so far)
+RooAcceptReject: accepted event (used 491000 of 589196 so far)
+RooAcceptReject: accepted event (used 493000 of 589196 so far)
+RooAcceptReject: accepted event (used 496000 of 589196 so far)
+RooAcceptReject: accepted event (used 501000 of 589196 so far)
+RooAcceptReject: accepted event (used 502000 of 589196 so far)
+RooAcceptReject: accepted event (used 504000 of 589196 so far)
+RooAcceptReject: accepted event (used 509000 of 589196 so far)
+RooAcceptReject: accepted event (used 511000 of 589196 so far)
+RooAcceptReject: accepted event (used 512000 of 589196 so far)
+RooAcceptReject: accepted event (used 521000 of 589196 so far)
+RooAcceptReject: accepted event (used 524000 of 589196 so far)
+RooAcceptReject: accepted event (used 527000 of 589196 so far)
+RooAcceptReject: accepted event (used 529000 of 589196 so far)
+RooAcceptReject: accepted event (used 530000 of 589196 so far)
+RooAcceptReject: accepted event (used 533000 of 589196 so far)
+RooAcceptReject: accepted event (used 536000 of 589196 so far)
+RooAcceptReject: accepted event (used 545000 of 589196 so far)
+RooAcceptReject: accepted event (used 546000 of 589196 so far)
+RooAcceptReject: accepted event (used 547000 of 589196 so far)
+RooAcceptReject: accepted event (used 551000 of 589196 so far)
+RooAcceptReject: accepted event (used 553000 of 589196 so far)
+RooAcceptReject: accepted event (used 561000 of 589196 so far)
+RooAcceptReject: accepted event (used 567000 of 589196 so far)
+RooAcceptReject: accepted event (used 572000 of 589196 so far)
+RooAcceptReject: accepted event (used 574000 of 589196 so far)
+RooAcceptReject: accepted event (used 579000 of 589196 so far)
+RooAcceptReject: accepted event (used 582000 of 589196 so far)
+RooAcceptReject: accepted event (used 584000 of 589196 so far)
+RooAcceptReject: accepted event (used 586000 of 589196 so far)
+RooAcceptReject: accepted event (used 587000 of 589196 so far)
+RooAcceptReject: accepted event (used 589000 of 589196 so far)
+RooAcceptReject: generated 600000 events so far.
+RooAcceptReject: generated 610000 events so far.
+RooAcceptReject: generated 620000 events so far.
+RooAcceptReject: generated 630000 events so far.
+RooAcceptReject: generated 640000 events so far.
+RooAcceptReject: generated 650000 events so far.
+RooAcceptReject: generated 660000 events so far.
+RooAcceptReject: generated 670000 events so far.
+RooAcceptReject: generated 680000 events so far.
+RooAcceptReject: generated 690000 events so far.
+RooAcceptReject: generated 700000 events so far.
+RooAcceptReject: generated 710000 events so far.
+RooAcceptReject: generated 720000 events so far.
+RooAcceptReject: generated 730000 events so far.
+RooAcceptReject: generated 740000 events so far.
+RooAcceptReject: generated 750000 events so far.
+RooAcceptReject: generated 760000 events so far.
+RooAcceptReject: generated 770000 events so far.
+RooAcceptReject: generated 780000 events so far.
+RooAcceptReject: accepted event (used 10000 of 191907 so far)
+RooAcceptReject: accepted event (used 13000 of 191907 so far)
+RooAcceptReject: accepted event (used 14000 of 191907 so far)
+RooAcceptReject: accepted event (used 19000 of 191907 so far)
+RooAcceptReject: accepted event (used 21000 of 191907 so far)
+RooAcceptReject: accepted event (used 30000 of 191907 so far)
+RooAcceptReject: accepted event (used 31000 of 191907 so far)
+RooAcceptReject: accepted event (used 33000 of 191907 so far)
+RooAcceptReject: accepted event (used 43000 of 191907 so far)
+RooAcceptReject: accepted event (used 49000 of 191907 so far)
+RooAcceptReject: accepted event (used 52000 of 191907 so far)
+RooAcceptReject: accepted event (used 54000 of 191907 so far)
+RooAcceptReject: accepted event (used 57000 of 191907 so far)
+RooAcceptReject: accepted event (used 58000 of 191907 so far)
+RooAcceptReject: accepted event (used 66000 of 191907 so far)
+RooAcceptReject: accepted event (used 67000 of 191907 so far)
+RooAcceptReject: accepted event (used 68000 of 191907 so far)
+RooAcceptReject: accepted event (used 70000 of 191907 so far)
+RooAcceptReject: accepted event (used 73000 of 191907 so far)
+RooAcceptReject: accepted event (used 82000 of 191907 so far)
+RooAcceptReject: accepted event (used 86000 of 191907 so far)
+RooAcceptReject: accepted event (used 91000 of 191907 so far)
+RooAcceptReject: accepted event (used 92000 of 191907 so far)
+RooAcceptReject: accepted event (used 93000 of 191907 so far)
+RooAcceptReject: accepted event (used 94000 of 191907 so far)
+RooAcceptReject: accepted event (used 95000 of 191907 so far)
+RooAcceptReject: accepted event (used 97000 of 191907 so far)
+RooAcceptReject: accepted event (used 103000 of 191907 so far)
+RooAcceptReject: accepted event (used 104000 of 191907 so far)
+RooAcceptReject: accepted event (used 106000 of 191907 so far)
+RooAcceptReject: accepted event (used 107000 of 191907 so far)
+RooAcceptReject: accepted event (used 108000 of 191907 so far)
+RooAcceptReject: accepted event (used 110000 of 191907 so far)
+RooAcceptReject: accepted event (used 113000 of 191907 so far)
+RooAcceptReject: accepted event (used 116000 of 191907 so far)
+RooAcceptReject: accepted event (used 119000 of 191907 so far)
+RooAcceptReject: accepted event (used 121000 of 191907 so far)
+RooAcceptReject: accepted event (used 122000 of 191907 so far)
+RooAcceptReject: accepted event (used 123000 of 191907 so far)
+RooAcceptReject: accepted event (used 130000 of 191907 so far)
+RooAcceptReject: accepted event (used 131000 of 191907 so far)
+RooAcceptReject: accepted event (used 133000 of 191907 so far)
+RooAcceptReject: accepted event (used 134000 of 191907 so far)
+RooAcceptReject: accepted event (used 135000 of 191907 so far)
+RooAcceptReject: accepted event (used 138000 of 191907 so far)
+RooAcceptReject: accepted event (used 140000 of 191907 so far)
+RooAcceptReject: accepted event (used 143000 of 191907 so far)
+RooAcceptReject: accepted event (used 150000 of 191907 so far)
+RooAcceptReject: accepted event (used 157000 of 191907 so far)
+RooAcceptReject: accepted event (used 162000 of 191907 so far)
+RooAcceptReject: accepted event (used 163000 of 191907 so far)
+RooAcceptReject: accepted event (used 179000 of 191907 so far)
+RooAcceptReject: generated 790000 events so far.
+RooAcceptReject: generated 800000 events so far.
+RooAcceptReject: generated 810000 events so far.
+RooAcceptReject: generated 820000 events so far.
+RooAcceptReject: generated 830000 events so far.
+RooAcceptReject: generated 840000 events so far.
+RooAcceptReject: generated 850000 events so far.
+RooAcceptReject: accepted event (used 3000 of 67156 so far)
+RooAcceptReject: accepted event (used 4000 of 67156 so far)
+RooAcceptReject: accepted event (used 8000 of 67156 so far)
+RooAcceptReject: accepted event (used 12000 of 67156 so far)
+RooAcceptReject: accepted event (used 14000 of 67156 so far)
+RooAcceptReject: accepted event (used 17000 of 67156 so far)
+RooAcceptReject: accepted event (used 20000 of 67156 so far)
+RooAcceptReject: accepted event (used 22000 of 67156 so far)
+RooAcceptReject: accepted event (used 23000 of 67156 so far)
+RooAcceptReject: accepted event (used 24000 of 67156 so far)
+RooAcceptReject: accepted event (used 25000 of 67156 so far)
+RooAcceptReject: accepted event (used 26000 of 67156 so far)
+RooAcceptReject: accepted event (used 27000 of 67156 so far)
+RooAcceptReject: accepted event (used 39000 of 67156 so far)
+RooAcceptReject: accepted event (used 43000 of 67156 so far)
+RooAcceptReject: accepted event (used 46000 of 67156 so far)
+RooAcceptReject: accepted event (used 47000 of 67156 so far)
+RooAcceptReject: accepted event (used 52000 of 67156 so far)
+RooAcceptReject: accepted event (used 54000 of 67156 so far)
+RooAcceptReject: accepted event (used 56000 of 67156 so far)
+RooAcceptReject: accepted event (used 60000 of 67156 so far)
+RooAcceptReject: accepted event (used 61000 of 67156 so far)
+RooAcceptReject: accepted event (used 62000 of 67156 so far)
+RooAcceptReject: accepted event (used 63000 of 67156 so far)
+RooAcceptReject: accepted event (used 64000 of 67156 so far)
+RooAcceptReject: generated 860000 events so far.
+RooAcceptReject: generated 870000 events so far.
+RooAcceptReject: accepted event (used 1000 of 23111 so far)
+RooAcceptReject: accepted event (used 2000 of 23111 so far)
+RooAcceptReject: accepted event (used 3000 of 23111 so far)
+RooAcceptReject: accepted event (used 7000 of 23111 so far)
+RooAcceptReject: accepted event (used 18000 of 23111 so far)
+RooAcceptReject: generated 880000 events so far.
+RooAcceptReject: accepted event (used 6000 of 7998 so far)
+RooAcceptReject: accepted event (used 1000 of 1003 so far)
+DataStore Bs2DsPi_TimePdfData (Generated From Bs2DsPi full time pdf)
+  Contains 150000 entries
+  Observables: 
+    1)    qf = h-(idx = -1)
+  "final state charge"
+    2)    qt = B-(idx = -1)
+  "tagging decision"
+    3)  time = 2.22374  L(0.2 - 15)  "time [ps]"
+    4)   eta = 0.327781  L(0 - 0.5)  "eta"
+
+  Table qf : Bs2DsPi_TimePdfData
+  +----+-------+
+  | h+ | 74994 |
+  | h- | 75006 |
+  +----+-------+
+
+
+  Table qt : Bs2DsPi_TimePdfData
+  +----------+-------+
+  |       B+ | 74882 |
+  | Untagged |     0 |
+  |       B- | 75118 |
+  +----------+-------+
+
+Info in <TCanvas::Print>: pdf file catHist2345.pdf has been created
+**** ADDING CATEGORIES ****
+[0, 56, 67, 75, 84]
+Cat1:<0.2775 Cat2:<0.3325 Cat3:<0.3725 Cat4:<0.4175 Cat5:*Cat24184.0
+Press Enter to continue...	Command being timed: "env python -O ./time-tut003.py - 2345"
+	User time (seconds): 29.57
+	System time (seconds): 1.76
+	Percent of CPU this job got: 44%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:10.15
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1078712
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2372
+	Minor (reclaiming a frame) page faults: 201055
+	Voluntary context switches: 35164
+	Involuntary context switches: 18686
+	Swaps: 0
+	File system inputs: 623624
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

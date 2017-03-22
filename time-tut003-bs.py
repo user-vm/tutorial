@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 5
+NUMCAT = 3
 import time
 TIME_NOW = str(time.time())
 
@@ -186,29 +186,51 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
     #etaSet.Print();
     #etaHist.SetAxisRange(0.1,0.2);
     #etaHist.SetAxisRange(0.1,0.3);
+
+    from ROOT import TCanvas
+
+    histCanvas = TCanvas();
+
     ROOT.gStyle.SetPalette(ROOT.kOcean);
     
     #create stack to contain the chopped TH1Ds
-    etaHistStack = THStack("etaHistStack", "Stack of TH1Ds");
+    #etaHistStack = THStack("etaHistStack", "Distribution of #eta;#eta;number of pseudo-experiments");
 
     limList += [etaHist.GetNbinsX()];
-    histCutterFunc = TF1("histCutterFunc","((x>=[0])?((x<[1])?1:0):0)*x",0.0,1.0);
+    histCutterFunc = TF1("histCutterFunc","((x>=[0])?((x<[1])?1:0):0)",0.0,1.0);
+
+    etaMax = etaHist.GetMaximum();
+    print etaMax
+
+    cloneList = []
+
+    etaHist.GetYaxis().SetRangeUser(0,etaMax*1.05);
+    
+    etaHist.SetLineColor(ROOT.kWhite);
+    etaHist.Draw("histSame");
+    etaHist.SetTitle('Distribution of #eta (%s)' % (originSuffix if originSuffix=='MC' else 'Data'))
+    etaHist.GetXaxis().SetTitle('#eta')
 
     for i in range(len(limList)-1):
         
-        etaHistClone = etaHist.Clone();
+        cloneList = [etaHist.Clone()];
         #etaHistClone.SetBins(limList[i+1]-limList[i],etaHist.GetBinContent(limList[i]),etaHist.GetBinContent(limList[i+1]));
         histCutterFunc.SetParameter(0,etaHist.GetXaxis().GetBinCenter(limList[i]));
         histCutterFunc.SetParameter(1,etaHist.GetXaxis().GetBinCenter(limList[i+1]));
-        etaHistClone.Multiply(histCutterFunc);
-        etaHistClone.SetFillColor(38+i);
-        #etaHist.DrawCopy("hist PFC");
-        etaHistStack.Add(etaHistClone);
+        cloneList[-1].Multiply(histCutterFunc);
+        cloneList[-1].SetFillColor(38+i);
+        cloneList[-1].SetLineColor(ROOT.kBlack);
+        if i==0:
+            cloneList[-1].GetYaxis().SetRangeUser(0,etaMax*1.05);
+        cloneList[-1].Draw("histSAME");
+        #etaHistStack.Add(etaHistClone);
 
-    etaHistStack.Draw("hist PFC");
+    #etaHistStack.Draw();
+    histCanvas.Update();
+    histCanvas.SaveAs('catHist-%s.pdf' % originSuffix);
     s = raw_input("Press Enter to continue...");
-    #sys.exit(0);
-    '''
+    sys.exit(0);    '''
+
     return xRegions#,x
 
 def saveEta(g, numBins = 100):
@@ -219,7 +241,7 @@ def saveEta(g, numBins = 100):
         os.makedirs('etaHist');
     os.chdir('etaHist');
     etaHist = RooAbsData.createHistogram(g,'eta',100);
-    f = TFile('etaHist003_%04d.root' % SEED, 'recreate')
+    f = TFile('etaHist003_%s.root' % originSuffix, 'recreate')
     etaHist.Write('etaHist')
     f.Close()
     del f
@@ -228,25 +250,53 @@ def saveEta(g, numBins = 100):
 
 # start by getting seed number
 import sys
-SEED = None
-for tmp in sys.argv[1:]:
-    try:
-        SEED = int(tmp)
-    except ValueError:
-        print ('DEBUG: argument %s is no number, trying next argument as'
-            'seed') % tmp
-if None == SEED:
-    print 'ERROR: no seed given'
-    sys.exit(1)
 
-#DELET THIS
-#SEED = 42
+from ROOT import TFile
+
+import os,sys
+
+originSuffix = ''
+nCat = 5
+
+for SEED in sys.argv:
+    if SEED.upper() == 'DATA' or SEED.upper() == 'MC':
+        originSuffix = SEED.upper();
+    try:
+        nCat = int(SEED)
+    except:
+        continue
+
+NUMCAT = nCat
+
+if originSuffix == '':
+    originSuffix = 'MC'
+
+print "ORIGINSUFFIX = ", originSuffix
+print "NUMCAT = ", NUMCAT
+
+if originSuffix == '':
+    originSuffix = 'MC'
+
+if originSuffix == 'MC':
+    rootfile = TFile('/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root', 'READ')
+    weightVarName = 'weight'
+else:
+    rootfile = TFile('/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root', 'READ')
+    weightVarName = 'weight'
 
 # then read config dictionary from a file
 from B2DXFitters.utils import configDictFromFile
-config = configDictFromFile('time-conf003-bs.py')
-config1 = configDictFromFile('fit-time-conf003-bs.py')
-print config
+
+
+if originSuffix == 'MC':
+    config = configDictFromFile('time-conf003-bs.py')
+    config1 = configDictFromFile('fit-time-conf003-bs.py')
+else:
+    config = configDictFromFile('time-conf003-bsData.py')
+    config1 = configDictFromFile('fit-time-conf003-bsData.py')
+
+print 'CONFIG ---> ',config
+print 'CONFIG1 ---> ',config1
 #config['MistagCalibParams']['etaavg']=0.2
 #config['TrivialMistagParams']['omegaavg']=0.2
 #print config
@@ -271,9 +321,9 @@ RooAbsReal.defaultIntegratorConfig().method1DOpen().setLabel(
     'RooAdaptiveGaussKronrodIntegrator1D')
 
 # seed the Random number generator
-rndm = TRandom3(SEED + 1)
-RooRandom.randomGenerator().SetSeed(int(rndm.Uniform(4294967295)))
-del rndm
+#rndm = TRandom3(SEED + 1)
+#RooRandom.randomGenerator().SetSeed(int(rndm.Uniform(4294967295)))
+#del rndm
 
 # as things become more complicated, it's useful to have "build-it-all"
 # routine, which works for both generation and fitting; this also allows for
@@ -410,7 +460,10 @@ genpdf = buildTimePdf(genconfig)
 #print '150K'
 #ds = genpdf['pdf'].generate(RooArgSet(*genpdf['obs']), 150000, RooFit.Verbose())
 from B2DXFitters import datasetio
-weight = WS(genpdf['ws'], RooRealVar('weight', 'weight', -1e9, 1e9))
+weight = WS(genpdf['ws'], RooRealVar(weightVarName, 'weight', -1e9, 1e9))
+
+weight.Print();
+
 for v in genpdf['obs']:
     v.Print('v')
 obsset = RooArgSet(weight, *genpdf['obs'])
@@ -549,7 +602,7 @@ for i in xrange(NUMCAT):
     rawfitresult.floatParsFinal().Print()
 
 ds.get().Print();
-sys.exit(0);
+#sys.exit(0);
 
 #-------STOPS HERE-------
 
@@ -568,14 +621,20 @@ etaAvg.Print();
 
 print 'ETAAVGLIST'
 etaAvgList.Print();
-sys.exit(0);
+#sys.exit(0);
+
+import os
+
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
+if(not os.path.exists('fitresultlist%s' % originSuffix)):
+    os.mkdir("fitresultlist%s" % originSuffix)
+#os.chdir('fitresultlist%s' % originSuffix);
+
 from ROOT import TFile
-g = TFile('fitresultlist123/fitresultlist123_%04d.root' % SEED, 'recreate')
-#g.WriteTObject(p0End, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
-#g.WriteTObject(p1End, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
-g.WriteTObject(genEtaList,'fitresultlist123/fitresultlist123003_%04d' % SEED)
-g.WriteTObject(etaAvg, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
-g.WriteTObject(etaAvgList, 'fitresultlist123/fitresultlist123003_%04d' % SEED)
+g = TFile('fitresultlist%s/fitresultlist%s_%d.root' % (originSuffix, originSuffix,NUMCAT), 'recreate')
+g.WriteTObject(genEtaList,'fitresultlist%s/fitresultlist%s003' % (originSuffix,originSuffix))
+g.WriteTObject(etaAvg, 'fitresultlist%s/fitresultlist%s003' % (originSuffix, originSuffix))
+g.WriteTObject(etaAvgList, 'fitresultlist%s/fitresultlist%s003' % (originSuffix, originSuffix))
 g.Close()
 del g
 
@@ -602,5 +661,5 @@ g.WriteTObject(etaAvgValVarList, 'fitresultlist/fitresultlist003_%04d' % SEED)
 g.Close()
 del g"""
 
-# all done
-
+# all done 
+#vim: sw=4:et

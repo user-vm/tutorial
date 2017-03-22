@@ -1,0 +1,288 @@
+adding /cvmfs/lhcb.cern.ch/lib/lcg/releases/LCG_84/gperftools/2.4.91/x86_64-slc6-gcc49-opt/lib/libtcmalloc_minimal_debug.so.4 to LD_PRELOAD
+[?1034h
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+[#1] INFO:Eval -- RooTreeDataStore::loadValues(ds) Ignored 46 out of range events
+DataStore ds (ds)
+  Contains 22543 entries
+  Observables: 
+    1)  Bs_ct = 3.71011  L(0.3 - 15) B(50)  "B_{s} decay time [ps]"
+  Dataset variable "weight" is interpreted as the event weight
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **    9 **SET STR           2
+ **********
+ NOW USING STRATEGY  2: MAKE SURE MINIMUM TRUE, ERRORS CORRECT  
+ **********
+ **   14 **MIGRAD        3000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+
+prevFCN = 0   START MIGRAD MINIMIZATION.  STRATEGY  2.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+
+prevFCN = 0  acc_coeff0=0.4563, 
+prevFCN = 0  acc_coeff0=0.4472, 
+prevFCN = 0  acc_coeff0=0.4978, 
+prevFCN = 0  acc_coeff0=0.4074, 
+prevFCN = 0  acc_coeff0=0.9298, 
+prevFCN = 0  acc_coeff0=0.1133, 
+prevFCN = 0   MINUIT WARNING IN HESSE
+ ============== Second derivative zero for parameter1
+  MNHESS FAILS AND WILL RETURN DIAGONAL MATRIX. 
+ FCN=0 FROM HESSE     STATUS=FAILED          7 CALLS           8 TOTAL
+                     EDM=12    STRATEGY= 2  ERROR MATRIX UNCERTAINTY 100.0 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  acc_coeff0   4.51762e-01   4.52047e-02   5.40781e-02   1.84918e+01
+   2  acc_coeff1   7.30942e-01   7.31107e-02   7.59831e-02   1.31608e+01
+   3  acc_coeff2   1.19231e+00   1.19265e-01   1.21835e-01   8.20782e+00
+   4  acc_coeff3   1.34329e+00   1.34517e-01   1.43715e-01   6.95821e+00
+   5  acc_coeff4   1.60870e+00   1.62998e-01   2.06915e-01   4.83290e+00
+   6  acc_coeff5   1.55630e+00   1.56936e-01   1.89997e-01   5.26323e+00
+                               ERR DEF= 0.5
+acc_coeff0=0.4074, acc_coeff1=0.6586, acc_coeff2=1.072, acc_coeff3=1.205, acc_coeff4=1.433, acc_coeff5=1.389, 
+prevFCN = 0  acc_coeff0=0.4294, acc_coeff1=0.6946, acc_coeff2=1.132, acc_coeff3=1.275, acc_coeff4=1.524, acc_coeff5=1.475, 
+prevFCN = 0  acc_coeff0=0.4405, acc_coeff1=0.7127, acc_coeff2=1.162, acc_coeff3=1.309, acc_coeff4=1.567, acc_coeff5=1.516, 
+prevFCN = 0  acc_coeff0=0.4461, acc_coeff1=0.7218, acc_coeff2=1.177, acc_coeff3=1.326, acc_coeff4=1.588, acc_coeff5=1.536, 
+prevFCN = 0  acc_coeff0=0.4489, acc_coeff1=0.7264, acc_coeff2=1.185, acc_coeff3=1.335, acc_coeff4=1.598, acc_coeff5=1.546, 
+prevFCN = 0  acc_coeff0=0.4503, acc_coeff1=0.7287, acc_coeff2=1.189, acc_coeff3=1.339, acc_coeff4=1.604, acc_coeff5=1.551, 
+prevFCN = 0  acc_coeff0=0.4511, acc_coeff1=0.7298, acc_coeff2=1.19, acc_coeff3=1.341, acc_coeff4=1.606, acc_coeff5=1.554, 
+prevFCN = 0  acc_coeff0=0.4514, acc_coeff1=0.7304, acc_coeff2=1.191, acc_coeff3=1.342, acc_coeff4=1.607, acc_coeff5=1.555, 
+prevFCN = 0  acc_coeff0=0.4516, acc_coeff1=0.7307, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.608, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4517, acc_coeff1=0.7308, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.608, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4517, acc_coeff1=0.7309, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.609, acc_coeff5=1.556, 
+prevFCN = 0   MIGRAD FAILS TO FIND IMPROVEMENT
+acc_coeff0=0.4518, acc_coeff1=0.7309, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.609, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4563, 
+prevFCN = 0  acc_coeff0=0.4472, 
+prevFCN = 0  acc_coeff0=0.4978, 
+prevFCN = 0  acc_coeff0=0.4074, 
+prevFCN = 0  acc_coeff0=0.9298, 
+prevFCN = 0  acc_coeff0=0.1133, 
+prevFCN = 0   MINUIT WARNING IN HESSE
+ ============== Second derivative zero for parameter1
+  MNHESS FAILS AND WILL RETURN DIAGONAL MATRIX. 
+ FCN=0 FROM HESSE     STATUS=FAILED          7 CALLS          26 TOTAL
+                     EDM=12    STRATEGY= 2  ERROR MATRIX UNCERTAINTY 100.0 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  acc_coeff0   4.51762e-01   4.52047e-02  -0.00000e+00   1.84918e+01
+   2  acc_coeff1   7.30942e-01   7.31107e-02  -0.00000e+00   1.31608e+01
+   3  acc_coeff2   1.19231e+00   1.19265e-01  -0.00000e+00   8.20782e+00
+   4  acc_coeff3   1.34329e+00   1.34517e-01  -0.00000e+00   6.95821e+00
+   5  acc_coeff4   1.60870e+00   1.62998e-01  -0.00000e+00   4.83290e+00
+   6  acc_coeff5   1.55630e+00   1.56936e-01  -0.00000e+00   5.26323e+00
+                               ERR DEF= 0.5
+acc_coeff0=0.4074, acc_coeff1=0.6586, acc_coeff2=1.072, acc_coeff3=1.205, acc_coeff4=1.433, acc_coeff5=1.389, 
+prevFCN = 0  acc_coeff0=0.4294, acc_coeff1=0.6946, acc_coeff2=1.132, acc_coeff3=1.275, acc_coeff4=1.524, acc_coeff5=1.475, 
+prevFCN = 0  acc_coeff0=0.4405, acc_coeff1=0.7127, acc_coeff2=1.162, acc_coeff3=1.309, acc_coeff4=1.567, acc_coeff5=1.516, 
+prevFCN = 0  acc_coeff0=0.4461, acc_coeff1=0.7218, acc_coeff2=1.177, acc_coeff3=1.326, acc_coeff4=1.588, acc_coeff5=1.536, 
+prevFCN = 0  acc_coeff0=0.4489, acc_coeff1=0.7264, acc_coeff2=1.185, acc_coeff3=1.335, acc_coeff4=1.598, acc_coeff5=1.546, 
+prevFCN = 0  acc_coeff0=0.4503, acc_coeff1=0.7287, acc_coeff2=1.189, acc_coeff3=1.339, acc_coeff4=1.604, acc_coeff5=1.551, 
+prevFCN = 0  acc_coeff0=0.4511, acc_coeff1=0.7298, acc_coeff2=1.19, acc_coeff3=1.341, acc_coeff4=1.606, acc_coeff5=1.554, 
+prevFCN = 0  acc_coeff0=0.4514, acc_coeff1=0.7304, acc_coeff2=1.191, acc_coeff3=1.342, acc_coeff4=1.607, acc_coeff5=1.555, 
+prevFCN = 0  acc_coeff0=0.4516, acc_coeff1=0.7307, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.608, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4517, acc_coeff1=0.7308, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.608, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4517, acc_coeff1=0.7309, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.609, acc_coeff5=1.556, 
+prevFCN = 0   MIGRAD FAILS TO FIND IMPROVEMENT
+acc_coeff0=0.4518, acc_coeff1=0.7309, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.609, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4563, 
+prevFCN = 0  acc_coeff0=0.4472, 
+prevFCN = 0  acc_coeff0=0.4978, 
+prevFCN = 0  acc_coeff0=0.4074, 
+prevFCN = 0  acc_coeff0=0.9298, 
+prevFCN = 0  acc_coeff0=0.1133, 
+prevFCN = 0   MINUIT WARNING IN HESSE
+ ============== Second derivative zero for parameter1
+  MNHESS FAILS AND WILL RETURN DIAGONAL MATRIX. 
+ FCN=0 FROM HESSE     STATUS=FAILED          7 CALLS          44 TOTAL
+                     EDM=12    STRATEGY= 2  ERROR MATRIX UNCERTAINTY 100.0 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  acc_coeff0   4.51762e-01   4.52047e-02  -0.00000e+00   1.84918e+01
+   2  acc_coeff1   7.30942e-01   7.31107e-02  -0.00000e+00   1.31608e+01
+   3  acc_coeff2   1.19231e+00   1.19265e-01  -0.00000e+00   8.20782e+00
+   4  acc_coeff3   1.34329e+00   1.34517e-01  -0.00000e+00   6.95821e+00
+   5  acc_coeff4   1.60870e+00   1.62998e-01  -0.00000e+00   4.83290e+00
+   6  acc_coeff5   1.55630e+00   1.56936e-01  -0.00000e+00   5.26323e+00
+                               ERR DEF= 0.5
+acc_coeff0=0.4074, acc_coeff1=0.6586, acc_coeff2=1.072, acc_coeff3=1.205, acc_coeff4=1.433, acc_coeff5=1.389, 
+prevFCN = 0  acc_coeff0=0.4294, acc_coeff1=0.6946, acc_coeff2=1.132, acc_coeff3=1.275, acc_coeff4=1.524, acc_coeff5=1.475, 
+prevFCN = 0  acc_coeff0=0.4405, acc_coeff1=0.7127, acc_coeff2=1.162, acc_coeff3=1.309, acc_coeff4=1.567, acc_coeff5=1.516, 
+prevFCN = 0  acc_coeff0=0.4461, acc_coeff1=0.7218, acc_coeff2=1.177, acc_coeff3=1.326, acc_coeff4=1.588, acc_coeff5=1.536, 
+prevFCN = 0  acc_coeff0=0.4489, acc_coeff1=0.7264, acc_coeff2=1.185, acc_coeff3=1.335, acc_coeff4=1.598, acc_coeff5=1.546, 
+prevFCN = 0  acc_coeff0=0.4503, acc_coeff1=0.7287, acc_coeff2=1.189, acc_coeff3=1.339, acc_coeff4=1.604, acc_coeff5=1.551, 
+prevFCN = 0  acc_coeff0=0.4511, acc_coeff1=0.7298, acc_coeff2=1.19, acc_coeff3=1.341, acc_coeff4=1.606, acc_coeff5=1.554, 
+prevFCN = 0  acc_coeff0=0.4514, acc_coeff1=0.7304, acc_coeff2=1.191, acc_coeff3=1.342, acc_coeff4=1.607, acc_coeff5=1.555, 
+prevFCN = 0  acc_coeff0=0.4516, acc_coeff1=0.7307, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.608, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4517, acc_coeff1=0.7308, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.608, acc_coeff5=1.556, 
+prevFCN = 0  acc_coeff0=0.4517, acc_coeff1=0.7309, acc_coeff2=1.192, acc_coeff3=1.343, acc_coeff4=1.609, acc_coeff5=1.556, 
+prevFCN = 0   MIGRAD FAILS TO FIND IMPROVEMENT
+ MIGRAD TERMINATED WITHOUT CONVERGENCE.
+ FCN=0 FROM MIGRAD    STATUS=FAILED         54 CALLS          55 TOTAL
+                     EDM=12    STRATEGY= 2  ERROR MATRIX UNCERTAINTY 100.0 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  acc_coeff0   4.51762e-01   4.52047e-02  -0.00000e+00   1.84918e+01
+   2  acc_coeff1   7.30942e-01   7.31107e-02  -0.00000e+00   1.31608e+01
+   3  acc_coeff2   1.19231e+00   1.19265e-01  -0.00000e+00   8.20782e+00
+   4  acc_coeff3   1.34329e+00   1.34517e-01  -0.00000e+00   6.95821e+00
+   5  acc_coeff4   1.60870e+00   1.62998e-01  -0.00000e+00   4.83290e+00
+   6  acc_coeff5   1.55630e+00   1.56936e-01  -0.00000e+00   5.26323e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  2.045e-03  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  5.355e-03  0.000e+00  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  1.429e-02  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  1.822e-02  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  0.000e+00  2.695e-02  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00  2.493e-02 
+ERR MATRIX APPROXIMATE
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.00000   1.000  0.000  0.000  0.000  0.000  0.000
+        2  0.00000   0.000  1.000  0.000  0.000  0.000  0.000
+        3  0.00000   0.000  0.000  1.000  0.000  0.000  0.000
+        4  0.00000   0.000  0.000  0.000  1.000  0.000  0.000
+        5  0.00000   0.000  0.000  0.000  0.000  1.000  0.000
+        6  0.00000   0.000  0.000  0.000  0.000  0.000  1.000
+ ERR MATRIX APPROXIMATE
+ **********
+ **   19 **HESSE        3000
+ **********
+
+prevFCN = 0  acc_coeff0=0.4563, 
+prevFCN = 0  acc_coeff0=0.4472, 
+prevFCN = 0  acc_coeff0=0.4978, 
+prevFCN = 0  acc_coeff0=0.4074, 
+prevFCN = 0  acc_coeff0=0.9298, 
+prevFCN = 0  acc_coeff0=0.1133, 
+prevFCN = 0   MINUIT WARNING IN HESSE
+ ============== Second derivative zero for parameter1
+  MNHESS FAILS AND WILL RETURN DIAGONAL MATRIX. 
+ FCN=0 FROM HESSE     STATUS=FAILED          7 CALLS          62 TOTAL
+                     EDM=12    STRATEGY= 2  ERROR MATRIX UNCERTAINTY 100.0 per cent
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  acc_coeff0   1.13255e-01   3.39309e-01  -0.00000e+00  -5.80256e-01
+   2  acc_coeff1   7.30942e-01   7.31107e-02  -0.00000e+00  -2.72415e-01
+   3  acc_coeff2   1.19231e+00   1.19265e-01  -0.00000e+00   1.93516e-01
+   4  acc_coeff3   1.34329e+00   1.34517e-01  -0.00000e+00   3.50418e-01
+   5  acc_coeff4   1.60870e+00   1.62998e-01  -0.00000e+00   6.54421e-01
+   6  acc_coeff5   1.55630e+00   1.56936e-01  -0.00000e+00   5.89927e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  2.045e-03  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  5.355e-03  0.000e+00  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  1.429e-02  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  1.822e-02  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  0.000e+00  2.695e-02  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00  2.493e-02 
+ERR MATRIX APPROXIMATE
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.00000   1.000  0.000  0.000  0.000  0.000  0.000
+        2  0.00000   0.000  1.000  0.000  0.000  0.000  0.000
+        3  0.00000   0.000  0.000  1.000  0.000  0.000  0.000
+        4  0.00000   0.000  0.000  0.000  1.000  0.000  0.000
+        5  0.00000   0.000  0.000  0.000  0.000  1.000  0.000
+        6  0.00000   0.000  0.000  0.000  0.000  0.000  1.000
+ ERR MATRIX APPROXIMATE
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(model3) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   24 **HESSE        3000
+ **********
+acc_coeff0=0.4518, 
+prevFCN = 0  acc_coeff0=0.4563, 
+prevFCN = 0  acc_coeff0=0.4472, 
+prevFCN = 0  acc_coeff0=0.4978, 
+prevFCN = 0  acc_coeff0=0.4074, 
+prevFCN = 0  acc_coeff0=0.9298, 
+prevFCN = 0  acc_coeff0=0.1133, 
+prevFCN = 0   MINUIT WARNING IN HESSE
+ ============== Second derivative zero for parameter1
+  MNHESS FAILS AND WILL RETURN DIAGONAL MATRIX. 
+ FCN=0 FROM HESSE     STATUS=FAILED          7 CALLS          69 TOTAL
+                     EDM=12    STRATEGY= 2  ERROR MATRIX UNCERTAINTY 100.0 per cent
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  acc_coeff0   1.13255e-01   3.39309e-01  -0.00000e+00  -5.80256e-01
+   2  acc_coeff1   7.30942e-01   7.31107e-02  -0.00000e+00  -2.72415e-01
+   3  acc_coeff2   1.19231e+00   1.19265e-01  -0.00000e+00   1.93516e-01
+   4  acc_coeff3   1.34329e+00   1.34517e-01  -0.00000e+00   3.50418e-01
+   5  acc_coeff4   1.60870e+00   1.62998e-01  -0.00000e+00   6.54421e-01
+   6  acc_coeff5   1.55630e+00   1.56936e-01  -0.00000e+00   5.89927e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  2.045e-03  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  5.355e-03  0.000e+00  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  1.429e-02  0.000e+00  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  1.822e-02  0.000e+00  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  0.000e+00  2.695e-02  0.000e+00 
+  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00  2.493e-02 
+ERR MATRIX APPROXIMATE
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.00000   1.000  0.000  0.000  0.000  0.000  0.000
+        2  0.00000   0.000  1.000  0.000  0.000  0.000  0.000
+        3  0.00000   0.000  0.000  1.000  0.000  0.000  0.000
+        4  0.00000   0.000  0.000  0.000  1.000  0.000  0.000
+        5  0.00000   0.000  0.000  0.000  0.000  1.000  0.000
+        6  0.00000   0.000  0.000  0.000  0.000  0.000  1.000
+ ERR MATRIX APPROXIMATE
+setting parameter 0 error to 0.3393
+setting parameter 1 error to 0.07311
+setting parameter 2 error to 0.1193
+setting parameter 3 error to 0.1345
+setting parameter 4 error to 0.163
+setting parameter 5 error to 0.1569
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+[#1] INFO:InputArguments -- RooAbsData::plotOn(ds) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+[#0] WARNING:Plotting -- At observable [x]=0.3 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-1.030594), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-4.57869e-10, !convVar=Bs_ct=0.3, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -1.03059/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.0163152,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.425667,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = 0.62855), t=Bs_ct=0.3, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.447 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.123875), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-2.92604e-23, !convVar=Bs_ct=0.447, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.123875/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.00292577,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0059783,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0910343), t=Bs_ct=0.447, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.3735 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.555910), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-7.268e-16, !convVar=Bs_ct=0.3735, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.55591/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.0109654,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = -0.387298,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.132843), t=Bs_ct=0.3735, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4654 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.022175), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-6.9827e-26, !convVar=Bs_ct=0.465375, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0221747/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000545323,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00623992,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0150916), t=Bs_ct=0.465375, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4562 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.072718), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-2.02693e-24, !convVar=Bs_ct=0.456187, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0727177/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.00175289,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0121476,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0521582), t=Bs_ct=0.456187, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4677 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.009634), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.74689e-26, !convVar=Bs_ct=0.467672, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00963423/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000238098,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.0029763,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00644074), t=Bs_ct=0.467672, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4665 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.015900), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.80053e-26, !convVar=Bs_ct=0.466523, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0158997/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000391975,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.004694,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.0107274), t=Bs_ct=0.466523, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4688 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.003378), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-4.64335e-27, !convVar=Bs_ct=0.46882, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.0033782/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 8.36936e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00108949,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00223665), t=Bs_ct=0.46882, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4682 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.006505), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-1.02703e-26, !convVar=Bs_ct=0.468246, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00650503/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 0.000160962,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00205386,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00432806), t=Bs_ct=0.468246, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4694 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.000254), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-3.03583e-28, !convVar=Bs_ct=0.469395, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.000253743/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 6.29409e-06,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 8.35431e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.000167155), t=Bs_ct=0.469395, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+[#0] WARNING:Plotting -- At observable [x]=0.4691 RooBDecay::model3[ t=Bs_ct tau=tau dgamma=dGamma f0=1 f1=0 f2=0 f3=0 dm=dM ]
+     p.d.f value is less than zero (-0.001816), forcing value to zero @ !model=Bs2DsPi_SplineAcceptance_GaussianWithPEDTE=-2.32843e-27, !convVar=Bs_ct=0.469107, !convSet=(Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cosh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = -0.00181568/2.61213,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sinh(@0*@2/2)_Bs_ct_tau_dGamma_[model3] = 4.50103e-05,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*cos(@0*@2)_Bs_ct_tau_dM_[model3] = 0.00059169,Bs2DsPi_SplineAcceptance_GaussianWithPEDTE_conv_exp(-@0/@1)*sin(@0*@2)_Bs_ct_tau_dM_[model3] = -0.00119913), t=Bs_ct=0.469107, tau=tau=1.51286, dgamma=dGamma=-0.106, f0=1=1, f1=0=0, f2=0=0, f3=0=0, dm=dM=17.768
+Info in <TCanvas::Print>: pdf file foo-acceptance-DATA.pdf has been created
+	Command being timed: "env python -O ./foo2.py - DATA"
+	User time (seconds): 33.96
+	System time (seconds): 1.06
+	Percent of CPU this job got: 83%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:42.20
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1060588
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2321
+	Minor (reclaiming a frame) page faults: 262388
+	Voluntary context switches: 19893
+	Involuntary context switches: 19824
+	Swaps: 0
+	File system inputs: 1016900
+	File system outputs: 56
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
