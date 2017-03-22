@@ -244,9 +244,9 @@ os.chdir("..")
 theCanvas = TCanvas()
     
 if (graphHolder.GetListOfGraphs().GetSize()==1):
-    graphHolder.SetTitle("#omega vs. #eta_{i};#eta_{i};#omega(#eta_{i})")
+    graphHolder.SetTitle("#omega vs. #eta_{i} (OS %s);#eta_{i};#omega(#eta_{i})" % originSuffix)
 else:
-    graphHolder.SetTitle("#omega vs. #eta_{i} (%d data sets);#eta_{i};#omega(#eta_{i})" % numP)
+    graphHolder.SetTitle("#omega vs. #eta_{i} (%d data sets) (OS %s);#eta_{i};#omega(#eta_{i})" % (numP, originSuffix))
 
 graphHolder.Draw("ap");
 graphHolder.GetXaxis().SetLimits(0.0,0.5);
@@ -302,9 +302,9 @@ if(not os.path.exists('OmegaVsEtaGraphs')):
 os.chdir('OmegaVsEtaGraphs');
 
 if lastFile != firstFile:
-    theCanvas.Print("omegaVsEtaGraph_%s-%s_%f.pdf" %(firstFile,lastFile,time.time()),"pdf");
+    theCanvas.Print("omegaVsEtaGraph_%s-%s_%f_OS.pdf" %(firstFile,lastFile,time.time()),"pdf");
 else:
-    theCanvas.Print("omegaVsEtaGraph_%s_%f.pdf" %(firstFile,time.time()),"pdf");
+    theCanvas.Print("omegaVsEtaGraph_%s_%f_OS.pdf" %(firstFile,time.time()),"pdf");
 
 raw_input("Press Enter to continue");
 if(theCanvas!=None):
