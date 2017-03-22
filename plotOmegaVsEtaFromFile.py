@@ -163,7 +163,7 @@ p0Var = RooRealVar('p0Var','p0Var',0.5,-1.0,1.0);
 p1Var = RooRealVar('p1Var','p1Var',1.0,0.0,1.5);
 pDataSet = RooDataSet('pDataSet','pDataSet',RooArgSet(p0Var,p1Var));
 
-for it in fileList[-1:]:
+for it in fileList:
     if it[-5:]!='.root':
         continue
     
