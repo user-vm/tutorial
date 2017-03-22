@@ -14,7 +14,7 @@
     'Blinding': True,
 
     # 40 fs average resolution
-    'DecayTimeResolutionModel':  { 'sigmas': [ 0.039, ], 'fractions': [] },
+    'DecayTimeResolutionModel':  { 'sigmas': [ 0.020, ], 'fractions': [] },
     'DecayTimeResolutionBias': 0., # if there is a shift
     'DecayTimeResolutionScaleFactor': 1.0, # usually the errors need a bit of scaling
 
@@ -77,9 +77,11 @@
 	'DataSetVarNameMapping': {
             'time':    'Bs_ct',
             'timeerr': 'Bs_cterr',
-            'eta':     'Bs_TAGOMEGA_OS',
+            #'eta':     'Bs_TAGOMEGA_OS',
+			'eta':     'Bs_SS_nnetKaon_PROB',
             'qf':      'Ds_ID',
-            'qt': 	   'Bs_TAGDECISION_OS',
+			'qt':      'Bs_SS_nnetKaon_DEC',
+            #'qt': 	   'Bs_TAGDECISION_OS',
             'weight':  'N_Bs_sw',
 	},
 	'DataSetCuts':	None,
