@@ -154,6 +154,7 @@ firstFile = -1
 
 sumP0 = 0.0;
 sumP1 = 0.0;
+sumAvgEta = 0.0;
 numP = 0;
 
 from ROOT import RooRealVar, RooDataSet, RooArgSet
@@ -162,7 +163,7 @@ p0Var = RooRealVar('p0Var','p0Var',0.5,-1.0,1.0);
 p1Var = RooRealVar('p1Var','p1Var',1.0,0.0,1.5);
 pDataSet = RooDataSet('pDataSet','pDataSet',RooArgSet(p0Var,p1Var));
 
-for it in fileList:
+for it in fileList[-1:]:
     if it[-5:]!='.root':
         continue
     
@@ -231,6 +232,7 @@ for it in fileList:
 
     sumP0 += float(p0);
     sumP1 += float(p1);
+    sumAvgEta += etaAvg.getValV()
     numP += 1;
 
     graphHolder.Add(mistagVsEtaGraph)
@@ -263,6 +265,8 @@ leg.AddEntry(mistagVsEtaGraph,"data points","lep");
 leg.AddEntry(linFuncList[-1],"linear fit","l");
 leg.AddEntry(None,"#bar{p_{0}} = %.4f" % (sumP0/numP),"");
 leg.AddEntry(None,"#bar{p_{1}} = %.4f" % (sumP1/numP),"");
+leg.AddEntry(None,"#LT#eta#GT = %.4f" % (sumAvgEta/numP),"");
+
 leg.Draw();
 
 pDataSet.meanVar(pDataSet.get().find('p0Var')).Print();
