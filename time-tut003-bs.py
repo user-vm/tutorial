@@ -181,7 +181,7 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
 
     xRegions.writeToStream(ROOT.cout,False);
     xRegions.writeToStream(ROOT.cout,True);
-    '''
+    
     #etaSet = RooDataSet('etaSet','etaSet',ds,RooArgSet(ds.get().find['eta']));
     #etaSet.Print();
     #etaHist.SetAxisRange(0.1,0.2);
@@ -208,7 +208,7 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
     
     etaHist.SetLineColor(ROOT.kWhite);
     etaHist.Draw("histSame");
-    etaHist.SetTitle('Distribution of #eta (%s)' % (originSuffix if originSuffix=='MC' else 'Data'))
+    etaHist.SetTitle('Distribution of #eta (%s %s)' % ((originSuffix if originSuffix=='MC' else 'Data'),taggerType))
     etaHist.GetXaxis().SetTitle('#eta')
 
     for i in range(len(limList)-1):
@@ -227,9 +227,9 @@ def createCategoryHistogram(ds,x,numCat,categoryList = None):
 
     #etaHistStack.Draw();
     histCanvas.Update();
-    histCanvas.SaveAs('catHist-%s.pdf' % originSuffix);
+    histCanvas.SaveAs('catHist-%s-%s.pdf' % (originSuffix, taggerType));
     s = raw_input("Press Enter to continue...");
-    sys.exit(0);    '''
+    sys.exit(0);    
 
     return xRegions#,x
 

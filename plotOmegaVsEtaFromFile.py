@@ -164,7 +164,8 @@ from ROOT import RooRealVar, RooDataSet, RooArgSet
 
 p0Var = RooRealVar('p0Var','p0Var',0.5,-1.0,1.0);
 p1Var = RooRealVar('p1Var','p1Var',1.0,0.0,1.5);
-pDataSet = RooDataSet('pDataSet','pDataSet',RooArgSet(p0Var,p1Var));
+etaAvg = RooRealVar('etaAvgVar','etaAvgVar',0.0,0.5);
+pDataSet = RooDataSet('pDataSet','pDataSet',RooArgSet(p0Var,p1Var,etaAvg));
 
 for it in fileList:
     if it[-5:]!='.root':
@@ -231,7 +232,7 @@ for it in fileList:
     p1Var.setVal(p1);
     p1Var.setError(p1Error);
 
-    pDataSet.add(RooArgSet(p0Var,p1Var));
+    pDataSet.add(RooArgSet(p0Var,p1Var,etaAvg));
 
     sumP0 += float(p0);
     sumP1 += float(p1);
@@ -264,16 +265,24 @@ leg = TLegend(0.1,0.7,0.4,0.9);#,"a fucking header","tlNDC");
 ROOT.SetOwnership(leg,False);
 #leg.AddEntry(TObject(),"crap");
 
+p0E = pDataSet.meanVar(pDataSet.get().find('p0Var')).getError();
+p0V = pDataSet.meanVar(pDataSet.get().find('p0Var')).getValV();
+p1E = pDataSet.meanVar(pDataSet.get().find('p1Var')).getError();
+p1V = pDataSet.meanVar(pDataSet.get().find('p1Var')).getValV();
+etaE = pDataSet.meanVar(pDataSet.get().find('etaAvgVar')).getError();
+etaV = pDataSet.meanVar(pDataSet.get().find('etaAvgVar')).getValV();
+
 leg.AddEntry(mistagVsEtaGraph,"data points","lep");
 leg.AddEntry(linFuncList[-1],"linear fit","l");
-leg.AddEntry(None,"#bar{p_{0}} = %.4f" % (sumP0/numP),"");
-leg.AddEntry(None,"#bar{p_{1}} = %.4f" % (sumP1/numP),"");
-leg.AddEntry(None,"#LT#eta#GT = %.4f" % (sumAvgEta/numP),"");
+leg.AddEntry(None,"#bar{p_{0}} = %.4f #pm %f" % (p0V,p0E),"");
+leg.AddEntry(None,"#bar{p_{1}} = %.4f #pm %f" % (p1V,p0E),"");
+leg.AddEntry(None,"#LT#eta#GT = %.4f #pm %f" % (etaV,etaE),"");
 
 leg.Draw();
 
 pDataSet.meanVar(pDataSet.get().find('p0Var')).Print();
 pDataSet.meanVar(pDataSet.get().find('p1Var')).Print();
+pDataSet.meanVar(pDataSet.get().find('etaAvgVar')).Print();
 
 '''
 theCanvas.Update()
