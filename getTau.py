@@ -108,9 +108,12 @@ exec $schedtool /usr/bin/time -v env python -O "$0" - "$@"
 """
 
 import ROOT
-from ROOT import TFile, RooRealVar, RooDataSet, RooArgSet, RooFit
+from ROOT import TFile, RooRealVar, RooDataSet, RooArgSet, RooFit, gStyle, TStyle
 
 import sys
+
+gStyle.SetOptFit(111);
+gStyle.SetOptStat(11);
 
 originSuffix = ''
 
@@ -196,7 +199,7 @@ aFrame = tmt.frame()
 
 tDataSet.plotOn(aFrame);'''
 
-tHist.setTitle(
+tHist.SetTitle('t-t\' fit;t-t\';number of events');
 tHist.Draw();
 
 aCanvas.SaveAs('a_plot_t_%s.pdf' % originSuffix)
