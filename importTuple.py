@@ -268,6 +268,16 @@ for i in range(len(tupleDict)):
     a.SetName(tupleDict[varName]);
     a.SetTitle(tupleDict[varName]);
 
+tupleDataSet.get().find("SSKaon").SetMaximum(2);
+tupleDataSet.get().find("SSKaon").SetMinimum(-2);
+
+aFrame = tupleDataSet.get().find("SSKaon").frame();
+tupleDataSet.get().find("SSKaon").Print();
+tupleDataSet.plotOn(aFrame);
+
+aFrame.Draw()
+raw_input("Press Enter to continue");
+'''
 tupleDataSet = tupleDataSet.reduce("fake_Bs>=0&&true_Bs>=0");
 
 tupleDataSet.get().find("fake_Bs").setMin(0.0);
@@ -302,7 +312,7 @@ os.chdir(dirName);
 doubleCanvas.SaveAs("plot_%f.pdf" % currentTime);
 
 raw_input("Press Enter to continue...")
-'''
+
 from B2DXFitters.WS import WS
 # for now, we're in the generation stage
 #-config['Context'] = 'GEN'

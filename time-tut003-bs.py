@@ -117,7 +117,7 @@ from ROOT import RooFit
 # user code starts here
 
 #number of tagging categories to use
-NUMCAT = 3
+NUMCAT = 5
 import time
 TIME_NOW = str(time.time())
 
@@ -255,27 +255,29 @@ from ROOT import TFile
 
 import os,sys
 
-originSuffix = ''
+originSuffix = 'MC'
+taggerType = 'OS'
 nCat = 5
 
 for SEED in sys.argv:
     if SEED.upper() == 'DATA' or SEED.upper() == 'MC':
         originSuffix = SEED.upper();
-    try:
-        nCat = int(SEED)
-    except:
-        continue
+    elif SEED.upper() == 'SS' or SEED.upper() == 'OS' or SEED.upper() == 'SS1' or SEED.upper() == 'SS2':
+        taggerType = SEED.upper()
+    else:
+        try:
+            nCat = int(SEED)
+        except:
+            continue
 
 NUMCAT = nCat
 
-if originSuffix == '':
-    originSuffix = 'MC'
+if taggerType == 'SS':
+    taggerType = 'SS1'
 
 print "ORIGINSUFFIX = ", originSuffix
 print "NUMCAT = ", NUMCAT
-
-if originSuffix == '':
-    originSuffix = 'MC'
+print "TAGGERTYPE = ", taggerType
 
 if originSuffix == 'MC':
     rootfile = TFile('/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root', 'READ')
@@ -295,8 +297,19 @@ else:
     config = configDictFromFile('time-conf003-bsData.py')
     config1 = configDictFromFile('fit-time-conf003-bsData.py')
 
+config['DataSetVarNameMapping']['qt']=config['DataSetVarNameMapping']['qt'+taggerType]
+config['DataSetVarNameMapping'].pop('qtSS1')
+config['DataSetVarNameMapping'].pop('qtSS2')
+config['DataSetVarNameMapping'].pop('qtOS')
+
+config['DataSetVarNameMapping']['eta']=config['DataSetVarNameMapping']['eta'+taggerType]
+config['DataSetVarNameMapping'].pop('etaSS1')
+config['DataSetVarNameMapping'].pop('etaSS2')
+config['DataSetVarNameMapping'].pop('etaOS')
+
 print 'CONFIG ---> ',config
 print 'CONFIG1 ---> ',config1
+#sys.exit(0)
 #config['MistagCalibParams']['etaavg']=0.2
 #config['TrivialMistagParams']['omegaavg']=0.2
 #print config
@@ -480,9 +493,48 @@ for o in genpdf['obs']:
     if not o.InheritsFrom('RooAbsCategory'): continue
     ds.table(o).Print('v')
 
+for i in range(ds.numEntries()):
+
+    ds.get(i).find('qt').Print()
+
 from ROOT import RooDataSet, RooArgSet
 
 from ROOT import TList
+#from ROOT import *
+
+if taggerType[:2]=='SS':
+    
+    '''in_file = TFile(config['DataFileName']);
+    ROOT.SetOwnership(in_file, False)
+    keyList = in_file.GetListOfKeys()
+
+    tree1 = keyList.At(0).ReadObj();
+    treeName = tree1.GetName();
+    varName = config['DataSetVarNameMapping']['qt']
+    varList = [RooRealVar(varName,tree1.GetBranch(varName).GetTitle(),tree1.GetMinimum(varName),tree1.GetMaximum(varName))];
+    #weightvar = RooRealVar("weight", "weight", -1e7, 1e7)
+    
+    gROOT.ProcessLine('using namespace RooFit;TTree *treeC = TTree*(gDirectory->Get(\"%s\"));' % treeName)
+    gROOT.ProcessLine('RooDataSet *dsC = RooDataSet*(gDirectory->Get(\"%s\"));' % ds.GetName())
+    gROOT.ProcessLine(
+    'TDirectory *g = gDirectory;\
+    RooDataSet *qtDS = new RooDataSet(\"qtDS\",\"qtDS\",qtRAS,Import(*treeC);\
+    for(int i=0;i<qtDS->numEntries();i++){\
+        dsC->get(i)->find(\"qt\")->setIndex(qtDS->get(i)->find(%s));}' % varName)
+
+    
+    qtDS = RooDataSet("qtDS", "qtDS",
+        RooArgSet(*varList),
+        RooFit.Import(tree1))# RooFit.WeightVar(weightvar))
+    '''
+    for i in range(ds.numEntries()):
+        ds.get(i).setCatIndex('qt',1)#int(qtDS.get(i).find(varName)))
+
+print 'SHIT'
+
+for i in range(ds.numEntries()):
+
+    ds.get(i).find('qt').Print()
 
 mistagresultList = TList();
 etaAvgList = TList();
@@ -626,15 +678,15 @@ etaAvgList.Print();
 import os
 
 os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial');
-if(not os.path.exists('fitresultlist%s' % originSuffix)):
-    os.mkdir("fitresultlist%s" % originSuffix)
-#os.chdir('fitresultlist%s' % originSuffix);
+if(not os.path.exists('fitresultlist%s_%s' % (originSuffix,taggerType))):
+    os.mkdir("fitresultlist%s_%s" % (originSuffix,taggerType))
+os.chdir('fitresultlist%s_%s' % (originSuffix,taggerType));
 
 from ROOT import TFile
-g = TFile('fitresultlist%s/fitresultlist%s_%d.root' % (originSuffix, originSuffix,NUMCAT), 'recreate')
-g.WriteTObject(genEtaList,'fitresultlist%s/fitresultlist%s003' % (originSuffix,originSuffix))
-g.WriteTObject(etaAvg, 'fitresultlist%s/fitresultlist%s003' % (originSuffix, originSuffix))
-g.WriteTObject(etaAvgList, 'fitresultlist%s/fitresultlist%s003' % (originSuffix, originSuffix))
+g = TFile('fitresultlist%s_%s_%d.root' % (originSuffix, taggerType, NUMCAT), 'recreate')
+g.WriteTObject(genEtaList,'fitresultlist%s_%s003' % (originSuffix, taggerType))
+g.WriteTObject(etaAvg, 'fitresultlist%s_%s003' % (originSuffix, taggerType))
+g.WriteTObject(etaAvgList, 'fitresultlist%s_%s003' % (originSuffix, taggerType))
 g.Close()
 del g
 

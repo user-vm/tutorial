@@ -106,17 +106,20 @@ if None == SEED:
 
 import os,sys
 
-originSuffix = ''
+originSuffix = 'MC'
+taggerType = 'OS'
 
 for SEED in sys.argv:
     if SEED.upper() == 'DATA' or SEED.upper() == 'MC':
-        originSuffix = SEED.upper();
-        break;
+        originSuffix = SEED.upper()
+        #break;
+    elif SEED.upper() == 'SS1' or SEED.upper() == 'SS2' or SEED.upper() == 'OS' or SEED.upper() == 'SS':
+        taggerType = SEED.upper()
 
-if originSuffix == '':
-    originSuffix = 'MC'
+if taggerType == 'SS':
+    taggerType = 'SS1'
 
-os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist%s' % originSuffix);
+os.chdir(os.environ['B2DXFITTERSROOT']+'/tutorial/fitresultlist%s_%s' % (originSuffix,taggerType));
 fileList = os.listdir(os.getcwd());
 fileList.sort();
 
@@ -244,9 +247,9 @@ os.chdir("..")
 theCanvas = TCanvas()
     
 if (graphHolder.GetListOfGraphs().GetSize()==1):
-    graphHolder.SetTitle("#omega vs. #eta_{i} (OS %s);#eta_{i};#omega(#eta_{i})" % originSuffix)
+    graphHolder.SetTitle("#omega vs. #eta_{i} (%s %s);#eta_{i};#omega(#eta_{i})" % (taggerType, originSuffix))
 else:
-    graphHolder.SetTitle("#omega vs. #eta_{i} (%d data sets) (OS %s);#eta_{i};#omega(#eta_{i})" % (numP, originSuffix))
+    graphHolder.SetTitle("#omega vs. #eta_{i} (%d data sets) (%s %s);#eta_{i};#omega(#eta_{i})" % (numP, taggerType, originSuffix))
 
 graphHolder.Draw("ap");
 graphHolder.GetXaxis().SetLimits(0.0,0.5);
@@ -302,9 +305,9 @@ if(not os.path.exists('OmegaVsEtaGraphs')):
 os.chdir('OmegaVsEtaGraphs');
 
 if lastFile != firstFile:
-    theCanvas.Print("omegaVsEtaGraph_%s-%s_%f_OS.pdf" %(firstFile,lastFile,time.time()),"pdf");
+    theCanvas.Print("omegaVsEtaGraph_%s-%s_%f_%s_%s.pdf" %(firstFile,lastFile,time.time(),originSuffix,taggerType),"pdf");
 else:
-    theCanvas.Print("omegaVsEtaGraph_%s_%f_OS.pdf" %(firstFile,time.time()),"pdf");
+    theCanvas.Print("omegaVsEtaGraph_%s_%f_%s_%s.pdf" %(firstFile,time.time(),originSuffix,taggerType),"pdf");
 
 raw_input("Press Enter to continue");
 if(theCanvas!=None):

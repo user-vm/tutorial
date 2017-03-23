@@ -60,7 +60,7 @@
 
    
     # file to read from
-	'DataFileName': '/mnt/cdrom/Bs2Dspipipi_MC_fullSel_reweighted_combined.root',
+	'DataFileName': '/home/user/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/Bs2Dspipipi_MC_fullSel_reweighted_combined_NO_SHORT_T.root',
 	# data set is in a workspace already
 	'DataWorkSpaceName':    None,
 	# name of data set inside workspace
@@ -69,11 +69,13 @@
 	'DataSetVarNameMapping': {
             'time':    'Bs_ct',
             'timeerr': 'Bs_cterr',
-            'eta':     'Bs_TAGOMEGA_OS',
-			#'eta':     'Bs_SS_nnetKaon_PROB',
+            'etaOS':   'Bs_TAGOMEGA_OS',
+            'etaSS1':  'Bs_SS_Kaon_PROB',
+			'etaSS2':  'Bs_SS_nnetKaon_PROB',
             'qf':      'Ds_ID',
-			#'qt':      'Bs_SS_nnetKaon_DEC',
-            'qt': 	   'Bs_TAGDECISION_OS',
+			'qtSS1':   'corrKQT',
+			'qtSS2':   'corrnnetKQT',
+            'qtOS':    'Bs_TAGDECISION_OS',
             'weight':  'weight',
 	},
 	'DataSetCuts':	None,

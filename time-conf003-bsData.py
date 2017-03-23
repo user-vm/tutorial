@@ -68,8 +68,11 @@
 
    
     # file to read from
-	'DataFileName': '/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root',
-	# data set is in a workspace already
+	#'DataFileName': '/mnt/cdrom/data_Bs2Dspipipi_11_final_sweight.root',
+	'DataFileName': '/home/user/cmtuser/Urania_v5r0/PhysFit/B2DXFitters/data_Bs2Dspipipi_11_final_sweight_NO_SHORT_T.root',
+
+
+    # data set is in a workspace already
 	'DataWorkSpaceName':    None,
 	# name of data set inside workspace
 	'DataSetNames':         'DecayTree',
@@ -77,11 +80,16 @@
 	'DataSetVarNameMapping': {
             'time':    'Bs_ct',
             'timeerr': 'Bs_cterr',
-            'eta':     'Bs_TAGOMEGA_OS',
-			#'eta':     'Bs_SS_nnetKaon_PROB',
+            'etaOS':   'Bs_TAGOMEGA_OS',
+            'etaSS1':  'Bs_SS_Kaon_PROB',
+			'etaSS2':  'Bs_SS_nnetKaon_PROB',
+            #'etaSS2':  'Bs_TAGOMEGA_OS',
+            #'etaSS1':  'Bs_SS_Kaon_PROB',
+			#'etaOS':   'Bs_SS_nnetKaon_PROB',
             'qf':      'Ds_ID',
-			#'qt':      'Bs_SS_nnetKaon_DEC',
-            'qt': 	   'Bs_TAGDECISION_OS',
+			'qtSS1':   'corrKQT',
+			'qtSS2':   'corrnnetKQT',
+            'qtOS':    'Bs_TAGDECISION_OS',
             'weight':  'N_Bs_sw',
 	},
 	'DataSetCuts':	None,
