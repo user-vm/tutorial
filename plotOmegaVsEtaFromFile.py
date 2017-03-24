@@ -158,7 +158,10 @@ firstFile = -1
 sumP0 = 0.0;
 sumP1 = 0.0;
 sumAvgEta = 0.0;
+sumAvgEtaE = 0.0;
 numP = 0;
+sumP0E = 0.0;
+sumP1E = 0.0;
 
 from ROOT import RooRealVar, RooDataSet, RooArgSet
 
@@ -236,7 +239,10 @@ for it in fileList:
 
     sumP0 += float(p0);
     sumP1 += float(p1);
+    sumP0E += float(p0Error);
+    sumP1E += float(p1Error);
     sumAvgEta += etaAvg.getValV()
+    sumAvgEtaE += etaAvg.getError()
     numP += 1;
 
     graphHolder.Add(mistagVsEtaGraph)
@@ -255,7 +261,7 @@ else:
 graphHolder.Draw("ap");
 graphHolder.GetXaxis().SetLimits(0.0,0.5);
 graphHolder.SetMinimum(0.0);
-graphHolder.SetMaximum(0.5);    
+graphHolder.SetMaximum(0.5);
 #graphHolder.Draw("ap")
 
 graphHolder.GetYaxis().SetTitleSize(0.05);
@@ -274,9 +280,9 @@ etaV = pDataSet.meanVar(pDataSet.get().find('etaAvgVar')).getValV();
 
 leg.AddEntry(mistagVsEtaGraph,"data points","lep");
 leg.AddEntry(linFuncList[-1],"linear fit","l");
-leg.AddEntry(None,"#bar{p_{0}} = %.4f #pm %f" % (p0V,p0E),"");
-leg.AddEntry(None,"#bar{p_{1}} = %.4f #pm %f" % (p1V,p0E),"");
-leg.AddEntry(None,"#LT#eta#GT = %.4f #pm %f" % (etaV,etaE),"");
+leg.AddEntry(None,"#bar{p_{0}} = %.4f #pm %.4f" % (sumP0/numP,sumP0E/numP),"");
+leg.AddEntry(None,"#bar{p_{1}} = %.4f #pm %.4f" % (sumP1/numP,sumP1E/numP),"");
+leg.AddEntry(None,"#LT#eta#GT = %.4f #pm %.4f" % (sumAvgEta/numP,sumAvgEtaE/numP),"");
 
 leg.Draw();
 
